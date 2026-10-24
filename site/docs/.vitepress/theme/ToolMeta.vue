@@ -4,7 +4,7 @@ import { withBase } from 'vitepress'
 import data from './tools.json'
 
 const props = defineProps<{ id: string }>()
-const skin: Record<string, string> = { '编码 Agent': 'cercle-bleu', '模型/生成': 'goutte-rose', '通讯与发布': 'squircle-orange', '数据抓取': 'nuage-turquoise', '基础工具': 'hexagone-ambre' }
+const skin: Record<string, string> = { '寫程式 Agent': 'cercle-bleu', '模型/生成': 'goutte-rose', '通訊與發表': 'squircle-orange', '資料抓取': 'nuage-turquoise', '基礎工具': 'hexagone-ambre' }
 const t = computed(() => data.tools.find((x) => x.id === props.id))
 </script>
 

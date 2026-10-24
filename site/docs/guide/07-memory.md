@@ -1,27 +1,27 @@
-# 第 7 章 · 记忆与上下文
+# 第 7 章 · 記憶與上下文
 
-## 官方说法
+## 官方說法
 
-Bot 会保留**稳定偏好、重要事实和工作摘要**，无需重放全部历史也能保持角色。但**记忆不能替代权威来源**——变化中的事实留在源系统，需要时让 Bot 重新取。每个 Bot 的对话和习得上下文彼此独立；共享文件、浏览器会话和直接交接可以在 Bot 之间传递上下文。
+Bot 會保留**穩定偏好、重要事實和工作摘要**，無需重放全部歷史也能保持角色。但**記憶不能替代權威來源**——變化中的事實留在源系統，需要時讓 Bot 重新取。每個 Bot 的對話和習得上下文彼此獨立；共享文件、瀏覽器會話和直接交接可以在 Bot 之間傳遞上下文。
 
-## 分层（社区总结）
+## 分層（社群總結）
 
-- **共享层**：共用记忆、公共技能、插件/连接器、云电脑文件。
-- **专属层**：单个 Bot 的描述（长期合同）、专属记忆、专属例程。
+- **共享層**：共用記憶、公共技能、外掛/連線器、雲端電腦文件。
+- **專屬層**：單個 Bot 的描述（長期合同）、專屬記憶、專屬例程。
 
-## 三条原则
+## 三條原則
 
-1. 记忆只记**判断和指针**，经常变动的数据回源系统取。
-2. 只有**核实过的结论**才写入团队共用记忆。
-3. 记忆 ≠ 技能：偏好进记忆，**操作流程进技能**并指定维护人。
+1. 記憶只記**判斷和指標**，經常變動的資料回源系統取。
+2. 只有**核實過的結論**才寫入團隊共用記憶。
+3. 記憶 ≠ 技能：偏好進記憶，**操作流程進技能**並指定維護人。
 
-## 备份：记忆管家
+## 備份：記憶管家
 
-建一个运维 Bot，每周例程导出所有 Bot 的描述与共用记忆为 Markdown，提交到私有仓库的 `bots-backup/charters/`、`bots-backup/memories/`。
+建一個運維 Bot，每週例程匯出所有 Bot 的描述與共用記憶為 Markdown，提交到私有倉庫的 `bots-backup/charters/`、`bots-backup/memories/`。
 
-## 来源
+## 來源
 
-- [官方：Bot 会记住什么](https://cursor.com/cn/docs/grok-bot/work)
-- [4.6 虚拟机、记忆与备份](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)
-- [Grok Bot Memory Engineering: How One Agent Learns With a Team｜rari](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)（英文，摘要见案例）
-- [Grok Bot 百万撤离：一套完善的 Agent 系统备份方案](https://jcng5q8n0f3z.feishu.cn/wiki/W0TCwnTmbiIJ9KkF4S4cV6ifnCh)
+- [官方：Bot 會記住什麼](https://cursor.com/cn/docs/grok-bot/work)
+- [4.6 虛擬機器、記憶與備份](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)
+- [Grok Bot Memory Engineering: How One Agent Learns With a Team｜rari](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)（英文，摘要見案例）
+- [Grok Bot 百萬撤離：一套完善的 Agent 系統備份方案](https://jcng5q8n0f3z.feishu.cn/wiki/W0TCwnTmbiIJ9KkF4S4cV6ifnCh)

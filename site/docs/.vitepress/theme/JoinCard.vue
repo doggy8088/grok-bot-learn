@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
       <button type="button" class="tz-copy" :class="{ done }" @click="copyId">{{ done ? copy.copied : copy.copy_btn }}</button>
     </div>
     <div ref="qr" class="tz-join-side">
-      <img class="tz-join-qr" :src="withBase('/qr-wechat.png')" width="168" height="168" alt="铁柱的个人微信二维码" />
+      <img class="tz-join-qr" :src="withBase('/qr-wechat.png')" width="168" height="168" alt="鐵柱的個人微信二維碼" />
       <p class="tz-qr-hint">{{ copy.qr_hint }}</p>
     </div>
   </div>

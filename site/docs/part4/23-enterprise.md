@@ -1,115 +1,115 @@
-# 第 23 章 团队版与企业落地
+# 第 23 章 團隊版與企業落地
 
-给团队部署 Grok Bot，常见卡点主要是这几项。
+給團隊部署 Grok Bot，常見卡點主要是這幾項。
 
-- 网关在握手阶段拦截，导致**云端电脑连不上**。
-- Linux 虚机没装 MDM 客户端，会被企业 IdP 判为不受信任设备。
-- 存在凭据泄漏与内网穿透风险，也缺客户端静默分发手段。
+- 網關在握手階段攔截，導致**雲端電腦連不上**。
+- Linux 虛機沒裝 MDM 客戶端，會被企業 IdP 判為不受信任設備。
+- 存在憑據洩漏與內網穿透風險，也缺客戶端靜默分發手段。
 
-按流程配好 **SSO 与安全网关豁免**，打通私网访问，就能搞定批量生命周期管理。
+按流程配好 **SSO 與安全網關豁免**，打通私網訪問，就能搞定批量生命週期管理。
 
 
-![团队版与企业落地](/info/23-enterprise.png)
+![團隊版與企業落地](/info/23-enterprise.png)
 
-## 团队版与企业版管理控制：架构与能力边界
+## 團隊版與企業版管理控制：架構與能力邊界
 
-![团队版与企业版管理控制：架构与能力边界](/info/23-enterprise-s1.png)
+![團隊版與企業版管理控制：架構與能力邊界](/info/23-enterprise-s1.png)
 
-### 是什么
+### 是什麼
 
-**每位用户独享一台云端 Firecracker microVM**，本地发指令审批，代码与浏览器在云端跑。
+**每位使用者獨享一台雲端 Firecracker microVM**，本地發指令審批，程式碼與瀏覽器在雲端跑。
 
-提醒个坑，**名下所有 Bot 共享这台虚机**，文件和登录态完全互通。
+提醒個坑，**名下所有 Bot 共享這台虛機**，文件和登錄態完全互通。
 
-2026-10-12 The X Subscription 方案划分了两版权限：
+2026-10-12 The X Subscription 方案劃分了兩版權限：
 
-- **团队版**：全员默认开启，走共享静态出口 IP，带基础审计与团队规则。
-- **企业版**：支持按组授权与 SCIM 2.0，能用 sudo 和网络白名单，带操作录制与 OpenTelemetry 导出（打 `cursor.surface=grok_bot` 标签）。
+- **團隊版**：全員預設開啟，走共享靜態出口 IP，帶基礎審計與團隊規則。
+- **企業版**：支援按組授權與 SCIM 2.0，能用 sudo 和網路白名單，帶操作錄製與 OpenTelemetry 匯出（打 `cursor.surface=grok_bot` 標記）。
 
-文档见 [面向 Teams 和企业版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)。
+文件見 [面向 Teams 和企業版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)。
 
-### 怎么做
+### 怎麼做
 
-日常配置都在 [Cursor 仪表盘的 Grok Bot 页面](https://cursor.com/dashboard/bot) 处理，主要分四步走。
+日常組態都在 [Cursor 儀表盤的 Grok Bot 頁面](https://cursor.com/dashboard/bot) 處理，主要分四步走。
 
-1. 划分权限与基础开关
-- 灰度期点 **Manage Group Access** 勾选试点；不用云端编码就关掉 Cloud Agents；公开模板共享保持关闭防外泄。
-- **本地执行建议设为 Never allow**，同时关闭本地出口路由防绕道转发。
-- 侧边栏 Bot 在 Auto-add 列选 All team 或指定群组固定。
+1. 劃分權限與基礎開關
+- 灰度期點 **Manage Group Access** 勾選試點；不用雲端寫程式就關掉 Cloud Agents；公開樣板共享保持關閉防外洩。
+- **本地執行建議設為 Never allow**，同時關閉本地出口路由防繞道轉發。
+- 側邊欄 Bot 在 Auto-add 列選 All team 或指定群組固定。
 
-2. 配置审批锁与规则
-- 开启 **Enforce Auto-review 模式**，成员在客户端就没法自关审查。
-- 生产部署或对外发邮件等高危操作设为 Ask first，限定只读设为 Allow automatically。
-- **团队规则与个人规则冲突时，系统强制以 Ask first 为准**。
+2. 組態審批鎖與規則
+- 開啟 **Enforce Auto-review 模式**，成員在客戶端就沒法自關審查。
+- 生產部署或對外發郵件等高危操作設為 Ask first，限定唯讀設為 Allow automatically。
+- **團隊規則與個人規則衝突時，系統強制以 Ask first 為準**。
 
-3. 设置网络与密钥
-- 网络选仅团队允许列表或加默认值，填入域名与 IP 段；防系统篡改可关闭默认开启的 sudo。
-- **Team Secrets 团队最多添加 100 条**，单条上限 32 KB，总容量上限 96 KB，保存后不显示明文。
-- 密钥变量名禁止使用 `PATH`、`HOME` 及 `SAND_` 或 `LD_` 开头的系统保留名。
+3. 設定網路與密鑰
+- 網路選僅團隊允許列表或加預設值，填入域名與 IP 段；防系統篡改可關閉預設開啟的 sudo。
+- **Team Secrets 團隊最多新增 100 條**，單條上限 32 KB，總容量上限 96 KB，保存後不顯示明文。
+- 密鑰變數名禁止使用 `PATH`、`HOME` 及 `SAND_` 或 `LD_` 開頭的系統保留名。
 
-4. 配置群组级策略
-- 从 [Members > Groups](https://cursor.com/dashboard/members?subtab=groups) 进群组，**配置原则是只能放宽、不能更严**。
-- 勾选 Don't enforce for this group 可解开自动审查锁。
-- 网络策略是特例，群组会直接覆盖团队；如果成员跨多个群组，网络按最严执行，权限按最宽生效。
+4. 組態群組級策略
+- 從 [Members > Groups](https://cursor.com/dashboard/members?subtab=groups) 進群組，**組態原則是隻能放寬、不能更嚴**。
+- 勾選 Don't enforce for this group 可解開自動審查鎖。
+- 網路策略是特例，群組會直接覆蓋團隊；如果成員跨多個群組，網路按最嚴執行，權限按最寬生效。
 
-### 做到什么程度算好
+### 做到什麼程度算好
 
-- 仪表盘中明确区分了试点群组与未授权群组，非授权人员在客户端无法激活 Bot。
-- 团队规则与 Auto-review 规则已锁定，成员在客户端设置页面能看到团队规则，但编辑与删除按钮处于禁用状态。
-- 高危操作（外部通信、文件破坏、特权命令）百分之百触发审批拦截。
+- 儀表盤中明確區分了試點群組與未授權群組，非授權人員在客戶端無法啟動 Bot。
+- 團隊規則與 Auto-review 規則已鎖定，成員在客戶端設定頁面能看到團隊規則，但編輯與刪除按鈕處於禁用狀態。
+- 高危操作（外部通信、文件破壞、特權命令）百分之百觸發審批攔截。
 
 ---
 
-## 身份与 SSO：打通全员访问与兼容设备信任
+## 身份與 SSO：打通全員訪問與相容設備信任
 
-### 是什么
+### 是什麼
 
-Grok Bot 沿用 Cursor 账号体系，**不用在 IdP 中单独建应用**。参考文档：[配置身份与访问](https://cursor.com/cn/docs/grok-bot/identity)。
+Grok Bot 沿用 Cursor 帳號體系，**不用在 IdP 中單獨建應用**。參考文件：[組態身份與訪問](https://cursor.com/cn/docs/grok-bot/identity)。
 
-Bot 跑在云端 Linux 虚机，未装 MDM，无法满足 FastPass 或 Hybrid Join。**切记不能全局关闭设备合规**，要在拦截规则前为目标群组配置放行策略。
+Bot 跑在雲端 Linux 虛機，未裝 MDM，無法滿足 FastPass 或 Hybrid Join。**切記不能全域關閉設備合規**，要在攔截規則前為目標群組組態放行策略。
 
-### 怎么做
+### 怎麼做
 
-- **Okta 扩大分配**：进 Cursor 应用的 **Assignments** > **Assign to Groups** 勾选业务群组；启用 SCIM 时同步分配并推送（Push Groups）。
+- **Okta 擴大分配**：進 Cursor 應用的 **Assignments** > **Assign to Groups** 勾選業務群組；啟用 SCIM 時同步分配並推送（Push Groups）。
 
-  **SAML SSO 与 SCIM 必须同时分配**，漏配 SSO 登录会被拦截。
-- **Entra ID 扩大分配**：在 Cursor 应用的 **Users and groups** 点 **Add user/group** 添加群组（需 P1/P2 许可，不支持嵌套组）；预配应用同步分配相同群组。
-- **Okta 放行 Linux**：在认证策略拦截规则前新建 `Grok Bot computer (Linux)`。
+  **SAML SSO 與 SCIM 必須同時分配**，漏配 SSO 登錄會被攔截。
+- **Entra ID 擴大分配**：在 Cursor 應用的 **Users and groups** 點 **Add user/group** 新增群組（需 P1/P2 許可，不支援巢狀 (Nesting)組）；預配應用同步分配相同群組。
+- **Okta 放行 Linux**：在認證策略攔截規則前新建 `Grok Bot computer (Linux)`。
 
-  用户限 Cursor 组，**Device platform 选 Other Desktop**（无独立 Linux 项），Device state 选 Any；验证选 Password + Another factor，不勾抗钓鱼限制。
-- **Entra ID 放行 Linux**：新建高优先级策略，指定 Cursor 组和目标应用；Device platforms 包含 Linux，排除 Windows 与 macOS；Grant 勾 Require multifactor authentication；**原有合规策略中必须排除该群组或 Linux 平台**。
+  使用者限 Cursor 組，**Device platform 選 Other Desktop**（無獨立 Linux 項），Device state 選 Any；驗證選 Password + Another factor，不勾抗釣魚限制。
+- **Entra ID 放行 Linux**：新建高優先級策略，指定 Cursor 組和目標應用；Device platforms 包含 Linux，排除 Windows 與 macOS；Grant 勾 Require multifactor authentication；**原有合規策略中必須排除該群組或 Linux 平台**。
 
-### 做到什么程度算好
+### 做到什麼程度算好
 
-- 业务用户用企业 SSO 登录桌面端，不报 `User is not assigned to this application`。
-- 在 Bot 浏览器中凭密码加二次验证能访问内网，不弹 FastPass 或设备不合规拦截。
-- **员工在个人电脑上访问，原有的 FastPass 和设备合规仍严格生效**。
+- 業務使用者用企業 SSO 登錄桌面端，不報 `User is not assigned to this application`。
+- 在 Bot 瀏覽器中憑密碼加二次驗證能訪問內網，不彈 FastPass 或設備不合規攔截。
+- **員工在個人電腦上訪問，原有的 FastPass 和設備合規仍嚴格生效**。
 
-## 私有网络接入：桌面路由与 Team Setup 脚本自动化
+## 私有網路接入：桌面路由與 Team Setup 指令碼自動化
 
-![私有网络接入：桌面路由与 Team Setup 脚本自动化](/info/23-enterprise-s3.png)
+![私有網路接入：桌面路由與 Team Setup 指令碼自動化](/info/23-enterprise-s3.png)
 
-### 是什么
+### 是什麼
 
-Grok Bot 跑在云端，**访问内网必须打通私网**。
+Grok Bot 跑在雲端，**訪問內網必須打通私網**。
 
-- 桌面端路由：适合临时调试。在客户端开启 `Settings > Computer > Route traffic through this computer`，流量走本机网卡，管理员可在后台一键禁用。
-- Team Setup 安装客户端：常态化访问且**仅限企业版**。由 IT 统一维护脚本，Bot 启动或刷新时自动拉起并加入内网。
+- 桌面端路由：適合臨時除錯。在客戶端開啟 `Settings > Computer > Route traffic through this computer`，流量走本機網卡，管理員可在後台一鍵禁用。
+- Team Setup 安裝客戶端：常態化訪問且**僅限企業版**。由 IT 統一維護指令碼，Bot 啟動或重新整理時自動拉起並加入內網。
 
-详情见 [连接到私有网络](https://cursor.com/cn/docs/grok-bot/private-networks)。
+詳情見 [連線到私有網路](https://cursor.com/cn/docs/grok-bot/private-networks)。
 
-### 怎么做
+### 怎麼做
 
-团队环境设置脚本在仪表盘 **Bot Computers** 下，以 `sudo` 普通用户身份在 Debian Linux 虚拟机中跑。**脚本开机时运行且每天约周期刷新一次，超时上限 30 分钟**。
-- `check` 退出码为 0 就跳过安装，装完会再次运行 `check` 验证。
-- **执行失败不阻塞电脑启动**，会在下次周期刷新时重试。
+團隊環境設定指令碼在儀表盤 **Bot Computers** 下，以 `sudo` 普通使用者身份在 Debian Linux 虛擬機器中跑。**指令碼開機時執行且每天約週期重新整理一次，超時上限 30 分鐘**。
+- `check` 退出碼為 0 就跳過安裝，裝完會再次執行 `check` 驗證。
+- **執行失敗不阻塞電腦啟動**，會在下次週期重新整理時重試。
 
-#### 接入 Tailscale 组网方案
+#### 接入 Tailscale 組網方案
 
-1. 打开 **Team Secrets**，添加 Tailscale 认证密钥 `TS_AUTHKEY`（值为 `tskey-auth-...`），并在 Tailscale 控制台绑定专属 ACL 标签（如 `tag:grok-bot`）**严格限制访问权限**。
-2. 进入团队环境设置脚本点 **+** 新建清单，Manifest ID 填 `private-network-tailscale`，切换 JSON 或表单模式填入配置：
+1. 打開 **Team Secrets**，新增 Tailscale 認證密鑰 `TS_AUTHKEY`（值為 `tskey-auth-...`），並在 Tailscale 主控台綁定專屬 ACL 標記（如 `tag:grok-bot`）**嚴格限制存取權限**。
+2. 進入團隊環境設定指令碼點 **+** 新建清單，Manifest ID 填 `private-network-tailscale`，切換 JSON 或表單模式填入組態：
 
-::: details 接入 Tailscale 组网方案
+::: details 接入 Tailscale 組網方案
 ```json
 {
   "manifestId": "private-network-tailscale",
@@ -126,8 +126,8 @@ Grok Bot 跑在云端，**访问内网必须打通私网**。
 
 #### 接入 Cloudflare Tunnel 方案
 
-- 私有 HTTP 服务：直接访问隧道路由域名，由 Cloudflare Access 鉴权并在 Bot 浏览器交互完成认证。
-- 私有 TCP 服务（如数据库、SSH）：在清单安装 `cloudflared`，需要连接时在 Shell 跑命令**打开本地转发端口**：
+- 私有 HTTP 服務：直接訪問隧道路由域名，由 Cloudflare Access 鑑權並在 Bot 瀏覽器交互完成認證。
+- 私有 TCP 服務（如資料庫、SSH）：在清單安裝 `cloudflared`，需要連線時在 Shell 跑命令**打開本地轉發端口**：
 
 `cloudflared access tcp --hostname db-internal.corp.com --url localhost:5432`
 
@@ -146,234 +146,234 @@ Grok Bot 跑在云端，**访问内网必须打通私网**。
 ```
 :::
 
-#### 配合网络策略放行控制面端点
+#### 配合網路策略放行控制面端點
 
-团队如果开启**仅团队允许列表**网络控制，**必须把网络工具的控制面加入允许列表**，否则客户端无法完成认证。比如用 Tailscale 时，要在策略中放行协调服务器与 DERP 中继服务器域名；策略变更 1 分钟左右即可下发到虚拟机。
+團隊如果開啟**僅團隊允許列表**網路控制，**必須把網路工具的控制面加入允許列表**，否則客戶端無法完成認證。比如用 Tailscale 時，要在策略中放行協調伺服器與 DERP 中繼伺服器域名；策略變更 1 分鐘左右即可下發到虛擬機器。
 
-### 做到什么程度算好
+### 做到什麼程度算好
 
-- 新建或重建的 Bot 电脑在启动完成后，自动出现在 Tailscale 或 Cloudflare 的管理控制台设备列表中，状态为在线。
-- 清单中的 `check` 脚本能在后续每日轮巡刷新中稳定返回 0，不会重复执行安装逻辑。
-- 敏感 Token 完全由 Team Secrets 注入，清单文本和执行日志中没有任何明文凭据。
+- 新建或重建的 Bot 電腦在啟動完成後，自動出現在 Tailscale 或 Cloudflare 的管理主控台設備列表中，狀態為線上。
+- 清單中的 `check` 指令碼能在後續每日輪巡重新整理中穩定返回 0，不會重複執行安裝邏輯。
+- 敏感 Token 完全由 Team Secrets 注入，清單文本和執行記錄中沒有任何明文憑據。
 
 ---
 
-## 代理与企业网关避坑：放行规则与 TLS 检查豁免
+## 代理與企業網關避坑：放行規則與 TLS 檢查豁免
 
-企业网关（如 Zscaler、Palo Alto）常导致聊天正常，却**无法截图或控制终端**。
+企業網關（如 Zscaler、Palo Alto）常導致聊天正常，卻**無法截圖或控制終端**。
 
-根源在于控制平面使用 `<computer>.<cluster>.cursorvm.com` 二级嵌套域名的 HTTP/2 或 SSE 流式长连接，普通单级规则无法匹配。
+根源在於控制平面使用 `<computer>.<cluster>.cursorvm.com` 二級巢狀 (Nesting)域名的 HTTP/2 或 SSE 流式長連線，普通單級規則無法匹配。
 
-官方说明见 [配置 TLS 检查代理](https://cursor.com/cn/docs/grok-bot/proxies)。
+官方說明見 [組態 TLS 檢查代理](https://cursor.com/cn/docs/grok-bot/proxies)。
 
-### 配置要点
+### 組態要點
 
-网关必须放行以下域名，同时**关闭响应缓冲并豁免 TLS 检查**，防止端到端握手失败与流式超时：
+網關必須放行以下域名，同時**關閉回應緩衝並豁免 TLS 檢查**，防止端到端握手失敗與流式超時：
 - `*.cursor.sh`：核心 API
-- `*.cursorvm.com` 与 **`*.*.cursorvm.com`**：控制通道，必须支持双级通配符
-- `*.cursor-cdn.com`、`*.cursorapi.com`、`downloads.cursor.com` 及主站：静态资源与下载更新
+- `*.cursorvm.com` 與 **`*.*.cursorvm.com`**：控制通道，必須支援雙級通配符
+- `*.cursor-cdn.com`、`*.cursorapi.com`、`downloads.cursor.com` 及主站：靜態資源與下載更新
 
-策略配完后，**务必同步至 Off-Network 漫游配置**，避免员工离网或居家时连不上。
+策略配完後，**務必同步至 Off-Network 漫遊組態**，避免員工離網或居家時連不上。
 
-### 设备排查与验收
+### 設備排查與驗收
 
-在员工电脑终端按步骤排查：
+在員工電腦終端按步驟排查：
 
-1. 验证证书是否被篡改，正常颁发者必须是 **Amazon RSA**：
+1. 驗證證書是否被篡改，正常頒發者必須是 **Amazon RSA**：
 ```bash
    curl -v https://api2.cursor.sh |& grep -C1 issuer:
    ```
-2. 验证多级 DNS 解析，若失败可对比 `nslookup test.us9.cursorvm.com 1.1.1.1`：
+2. 驗證多級 DNS 解析，若失敗可對比 `nslookup test.us9.cursorvm.com 1.1.1.1`：
 ```bash
    nslookup test.us9.cursorvm.com
    ```
-3. 检查流式传输：数据应逐行输出；若停顿数秒后突然整体打印，说明网关缓冲未关。
+3. 檢查流式傳輸：資料應逐行輸出；若停頓數秒後突然整體打印，說明網關緩衝未關。
 
-验收标准：**办公网和居家漫游均在 5 秒内连上云端电脑**，证书直透 Amazon RSA，流式长连接无缓冲延迟。
+驗收標準：**辦公網和居家漫遊均在 5 秒內連上雲端電腦**，證書直透 Amazon RSA，流式長連線無緩衝延遲。
 
-## 桌面客户端分发与版本控制
+## 桌面客戶端分發與版本控制
 
-### 平台与更新机制
+### 平台與更新機制
 
-| 平台 | 安装格式 | 更新逻辑 |
+| 平台 | 安裝格式 | 更新邏輯 |
 | --- | --- | --- |
-| macOS | `.dmg`（Apple Silicon / Intel） | 启动自动检查更新，**不支持策略关闭** |
-| Windows | Setup `.exe`（x64 / Arm64） | 启动自动检查更新，不支持策略关闭 |
-| Linux | `.deb`、`.rpm`、AppImage | deb 与 rpm 由包管理器控制；AppImage 自动检查更新 |
-| iOS | App Store | 依赖 iOS 18 或更高版本 |
-| Android | Google Play | 依赖 Android 9 或更高版本，支持托管推送 |
+| macOS | `.dmg`（Apple Silicon / Intel） | 啟動自動檢查更新，**不支援策略關閉** |
+| Windows | Setup `.exe`（x64 / Arm64） | 啟動自動檢查更新，不支援策略關閉 |
+| Linux | `.deb`、`.rpm`、AppImage | deb 與 rpm 由套件管理器控制；AppImage 自動檢查更新 |
+| iOS | App Store | 依賴 iOS 18 或更高版本 |
+| Android | Google Play | 依賴 Android 9 或更高版本，支援託管推送 |
 
-官方部署说明见 [将 Grok Bot 部署到你的组织](https://cursor.com/cn/docs/grok-bot/deployment)。
+官方部署說明見 [將 Grok Bot 部署到你的組織](https://cursor.com/cn/docs/grok-bot/deployment)。
 
-### 部署与版本控制
+### 部署與版本控制
 
-1. **获取安装包**
-   获取安装包不要去网页手点，直接调官方的 JSON feed：`https://api2.cursor.sh/updates/api/download/stable/{platform}/sand`。
-   `{platform}` 支持 macOS（`darwin-arm64`、`darwin-x64`）、Windows（`win32-x64-user`、`win32-arm64-user`）与 Linux（`linux-x64`、`linux-arm64`）。
+1. **獲取安裝包**
+   獲取安裝包不要去網頁手點，直接調官方的 JSON feed：`https://api2.cursor.sh/updates/api/download/stable/{platform}/sand`。
+   `{platform}` 支援 macOS（`darwin-arm64`、`darwin-x64`）、Windows（`win32-x64-user`、`win32-arm64-user`）與 Linux（`linux-x64`、`linux-arm64`）。
 ```bash
 curl -s https://api2.cursor.sh/updates/api/download/stable/win32-x64-user/sand
 ```
-   接口返回 `version`、`commitSha`、`downloadUrl`，以及 Linux 的 `debUrl` 与 `rpmUrl`。macOS 与 Windows 也可以按规则直接拼安装包地址：
+   介面返回 `version`、`commitSha`、`downloadUrl`，以及 Linux 的 `debUrl` 與 `rpmUrl`。macOS 與 Windows 也可以按規則直接拼安裝包地址：
    - Windows: `https://downloads.cursor.com/grokbot/stable/win32-x64/{version}/Grok_Bot_{version}_Setup.exe`
    - macOS: `https://downloads.cursor.com/grokbot/stable/darwin-arm64/{version}/Grok_Bot_{version}.dmg`
 
 2. **MDM 推送**
-   - Windows（Intune / SCCM）：静默安装参数加 `/S`。安装程序默认写入当前用户的 `%LOCALAPPDATA%\Programs`，**必须在用户上下文（User Context）运行**。
+   - Windows（Intune / SCCM）：靜默安裝參數加 `/S`。安裝程式預設寫入當前使用者的 `%LOCALAPPDATA%\Programs`，**必須在使用者上下文（User Context）執行**。
 
-     切勿使用本地 SYSTEM 账户，否则装错路径员工找不到应用。
+     切勿使用本地 SYSTEM 帳戶，否則裝錯路徑員工找不到應用。
 ```cmd
   Grok_Bot_1.0.0_Setup.exe /S
   ```
-   - macOS（Jamf / Kandji / Intune）：把对应架构的 `.dmg` 推送到 `/Applications` 目录即可。
-   - Linux（Ansible / Puppet）：安装 `.deb` 或 `.rpm` 软件包，系统会自动写入官方软件源配置。
+   - macOS（Jamf / Kandji / Intune）：把對應架構的 `.dmg` 推送到 `/Applications` 目錄即可。
+   - Linux（Ansible / Puppet）：安裝 `.deb` 或 `.rpm` 軟體套件，系統會自動寫入官方軟體源組態。
 
-3. **版本控制与锁定**
-   macOS 与 Windows 无法通过策略彻底关掉自动升级。
+3. **版本控制與鎖定**
+   macOS 與 Windows 無法通過策略徹底關掉自動升級。
 
-Linux 端可以通过包管理器锁定版本，或在 `/etc/apt/sources.list.d/grok-bot.sources` 中设 `Enabled: no`、在 `/etc/yum.repos.d/grok-bot.repo` 中设 `enabled=0` 暂停同步：
+Linux 端可以通過套件管理器鎖定版本，或在 `/etc/apt/sources.list.d/grok-bot.sources` 中設 `Enabled: no`、在 `/etc/yum.repos.d/grok-bot.repo` 中設 `enabled=0` 暫停同步：
 ```bash
   sudo apt-mark hold grok-bot
   ```
-   Cursor 会对旧版本设支持期限。**客户端低于最低支持阈值会全屏弹窗 Update required 强制阻断**，Linux 锁了版本超期同样会被阻断。运维团队需要**每两到四周灰度上线一次经过测试的新稳定版**。
+   Cursor 會對舊版本設支援期限。**客戶端低於最低支援閾值會全螢幕彈窗 Update required 強制阻斷**，Linux 鎖了版本超期同樣會被阻斷。運維團隊需要**每兩到四周灰度上線一次經過測試的新穩定版**。
 
-### 验收标准
+### 驗收標準
 
-- 办公设备通过 MDM 静默安装完成，**新员工开机后桌面已就绪**。
-- IT 团队掌握固定版本轮转节奏，在官方强制阻断前完成组织内部版本轮换。
+- 辦公設備通過 MDM 靜默安裝完成，**新員工開機後桌面已就緒**。
+- IT 團隊掌握固定版本輪轉節奏，在官方強制阻斷前完成組織內部版本輪換。
 
-## 管理 Bot 电脑：批量运维与生命周期
+## 管理 Bot 電腦：批量運維與生命週期
 
-![管理 Bot 电脑：批量运维与生命周期](/info/23-enterprise-s6.png)
+![管理 Bot 電腦：批量運維與生命週期](/info/23-enterprise-s6.png)
 
-### 核心操作与权限
+### 核心操作與權限
 
-入口在 [Cursor 仪表盘的 Grok Bot 页面](https://cursor.com/dashboard/bot) 的 **Bot Computers** 分区，点击 **Manage Bot Computers** 就能进入。
+入口在 [Cursor 儀表盤的 Grok Bot 頁面](https://cursor.com/dashboard/bot) 的 **Bot Computers** 分區，點選 **Manage Bot Computers** 就能進入。
 
-**该功能仅限企业版组织管理员（Organization Admins）使用**，普通团队管理员看不到入口。
+**該功能僅限企業版組織管理員（Organization Admins）使用**，普通團隊管理員看不到入口。
 
-文档见 [管理 Grok Bot 电脑](https://cursor.com/cn/docs/grok-bot/computers)。
+文件見 [管理 Grok Bot 電腦](https://cursor.com/cn/docs/grok-bot/computers)。
 
-| 操作名称 | 底层行为 | 数据与文件保留状态 | 适用场景 |
+| 操作名稱 | 底層行為 | 資料與文件保留狀態 | 適用場景 |
 | --- | --- | --- | --- |
-| **重建 VMs（Recreate VMs）** | 用最新镜像重装并重跑环境脚本 | **保留**。磁盘完好，Bot、个人文件与 Cookie 均保留，仅清除自装系统软件 | 环境脚本变更生效、灰度新镜像 |
-| **终止 VMs（Terminate VMs）** | 立即销毁运行或休眠实例，中断当前计算 | **保留**。保留磁盘，下次在客户端发消息会重新拉起干净虚拟机 | 解决实例卡死、释放云端占用 |
-| **删除虚拟机和数据** | 销毁虚拟机并彻底删除底层绑定的持久存储 | **不保留**。数据彻底清空，下次使用重新初始化为空白电脑 | 员工离职清理、数据损坏彻底重置 |
+| **重建 VMs（Recreate VMs）** | 用最新鏡像重裝並重跑環境指令碼 | **保留**。磁盤完好，Bot、個人文件與 Cookie 均保留，僅清除自裝系統軟體 | 環境指令碼變更生效、灰度新鏡像 |
+| **終止 VMs（Terminate VMs）** | 立即銷燬執行或休眠實例，中斷當前計算 | **保留**。保留磁盤，下次在客戶端發訊息會重新拉起乾淨虛擬機器 | 解決實例卡死、釋放雲端佔用 |
+| **刪除虛擬機器和資料** | 銷燬虛擬機器並徹底刪除底層綁定的持久儲存 | **不保留**。資料徹底清空，下次使用重新初始化為空白電腦 | 員工離職清理、資料損壞徹底重置 |
 
-### 控制台操作与排坑
+### 主控台操作與排坑
 
-1. 进入页面点击 **管理**，搜索姓名或邮箱筛选成员，支持单选、多选或 **Select all**。
-2. 在 **Manage selected** 下拉框选择目标操作，确认受影响人数后开始执行。
-3. 执行完毕**必须点击卡片上的 Done 按钮**。每个团队同一时间只能运行一项批量操作，不点 Done 后续按钮会保持锁定。
+1. 進入頁面點選 **管理**，搜尋姓名或郵箱篩選成員，支援單選、多選或 **Select all**。
+2. 在 **Manage selected** 下拉框選擇目標操作，確認受影響人數後開始執行。
+3. 執行完畢**必須點選卡片上的 Done 按鈕**。每個團隊同一時間只能執行一項批量操作，不點 Done 後續按鈕會保持鎖定。
 
-遇到跳过或失败状态，按回执对应处理。
-- **已跳过（无 VM / 操作无法完成）**：名下没有 VM 或排队期间退出了团队，无需处理。
-- **失败（另一项重建正在进行中 / VM 扫描未完成）**：其他更新未结束或后台暂时未取到状态，等几分钟重试。
-- **失败（操作无法完成）**：Bot 正在高强度跑任务导致超时，通知成员暂时空闲 Bot 后再重试。
+遇到跳過或失敗狀態，按回執對應處理。
+- **已跳過（無 VM / 操作無法完成）**：名下沒有 VM 或排隊期間退出了團隊，無需處理。
+- **失敗（另一項重建正在進行中 / VM 掃描未完成）**：其他更新未結束或後台暫時未取到狀態，等幾分鐘重試。
+- **失敗（操作無法完成）**：Bot 正在高強度跑任務導致超時，通知成員暫時空閒 Bot 後再重試。
 
-### 自动化与验收标准
+### 自動化與驗收標準
 
-在操作按钮上方打开 **Terminate Inactive Computers** 开关。**成员电脑连续 30 天无活动会自动终止**，只释放计算实例且保留磁盘，系统按滚动周期清理。
+在操作按鈕上方打開 **Terminate Inactive Computers** 開關。**成員電腦連續 30 天無活動會自動終止**，只釋放計算實例且保留磁盤，系統按滾動週期清理。
 
-多团队批量运维可调用 [组织 Admin API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers)。
+多團隊批量運維可呼叫 [組織 Admin API](https://cursor.com/docs/account/organizations/organization-admin-api.md#grok-bot-computers)。
 
-调用时需提供 `admin:*` 权限的组织 API 密钥，传入团队 ID、成员邮箱数组和动作类型（`recreate` 或 `terminate`）并轮询进度，同样受单团队单并发限制。
+呼叫時需提供 `admin:*` 權限的組織 API 密鑰，傳入團隊 ID、成員郵箱陣列和動作型別（`recreate` 或 `terminate`）並輪詢進度，同樣受單團隊單平行處理限制。
 
-验收时重点关注两项指标。
-- 能平滑批量重建实例且不丢数据。
-- 开启 30 天闲置自动终止，避免僵尸虚拟机占用组织云端配额。
+驗收時重點關注兩項指標。
+- 能平滑批量重建實例且不丟資料。
+- 開啟 30 天閒置自動終止，避免殭屍虛擬機器佔用組織雲端配額。
 
-## 企业安全基准配置与实战提示词
+## 企業安全基準組態與實戰提示詞
 
-### 管理员配置
-1. 网络锁在“仅团队允许列表”，关闭公开模板和邮件通道。
-2. 开启 **Enforce Auto-review**，本地执行设为 **Never allow** 防私自降级。
-3. 凡调生产 API 与改库，或涉及外发邮件、签协议及合入 main，必须设为 **Ask first**；日志查询与编译直接放行。
+### 管理員組態
+1. 網路鎖在“僅團隊允許列表”，關閉公開樣板和郵件通道。
+2. 開啟 **Enforce Auto-review**，本地執行設為 **Never allow** 防私自降級。
+3. 凡調生產 API 與改庫，或涉及外發郵件、籤協議及合入 main，必須設為 **Ask first**；記錄查詢與編譯直接放行。
 
-### 员工守则
-1. 凭证走环境变量，**严禁在对话框贴明文密码**。
-2. 敏感授权选 **Allow once**，别点始终允许，用完及时退出。
+### 員工守則
+1. 憑證走環境變數，**嚴禁在對話框貼明文密碼**。
+2. 敏感授權選 **Allow once**，別點始終允許，用完及時退出。
 
-### 实战提示词
-::: details 实战提示词
+### 實戰提示詞
+::: details 實戰提示詞
 ```text
-你现在负责对内部服务进行接口与架构调研。
-请遵循以下严格的安全限制：
-1. 本次任务为纯只读模式，严禁对目标服务发起任何 POST、PUT、DELETE 请求。
-2. 检查网络连通性：尝试向内部端点 http://api-monitor.corp.internal/health 发起 GET 请求并打印状态码。
-3. 如果遇到证书问题或连接被重定向，记录错误日志，不要尝试使用任何提权手段。
-4. 将调研结果汇总输出为 Markdown 表格，包含服务名称、响应耗时、健康状态。
-5. 完成后暂停执行，等待我的进一步指令，不要擅自读取其他网段资产。
+你現在負責對內部服務進行介面與架構調研。
+請遵循以下嚴格的安全限制：
+1. 本次任務為純唯讀模式，嚴禁對目標服務發起任何 POST、PUT、DELETE 請求。
+2. 檢查網路連通性：嘗試向內部端點 http://api-monitor.corp.internal/health 發起 GET 請求並打印狀態碼。
+3. 如果遇到證書問題或連線被重定向，記錄錯誤記錄，不要嘗試使用任何提權手段。
+4. 將調研結果彙總輸出為 Markdown 表格，包含服務名稱、回應耗時、健康狀態。
+5. 完成後暫停執行，等待我的進一步指令，不要擅自讀取其他網段資產。
 ```
 :::
 
-::: details 实战提示词
+::: details 實戰提示詞
 ```text
-请按规范完成本周发版代码的对比检查与 PR 草稿创建：
-1. 切换到工作区代码目录，拉取 origin/main 最新分支。
-2. 比对 feature/sso-login 分支与 main 分支的改动差异，列出所有变动的文件列表。
-3. 检查是否有硬编码的密钥、密码或私钥文件被提交。如果发现任何形如 'AKIA...' 或 'BEGIN PRIVATE KEY' 的文本，立即中断任务并向我告警。
-4. 在本地运行静态检查脚本：npm run lint 和 npm run test。
-5. 准备 PR 描述文本草稿，包含变更摘要与测试结果。
-6. 注意：严禁直接推送到远程仓库。把 PR 描述保存为 local-pr-draft.md 后向我申请确认。得到明确授权前不得执行 git push。
+請按規範完成本週發版程式碼的對比檢查與 PR 草稿建立：
+1. 切換到工作區程式碼目錄，拉取 origin/main 最新分支。
+2. 比對 feature/sso-login 分支與 main 分支的改動差異，列出所有變動的文件列表。
+3. 檢查是否有硬寫程式的密鑰、密碼或私鑰文件被提交。如果發現任何形如 'AKIA...' 或 'BEGIN PRIVATE KEY' 的文本，立即中斷任務並向我告警。
+4. 在本地執行靜態檢查指令碼：npm run lint 和 npm run test。
+5. 準備 PR 描述文本草稿，包含變更摘要與測試結果。
+6. 注意：嚴禁直接推送到遠端倉庫。把 PR 描述保存為 local-pr-draft.md 後向我申請確認。得到明確授權前不得執行 git push。
 ```
 :::
 
-::: details 实战提示词
+::: details 實戰提示詞
 ```text
-请处理今天未分配的内部支持工单：
-1. 打开浏览器，访问内部工单控制台 https://tickets.corp.internal。
-2. 过滤出状态为 'New' 且优先级为 'High' 的所有工单。
-3. 逐条提取工单的核心问题，按照以下类别打标签：[账号登录]、[权限申请]、[网络故障]。
-4. 为每条工单生成标准回复模版，存入草稿区。
-5. 涉及权限开通的工单，一律在回复中注明：'需直属主管在 OA 提交审批流，当前仅作信息预审'。
-6. 严格要求：所有邮件和系统回复只保留在草稿状态，严禁点击 'Send' 或 'Submit'。生成处理清单供我逐条审查。
+請處理今天未分配的內部支援工單：
+1. 打開瀏覽器，訪問內部工單主控台 https://tickets.corp.internal。
+2. 過濾出狀態為 'New' 且優先級為 'High' 的所有工單。
+3. 逐條提取工單的核心問題，按照以下類別打標記：[帳號登入]、[權限申請]、[網路故障]。
+4. 為每條工單生成標準回覆模版，存入草稿區。
+5. 涉及權限開通的工單，一律在回覆中註明：'需直屬主管在 OA 提交審批流，當前僅作資訊預審'。
+6. 嚴格要求：所有郵件和系統回覆只保留在草稿狀態，嚴禁點選 'Send' 或 'Submit'。生成處理清單供我逐條審查。
 ```
 :::
 
 ## 容易踩的坑
 
-1. **网关漏配多级通配符**：主机名是 `<vm-id>.<cluster-id>.cursorvm.com`，只配 `*.cursorvm.com` 卡在 99%，**要加配 `*.*.cursorvm.com`**。
-2. **代理开缓冲截断流**：Zscaler 开启 Response Buffering 会断连。**必须对 Cursor 域名关闭缓冲，透传 Server-Sent Events**。
-3. **漫游策略漏白名单**：回家连不上是因 Zscaler 切了 Off-Network 策略。记得把域名白名单和 TLS 豁免同步到离网策略。
-4. **误开旧版隐私模式**：后台开启“隐私模式 (旧版)”会彻底禁用 Bot，在团队设置中关掉。
-5. **IdP 强求合规设备**：云端 Linux VM 没纳管 MDM 跑不了 FastPass。**在 Okta/Entra ID 针对 Linux（Other Desktop）加高优先级规则**，改用密码加手机二次认证放行。
-6. **脚本明文存密钥**：Team Setup 是明文 JSON。Token 存进 **Team Secrets**，脚本用 `"$TS_AUTHKEY"` 读。
-7. **SYSTEM 权限安装找不着**：程序装在 `%LOCALAPPDATA%\Programs`。**要在当前用户上下文运行 `/S` 安装命令**。
-8. **误把终止当撤权**：Terminate 仅停进程保留磁盘，发消息又会拉起。**彻底收权要在 IdP 取消分配或用 Manage Group Access 移除**。
-9. **跨团队丢失密钥**：加入两个以上配了 Team Setup 的团队会被**拒收任何 Team Secrets**，退掉多余团队即可。
-10. **锁版本跌破下限**：`apt-mark hold` 锁的版本低于生命周期下限会被“Update required”阻断，解锁升级即可。
+1. **網關漏配多級通配符**：主機名是 `<vm-id>.<cluster-id>.cursorvm.com`，只配 `*.cursorvm.com` 卡在 99%，**要加配 `*.*.cursorvm.com`**。
+2. **代理開緩衝截斷流**：Zscaler 開啟 Response Buffering 會斷連。**必須對 Cursor 域名關閉緩衝，透傳 Server-Sent Events**。
+3. **漫遊策略漏白名單**：回家連不上是因 Zscaler 切了 Off-Network 策略。記得把域名白名單和 TLS 豁免同步到離網策略。
+4. **誤開舊版隱私模式**：後台開啟“隱私模式 (舊版)”會徹底禁用 Bot，在團隊設定中關掉。
+5. **IdP 強求合規設備**：雲端 Linux VM 沒納管 MDM 跑不了 FastPass。**在 Okta/Entra ID 針對 Linux（Other Desktop）加高優先級規則**，改用密碼加手機二次認證放行。
+6. **指令碼明文存密鑰**：Team Setup 是明文 JSON。Token 存進 **Team Secrets**，指令碼用 `"$TS_AUTHKEY"` 讀。
+7. **SYSTEM 權限安裝找不著**：程式裝在 `%LOCALAPPDATA%\Programs`。**要在當前使用者上下文執行 `/S` 安裝命令**。
+8. **誤把終止當撤權**：Terminate 僅停行程保留磁盤，發訊息又會拉起。**徹底收權要在 IdP 取消分配或用 Manage Group Access 移除**。
+9. **跨團隊丟失密鑰**：加入兩個以上配了 Team Setup 的團隊會被**拒收任何 Team Secrets**，退掉多餘團隊即可。
+10. **鎖版本跌破下限**：`apt-mark hold` 鎖的版本低於生命週期下限會被“Update required”阻斷，解鎖升級即可。
 
-## 做完怎么验收
+## 做完怎麼驗收
 
-### 网络与网关
-- 办公机跑 `curl -v https://api2.cursor.sh |& grep -C1 issuer:`，确保证书为 **Amazon RSA**。
-- 跑 `nslookup test.us9.cursorvm.com` 测多级域名解析；切手机热点连接云端电脑，验证**无证书告警**。
+### 網路與網關
+- 辦公機跑 `curl -v https://api2.cursor.sh |& grep -C1 issuer:`，確保證書為 **Amazon RSA**。
+- 跑 `nslookup test.us9.cursorvm.com` 測多級域名解析；切手機熱點連線雲端電腦，驗證**無證書告警**。
 
-### 身份与 SSO
-- 找非研发账号登 Grok Bot，确认 Cursor SSO 一次登录成功。
-- Bot 浏览器用“密码+手机验证码”登录内部单点，**无 FastPass 拦截弹窗**，办公机合规策略照常生效。
+### 身份與 SSO
+- 找非研發帳號登 Grok Bot，確認 Cursor SSO 一次登錄成功。
+- Bot 瀏覽器用“密碼+手機驗證碼”登錄內部單點，**無 FastPass 攔截彈窗**，辦公機合規策略照常生效。
 
-### 私网与环境脚本
-- Tailscale 或 Cloudflare 控制台确认新机器自动入网且标签正确。
-- 终端 ping 或 curl 私有主机验证连通；Team Setup 日志无超时且**机密已打掩码**。
+### 私網與環境指令碼
+- Tailscale 或 Cloudflare 主控台確認新機器自動入網且標記正確。
+- 終端 ping 或 curl 私有主機驗證連通；Team Setup 記錄無超時且**機密已打掩碼**。
 
-### 客户端与安全基准
-- Windows 普通账号静默安装到 `%LOCALAPPDATA%\Programs` 并生成桌面快捷方式。
-- “设置 > 常规 > 自动审查”中全局规则锁定不可改；测试删根目录文件或调未授权 Webhook，系统**强制弹出审批**。
+### 客戶端與安全基準
+- Windows 普通帳號靜默安裝到 `%LOCALAPPDATA%\Programs` 並生成桌面快捷方式。
+- “設定 > 常規 > 自動審查”中全域規則鎖定不可改；測試刪根目錄文件或調未授權 Webhook，系統**強制彈出審批**。
 
-### 电脑生命周期
-- 管理员在控制台执行 **重建 VMs**，确认原文件与历史记录完好。
-- 批量任务跑完点击 **Done**，系统能正常开启下一轮。
+### 電腦生命週期
+- 管理員在主控台執行 **重建 VMs**，確認原文件與歷史記錄完好。
+- 批量任務跑完點選 **Done**，系統能正常開啟下一輪。
 
-## 延伸阅读
+## 延伸閱讀
 
-- 官方文档：[面向 Teams 和企业版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
-- 官方文档：[配置身份与访问](https://cursor.com/cn/docs/grok-bot/identity)
-- 官方文档：[连接到私有网络](https://cursor.com/cn/docs/grok-bot/private-networks)
-- 官方文档：[配置 TLS 检查代理](https://cursor.com/cn/docs/grok-bot/proxies)
-- 官方文档：[将 Grok Bot 部署到你的组织](https://cursor.com/cn/docs/grok-bot/deployment)
-- 官方文档：[管理 Grok Bot 电脑](https://cursor.com/cn/docs/grok-bot/computers)
-- 官方帮助：[方案和计费](https://cursor.com/cn/help/grok-bot/plans)
-- 官方帮助：[团队 Bot](https://cursor.com/cn/help/grok-bot/team-bots)
-- 官方帮助：[连接插件](https://cursor.com/cn/help/grok-bot/connect-plugins)
-- 官方指南：[Grok Bot 安全架构说明](https://cursor.com/cn/docs/grok-bot/security)
+- 官方文件：[面向 Teams 和企業版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
+- 官方文件：[組態身份與訪問](https://cursor.com/cn/docs/grok-bot/identity)
+- 官方文件：[連線到私有網路](https://cursor.com/cn/docs/grok-bot/private-networks)
+- 官方文件：[組態 TLS 檢查代理](https://cursor.com/cn/docs/grok-bot/proxies)
+- 官方文件：[將 Grok Bot 部署到你的組織](https://cursor.com/cn/docs/grok-bot/deployment)
+- 官方文件：[管理 Grok Bot 電腦](https://cursor.com/cn/docs/grok-bot/computers)
+- 官方幫助：[方案和計費](https://cursor.com/cn/help/grok-bot/plans)
+- 官方幫助：[團隊 Bot](https://cursor.com/cn/help/grok-bot/team-bots)
+- 官方幫助：[連線外掛](https://cursor.com/cn/help/grok-bot/connect-plugins)
+- 官方指南：[Grok Bot 安全架構說明](https://cursor.com/cn/docs/grok-bot/security)

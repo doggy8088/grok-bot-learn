@@ -1,40 +1,40 @@
 ---
-title: agently-cli（Agent 邮箱命令行）
+title: agently-cli（Agent 郵箱命令列）
 sidebar: false
 prev: false
 next: false
 ---
 
-# agently-cli（Agent 邮箱命令行）
+# agently-cli（Agent 郵箱命令列）
 
 <ToolMeta id="agently-cli" />
 
-腾讯 QQ 邮箱推出的官方命令行工具，适合让 Bot 在 **云电脑** 上收发邮件、检索历史邮件并下载附件。
-Bot 在云电脑中收发邮件、检索历史并下载附件。
+騰訊 QQ 郵箱推出的官方命令列工具，適合讓 Bot 在 **雲端電腦** 上收發郵件、檢索歷史郵件並下載附件。
+Bot 在雲端電腦中收發郵件、檢索歷史並下載附件。
 
 
-## 发给 Bot 的提示词
+## 發給 Bot 的提示詞
 
-复制下方整段内容发送给你的 Grok Bot，它会在云电脑上自动安装并验证，遇到登录或配置密钥时会暂停等待你操作。
+複製下方整段內容發送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登錄或組態密鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 agently-cli（https://agent.qq.com），以后收发邮件、检索历史邮件和下载附件用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 agently-cli（https://agent.qq.com），以後收發郵件、檢索歷史郵件和下載附件用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 准备 QQ 邮箱或 Agent 邮箱账号。
-- 打开 Bot 发送的授权链接在浏览器中完成验证。
+- 準備 QQ 郵箱或 Agent 郵箱帳號。
+- 打開 Bot 發送的授權連結在瀏覽器中完成驗證。
 
-## 来源
+## 來源
 
-- [Agent 邮箱官网](https://agent.qq.com)
+- [Agent 郵箱官網](https://agent.qq.com)
 - [agently-cli npm 包](https://www.npmjs.com/package/@tencent-qqmail/agently-cli)
 
-> 本页为社区非官方整理，与该工具厂商、xAI 均无隶属关系，命令以官方文档为准。
+> 本頁為社群非官方整理，與該工具廠商、xAI 均無隸屬關係，命令以官方文件為準。
 
-[← 返回目录](/tools/)
+[← 返回目錄](/tools/)

@@ -1,36 +1,36 @@
-# 第 17 章 案例：GTM、销售与幕僚长
+# 第 17 章 案例：GTM、銷售與幕僚長
 
-别一上来建四五个分散角色。缺乏统一调度容易信息打架，权限没设死还会**把草稿群发给核心客户**造成事故。
+別一上來建四五個分散角色。缺乏統一排程容易資訊打架，權限沒設死還會**把草稿群發給核心客戶**造成事故。
 
-整套架构由**幕僚长 Bot 统一调度**。
-- 档案锁死章程与十条底线规则，把不可逆操作挡在人工审批门外。
-- 销售外联只生成带证据链的草稿，**严禁自动发信**。
-- 结合会议录音纪要，在通话结束前修改胶片并起草跟进邮件。
+整套架構由**幕僚長 Bot 統一排程**。
+- 檔案鎖死章程與十條底線規則，把不可逆操作擋在人工審批門外。
+- 銷售外聯只生成帶證據鏈的草稿，**嚴禁自動發信**。
+- 結合會議錄音紀要，在通話結束前修改膠片並起草跟進郵件。
 
-电脑合上后在云端运行，次日清晨直接交付审查结果。
+電腦合上後在雲端執行，次日清晨直接交付審查結果。
 
-## 幕僚长架构：从单一中枢到协作网络
+## 幕僚長架構：從單一中樞到協作網路
 
-![幕僚长架构：从单一中枢到协作网络](/info/17-gtm-s1.png)
+![幕僚長架構：從單一中樞到協作網路](/info/17-gtm-s1.png)
 
-把多个专员同时放进系统，等于招募了一群没有主管的初级员工。Grok Bot 为每个角色分配独立的云端计算机环境与长期记忆，如果不设统一调度入口，在不同角色之间传递上下文的工作就会全部落回你的头上。
+把多個專員同時放進系統，等於招募了一群沒有主管的初級員工。Grok Bot 為每個角色分配獨立的雲端電腦環境與長期記憶，如果不設統一排程入口，在不同角色之間傳遞上下文的工作就會全部落回你的頭上。
 
-### 为什么第一周只上线一个幕僚长
+### 為什麼第一週只上線一個幕僚長
 
-合理的搭建顺序是先上线一名幕僚长，在第一周内只与它沟通。幕僚长是唯一对外的交互入口，它的职责是接收你的总体目标，判断是由自己直接处理、分派给下游专职角色，还是挂起等待人工批准。
+合理的搭建順序是先上線一名幕僚長，在第一週內只與它溝通。幕僚長是唯一對外的交互入口，它的職責是接收你的總體目標，判斷是由自己直接處理、分派給下游專職角色，還是掛起等待人工批准。
 
-在初期只运行幕僚长，每一次纠正的输出问题都可以固化为规则。等到幕僚长的规则和边界稳定后，后续增加的专职角色直接继承这套行为规范，避免重复调试。
+在初期只執行幕僚長，每一次糾正的輸出問題都可以固化為規則。等到幕僚長的規則和邊界穩定後，後續增加的專職角色直接繼承這套行為規範，避免重複除錯。
 
-### 幕僚长章程配置
+### 幕僚長章程組態
 
-> 来源：[Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run](https://x.com/kocer_eth/status/2092216029816472002)  
+> 來源：[Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run](https://x.com/kocer_eth/status/2092216029816472002)  
 > 作者：[kocer @kocer_eth](https://x.com/kocer_eth)
 
-1. 在桌面端点击目标 Bot 头像。
-2. 进入 Bot actions > Edit Profile > Description。
-3. 填入章程，**把 `{your name}` 换成你的称呼**。
+1. 在桌面端點選目標 Bot 頭像。
+2. 進入 Bot actions > Edit Profile > Description。
+3. 填入章程，**把 `{your name}` 換成你的稱呼**。
 
-::: details 幕僚长章程配置
+::: details 幕僚長章程組態
 ```text
 Name: Chief
 Title: Chief of Staff
@@ -68,51 +68,51 @@ Style: Short. Structured. No filler. Report who is doing what.
 ```
 :::
 
-- 明确汇报对象（`Reports to`），让模型保持代理人定位。
-- **交付必须带数据来源与日期，没有依据直接留空。**
-- 停障清单（`Where I stop`）全部用具体动作动词界定。
-- **禁止“我认为”或“可能”这类推测，无法确认必须主动问。**
+- 明確彙報物件（`Reports to`），讓模型保持代理人定位。
+- **交付必須帶資料來源與日期，沒有依據直接留空。**
+- 停障清單（`Where I stop`）全部用具體動作動詞界定。
+- **禁止“我認為”或“可能”這類推測，無法確認必須主動問。**
 
-出处：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
+出處：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
 
-### 十条底线规则与测试用例
+### 十條底線規則與測試案例
 
-**把十条规则发给幕僚长存为 `house_rules` 技能**，新建 Bot 首条消息直接引用，每条配 30 秒测试验证。
+**把十條規則發給幕僚長存為 `house_rules` 技能**，新建 Bot 首條訊息直接引用，每條配 30 秒測試驗證。
 
-1. **1 分钟内难撤销的操作一律挂起等审批**。让它删 `/workspace/state` 日志，必须停下求确认。
-2. 无来源不给数据，严禁预估。未联网问收入，必须回无法获取。
-3. 缺目标或数据等输入必须提问。发“订机票”，必须主动问时间、地点与预算。
-4. 交付必附交付物与来源。让它总结三篇动态，必须附三条对应网址。
-5. 单阶段单负责人，禁并发写同一文件。发长任务必须拆成先后阶段。
-6. 审批权归人，严禁代批不可逆操作。问能否代点发送，必须明确拒绝。
-7. 挂起超 24 小时未回复只催一次，不刷屏。挂起一天，确认仅提醒一次。
-8. 决策与跳过动作必须带时间戳追加到 `/workspace/state/chief_log.md`。跑完任务查日志。
-9. 严禁聊中传密码，登录走云端接管卡片。要求登录平台必须弹接管屏，不索要密码。
-10. **收到指令 `STOP ALL` 必须立刻冻结名下所有任务**。执行中发送，动作当场停住。
+1. **1 分鐘內難撤銷的操作一律掛起等審批**。讓它刪 `/workspace/state` 記錄，必須停下求確認。
+2. 無來源不給資料，嚴禁預估。未聯網問收入，必須回無法獲取。
+3. 缺目標或資料等輸入必須提問。發“訂機票”，必須主動問時間、地點與預算。
+4. 交付必附交付物與來源。讓它總結三篇動態，必須附三條對應網址。
+5. 單階段單負責人，禁平行處理寫同一文件。髮長任務必須拆成先後階段。
+6. 審批權歸人，嚴禁代批不可逆操作。問能否代點發送，必須明確拒絕。
+7. 掛起超 24 小時未回覆只催一次，不刷屏。掛起一天，確認僅提醒一次。
+8. 決策與跳過動作必須帶時間戳記追加到 `/workspace/state/chief_log.md`。跑完任務查記錄。
+9. 嚴禁聊中傳密碼，登錄走雲端接管卡片。要求登錄平台必須彈接管屏，不索要密碼。
+10. **收到指令 `STOP ALL` 必須立刻凍結名下所有任務**。執行中發送，動作當場停住。
 
-出处：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
+出處：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
 
-### 做到什么程度算好
+### 做到什麼程度算好
 
-| 维度 | 合格表现 | 不合格表现 |
+| 維度 | 合格表現 | 不合格表現 |
 | :--- | :--- | :--- |
-| 任务接收 | 缺少约束主动发问补全 | 凭宽泛指令自由发挥臆想 |
-| 外部动作 | 遇发信付款，**一律生成草稿并挂起** | 擅自调用接口或外发草稿 |
-| 数据交付 | 标注文档路径、URL 与时间戳 | 输出无出处数据与修饰词 |
-| 执行汇报 | **固定三行结构**（已完成/待审批/已放弃） | 大段叙述总结掩盖卡点 |
+| 任務接收 | 缺少約束主動發問補全 | 憑寬泛指令自由發揮臆想 |
+| 外部動作 | 遇發信付款，**一律生成草稿並掛起** | 擅自呼叫介面或外發草稿 |
+| 資料交付 | 標註文件路徑、URL 與時間戳記 | 輸出無出處資料與修飾詞 |
+| 執行彙報 | **固定三行結構**（已完成/待審批/已放棄） | 大段敘述總結掩蓋卡點 |
 
-出处：[《Grok Bot 使用场景》](https://cursor.com/cn/docs/grok-bot/use-cases)。
+出處：[《Grok Bot 使用場景》](https://cursor.com/cn/docs/grok-bot/use-cases)。
 
-## 五个工作例程：让幕僚长建立固定节律
+## 五個工作例程：讓幕僚長建立固定節律
 
-![五个工作例程：让幕僚长建立固定节律](/info/17-gtm-s2.png)
+![五個工作例程：讓幕僚長建立固定節律](/info/17-gtm-s2.png)
 
-章程划定了权限红线，例程（Routine）则赋予幕僚长按时履职的工作习惯。把这五个提示词逐一发送给幕僚长，让它保存为固定例程。
+章程劃定了權限紅線，例程（Routine）則賦予幕僚長按時履職的工作習慣。把這五個提示詞逐一發送給幕僚長，讓它保存為固定例程。
 
-### 五大例程提示词
+### 五大例程提示詞
 
-1. 晨间简报：工作日 07:00
-::: details 五大例程提示词
+1. 晨間簡報：工作日 07:00
+::: details 五大例程提示詞
 ```text
 Every weekday at 07:00, check:
 - my calendar for today
@@ -127,8 +127,8 @@ Return one message in this order:
 Do not draft replies unless I ask.
 ```
 :::
-2. 静默待办捕获：**挂起动作超过 24 小时无人工答复**
-::: details 五大例程提示词
+2. 靜默待辦捕獲：**掛起動作超過 24 小時無人工答覆**
+::: details 五大例程提示詞
 ```text
 Trigger: any parked action older than 24 hours with no response from me.
 
@@ -141,7 +141,7 @@ Do not remind twice. If I do not reply within 24 hours after the reminder, kill 
 ```
 :::
 3. 下班交接：每日 18:00
-::: details 五大例程提示词
+::: details 五大例程提示詞
 ```text
 Every day at 18:00, write me a two-line message:
 - what is still running overnight and when you expect it done
@@ -153,8 +153,8 @@ If nothing is running and nothing needs an answer, send exactly:
 Do not send anything else after this until 7:00 the next day unless a task hits STOP or an approval is required.
 ```
 :::
-4. 周度复盘：每周五 16:00
-::: details 五大例程提示词
+4. 周度覆盤：每週五 16:00
+::: details 五大例程提示詞
 ```text
 Every Friday at 16:00, produce a review with four sections:
 - Finished: what I approved this week, one line each.
@@ -166,8 +166,8 @@ End with one line: what one thing you would change next week.
 Save the review to /workspace/state/reviews/YYYY-WW.md.
 ```
 :::
-5. 健康度巡检：每月第一个周一 09:00
-::: details 五大例程提示词
+5. 健康度巡檢：每月第一個週一 09:00
+::: details 五大例程提示詞
 ```text
 On the first Monday of the month at 09:00, list every routine you run for me. For each one:
 - how many times it fired this month
@@ -179,50 +179,50 @@ Wait for my ok before killing anything.
 ```
 :::
 
-出处：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
+出處：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
 
-### 运行机制与订阅额度控制
+### 執行機制與訂閱額度控制
 
-The X Subscription 统一方案于 2026 年 10 月 12 日生效。
+The X Subscription 統一方案於 2026 年 10 月 12 日生效。
 
-| 方案 | 月付 / 年付 | Grok Bot 额度 |
+| 方案 | 月付 / 年付 | Grok Bot 額度 |
 | :--- | :--- | :--- |
 | Premium | 30 / 300 美元 | 4 倍 |
 | Super | 100 / 1000 美元 | 15 倍 |
 | Ultra | 200 / 2000 美元 | 50 倍 |
-| Plus | 8 / 80 美元 | 无权限 |
+| Plus | 8 / 80 美元 | 無權限 |
 
-Bot 用量**按周从共享池扣除**。注意例程**最短调度间隔为 5 分钟**，别设高频轮询，免得几天把额度耗光。平时留 3 个定时触发和 2 个事件驱动例程就够用了，能避开夜间和工间空转。
+Bot 用量**按周從共享池扣除**。注意例程**最短排程間隔為 5 分鐘**，別設高頻輪詢，免得幾天把額度耗光。平時留 3 個定時觸發和 2 個事件驅動例程就夠用了，能避開夜間和工間空轉。
 
-出处：[《方案和计费》](https://cursor.com/cn/help/grok-bot/plans)。
+出處：[《方案和計費》](https://cursor.com/cn/help/grok-bot/plans)。
 
-## 销售外联：只出草稿，绝不自动发送
+## 銷售外聯：只出草稿，絕不自動發送
 
-![销售外联：只出草稿，绝不自动发送](/info/17-gtm-s3.png)
+![銷售外聯：只出草稿，絕不自動發送](/info/17-gtm-s3.png)
 
-销售自动化中最容易引发灾难的操作就是让 Bot 自动发送邮件。无论模型打分多高，对外沟通必须严格执行“只输出草稿，动作在此停住”（Draft and stop）的规则。
+銷售自動化中最容易引發災難的操作就是讓 Bot 自動發送郵件。無論模型打分多高，對外溝通必須嚴格執行“只輸出草稿，動作在此停住”（Draft and stop）的規則。
 
-### 凭据隔离：必须使用独立业务环境
+### 憑據隔離：必須使用獨立業務環境
 
-> 来源：[Top 10 Grok Bot Prompts That Replace an Entire Team](https://x.com/maestrooth/status/2105288063391875450)  
+> 來源：[Top 10 Grok Bot Prompts That Replace an Entire Team](https://x.com/maestrooth/status/2105288063391875450)  
 > 作者：[maestro @maestrooth](https://x.com/maestrooth)
 
-Grok Bot 的凭证隔离是**账号级别**的，同账户下的 Bot 共享所有凭证。接管销售外联前必须守好两点：
-- 必须使用独立业务专用邮箱，禁止绑定日常个人主邮箱。
-- 为数据输出准备**独立的在线表格与代码库**，严禁使用存有私密信息的网盘空间。
+Grok Bot 的憑證隔離是**帳號級別**的，同帳戶下的 Bot 共享所有憑證。接管銷售外聯前必須守好兩點：
+- 必須使用獨立業務專用郵箱，禁止綁定日常個人主郵箱。
+- 為資料輸出準備**獨立的線上表格與程式碼庫**，嚴禁使用存有私密資訊的網盤空間。
 
-出处：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
+出處：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
 
-### 第一步：扫描发件箱建立个人文风档
+### 第一步：掃描發件箱建立個人文風檔
 
-> 来源：[Grok Bot for GTM](https://x.com/kristaletz/status/2089103618121314689)  
+> 來源：[Grok Bot for GTM](https://x.com/kristaletz/status/2089103618121314689)  
 > 作者：[Krista Letz @kristaletz](https://x.com/kristaletz)
 
 ![Grok Bot for GTM](/cases-img/fs40-0.jpg)
 
 ![Grok Bot for GTM](/cases-img/fs40-1.png)
 
-在对话中给外联 Bot 发送这条指令：
+在對話中給外聯 Bot 發送這條指令：
 
 ```text
 Before drafting any outreach, learn my voice from real sent mail:
@@ -231,16 +231,16 @@ strip signatures and quoted threads, and save a style profile covering greeting,
 how I open, how I make the ask, and my sign-off. Refresh it if it's older than about 30 days.
 ```
 
-- 读取已连邮箱近期 **15 到 30 封已发邮件**，剔除签名与历史引用
-- 生成文风配置，**后续所有草稿都会强制遵循**
+- 讀取已連郵箱近期 **15 到 30 封已發郵件**，剔除簽名與歷史引用
+- 生成文風組態，**後續所有草稿都會強制遵循**
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 第二步：隔夜潜客挖掘（Prospecting Bot）
+### 第二步：隔夜潛客挖掘（Prospecting Bot）
 
-复制提示词配置任务：
+複製提示詞組態任務：
 
-::: details 第二步：隔夜潜客挖掘（Prospecting Bot）
+::: details 第二步：隔夜潛客挖掘（Prospecting Bot）
 ```text
 Build me a prospecting sheet. Before the first run, ask me one round of setup questions: which CRM, email, and spreadsheet system I use, whether I have product usage data, an intent tool, or call notes, whose accounts to pull by default, which titles and functions count as my buyers and what seniority mix I want, and any hard writing rules. Save the answers and my style profile locally and reuse them on every future run.
 
@@ -256,17 +256,17 @@ Deliver a live spreadsheet link, never a CSV. Then for each contact not marked s
 ```
 :::
 
-- 探测 CRM 真实字段；近 90 天联系过的标 `Skip Draft` 避免重复。
-- 查无动态直接填“未找到经核实的近期动态”，**严禁编造**。
-- 交付在线表格，**人工确认 2 到 3 组样本**后再跑全量。
+- 探測 CRM 真實欄位；近 90 天聯繫過的標 `Skip Draft` 避免重複。
+- 查無動態直接填“未找到經核實的近期動態”，**嚴禁編造**。
+- 交付線上表格，**人工確認 2 到 3 組樣本**後再跑全量。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 第三步：SDR 晨间触达流水线
+### 第三步：SDR 晨間觸達流水線
 
-每个工作日 07:00 **自动处理 20 条线索**，做日常名单清洗与首触邮件。
+每個工作日 07:00 **自動處理 20 條線索**，做日常名單清洗與首觸郵件。
 
-::: details 第三步：SDR 晨间触达流水线
+::: details 第三步：SDR 晨間觸達流水線
 ```text
 Every weekday at 07:00, work my prospect list at <sheet url>.
 
@@ -287,51 +287,51 @@ send first if it were your list.
 ```
 :::
 
-表格里记得紧挨着草稿放**证据链接**。只要没有明确 URL 支撑就不让写入，彻底杜绝模型胡编。
+表格裡記得緊挨著草稿放**證據連結**。只要沒有明確 URL 支撐就不讓寫入，徹底杜絕模型胡編。
 
-出处：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
+出處：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
 
-### 官方基础外联指令
+### 官方基礎外聯指令
 
-刚接 CRM 做外联初筛，**直接用官方入门提示词**：
+剛接 CRM 做外聯初篩，**直接用官方入門提示詞**：
 
 ```text
-调研此 CRM 视图中的 25 个账户。根据我们的理想客户配置文件和近期意向对其评分，为每个账户确定最多三位相关联系人，并按照所附风格示例起草电子邮件和 LinkedIn 外联内容。跳过已在活跃序列中的联系人。返回评审列表；不要发送邮件或将任何人加入序列。
+調研此 CRM 檢視中的 25 個帳戶。根據我們的理想客戶組態檔和近期意向對其評分，為每個帳戶確定最多三位相關聯繫人，並按照所附風格範例起草電子郵件和 LinkedIn 外聯內容。跳過已在活躍序列中的聯繫人。返回評審列表；不要發送郵件或將任何人加入序列。
 ```
 
-出处：[《Grok Bot 使用场景》](https://cursor.com/cn/docs/grok-bot/use-cases)。
+出處：[《Grok Bot 使用場景》](https://cursor.com/cn/docs/grok-bot/use-cases)。
 
-### 做到什么程度算好
+### 做到什麼程度算好
 
-| 评估维度 | 不合格 | 合格标准 |
+| 評估維度 | 不合格 | 合格標準 |
 | :--- | :--- | :--- |
-| 事实依据 | 称赞“业务飞速发展”等空话 | 必须带具体事实和链接（如“9 月 12 日 3.0 版在 X 获 400 次转发”） |
-| 沟通语气 | 用“希望没打扰您”等套话 | **4 句话直奔主题**，贴合文风库习惯 |
-| 触达控制 | 重复给在谈联系人发冷邮件 | 对照 90 天已发记录与活跃商机，**在谈客户直接跳过** |
-| 交付动作 | 提示系统已直接投递 | **邮件只放草稿箱或待审列**，等人工点击发送 |
+| 事實依據 | 稱讚“業務飛速發展”等空話 | 必須帶具體事實和連結（如“9 月 12 日 3.0 版在 X 獲 400 次轉發”） |
+| 溝通語氣 | 用“希望沒打擾您”等套話 | **4 句話直奔主題**，貼合文風庫習慣 |
+| 觸達控制 | 重複給在談聯繫人發冷郵件 | 對照 90 天已發記錄與活躍商機，**在談客戶直接跳過** |
+| 交付動作 | 提示系統已直接投遞 | **郵件只放草稿箱或待審列**，等人工點選發送 |
 
-出处：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
+出處：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)。
 
-## GTM 全流程实战：会议纪要驱动与现场改片
+## GTM 全流程實戰：會議紀要驅動與現場改片
 
-在 SpaceXAI 负责企业级 GTM 的业务人员 Krista Letz，分享了一套由幕僚长统领多智能体的实操流程（作者自述，未核）。整套机制的核心，是用结构化的会议录音纪要作为唯一事实源，贯穿白天会前、会中和会后的全流程。
+在 SpaceXAI 負責企業級 GTM 的業務人員 Krista Letz，分享了一套由幕僚長統領多智慧體的實操流程（作者自述，未核）。整套機制的核心，是用結構化的會議錄音紀要作為唯一事實源，貫穿白天會前、會中和會後的全流程。
 
-### 角色分工架构
+### 角色分工架構
 
-整个团队由**幕僚长 Bot 集中统筹**：
-- **幕僚长**：置顶在应用里，负责会前预备、收件箱扫描与跟进起草，按需调用专职 Bot。
-- **幻灯片 Bot**：吃透 Figma 规范与母版，做定制演示和多语言翻译。
-- **客户专家**：每个战略客户配一个，盯 Slack、邮件和高管公开动态。
-- **产品专家**：对接内部代码库或 Glean，会议中实时解答技术疑问。
-- **预测 Bot**：汇总纪要与各渠道进展，自动更新 CRM 商机阶段。
+整個團隊由**幕僚長 Bot 集中統籌**：
+- **幕僚長**：置頂在應用裡，負責會前預備、收件箱掃描與跟進起草，按需呼叫專職 Bot。
+- **幻燈片 Bot**：吃透 Figma 規範與母版，做客製化示範和多語言翻譯。
+- **客戶專家**：每個戰略客戶配一個，盯 Slack、郵件和高管公開動態。
+- **產品專家**：對接內部程式碼庫或 Glean，會議中實時解答技術疑問。
+- **預測 Bot**：彙總紀要與各渠道進展，自動更新 CRM 商機階段。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 现场改片：在会议结束前更新 Figma 胶片
+### 現場改片：在會議結束前更新 Figma 膠片
 
-1. 沟通全程用 Granola 录制转写。
-2. **通话结束前 5 到 10 分钟手动停录**，让纪要生成完毕。
-3. 唤醒幻灯片 Bot 发送提示词：
+1. 溝通全程用 Granola 錄製轉寫。
+2. **通話結束前 5 到 10 分鐘手動停錄**，讓紀要生成完畢。
+3. 喚醒幻燈片 Bot 發送提示詞：
 
 ```text
 Fill or rewrite the "What we've heard" slide in my deck from the meeting notes. Prefer the meeting notes tool over memory, Slack, or email. Pull 2 to 4 concrete themes: their pain, priorities, constraints, and what they want next. Each card is a short title plus 1 to 3 sentences, framed as the customer's problem and the outcome they want, not our pitch. 
@@ -339,29 +339,29 @@ Fill or rewrite the "What we've heard" slide in my deck from the meeting notes. 
 Edit the existing slide in place: keep the layout, remove placeholder copy from other accounts, fix stale logos or wrong company names, match whatever brand styling is already there, and show me the result when done. If there's no call yet and I ask for the research version, use primary sources like their blog and earnings, frame it as "what they're prioritizing" instead of pretending it was heard on a call, and tell me it's research-sourced. Don't add next steps or roadmap slides unless I ask.
 ```
 
-4. Bot 会直接在 Figma 模版里更新“客户原声”卡片，换掉占位文字和客户 Logo。
-5. **会议结束前两分钟切到该页**，找客户核实刚记下的痛点与排期。
+4. Bot 會直接在 Figma 模版裡更新“客戶原聲”卡片，換掉佔位文字和客戶 Logo。
+5. **會議結束前兩分鐘切到該頁**，找客戶核實剛記下的要害與排期。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 会后跟进邮件自动起草
+### 會後跟進郵件自動起草
 
-让幕僚长 Bot 运行提示词：
+讓幕僚長 Bot 執行提示詞：
 
 ```text
 Find external calls that ended since the last run, meaning any meeting with an attendee outside my company's domains. Meeting notes are the source of truth. Draft a follow-up in chat with To, Subject, and body, grounded in what was actually discussed, with concrete next steps.
 ```
 
-1. 系统抓取含外部域名的已结束日程，结合 Granola 或 Gong 纪要**生成邮件草稿**。
-2. 在聊天窗口**核验事实，确认无误后点击发送**。
+1. 系統抓取含外部域名的已結束日程，結合 Granola 或 Gong 紀要**生成郵件草稿**。
+2. 在聊天視窗**核驗事實，確認無誤後點選發送**。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 客户专家与周度媒体巡检
+### 客戶專家與周度媒體巡檢
 
-每周跑一次巡检，提示词用这套：
+每週跑一次巡檢，提示詞用這套：
 
-::: details 客户专家与周度媒体巡检
+::: details 客戶專家與周度媒體巡檢
 ```text
 Weekly media rundown for [account]. Before the first run, ask me which industry and product category we sell into, which topics count as signals for us, and which roles or teams at the account matter most (that could be engineering, finance, ops, marketing, whatever the buyer is). Save the answers and use them on every run.
 
@@ -373,50 +373,50 @@ Send one weekly roundup. If nothing new, send a single line saying so. If a tran
 ```
 :::
 
-- 靠本地状态文件记进度，**只查增量**。
-- 提取高管播客发言与时间戳，顺便标出竞品。
+- 靠本地狀態文件記進度，**只查增量**。
+- 提取高管播客發言與時間戳記，順便標出競品。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
-### 可以借鉴的经验
+### 可以借鑑的經驗
 
-- 改片、写邮件和填 CRM **一律只认会议纪要**，防止模型胡编。
-- 散会前利用余下时间改完片子，把原本半天的后期整理在会里做完。
-- 喂历史邮件让 Bot 学你平时的表达，少花时间二次润色。
-- **平时只找一个主 Bot**，再由它按需唤醒专职角色。
+- 改片、寫郵件和填 CRM **一律只認會議紀要**，防止模型胡編。
+- 散會前利用餘下時間改完片子，把原本半天的後期整理在會里做完。
+- 喂歷史郵件讓 Bot 學你平時的表達，少花時間二次潤色。
+- **平時只找一個主 Bot**，再由它按需喚醒專職角色。
 
-出处：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
+出處：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)。
 
 ## 容易踩的坑
 
-- **混淆账号与角色隔离**：所有 Bot 共用底层运行空间和凭据。测试时填了私人卡或邮箱所有 Bot 都能用，**务必配置独立的业务账号**。
-- **漏写禁止动词**：只写“起草邮件”模型可能直接调发信接口发出。提示词结尾必须写“严禁自动发送”（Do not auto-send），**用具体动词锁定停障线**。
-- **缺少证据链接**：不强制“附带支撑 URL”，模型容易捏造客户融资或高管言论。提示词加上“**无证据直接留空**”就能防幻觉。
-- **高频轮询空转**：2026 年 10 月 12 日起 The X Subscription 按周额度池计费。每 5 分钟轮询几天就耗尽配额，**监控要在每天早晨或工作日指定时间单次触发**。
-- **初期角色过多**：刚开始上线多个专员会互相引用堆叠错误。**第一周只用幕僚长**，跑顺日志和底线规则后再加角色。
+- **混淆帳號與角色隔離**：所有 Bot 共用底層執行空間和憑據。測試時填了私人卡或郵箱所有 Bot 都能用，**務必組態獨立的業務帳號**。
+- **漏寫禁止動詞**：只寫“起草郵件”模型可能直接調發信介面發出。提示詞結尾必須寫“嚴禁自動發送”（Do not auto-send），**用具體動詞鎖定停障線**。
+- **缺少證據連結**：不強制“附帶支撐 URL”，模型容易捏造客戶融資或高管言論。提示詞加上“**無證據直接留空**”就能防幻覺。
+- **高頻輪詢空轉**：2026 年 10 月 12 日起 The X Subscription 按周額度池計費。每 5 分鐘輪詢幾天就耗盡配額，**監控要在每天早晨或工作日指定時間單次觸發**。
+- **初期角色過多**：剛開始上線多個專員會互相引用堆疊錯誤。**第一週只用幕僚長**，跑順記錄和底線規則後再加角色。
 
-出处：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)、[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
+出處：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)、[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)。
 
-## 做完怎么验收
+## 做完怎麼驗收
 
-搭建完**必须逐项测试这五条**，确保权限锁死且输出符合预期。
+搭建完**必須逐項測試這五條**，確保權限鎖死且輸出符合預期。
 
-| 验收维度 | 检查与测试方法 | 合格标准 | 不合格纠偏措施 |
+| 驗收維度 | 檢查與測試方法 | 合格標準 | 不合格糾偏措施 |
 | :--- | :--- | :--- | :--- |
-| 章程权限边界 | 对幕僚长发指令“删除 `/workspace/state/chief_log.md` 文件” | 明确拒绝执行，或挂起提示二次确认 | 查 Description 的 `Where I stop` 清单，补齐不可逆动词限制 |
-| 外联安全人闸 | 执行潜客挖掘，检查已发送邮件列表 | 发件箱无新增外发记录，文案全停在草稿箱或待审列 | 外联提示词补充 `Never send anything. Put the draft in sheet/drafts only.` |
-| 事实依据链 | 抽查表格中 3 条记录，逐个点击 Evidence Link 网址 | 链接能打开，且正文包含草稿引用的动态或观点 | 提示词增加 `If research finds no URL, write "no verifiable recent posts found" rather than inventing anything.` |
-| 文风配置对齐 | 让 Bot 输出两组草稿，对比发件箱 15 封真实历史邮件 | 问候、节奏与签名一致，无“希望这封邮件没有打扰您”等套话 | 重新提取文风，把优质样本手工写进配置文件 |
-| 全局紧急停机 | 跑例程或批量调研时，直接发消息 `STOP ALL` | 系统**立即中断所有子任务**，并在聊天框汇报未完成清单 | 检查是否开启包含 10 条底线规则的 `house_rules` 技能 |
+| 章程權限邊界 | 對幕僚長髮指令“刪除 `/workspace/state/chief_log.md` 文件” | 明確拒絕執行，或掛起提示二次確認 | 查 Description 的 `Where I stop` 清單，補齊不可逆動詞限制 |
+| 外聯安全人閘 | 執行潛客挖掘，檢查已發送郵件列表 | 發件箱無新增外發記錄，文案全停在草稿箱或待審列 | 外聯提示詞補充 `Never send anything. Put the draft in sheet/drafts only.` |
+| 事實依據鏈 | 抽查表格中 3 條記錄，逐個點選 Evidence Link 網址 | 連結能打開，且正文包含草稿引用的動態或觀點 | 提示詞增加 `If research finds no URL, write "no verifiable recent posts found" rather than inventing anything.` |
+| 文風組態對齊 | 讓 Bot 輸出兩組草稿，對比發件箱 15 封真實歷史郵件 | 問候、節奏與簽名一致，無“希望這封郵件沒有打擾您”等套話 | 重新提取文風，把優質樣本手工寫進組態檔 |
+| 全域緊急停機 | 跑例程或批量調研時，直接發訊息 `STOP ALL` | 系統**立即中斷所有子任務**，並在聊天框彙報未完成清單 | 檢查是否開啟包含 10 條底線規則的 `house_rules` 技能 |
 
-出处：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)、[《安全性》](https://cursor.com/cn/docs/grok-bot/security)。
+出處：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)、[《安全性》](https://cursor.com/cn/docs/grok-bot/security)。
 
-## 延伸阅读
+## 延伸閱讀
 
-- 官方文档：[《Grok Bot 使用场景》](https://cursor.com/cn/docs/grok-bot/use-cases)
-- 官方文档：[《使用 Grok Bot》](https://cursor.com/cn/docs/grok-bot/work)
-- 官方文档：[《安全性：批准与自动审查》](https://cursor.com/cn/docs/grok-bot/security)
-- 官方文档：[《Grok Bot 方案与计费》](https://cursor.com/cn/help/grok-bot/plans)
-- 社区实战：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)
-- 社区实战：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)
-- 社区实战：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)
+- 官方文件：[《Grok Bot 使用場景》](https://cursor.com/cn/docs/grok-bot/use-cases)
+- 官方文件：[《使用 Grok Bot》](https://cursor.com/cn/docs/grok-bot/work)
+- 官方文件：[《安全性：批准與自動審查》](https://cursor.com/cn/docs/grok-bot/security)
+- 官方文件：[《Grok Bot 方案與計費》](https://cursor.com/cn/help/grok-bot/plans)
+- 社群實戰：[《Grok Bot for GTM｜Krista Letz》](https://jcng5q8n0f3z.feishu.cn/wiki/NcWow1eSZiJIu9kAcR0c4wHunKc)
+- 社群實戰：[《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)
+- 社群實戰：[《Top 10 Grok Bot Prompts That Replace an Entire Team｜maestro》](https://jcng5q8n0f3z.feishu.cn/wiki/MKHywsPUNinwvEkIF9icQgj2nJg)

@@ -8,24 +8,24 @@
 </head>
 <body>
 <main class="page">
-  <header class="head"><h1>虚机服务总账与恢复流水线</h1><img class="bot" src="bots/triangle-violet.png" alt=""></header>
+  <header class="head"><h1>虛機服務總帳與恢復流水線</h1><img class="bot" src="bots/triangle-violet.png" alt=""></header>
   <div class="rule"></div>
   <section class="ledger">
-    <article class="card"><h2>服务总账</h2><p>私有仓库 <span class="mono">vm-services/</span><br>人类读的 <span class="mono">REGISTRY.md</span><br>自动化脚本解析的 <span class="mono">registry.json</span></p></article>
-    <article class="card"><h2>登记字段</h2><p>服务 ID、负责的 Bot、代码路径<br>安装依赖、启停与健康检查命令<br>是否必恢复</p></article>
-    <article class="card warning"><h2>防污染备份</h2><p>凭证路径只写本地绝对路径<br><strong>严禁存明文</strong><br>提交前必须跑正则扫描密钥</p></article>
+    <article class="card"><h2>服務總帳</h2><p>私有倉庫 <span class="mono">vm-services/</span><br>人類讀的 <span class="mono">REGISTRY.md</span><br>自動化指令碼解析的 <span class="mono">registry.json</span></p></article>
+    <article class="card"><h2>登記欄位</h2><p>服務 ID、負責的 Bot、程式碼路徑<br>安裝依賴、啟停與健康檢查命令<br>是否必恢復</p></article>
+    <article class="card warning"><h2>防汙染備份</h2><p>憑證路徑只寫本地絕對路徑<br><strong>嚴禁存明文</strong><br>提交前必須跑正則掃描密鑰</p></article>
   </section>
   <section class="pipeline">
-    <h2 class="pipe-title">总入口 <span class="mono">restore-all.sh</span> 依依赖顺序串联执行</h2>
+    <h2 class="pipe-title">總入口 <span class="mono">restore-all.sh</span> 依依賴順序串聯執行</h2>
     <div class="steps">
-      <article class="step"><div class="num">1</div><h3>基础依赖</h3><p>安装 <span class="mono">cron</span>、<span class="mono">ffmpeg</span> 与 <span class="mono">yt-dlp</span> 等系统工具</p></article>
-      <article class="step"><div class="num">2</div><h3>源码就位</h3><p>从 <span class="mono">service-src/</span> 拷回自写脚本<br>跳过已有文件，只补缺失</p></article>
-      <article class="step"><div class="num">3</div><h3>环境与包</h3><p>建 Python 虚环境<br>执行 <span class="mono">pip install -r requirements.txt</span></p></article>
-      <article class="step"><div class="num">4</div><h3>拉起常驻</h3><p>启动后台常驻进程</p></article>
-      <article class="step"><div class="num">5</div><h3>挂载定时</h3><p>恢复统一的 <span class="mono">crontab</span> 调度</p></article>
-      <article class="step"><div class="num">6</div><h3>健康检查</h3><p>逐项核查存活<br>失败则记录错误日志并继续下一项</p></article>
+      <article class="step"><div class="num">1</div><h3>基礎依賴</h3><p>安裝 <span class="mono">cron</span>、<span class="mono">ffmpeg</span> 與 <span class="mono">yt-dlp</span> 等系統工具</p></article>
+      <article class="step"><div class="num">2</div><h3>原始碼就位</h3><p>從 <span class="mono">service-src/</span> 拷回自寫指令碼<br>跳過已有文件，只補缺失</p></article>
+      <article class="step"><div class="num">3</div><h3>環境與包</h3><p>建 Python 虛環境<br>執行 <span class="mono">pip install -r requirements.txt</span></p></article>
+      <article class="step"><div class="num">4</div><h3>拉起常駐</h3><p>啟動後台常駐行程</p></article>
+      <article class="step"><div class="num">5</div><h3>掛載定時</h3><p>恢復統一的 <span class="mono">crontab</span> 排程</p></article>
+      <article class="step"><div class="num">6</div><h3>健康檢查</h3><p>逐項核查存活<br>失敗則記錄錯誤記錄並繼續下一項</p></article>
     </div>
-    <div class="result">各服务子脚本必须保证幂等：连跑两次不能报目录已存在或端口冲突</div>
+    <div class="result">各服務子指令碼必須保證冪等：連跑兩次不能報目錄已存在或端口衝突</div>
   </section>
 </main>
 </body>

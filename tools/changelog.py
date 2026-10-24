@@ -74,25 +74,25 @@ def fetch_android():
     return [{'id': f'android-{d}', 'platform': 'android', 'version': '', 'date': d, 'url': PLAY, 'title': '', 'sections': {'Notes': notes}}]
 
 
-PROMPT = """你在给一个非官方的 Grok Bot 中文学习站写更新日志摘要。下面是官方英文更新记录（JSON 数组）。
-对每一条，用你自己的话写简体中文摘要，不要逐句翻译：
-- title：不超过 16 个字的中文标题，概括这一版最值得关心的变化
-- points：最多 4 条，每条不超过 32 个字，挑普通用户最在意的新功能和改进，按重要程度排序；只有通用修复时写一条概括
-- 不用「我们」，不加 emoji，不加句号以外的装饰，产品名保留 Grok Bot、Bot、Mac、Windows、iOS、Android 等英文
-只输出 JSON 对象，键是每条的 id，值是 {"title": "...", "points": ["..."]}，不要任何其他文字。
+PROMPT = """你在給一個非官方的 Grok Bot 中文學習站寫更新記錄摘要。下面是官方英文更新記錄（JSON 陣列）。
+對每一條，用你自己的話寫簡體中文摘要，不要逐句翻譯：
+- title：不超過 16 個字的中文標題，概括這一版最值得關心的變化
+- points：最多 4 條，每條不超過 32 個字，挑普通使用者最在意的新功能和改進，按重要程度排序；只有通用修復時寫一條概括
+- 不用「我們」，不加 emoji，不加句號以外的裝飾，產品名保留 Grok Bot、Bot、Mac、Windows、iOS、Android 等英文
+只輸出 JSON 物件，鍵是每條的 id，值是 {"title": "...", "points": ["..."]}，不要任何其他文字。
 
 """
 
 
-SECTION = {'New': '新功能', 'Improved': '改进', 'Fixed': '修复', 'Notes': ''}
+SECTION = {'New': '新功能', 'Improved': '改進', 'Fixed': '修復', 'Notes': ''}
 
-TPROMPT = """把下面 Grok Bot 官方英文更新记录完整翻译成简体中文。要求：
-- 逐条忠实翻译，不删、不并、不加，条目数量和顺序与原文完全一致
-- 语言自然通顺，像中文软件更新说明
-- 产品名和专有名词保留英文：Grok Bot、Bot、Mac、Windows、iOS、Android、Slack、GitHub、Outlook、Gmail、Figma、Notion、X、Webhook、Secure Form、Auto-review 等
-- 界面上的按钮、菜单、提示文字保留英文原文，用「」括起来，例如「Contact Support」
-- 固定译法：routine 译为触发器，computer 指 Bot 的电脑时译为 Bot 的电脑，skill 译为技能，plugin 译为插件，connector 译为连接器，Team Bot 译为团队 Bot，approval card 译为审批卡片，question card 译为提问卡片
-只输出 JSON 对象，键是每条的 id，值是对象：键为原文分组名（如 New、Improved、Fixed、Notes），值为与原文一一对应的中文字符串数组。不要任何其他文字。
+TPROMPT = """把下面 Grok Bot 官方英文更新記錄完整翻譯成簡體中文。要求：
+- 逐條忠實翻譯，不刪、不併、不加，條目數量和順序與原文完全一致
+- 語言自然通順，像中文軟體更新說明
+- 產品名和專有名詞保留英文：Grok Bot、Bot、Mac、Windows、iOS、Android、Slack、GitHub、Outlook、Gmail、Figma、Notion、X、Webhook、Secure Form、Auto-review 等
+- 介面上的按鈕、選單、提示文字保留英文原文，用「」括起來，例如「Contact Support」
+- 固定譯法：routine 譯為觸發器，computer 指 Bot 的電腦時譯為 Bot 的電腦，skill 譯為技能，plugin 譯為外掛，connector 譯為連線器，Team Bot 譯為團隊 Bot，approval card 譯為審批卡片，question card 譯為提問卡片
+只輸出 JSON 物件，鍵是每條的 id，值是物件：鍵為原文分組名（如 New、Improved、Fixed、Notes），值為與原文一一對應的中文字串陣列。不要任何其他文字。
 
 """
 
@@ -181,7 +181,7 @@ def main():
                              'title': res[r['id']]['title'], 'points': res[r['id']]['points'][:4], **({'full': have[r['id']]['full']} if r['id'] in have and have[r['id']].get('full') else {})}
         print(f'summarized {k + len(batch)}/{len(todo)}', file=sys.stderr)
     tl = [r for r in raw if '--retranslate' in args or not have[r['id']].get('full')]
-    order = {'新功能': 0, '改进': 1, '修复': 2, '': 3}
+    order = {'新功能': 0, '改進': 1, '修復': 2, '': 3}
     parts = {}
     with ThreadPoolExecutor(2) as ex:
         for res in ex.map(translate, batches(tl)):

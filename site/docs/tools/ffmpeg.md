@@ -9,28 +9,28 @@ next: false
 
 <ToolMeta id="ffmpeg" />
 
-FFmpeg 是多媒体底层处理的核心工具，适合让 Bot 完成 **音视频转码、压缩、截帧与音频提取**。
+FFmpeg 是多媒體底層處理的核心工具，適合讓 Bot 完成 **音影片轉碼、壓縮、截幀與音訊提取**。
 
-## 发给 Bot 的提示词
+## 發給 Bot 的提示詞
 
-复制下方整段内容发送给你的 Grok Bot，它会在云电脑上自动安装并验证，遇到登录或配置密钥时会暂停等待你操作。
+複製下方整段內容發送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登錄或組態密鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 FFmpeg（https://ffmpeg.org/download.html），以后处理音视频转码、剪辑、压缩和截帧用它。
+幫我在你的雲端電腦上安裝 FFmpeg（https://ffmpeg.org/download.html），以後處理音影片轉碼、剪輯、壓縮和截幀用它。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 确认当前云电脑具备基础管理权限。
+- 確認當前雲端電腦具備基礎管理權限。
 
-## 来源
+## 來源
 
-- [FFmpeg 官方下载页](https://ffmpeg.org/download.html)
+- [FFmpeg 官方下載頁](https://ffmpeg.org/download.html)
 
-> 本页为社区非官方整理，与该工具厂商、xAI 均无隶属关系，命令以官方文档为准。
+> 本頁為社群非官方整理，與該工具廠商、xAI 均無隸屬關係，命令以官方文件為準。
 
-[← 返回目录](/tools/)
+[← 返回目錄](/tools/)

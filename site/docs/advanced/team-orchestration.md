@@ -1,19 +1,19 @@
-# 团队编排：章程、岗位与放权
+# 團隊編排：章程、崗位與放權
 
-::: info 提纲
-本页目前为提纲，正文待补充。
+::: info 提綱
+本頁目前為提綱，正文待補充。
 :::
 
-## 要点
+## 要點
 
-- 主 Bot（幕僚长）只派活与验收
+- 主 Bot（幕僚長）只派活與驗收
 - 六行合同式描述
-- 从 1 个专职 Bot 逐步扩编
-- 放权分级
+- 從 1 個專職 Bot 逐步擴編
+- 放權分級
 
-## 来源
+## 來源
 
-- [4.2 团队编排：章程、岗位与放权](https://jcng5q8n0f3z.feishu.cn/wiki/POTrwwThoiQxIakFDIDcUcKjnmh)
+- [4.2 團隊編排：章程、崗位與放權](https://jcng5q8n0f3z.feishu.cn/wiki/POTrwwThoiQxIakFDIDcUcKjnmh)
 - [Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)
-- [从一个 Bot 到一整个组织，Grok Bot 的进阶用法分享：本地电脑、AI 分工和知识库怎么接起来](https://jcng5q8n0f3z.feishu.cn/wiki/DdqFwLmn7i8cV1kYtDwc840enLg)
-- [零基础搭建全自动化Agent团队，Grok Bot从开通到多AI协作全流程【万字长文】](https://jcng5q8n0f3z.feishu.cn/wiki/XLjCwUT8AiRWFVktR9wcUFJYnMd)
+- [從一個 Bot 到一整個組織，Grok Bot 的進階用法分享：本地電腦、AI 分工和知識庫怎麼接起來](https://jcng5q8n0f3z.feishu.cn/wiki/DdqFwLmn7i8cV1kYtDwc840enLg)
+- [零基礎搭建全自動化Agent團隊，Grok Bot從開通到多AI協作全流程【萬字長文】](https://jcng5q8n0f3z.feishu.cn/wiki/XLjCwUT8AiRWFVktR9wcUFJYnMd)

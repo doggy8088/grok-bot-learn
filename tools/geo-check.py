@@ -29,9 +29,9 @@ UA_PROBES = {
     'Baiduspider': 'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
     'Bytespider': 'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)',
 }
-DEPRECATED = {'HowTo': 'Google 2023-09 起不再展示 HowTo 富结果', 'SpecialAnnouncement': '2025-07 已弃用',
+DEPRECATED = {'HowTo': 'Google 2023-09 起不再展示 HowTo 富結果', 'SpecialAnnouncement': '2025-07 已棄用',
               'CourseInfo': '2025-06 已退役', 'EstimatedSalary': '2025-06 已退役', 'LearningVideo': '2025-06 已退役'}
-INFO_TYPES = {'FAQPage': 'Google 2026-05 起不再展示 FAQ 富结果，AI 引用收益未经证实'}
+INFO_TYPES = {'FAQPage': 'Google 2026-05 起不再展示 FAQ 富結果，AI 引用收益未經證實'}
 ARTICLE = {'Article', 'TechArticle', 'BlogPosting', 'NewsArticle'}
 CJK = re.compile(r'[\u3400-\u9fff\uf900-\ufaff]')
 
@@ -56,23 +56,23 @@ def score_block(text, heading):
     sents = [s for s in re.split(r'[。！？!?；;\n]+', text) if s.strip()]
     s = {'answer': 0, 'self': 0, 'structure': 0, 'stats': 0, 'unique': 0}
     head = text[:110]
-    if re.search(r'(是|指|即|意思是|定义为|就是|本质上|简单说)', head):
+    if re.search(r'(是|指|即|意思是|定義為|就是|本質上|簡單說)', head):
         s['answer'] += 15
-    if re.search(r'\d|是|指|可以|需要|必须|不能|支持', head):
+    if re.search(r'\d|是|指|可以|需要|必須|不能|支援', head):
         s['answer'] += 10
-    if heading and re.search(r'[？?]|什么|怎么|如何|为什么|哪些|哪个|能不能|是否|多少', heading):
+    if heading and re.search(r'[？?]|什麼|怎麼|如何|為什麼|哪些|哪個|能不能|是否|多少', heading):
         s['answer'] += 10
     if sents:
         good = sum(1 for x in sents if 8 <= len(x.strip()) <= 60)
         s['answer'] += int(good / len(sents) * 5)
-    if re.search(r'(根据|据|官方(文档|说明|公告)|帮助中心|xAI 表示|文档显示)', text):
+    if re.search(r'(根據|據|官方(文件|說明|公告)|幫助中心|xAI 表示|文件顯示)', text):
         s['answer'] += 5
     s['answer'] = min(s['answer'], 30)
     if 134 <= u <= 167: s['self'] += 10
     elif 100 <= u <= 200: s['self'] += 7
     elif 80 <= u <= 250: s['self'] += 4
     elif 30 <= u <= 400: s['self'] += 2
-    pron = len(re.findall(r'(它们|它|这些|那些|这个|那个|此|其|他们|她们)', text))
+    pron = len(re.findall(r'(它們|它|這些|那些|這個|那個|此|其|他們|她們)', text))
     ratio = pron / max(u, 1)
     s['self'] += 8 if ratio < 0.02 else 5 if ratio < 0.04 else 3 if ratio < 0.06 else 0
     names = len(set(re.findall(r'\b[A-Z][A-Za-z0-9\-]+(?:\s+[A-Z][A-Za-z0-9\-]+)*', text)))
@@ -81,19 +81,19 @@ def score_block(text, heading):
     if sents:
         avg = sum(len(x) for x in sents) / len(sents)
         s['structure'] += 8 if 15 <= avg <= 45 else 5 if 10 <= avg <= 60 else 2
-    if re.search(r'(首先|其次|然后|最后|第一|第二|另外|此外)', text): s['structure'] += 4
-    if re.search(r'(^|\n)\s*\d+[\.、）)]|步骤\s*\d|第\s*\d+\s*步', text): s['structure'] += 4
+    if re.search(r'(首先|其次|然後|最後|第一|第二|另外|此外)', text): s['structure'] += 4
+    if re.search(r'(^|\n)\s*\d+[\.、）)]|步驟\s*\d|第\s*\d+\s*步', text): s['structure'] += 4
     if '\n' in text: s['structure'] += 4
     s['structure'] = min(s['structure'], 20)
     s['stats'] += min(len(re.findall(r'\d+(?:\.\d+)?\s*%', text)) * 3, 6)
     s['stats'] += min(len(re.findall(r'[$¥￥]\s?\d|\d+\s*(美元|元|刀)', text)) * 3, 5)
-    s['stats'] += min(len(re.findall(r'\d+(?:\.\d+)?\s*(个|次|小时|分钟|秒|天|周|月|倍|万|GB|MB|x|X|档|步|位)', text)) * 2, 4)
+    s['stats'] += min(len(re.findall(r'\d+(?:\.\d+)?\s*(個|次|小時|分鐘|秒|天|周|月|倍|萬|GB|MB|x|X|檔|步|位)', text)) * 2, 4)
     if re.search(r'20(2[3-9]|1\d)', text): s['stats'] += 2
-    if re.search(r'(xAI|Cursor|OpenAI|Google|官方|帮助中心|status\.)', text): s['stats'] += 2
+    if re.search(r'(xAI|Cursor|OpenAI|Google|官方|幫助中心|status\.)', text): s['stats'] += 2
     s['stats'] = min(s['stats'], 15)
-    if re.search(r'(实测|我们发现|我们测试|亲测|我的做法|我用|作者称)', text): s['unique'] += 5
-    if re.search(r'(案例|例如|比如|举例)', text): s['unique'] += 3
-    if re.search(r'(Grok Bot|Cursor|飞书|微信|Slack|Notion|GitHub|X )', text): s['unique'] += 2
+    if re.search(r'(實測|我們發現|我們測試|親測|我的做法|我用|作者稱)', text): s['unique'] += 5
+    if re.search(r'(案例|例如|比如|舉例)', text): s['unique'] += 3
+    if re.search(r'(Grok Bot|Cursor|飛書|微信|Slack|Notion|GitHub|X )', text): s['unique'] += 2
     s['unique'] = min(s['unique'], 10)
     return sum(s.values()), s, round(u)
 
@@ -131,10 +131,10 @@ def check_schema(blocks):
         try:
             d = json.loads(raw)
         except Exception as e:
-            errors.append(f'JSON-LD 解析失败: {e}')
+            errors.append(f'JSON-LD 解析失敗: {e}')
             continue
         ctx = d.get('@context', '') if isinstance(d, dict) else ''
-        if ctx and ctx != 'https://schema.org': errors.append(f'@context 应为 https://schema.org（现为 {ctx}）')
+        if ctx and ctx != 'https://schema.org': errors.append(f'@context 應為 https://schema.org（現為 {ctx}）')
         flat_types(d, nodes)
     types = []
     for n in nodes:
@@ -142,7 +142,7 @@ def check_schema(blocks):
         types += t
         for k in ('url', 'item', 'image', 'mainEntityOfPage', 'contentUrl', 'thumbnailUrl'):
             v = n.get(k)
-            if isinstance(v, str) and v and not v.startswith('http'): errors.append(f'{t[0]}.{k} 不是绝对地址: {v}')
+            if isinstance(v, str) and v and not v.startswith('http'): errors.append(f'{t[0]}.{k} 不是絕對地址: {v}')
         for k in ('datePublished', 'dateModified', 'uploadDate'):
             v = n.get(k)
             if v and not re.match(r'^\d{4}-\d{2}-\d{2}', str(v)): errors.append(f'{t[0]}.{k} 不是 ISO 8601: {v}')
@@ -152,7 +152,7 @@ def check_schema(blocks):
         if 'VideoObject' in t:
             for k in ('name', 'description', 'thumbnailUrl', 'uploadDate'):
                 if not n.get(k): errors.append(f'VideoObject 缺少 {k}')
-        if re.search(r'\[[^\]]*(Name|名称)\]', json.dumps(n, ensure_ascii=False)): errors.append('疑似占位文本')
+        if re.search(r'\[[^\]]*(Name|名稱)\]', json.dumps(n, ensure_ascii=False)): errors.append('疑似佔位文本')
     warn = [f'{t}: {DEPRECATED[t]}' for t in set(types) if t in DEPRECATED]
     info = [f'{t}: {INFO_TYPES[t]}' for t in set(types) if t in INFO_TYPES]
     return sorted(set(types)), errors, warn, info
@@ -202,7 +202,7 @@ def page(url, site):
     top = [x[0][0] for x in scored[:5]]
     rec['citability'] = round(sum(top) / len(top), 1) if top else 0
     rec['blocks'] = len(bl)
-    rec['q_headings'] = sum(1 for hd, _ in bl if hd and re.search(r'[？?]|什么|怎么|如何|为什么|哪些|能不能|是否', hd))
+    rec['q_headings'] = sum(1 for hd, _ in bl if hd and re.search(r'[？?]|什麼|怎麼|如何|為什麼|哪些|能不能|是否', hd))
     rec['weakest'] = [{'heading': hd, 'score': sc[0], 'units': sc[2]} for sc, hd, t in scored[-2:]] if scored else []
     return rec
 
@@ -270,11 +270,11 @@ def drift(cur, base):
     for u, b in base.items():
         c = cur.get(u)
         if not c:
-            out.append(('WARNING', u, '页面不在本次站点地图', '', ''))
+            out.append(('WARNING', u, '頁面不在本次站點地圖', '', ''))
             continue
         if c.get('status') != b.get('status') and (c.get('status') or 0) >= 300:
-            out.append(('CRITICAL', u, '状态码变化', b.get('status'), c.get('status')))
-        for k, sev, name in (('canonical', 'CRITICAL', 'canonical 变化'), ('title', 'WARNING', '标题变化'), ('description', 'WARNING', '描述变化'), ('og_title', 'WARNING', 'og:title 变化')):
+            out.append(('CRITICAL', u, '狀態碼變化', b.get('status'), c.get('status')))
+        for k, sev, name in (('canonical', 'CRITICAL', 'canonical 變化'), ('title', 'WARNING', '標題變化'), ('description', 'WARNING', '描述變化'), ('og_title', 'WARNING', 'og:title 變化')):
             if (b.get(k) or '') != (c.get(k) or ''):
                 if k == 'canonical' and not c.get(k): name = 'canonical 被移除'
                 out.append((sev, u, name, b.get(k), c.get(k)))
@@ -284,13 +284,13 @@ def drift(cur, base):
             out.append(('CRITICAL', u, 'H1 被移除', b.get('h1'), ''))
         lost = set(b.get('schema_types', [])) - set(c.get('schema_types', []))
         gain = set(c.get('schema_types', [])) - set(b.get('schema_types', []))
-        if lost: out.append(('CRITICAL' if lost & (ARTICLE | {'BreadcrumbList', 'WebSite', 'Person', 'SoftwareApplication', 'VideoObject'}) else 'WARNING', u, '结构化数据类型被移除', sorted(lost), ''))
-        if gain: out.append(('INFO', u, '新增结构化数据类型', '', sorted(gain)))
-        if not lost and not gain and b.get('schema_hash') != c.get('schema_hash'): out.append(('INFO', u, '结构化数据内容有改动', '', ''))
-        if b.get('h2') != c.get('h2'): out.append(('INFO', u, 'H2 结构变化', '', ''))
+        if lost: out.append(('CRITICAL' if lost & (ARTICLE | {'BreadcrumbList', 'WebSite', 'Person', 'SoftwareApplication', 'VideoObject'}) else 'WARNING', u, '結構化資料型別被移除', sorted(lost), ''))
+        if gain: out.append(('INFO', u, '新增結構化資料型別', '', sorted(gain)))
+        if not lost and not gain and b.get('schema_hash') != c.get('schema_hash'): out.append(('INFO', u, '結構化資料內容有改動', '', ''))
+        if b.get('h2') != c.get('h2'): out.append(('INFO', u, 'H2 結構變化', '', ''))
         if b.get('content_hash') != c.get('content_hash'): out.append(('INFO', u, '正文有更新', '', ''))
     for u in cur:
-        if u not in base: out.append(('INFO', u, '新页面', '', ''))
+        if u not in base: out.append(('INFO', u, '新頁面', '', ''))
     return out
 
 
@@ -359,24 +359,24 @@ def main():
         res['drift'] = drift_rows
     if a.json:
         json.dump(res, open(a.json, 'w'), ensure_ascii=False, indent=1, default=str)
-    L = [f'GEO 检查 {site}  {now:%Y-%m-%d %H:%M} SGT  站点地图 {len(urls)} 页']
+    L = [f'GEO 檢查 {site}  {now:%Y-%m-%d %H:%M} SGT  站點地圖 {len(urls)} 頁']
     blocked = rb.get('blocked', [])
-    L.append(f"爬虫：robots {'可读' if rb.get('ok') else '不可读'}，被拦 {', '.join(blocked) if blocked else '无'}；具名组 {len(rb.get('named_groups', []))} 个；Content-Signal {'有' if rb.get('content_signal') else '无'}；UA 实测非 200：{', '.join(k for k, v in probes.items() if v['status'] != 200) or '无'}；爬虫分 {crawler_score}")
+    L.append(f"爬蟲：robots {'可讀' if rb.get('ok') else '不可讀'}，被攔 {', '.join(blocked) if blocked else '無'}；具名組 {len(rb.get('named_groups', []))} 個；Content-Signal {'有' if rb.get('content_signal') else '無'}；UA 實測非 200：{', '.join(k for k, v in probes.items() if v['status'] != 200) or '無'}；爬蟲分 {crawler_score}")
     if llms['status'] == 200:
-        L.append(f"llms.txt：200 {llms.get('ctype')}，{llms['sections']} 节 {llms['links']} 链接，覆盖站点地图 {llms['coverage']:.0%}，llms-full {llms.get('full_status')} {llms.get('full_bytes', 0) // 1024}KB，得分 {llms['score']}")
+        L.append(f"llms.txt：200 {llms.get('ctype')}，{llms['sections']} 節 {llms['links']} 連結，覆蓋站點地圖 {llms['coverage']:.0%}，llms-full {llms.get('full_status')} {llms.get('full_bytes', 0) // 1024}KB，得分 {llms['score']}")
         if llms['missing_from_llms']: L.append('  llms.txt 缺：' + ', '.join(u.replace(site, '') or '/' for u in llms['missing_from_llms'][:10]))
     else:
         L.append(f"llms.txt：缺失（{llms['status']}）")
-    L.append('结构化数据覆盖：' + '，'.join(f'{k} {v}/{len(ok)}' for k, v in cov.items()))
-    for k, name in (('schema_errors', '结构化数据错误'), ('schema_deprecated', '已弃用类型'), ('schema_info', '提示')):
+    L.append('結構化資料覆蓋：' + '，'.join(f'{k} {v}/{len(ok)}' for k, v in cov.items()))
+    for k, name in (('schema_errors', '結構化資料錯誤'), ('schema_deprecated', '已棄用型別'), ('schema_info', '提示')):
         if issues[k]: L.append(f'{name}：' + '；'.join(f"{u.replace(site, '') or '/'} {', '.join(v[:3])}" for u, v in list(issues[k].items())[:6]))
-    L.append(f'可引用度（中文适配版，0-100）：均值 {cit_avg}；最低：' + '，'.join(f"{u.replace(site, '') or '/'} {c}" for c, u in cit[:5]))
+    L.append(f'可引用度（中文適配版，0-100）：均值 {cit_avg}；最低：' + '，'.join(f"{u.replace(site, '') or '/'} {c}" for c, u in cit[:5]))
     tech = [(k, v) for k, v in issues.items() if k in ('non_200', 'charset_missing', 'canonical_mismatch', 'lang_not_zh', 'no_description', 'dup_description', 'no_schema', 'article_missing_dates', 'thin_ssr') and v]
-    L.append('技术项：' + ('；'.join(f'{k} {len(v)}' for k, v in tech) if tech else '全部通过'))
-    if issues['no_content_inlinks']: L.append('正文无站内入链：' + ', '.join(u.replace(site, '') or '/' for u in issues['no_content_inlinks'][:8]))
+    L.append('技術項：' + ('；'.join(f'{k} {len(v)}' for k, v in tech) if tech else '全部通過'))
+    if issues['no_content_inlinks']: L.append('正文無站內入鏈：' + ', '.join(u.replace(site, '') or '/' for u in issues['no_content_inlinks'][:8]))
     if not a.no_drift:
         cnt = {s: sum(1 for r in drift_rows if r[0] == s) for s in ('CRITICAL', 'WARNING', 'INFO')}
-        L.append(f"漂移（对比 {res['drift_base']}）：CRITICAL {cnt['CRITICAL']} / WARNING {cnt['WARNING']} / INFO {cnt['INFO']}")
+        L.append(f"漂移（對比 {res['drift_base']}）：CRITICAL {cnt['CRITICAL']} / WARNING {cnt['WARNING']} / INFO {cnt['INFO']}")
         for r in [r for r in drift_rows if r[0] != 'INFO'][:10]:
             L.append(f"  {r[0]} {r[1].replace(site, '') or '/'} {r[2]}：{str(r[3])[:60]} → {str(r[4])[:60]}")
     print('\n'.join(L))

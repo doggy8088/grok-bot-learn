@@ -10,8 +10,8 @@ const chip: Record<string, string> = { pc: 'PC', ios: 'iOS', android: 'Android' 
 const tabs = [
   { k: 'all', t: '全部' },
   { k: 'pc', t: 'PC' },
-  { k: 'mobile', t: '移动端' },
-  { k: 'ours', t: '我们的解读' }
+  { k: 'mobile', t: '行動裝置端' },
+  { k: 'ours', t: '我們的解讀' }
 ]
 const items: Item[] = [
   ...data.official.map((e: any) => ({ kind: e.platform === 'pc' ? 'pc' : 'mobile', summary: '', ...e })),
@@ -46,7 +46,7 @@ function pick(k: string) {
         <img class="c" src="/bots/goutte-rose.svg" alt="" width="64" height="64" />
         <img src="/bots/triangle-violet.svg" alt="" width="44" height="44" />
       </div>
-      <h1>更新日志</h1>
+      <h1>更新記錄</h1>
       <p class="tz-tidy">{{ tidy(ui.lead) }}</p>
       <p class="cl-meta">{{ ui.synced }} {{ data.updated }} · {{ ui.note }}</p>
     </section>
@@ -66,7 +66,7 @@ function pick(k: string) {
             <article class="cl-card">
               <div class="cl-chips">
                 <img v-if="it.kind === 'ours'" class="cl-face" src="/bots/goutte-rose.svg" alt="" width="22" height="22" />
-                <span v-if="it.kind === 'ours'" class="cl-chip ours">我们的解读</span>
+                <span v-if="it.kind === 'ours'" class="cl-chip ours">我們的解讀</span>
                 <span v-else class="cl-chip" :class="it.platform">{{ chip[it.platform] }}</span>
                 <span v-if="it.version" class="cl-ver">v{{ it.version }}</span>
               </div>

@@ -21,25 +21,25 @@ for p in parts0:
 D = os.environ.get("D","gsec") + f"/{slug}"; os.makedirs(D, exist_ok=True)
 def job(i):
     s = parts[i]; out = f"{D}/{i:02d}.md"
-    if "## 延伸阅读" in s or len(s) < 200:
+    if "## 延伸閱讀" in s or len(s) < 200:
         open(out, "w").write(s.strip() + "\n"); return i, len(s), len(s)
     if os.path.exists(out): return i, len(s), len(open(out).read())
-    codes = re.findall(r"(?s:```.*?```)|(?:^> (?:来源|作者)：.*(?:\n|$))+|^!\[[^\]]*\]\(/cases-img/[^)]*\)", s, flags=re.M)
+    codes = re.findall(r"(?s:```.*?```)|(?:^> (?:來源|作者)：.*(?:\n|$))+|^!\[[^\]]*\]\(/cases-img/[^)]*\)", s, flags=re.M)
     ph = s
     for n, c in enumerate(codes): ph = ph.replace(c.rstrip("\n"), f"[[CODE{n}]]", 1)
     codes = [c.rstrip("\n") for c in codes]
     T = int(len(re.sub(r"\[\[CODE\d+\]\]", "", ph)) * float(os.environ.get("R","0.4")))
-    q = f"""以下是去 AI 腔写作规则：
+    q = f"""以下是去 AI 腔寫作規則：
 {RULE}
 
-按上面规则写出没有 AI 腔的中文，不要调用任何工具，直接输出。把下面这段网页教程大幅精简：正文控制在 {T} 字以内。语气平实口语，像老用户给朋友讲。
-1. 去掉重复、铺垫、空泛总结和过渡句，把事讲清楚。
-2. 必须保留：操作步骤、命令、具体数字与限制、坑点、验收标准、链接、图片行。
-3. 形如 [[CODE0]] 的占位符各自单独占一行原样保留，不得改动或删除。
-4. 二级标题原样保留；三级标题可合并或删减。
-5. 每段 1 到 3 句，多用列表、编号步骤、表格。
-6. 关键句用 **加粗**，每个小节 1 到 3 处，不滥用。
-7. 不加 emoji、HTML 注释、装饰标签，不写开场白和结束语。只输出 Markdown，不要代码围栏包住全文。
+按上面規則寫出沒有 AI 腔的中文，不要呼叫任何工具，直接輸出。把下面這段網頁課程大幅精簡：正文控制在 {T} 字以內。語氣平實口語，像老使用者給朋友講。
+1. 去掉重複、鋪墊、空泛總結和過渡句，把事講清楚。
+2. 必須保留：操作步驟、命令、具體數位與限制、坑點、驗收標準、連結、圖片行。
+3. 形如 [[CODE0]] 的佔位符各自單獨佔一行原樣保留，不得改動或刪除。
+4. 二級標題原樣保留；三級標題可合併或刪減。
+5. 每段 1 到 3 句，多用列表、編號步驟、表格。
+6. 關鍵句用 **加粗**，每個小節 1 到 3 處，不濫用。
+7. 不加 emoji、HTML 註釋、裝飾標記，不寫開場白和結束語。只輸出 Markdown，不要程式碼圍欄包住全文。
 
 {ph}"""
     for t in range(3):
@@ -72,7 +72,7 @@ while i < len(lines):
         while j < len(lines) and not lines[j].startswith("```"): j += 1
         blk = lines[i:j + 1]
         if len(blk) > 8:
-            h = next((x.lstrip("#").strip() for x in reversed(out) if x.startswith("#")), "提示词")
+            h = next((x.lstrip("#").strip() for x in reversed(out) if x.startswith("#")), "提示詞")
             out += [f"::: details {re.sub(r'^\\d+\\.\\s*', '', h)}", *blk, ":::"]
         else: out += blk
         i = j + 1; continue

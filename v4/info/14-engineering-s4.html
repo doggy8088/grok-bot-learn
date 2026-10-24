@@ -11,53 +11,53 @@
 <body>
 <main class="page">
   <header class="top">
-    <h1 class="title">状态机与多 Bot 协作</h1>
+    <h1 class="title">狀態機與多 Bot 協作</h1>
     <img class="bot" src="bots/triangle-violet.png" alt="">
-    <div class="chief"><i class="chief-dot"></i><div><strong>1 名总管协调 4 名专员</strong><span>端到端修复管线</span></div></div>
+    <div class="chief"><i class="chief-dot"></i><div><strong>1 名總管協調 4 名專員</strong><span>端到端修復管線</span></div></div>
   </header>
   <section class="main">
     <aside>
       <div class="card workspace">
-        <h2>每个 Issue 进独立目录</h2>
+        <h2>每個 Issue 進獨立目錄</h2>
         <div class="path">/workspace/devdesk/<br>issues/&lt;issue-id&gt;/</div>
         <ul class="files">
-          <li><b>task.md</b> 原始输入与完成验收标准</li>
-          <li><b>status.json</b> 当前机器可读状态及负责人</li>
-          <li><b>evidence/</b> 失败日志、复现脚本与截图</li>
-          <li><b>implementation.md</b> 改动文件清单与最小实现方案</li>
-          <li><b>review.md</b> 独立审查结论</li>
-          <li><b>handoff.md</b> 放行报告</li>
+          <li><b>task.md</b> 原始輸入與完成驗收標準</li>
+          <li><b>status.json</b> 當前機器可讀狀態及負責人</li>
+          <li><b>evidence/</b> 失敗記錄、復現指令碼與截圖</li>
+          <li><b>implementation.md</b> 改動文件清單與最小實作方案</li>
+          <li><b>review.md</b> 獨立審查結論</li>
+          <li><b>handoff.md</b> 放行報告</li>
         </ul>
       </div>
-      <div class="evidence"><b>上一步没存测试证据，下一步绝不启动。</b></div>
+      <div class="evidence"><b>上一步沒存測試證據，下一步絕不啟動。</b></div>
     </aside>
     <section class="card flow">
-      <div class="flow-head"><h2>状态机转移契约</h2><span>严禁跳步</span></div>
+      <div class="flow-head"><h2>狀態機轉移契約</h2><span>嚴禁跳步</span></div>
       <div class="states">
         <div class="state"><b>NEW</b></div><div class="arrow"></div>
         <div class="state"><b>TRIAGED</b></div><div class="arrow"></div>
-        <div class="state em"><b>REPRODUCED</b>&nbsp; 稳定复现步骤和失败用例</div><div class="arrow"></div>
-        <div class="state"><b>BUILDING</b>&nbsp; 新分支改代码</div><div class="arrow"></div>
-        <div class="state em"><b>TESTED</b>&nbsp; 原回归用例跑通</div><div class="arrow"></div>
-        <div class="review-row"><div class="state"><b>REVIEWING</b>&nbsp; 独立看 Diff 与日志给评级</div><div class="fail"><b>FAIL</b>退回 BUILDING<br>最多重试 2 轮</div></div><div class="arrow"></div>
+        <div class="state em"><b>REPRODUCED</b>&nbsp; 穩定復現步驟和失敗使用案例</div><div class="arrow"></div>
+        <div class="state"><b>BUILDING</b>&nbsp; 新分支改程式碼</div><div class="arrow"></div>
+        <div class="state em"><b>TESTED</b>&nbsp; 原迴歸使用案例跑通</div><div class="arrow"></div>
+        <div class="review-row"><div class="state"><b>REVIEWING</b>&nbsp; 獨立看 Diff 與記錄給評級</div><div class="fail"><b>FAIL</b>退回 BUILDING<br>最多重試 2 輪</div></div><div class="arrow"></div>
         <div class="state em"><b>REVIEW_PASSED</b></div><div class="arrow"></div>
         <div class="state"><b>DRAFT_PR_READY</b></div><div class="arrow"></div>
-        <div class="state final"><b>HUMAN_APPROVAL</b>&nbsp; 提交带完整凭证的 Draft PR</div>
+        <div class="state final"><b>HUMAN_APPROVAL</b>&nbsp; 提交帶完整憑證的 Draft PR</div>
       </div>
       <div class="roles"><div class="role">Triage</div><div class="role">Builder</div><div class="role">Reviewer</div><div class="role">Release</div></div>
     </section>
     <aside class="right">
       <div class="card guard">
-        <h2>动作可逆性分级</h2>
-        <div class="rule go"><b>可逆动作 · 自主执行</b><br>代码分析、本地分支编写补丁与跑单测、生成失败用例、提 Draft PR、输出日志报告</div>
-        <div class="rule stop"><b>不可逆动作 · 停机等人审</b><br>合并代码、部署上线、修改线上数据库、变更环境变量或密钥、调用收费外部服务</div>
+        <h2>動作可逆性分級</h2>
+        <div class="rule go"><b>可逆動作 · 自主執行</b><br>程式碼分析、本地分支編寫補丁與跑單測、生成失敗使用案例、提 Draft PR、輸出記錄報告</div>
+        <div class="rule stop"><b>不可逆動作 · 停機等人審</b><br>合併程式碼、部署上線、修改線上資料庫、變更環境變數或密鑰、呼叫收費外部服務</div>
       </div>
       <div class="card board">
-        <h2>六字段任务看板</h2>
+        <h2>六欄位任務看板</h2>
         <div class="fields">Task | Owner | Source<br>Status | Deliverable<br>Next action</div>
-        <div class="status">任务状态严格限定：<br>ready · working · blocked<br>awaiting approval · complete</div>
+        <div class="status">任務狀態嚴格限定：<br>ready · working · blocked<br>awaiting approval · complete</div>
       </div>
-      <div class="skill">某类任务只要走通一次，<b>就执行命令固化为私有 Skill</b>，方便定时 Routine 重复调用。</div>
+      <div class="skill">某類任務只要走通一次，<b>就執行命令固化為私有 Skill</b>，方便定時 Routine 重複呼叫。</div>
     </aside>
   </section>
 </main>

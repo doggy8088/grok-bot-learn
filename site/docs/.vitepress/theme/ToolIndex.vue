@@ -6,11 +6,11 @@ import { tidy } from './rich'
 
 const ui = data.ui
 const skin: Record<string, string> = {
-  '编码 Agent': 'cercle-bleu',
+  '寫程式 Agent': 'cercle-bleu',
   '模型/生成': 'goutte-rose',
-  '通讯与发布': 'squircle-orange',
-  '数据抓取': 'nuage-turquoise',
-  '基础工具': 'hexagone-ambre'
+  '通訊與發表': 'squircle-orange',
+  '資料抓取': 'nuage-turquoise',
+  '基礎工具': 'hexagone-ambre'
 }
 const q = ref('')
 const cat = ref('all')

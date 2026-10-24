@@ -9,18 +9,18 @@ import tools from './theme/tools.json'
 import side from './sidebar.json'
 import seo from './seo.json'
 
-const SITE = 'https://bot.fmcat.top'
+const SITE = 'https://grok-bot-learn.gh.miniasp.com'
 const NAME = 'Grok Bot 新手指南'
-const HOME_TITLE = 'Grok Bot 新手指南：Grok Bot 中文教程与实战案例'
+const HOME_TITLE = 'Grok Bot 新手指南：Grok Bot 中文課程與實戰案例'
 const OG_IMAGE = `${SITE}/og-share.png`
 const AUTHOR_ID = SITE + '/#author'
 const SITE_ID = SITE + '/#website'
-const PERSON = { '@type': 'Person', '@id': AUTHOR_ID, name: '铁柱AGI', url: SITE + '/about', sameAs: ['https://x.com/cgnot996', 'https://github.com/RongleCat'], knowsAbout: ['Grok Bot', 'AI Agent'] }
+const PERSON = { '@type': 'Person', '@id': AUTHOR_ID, name: '鐵柱AGI', url: SITE + '/about', sameAs: ['https://x.com/cgnot996', 'https://github.com/RongleCat'], knowsAbout: ['Grok Bot', 'AI Agent'] }
 const AUTHOR = { '@id': AUTHOR_ID }
 const DOCS = resolve(__dirname, '..')
-const LLMS_NOTE = '本文件是供 AI 助手与搜索引擎读取的站点索引。本站为社区非官方教程，作者铁柱AGI，与 xAI、Cursor 无隶属关系。'
-const LLMS_MD = '各章节与案例页网址后加 .md 即为 Markdown 版本，全站正文合集在 /llms-full.txt。'
-const LLMS_FULL = '本文件收录全站教程与案例的 Markdown 正文，每篇前标有原文网址，引用时请链接原文网址。'
+const LLMS_NOTE = '本文件是供 AI 助手與搜尋引擎讀取的站點索引。本站為社群非官方課程，作者鐵柱AGI，與 xAI、Cursor 無隸屬關係。'
+const LLMS_MD = '各章節與案例頁網址後加 .md 即為 Markdown 版本，全站正文合集在 /llms-full.txt。'
+const LLMS_FULL = '本文件收錄全站課程與案例的 Markdown 正文，每篇前標有原文網址，引用時請連結原文網址。'
 const dateCache: Record<string, { published?: string; modified?: string }> = {}
 function gitDates(file: string) {
   if (dateCache[file]) return dateCache[file]
@@ -68,9 +68,9 @@ function pathOf(rel: string) {
 }
 
 const names: Record<string, string> = {
-  part1: '第一篇 · 使用手册',
+  part1: '第一篇 · 使用手冊',
   part2: '第二篇 · 案例篇',
-  part3: '第三篇 · 进阶篇',
+  part3: '第三篇 · 進階篇',
   part4: '第四篇 · 落地篇'
 }
 
@@ -78,11 +78,12 @@ const sidebar = [
   ...Object.entries(names)
     .filter(([k]) => (side as Record<string, string[][]>)[k])
     .map(([k, text]) => ({ text, collapsed: false, items: (side as Record<string, string[][]>)[k].map(([t, link]) => ({ text: t, link })) })),
-  { text: '案例库', items: [{ text: '全部案例', link: '/cases/' }, ...((side as Record<string, string[][]>).cases || []).map(([t, link]) => ({ text: t, link }))] }
+  { text: '案例庫', items: [{ text: '全部案例', link: '/cases/' }, ...((side as Record<string, string[][]>).cases || []).map(([t, link]) => ({ text: t, link }))] }
 ]
 
 export default defineConfig({
-  lang: 'zh-CN',
+ base: '/',
+  lang: 'zh-TW',
   title: NAME,
   description: descs.home,
   appearance: false,
@@ -128,19 +129,19 @@ export default defineConfig({
       L.push(`## ${t}`, '', ...items.map((r) => line(r)), '')
     }
     const cases = pages.filter((r) => r.startsWith('cases/')).sort((a, b) => (a === 'cases/index.md' ? -1 : b === 'cases/index.md' ? 1 : a.localeCompare(b)))
-    L.push('## 案例库', '', ...cases.map((r) => line(r)), '')
+    L.push('## 案例庫', '', ...cases.map((r) => line(r)), '')
     L.push('## Bot 直聘', '', `- [Bot 直聘](${SITE}/bots/): ${descs['bots/index.md'] || (bots as any).lead}`, ...(bots as any).bots.map((b: any) => `- [${b.name}](${b.url}): ${b.desc}`), '')
-    L.push('## 周边生态', '', `- [周边生态](${SITE}/ecosystem/): ${descs['ecosystem/index.md'] || (eco as any).index.lead}`, `- [Grok Bot Clipper 浏览器插件](${SITE}/ecosystem/grok-bot-clipper): ${descs['ecosystem/grok-bot-clipper.md'] || (eco as any).clipper.lead}`, '')
+    L.push('## 周邊生態', '', `- [周邊生態](${SITE}/ecosystem/): ${descs['ecosystem/index.md'] || (eco as any).index.lead}`, `- [Grok Bot Clipper 瀏覽器外掛](${SITE}/ecosystem/grok-bot-clipper): ${descs['ecosystem/grok-bot-clipper.md'] || (eco as any).clipper.lead}`, '')
     {
       const cl = changelog as any
       const tag: Record<string, string> = { pc: 'PC', ios: 'iOS', android: 'Android' }
-      L.push('## 更新日志', '', `- [更新日志](${SITE}/changelog/): ${descs['changelog/index.md'] || cl.ui.lead}`, ...cl.official.slice(0, 12).map((e: any) => `- ${e.date} ${tag[e.platform]}${e.version ? ' v' + e.version : ''} [${e.title}](${e.url}): ${e.points.map((p: string) => p.replace(/。$/, '')).join('；')}`), ...cl.ours.map((t: any) => `- ${t.date} [${t.title}](${t.url}): ${t.summary}`), '')
+      L.push('## 更新記錄', '', `- [更新記錄](${SITE}/changelog/): ${descs['changelog/index.md'] || cl.ui.lead}`, ...cl.official.slice(0, 12).map((e: any) => `- ${e.date} ${tag[e.platform]}${e.version ? ' v' + e.version : ''} [${e.title}](${e.url}): ${e.points.map((p: string) => p.replace(/。$/, '')).join('；')}`), ...cl.ours.map((t: any) => `- ${t.date} [${t.title}](${t.url}): ${t.summary}`), '')
     }
     {
       const tl = tools as any
       L.push('## ' + tl.ui.title, '', `- [${tl.ui.title}](${SITE}/tools/): ${descs['tools/index.md'] || tl.ui.lead.replace(/\*\*/g, '')}`, ...tl.tools.map((t: any) => `- [${t.name}](${SITE}/tools/${t.id}): ${descs['tools/' + t.id + '.md'] || t.desc}`), '')
     }
-    L.push('## Optional', '', `- [关于铁柱AGI](${SITE}/about): ${descs['about.md'] || ''}`, `- [付费答疑群](${SITE}/group): ${descs['group.md'] || ''}`, `- [GitHub 源码](https://github.com/RongleCat/grok-bot-learn)`, `- [铁柱AGI on X](https://x.com/cgnot996)`, '')
+    L.push('## Optional', '', `- [關於鐵柱AGI](${SITE}/about): ${descs['about.md'] || ''}`, `- [付費答疑群](${SITE}/group): ${descs['group.md'] || ''}`, `- [GitHub 原始碼](https://github.com/RongleCat/grok-bot-learn)`, `- [鐵柱AGI on X](https://x.com/cgnot996)`, '')
     writeFileSync(join(out, 'llms.txt'), L.join('\n'))
     const F: string[] = [`# ${NAME}`, '', `> ${descs.home}`, '', LLMS_FULL, '', LLMS_NOTE, '']
     for (const rel of docs) {
@@ -172,7 +173,7 @@ export default defineConfig({
       ['link', { rel: 'canonical', href: url }],
       ['meta', { property: 'og:type', content: isHome ? 'website' : 'article' }],
       ['meta', { property: 'og:site_name', content: NAME }],
-      ['meta', { property: 'og:locale', content: 'zh_CN' }],
+      ['meta', { property: 'og:locale', content: 'zh_TW' }],
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: desc }],
       ['meta', { property: 'og:url', content: url }],
@@ -191,9 +192,9 @@ export default defineConfig({
         '@id': SITE_ID,
         url: SITE + '/',
         name: NAME,
-        alternateName: ['Grok Bot 中文教程', 'Grok Bot 教程', 'Grok Bot 新手教程'],
+        alternateName: ['Grok Bot 中文課程', 'Grok Bot 課程', 'Grok Bot 新手課程'],
         description: descs.home,
-        inLanguage: 'zh-CN',
+        inLanguage: 'zh-TW',
         publisher: AUTHOR
       },
       PERSON
@@ -205,7 +206,7 @@ export default defineConfig({
       url,
       name: isHome ? HOME_TITLE : pageData.title,
       description: desc,
-      inLanguage: 'zh-CN',
+      inLanguage: 'zh-TW',
       isPartOf: { '@id': SITE_ID },
       ...(dates.published ? { datePublished: dates.published, dateModified: dates.modified } : {}),
       ...extra
@@ -215,7 +216,7 @@ export default defineConfig({
     } else {
       const seg = rel.split('/')[0]
       const first = (side as Record<string, string[][]>)[seg]?.[0]?.[1]
-      const part = names[seg] && first ? { name: names[seg], item: SITE + first } : seg === 'cases' && rel !== 'cases/index.md' ? { name: '案例库', item: SITE + '/cases/' } : seg === 'tools' && rel !== 'tools/index.md' ? { name: (tools as any).ui.title, item: SITE + '/tools/' } : seg === 'ecosystem' && rel !== 'ecosystem/index.md' ? { name: '周边生态', item: SITE + '/ecosystem/' } : null
+      const part = names[seg] && first ? { name: names[seg], item: SITE + first } : seg === 'cases' && rel !== 'cases/index.md' ? { name: '案例庫', item: SITE + '/cases/' } : seg === 'tools' && rel !== 'tools/index.md' ? { name: (tools as any).ui.title, item: SITE + '/tools/' } : seg === 'ecosystem' && rel !== 'ecosystem/index.md' ? { name: '周邊生態', item: SITE + '/ecosystem/' } : null
       const crumbs = [{ name: NAME, item: SITE + '/' }, ...(part ? [part] : []), { name: pageData.title, item: url }]
       graph.push({
         '@type': 'BreadcrumbList',
@@ -232,7 +233,7 @@ export default defineConfig({
             thumbnailUrl: `${SITE}/ecosystem/clipper-demo-${i + 1}.webp`,
             contentUrl: `${SITE}/ecosystem/clipper-demo-${i + 1}.mp4`,
             duration: ['PT3M5S', 'PT39S'][i],
-            inLanguage: 'zh-CN',
+            inLanguage: 'zh-TW',
             creator: AUTHOR,
             ...(d.published ? { uploadDate: d.published } : {})
           }
@@ -247,7 +248,7 @@ export default defineConfig({
           applicationCategory: 'BrowserApplication',
           operatingSystem: 'Chrome, Edge, Firefox',
           softwareVersion: '0.4.0',
-          inLanguage: 'zh-CN',
+          inLanguage: 'zh-TW',
           image: `${SITE}/ecosystem/clipper-banner.webp`,
           author: AUTHOR,
           publisher: AUTHOR,
@@ -279,7 +280,7 @@ export default defineConfig({
         const cl = changelog as any
         const tag: Record<string, string> = { pc: 'PC', ios: 'iOS', android: 'Android' }
         const all = [
-          ...cl.official.map((e: any) => ({ '@type': 'CreativeWork', name: `Grok Bot ${tag[e.platform]}${e.version ? ' ' + e.version : ''}：${e.title}`, description: e.points.map((p: string) => p.replace(/。$/, '')).join('；'), datePublished: e.date, url: e.url, inLanguage: 'zh-CN' })),
+          ...cl.official.map((e: any) => ({ '@type': 'CreativeWork', name: `Grok Bot ${tag[e.platform]}${e.version ? ' ' + e.version : ''}：${e.title}`, description: e.points.map((p: string) => p.replace(/。$/, '')).join('；'), datePublished: e.date, url: e.url, inLanguage: 'zh-TW' })),
           ...cl.ours.map((t: any) => ({ '@type': 'SocialMediaPosting', headline: t.title, description: t.summary, datePublished: t.date, url: t.url, author: AUTHOR }))
         ].sort((a: any, b: any) => (a.datePublished < b.datePublished ? 1 : -1))
         graph.push(page('CollectionPage', { dateModified: cl.updated, about: { '@type': 'SoftwareApplication', name: 'Grok Bot', applicationCategory: 'BusinessApplication' }, mainEntity: { '@type': 'ItemList', numberOfItems: all.length, itemListOrder: 'https://schema.org/ItemListOrderDescending', itemListElement: all.map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })) } }))
@@ -294,7 +295,7 @@ export default defineConfig({
           '@id': url + '#article',
           headline: pageData.title,
           description: desc,
-          inLanguage: 'zh-CN',
+          inLanguage: 'zh-TW',
           url,
           mainEntityOfPage: { '@id': url + '#webpage' },
           image: OG_IMAGE,
@@ -314,7 +315,7 @@ export default defineConfig({
         graph.push(page('WebPage'))
       }
     }
-    head.push(['link', { rel: 'alternate', hreflang: 'zh-CN', href: url }])
+    head.push(['link', { rel: 'alternate', hreflang: 'zh-TW', href: url }])
     head.push(['link', { rel: 'alternate', hreflang: 'x-default', href: url }])
     if (rel === 'xhs.md') head.unshift(['meta', { name: 'robots', content: 'noindex, follow' }])
     head.push(['script', { type: 'application/ld+json' }, JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })])
@@ -323,7 +324,7 @@ export default defineConfig({
   head: [
     ...verify,
     ['meta', { name: 'applicable-device', content: 'pc,mobile' }],
-    ['meta', { name: 'author', content: '铁柱AGI' }],
+    ['meta', { name: 'author', content: '鐵柱AGI' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon-light.svg', media: '(prefers-color-scheme: light)' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
@@ -333,29 +334,29 @@ export default defineConfig({
   themeConfig: {
     nav: [
       {
-        text: '教程',
+        text: '課程',
         activeMatch: '^/part[1-4]/',
         items: [
-          { text: '使用手册', link: '/part1/01-what-is', activeMatch: '^/part1/' },
+          { text: '使用手冊', link: '/part1/01-what-is', activeMatch: '^/part1/' },
           { text: '案例篇', link: '/part2/12-content', activeMatch: '^/part2/' },
-          { text: '进阶篇', link: '/part3/19-orchestration', activeMatch: '^/part3/' },
+          { text: '進階篇', link: '/part3/19-orchestration', activeMatch: '^/part3/' },
           { text: '落地篇', link: '/part4/23-enterprise', activeMatch: '^/part4/' }
         ]
       },
-      { text: '案例库', link: '/cases/' },
+      { text: '案例庫', link: '/cases/' },
       { text: 'Bot 直聘', link: '/bots/', activeMatch: '^/bots/' },
-      { text: '周边生态', link: '/ecosystem/', activeMatch: '^/ecosystem/' },
+      { text: '周邊生態', link: '/ecosystem/', activeMatch: '^/ecosystem/' },
       { text: '工具箱', link: '/tools/', activeMatch: '^/tools/' },
-      { text: '更新日志', link: '/changelog/', activeMatch: '^/changelog/' },
-      { text: '付费答疑群', link: '/group' }
+      { text: '更新記錄', link: '/changelog/', activeMatch: '^/changelog/' },
+      { text: '付費答疑群', link: '/group' }
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/RongleCat/grok-bot-learn', ariaLabel: 'GitHub' }],
     sidebar,
     search: { provider: 'local' },
-    outline: { label: '本页', level: [2, 3] },
+    outline: { label: '本頁', level: [2, 3] },
     docFooter: { prev: '上一章', next: '下一章' },
-    returnToTopLabel: '回到顶部',
-    lastUpdated: { text: '最后更新', formatOptions: { dateStyle: 'medium', forceLocale: true } },
-    sidebarMenuLabel: '目录'
+    returnToTopLabel: '回到頂部',
+    lastUpdated: { text: '最後更新', formatOptions: { dateStyle: 'medium', forceLocale: true } },
+    sidebarMenuLabel: '目錄'
   }
 })

@@ -14,7 +14,7 @@ Rules:
 - Canvas exactly 1200x760 px, body margin 0, white/very light warm gray background, near-black text, rounded cards (radius 20px+), thin borders, generous whitespace, system Chinese sans-serif fonts (PingFang SC, Noto Sans CJK SC, sans-serif). Use at most 2 accent colors.
 - Include the decorative image bots/{bot} (relative path) once, about 90-130px, placed in a corner or beside the title. Do not distort it.
 - All text in Simplified Chinese, taken strictly from the chapter: no invented facts, numbers, prices or features. Short labels, max ~60 visible text items; nothing overflowing or overlapping; minimum font size 15px.
-- A short title at top. No subtitle like "信息图", no footer, no source line, no watermark, no decorative tags, no emoji.
+- A short title at top. No subtitle like "資訊圖", no footer, no source line, no watermark, no decorative tags, no emoji.
 - No HTML/CSS/JS comments anywhere. No external resources, no scripts.
 Only write the file; reply DONE."""
     r = subprocess.run(["codex", "exec", "--skip-git-repo-check", "--dangerously-bypass-approvals-and-sandbox", "-C", "/workspace/grok-bot-learn/v4", prompt], capture_output=True, text=True, stdin=subprocess.DEVNULL, timeout=1500)

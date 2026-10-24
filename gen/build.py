@@ -25,6 +25,6 @@ for name in ["tiezhu", "cn", "en1", "en2"]:
     if os.path.exists(src):
         parts.append(re.sub(r"^(#+) ", lambda m: "#" + m.group(1) + " ", fix(open(src).read()), flags=re.M))
 os.makedirs(f"{D}/cases", exist_ok=True)
-open(f"{D}/cases/index.md", "w").write("# 案例库\n\n" + "\n".join(parts))
+open(f"{D}/cases/index.md", "w").write("# 案例庫\n\n" + "\n".join(parts))
 json.dump(side, open(f"{D}/.vitepress/sidebar.json", "w"), ensure_ascii=False, indent=1)
 print({k: len(v) for k, v in side.items()}, len(parts))

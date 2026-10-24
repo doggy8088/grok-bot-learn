@@ -1,24 +1,24 @@
-# 团队与企业
+# 團隊與企業
 
-::: info 提纲
-本页目前为提纲，正文待补充。
+::: info 提綱
+本頁目前為提綱，正文待補充。
 :::
 
-## 要点
+## 要點
 
-- 团队版与管理控制、模板共享
-- 身份与 SSO
-- 私有网络与环境设置脚本
+- 團隊版與管理控制、樣板共享
+- 身份與 SSO
+- 私有網路與環境設定指令碼
 - 代理
-- 桌面端分发与版本
-- Manage Bot Computers：重建/终止（企业版）
+- 桌面端分發與版本
+- Manage Bot Computers：重建/終止（企業版）
 
-## 来源
+## 來源
 
-- [官方：团队版](https://cursor.com/cn/docs/grok-bot/teams)
+- [官方：團隊版](https://cursor.com/cn/docs/grok-bot/teams)
 - [官方：身份](https://cursor.com/cn/docs/grok-bot/identity)
-- [官方：私有网络](https://cursor.com/cn/docs/grok-bot/private-networks)
+- [官方：私有網路](https://cursor.com/cn/docs/grok-bot/private-networks)
 - [官方：代理](https://cursor.com/cn/docs/grok-bot/proxies)
 - [官方：部署](https://cursor.com/cn/docs/grok-bot/deployment)
-- [官方：管理 Bot 电脑](https://cursor.com/cn/docs/grok-bot/computers)
-- [官方：删除账户](https://cursor.com/cn/help/grok-bot/delete-account)
+- [官方：管理 Bot 電腦](https://cursor.com/cn/docs/grok-bot/computers)
+- [官方：刪除帳戶](https://cursor.com/cn/help/grok-bot/delete-account)

@@ -9,24 +9,24 @@
 </head>
 <body>
 <main class="page">
-<header class="header"><h1>月交付流水线与质检人闸</h1><img src="bots/triangle-violet.png" alt=""></header>
+<header class="header"><h1>月交付流水線與質檢人閘</h1><img src="bots/triangle-violet.png" alt=""></header>
 <section class="context">
-<article class="card"><h2>业务进自动交付菜单得过三关</h2><ul><li>Brief 能写成结构化清单</li><li>交付物有第三方客观验收标准</li><li>此前纯手工交付至少 10 次</li></ul></article>
-<article class="card"><h2>模型按活分配，别全上旗舰</h2><p class="models">Grok 4.1 Fast：跑清洗初筛<br>Grok Build 0.1：负责 80% 开发物料<br>Grok 4.6：跑长程 Agent 与推理</p></article>
-<article class="card cost"><h2>19.5 万 Token 硬拦截</h2><strong>195,000 Token</strong><p>输入超 200,000 Token 费率直接翻倍<br>超限报错截断或剪枝</p></article>
+<article class="card"><h2>業務進自動交付選單得過三關</h2><ul><li>Brief 能寫成結構化清單</li><li>交付物有第三方客觀驗收標準</li><li>此前純手工交付至少 10 次</li></ul></article>
+<article class="card"><h2>模型按活分配，別全上旗艦</h2><p class="models">Grok 4.1 Fast：跑清洗初篩<br>Grok Build 0.1：負責 80% 開發物料<br>Grok 4.6：跑長程 Agent 與推理</p></article>
+<article class="card cost"><h2>19.5 萬 Token 硬攔截</h2><strong>195,000 Token</strong><p>輸入超 200,000 Token 費率直接翻倍<br>超限報錯截斷或剪枝</p></article>
 </section>
 <section class="flow">
-<h2 class="flow-title">单任务自动化生产循环</h2>
+<h2 class="flow-title">單任務自動化生產循環</h2>
 <div class="lane">
-<article class="step"><div class="num">01</div><h3>生产 Bot</h3><p>基于需求与声音规范<br>生成第 1 版草稿</p></article><div class="arrow"></div>
-<article class="step review"><div class="num">02</div><h3>独立审核 Bot</h3><p>只输入原始 Brief、客户规范和产物<br>不给中间推理；严格只读</p></article><div class="arrow"></div>
-<article class="step"><div class="num">03</div><h3>审查结果</h3><p><span class="tiny">PASS 或 FAIL</span><br>发现缺陷只报 FAIL 绝不代笔</p></article>
+<article class="step"><div class="num">01</div><h3>生產 Bot</h3><p>基於需求與聲音規範<br>生成第 1 版草稿</p></article><div class="arrow"></div>
+<article class="step review"><div class="num">02</div><h3>獨立審核 Bot</h3><p>只輸入原始 Brief、客戶規範和產物<br>不給中間推理；嚴格唯讀</p></article><div class="arrow"></div>
+<article class="step"><div class="num">03</div><h3>審查結果</h3><p><span class="tiny">PASS 或 FAIL</span><br>發現缺陷只報 FAIL 絕不代筆</p></article>
 </div>
 <div class="connector"></div>
-<div class="pass"><h3>PASS</h3><p>记录日志并进入待交付队列</p></div>
+<div class="pass"><h3>PASS</h3><p>記錄記錄並進入待交付佇列</p></div>
 <div class="branches">
-<article class="return"><h3>FAIL：针对性修复重试</h3><p>将审查不通过的具体原因拼接入下一轮 Brief，由生产 Bot 修复重试。<strong>MAX_ATTEMPTS 严格设定为 3 次。</strong></p></article><div class="branch-arrow"></div>
-<article class="human"><h3>连续 3 次 FAIL</h3><p>终止自动重试，触发报警<br>人工兜底接管</p></article>
+<article class="return"><h3>FAIL：針對性修復重試</h3><p>將審查不通過的具體原因拼接入下一輪 Brief，由生產 Bot 修復重試。<strong>MAX_ATTEMPTS 嚴格設定為 3 次。</strong></p></article><div class="branch-arrow"></div>
+<article class="human"><h3>連續 3 次 FAIL</h3><p>終止自動重試，觸發報警<br>人工兜底接管</p></article>
 </div>
 </section>
 </main>

@@ -1,18 +1,18 @@
-# 备份与灾备
+# 備份與災備
 
-::: info 提纲
-本页目前为提纲，正文待补充。
+::: info 提綱
+本頁目前為提綱，正文待補充。
 :::
 
-## 要点
+## 要點
 
-- 云电脑重置会清掉自装工具
-- 服务总账 + restore.sh
-- 记忆管家每周导出到私有仓库
-- 恢复提示词
+- 雲端電腦重置會清掉自裝工具
+- 服務總帳 + restore.sh
+- 記憶管家每週匯出到私有倉庫
+- 恢復提示詞
 
-## 来源
+## 來源
 
-- [Grok Bot 百万撤离：一套完善的 Agent 系统备份方案](https://jcng5q8n0f3z.feishu.cn/wiki/W0TCwnTmbiIJ9KkF4S4cV6ifnCh)
-- [Grok Bot 虚拟机重置后工具全没了？备份恢复教程（附提示词）](https://jcng5q8n0f3z.feishu.cn/wiki/Q6ZdwzjO5i6z0pkdMfyca8Cbnye)
-- [4.6 虚拟机、记忆与备份](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)
+- [Grok Bot 百萬撤離：一套完善的 Agent 系統備份方案](https://jcng5q8n0f3z.feishu.cn/wiki/W0TCwnTmbiIJ9KkF4S4cV6ifnCh)
+- [Grok Bot 虛擬機器重置後工具全沒了？備份恢復課程（附提示詞）](https://jcng5q8n0f3z.feishu.cn/wiki/Q6ZdwzjO5i6z0pkdMfyca8Cbnye)
+- [4.6 虛擬機器、記憶與備份](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)

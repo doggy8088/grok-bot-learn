@@ -4,11 +4,11 @@ import { useRoute } from 'vitepress'
 import GrokOrb from './GrokOrb.vue'
 
 const skins: Record<string, { shape: string; color: string; label: string }> = {
-  part1: { shape: 'squircle', color: 'bleu', label: '第一篇 · 使用手册' },
+  part1: { shape: 'squircle', color: 'bleu', label: '第一篇 · 使用手冊' },
   part2: { shape: 'nuage', color: 'orange', label: '第二篇 · 案例篇' },
-  part3: { shape: 'hexagone', color: 'vert', label: '第三篇 · 进阶篇' },
+  part3: { shape: 'hexagone', color: 'vert', label: '第三篇 · 進階篇' },
   part4: { shape: 'triangle', color: 'violet', label: '第四篇 · 落地篇' },
-  cases: { shape: 'galet', color: 'rose', label: '案例库' }
+  cases: { shape: 'galet', color: 'rose', label: '案例庫' }
 }
 const route = useRoute()
 const skin = computed(() => skins[route.path.split('/').filter(Boolean)[0] ?? ''])

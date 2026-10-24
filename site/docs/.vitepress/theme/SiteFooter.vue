@@ -33,23 +33,24 @@ onBeforeUnmount(() => {
     <div class="tz-inner">
       <nav class="tz-links">
         <div ref="root" class="tz-mp" @mouseenter="enter" @mouseleave="leave">
-          <button type="button" class="tz-link" :aria-expanded="open" aria-haspopup="true" @click="toggle">公众号「铁柱AGI」</button>
-          <div v-show="open" class="tz-pop" role="dialog" aria-label="公众号「铁柱AGI」二维码">
-            <img :src="withBase('/mp-search.png')" width="720" height="262" alt="微信搜一搜：铁柱AGI" />
+          <button type="button" class="tz-link" :aria-expanded="open" aria-haspopup="true" @click="toggle">公眾號「鐵柱AGI」</button>
+          <div v-show="open" class="tz-pop" role="dialog" aria-label="公眾號「鐵柱AGI」二維碼">
+            <img :src="withBase('/mp-search.png')" width="720" height="262" alt="微信搜一搜：鐵柱AGI" />
           </div>
         </div>
         <span class="tz-sep" aria-hidden="true"></span>
         <a class="tz-link" href="https://x.com/cgnot996" target="_blank" rel="noopener">X @cgnot996</a>
         <span class="tz-sep" aria-hidden="true"></span>
-        <a class="tz-link" :href="withBase('/group')">付费答疑群</a>
+        <a class="tz-link" :href="withBase('/group')">付費答疑群</a>
         <span class="tz-sep" aria-hidden="true"></span>
-        <a class="tz-link" :href="withBase('/about')">关于作者</a>
+        <a class="tz-link" :href="withBase('/about')">關於作者</a>
       </nav>
-      <nav v-if="friends.length" class="tz-friends" aria-label="友情链接">
-        <span>友情链接</span>
+      <nav v-if="friends.length" class="tz-friends" aria-label="友情連結">
+        <span>友情連結</span>
         <a v-for="f in friends" :key="f.url" :href="f.url" target="_blank" rel="noopener">{{ f.name }}</a>
       </nav>
-      <p class="tz-note">本站是社区非官方学习站，非 xAI 官方。</p>
+            <p class="tz-credit">原作者：<a href="https://github.com/RongleCat/grok-bot-learn" target="_blank" rel="noopener">鐵柱AGI</a>｜繁體中文翻譯：<a href="https://www.facebook.com/will.fans/" target="_blank" rel="noopener">Will 保哥</a></p>
+<p class="tz-note">本站是社群非官方學習站，非 xAI 官方。</p>
     </div>
   </footer>
 </template>
@@ -171,6 +172,21 @@ onBeforeUnmount(() => {
   transition: color 0.2s;
 }
 .tz-friends a:hover {
+  color: #2563eb;
+}
+.tz-credit {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--vp-c-text-2);
+}
+.tz-credit a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.tz-credit a:hover {
   color: #2563eb;
 }
 .tz-note {
