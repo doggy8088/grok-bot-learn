@@ -9,32 +9,32 @@ next: false
 
 <ToolMeta id="gh" />
 
-GitHub 官方命令行工具，适合让 Bot 在 **云电脑** 上克隆私有仓库、推送代码、创建 PR 并管理 Actions。
+GitHub 官方命令列工具，適合讓 Bot 在 **雲端電腦** 上複製私有倉庫、推送程式碼、建立 PR 並管理 Actions。
 
-结论是：该工具仅用于让 Bot 在云电脑克隆 GitHub 私有仓库、推送代码、创建 PR 并管理 Actions。
+結論是：該工具僅用於讓 Bot 在雲端電腦複製 GitHub 私有倉庫、推送程式碼、建立 PR 並管理 Actions。
 
-## 发给 Bot 的提示词
+## 發給 Bot 的提示詞
 
-复制下方整段内容发送给你的 Grok Bot，它会在云电脑上自动安装并验证，遇到登录或配置密钥时会暂停等待你操作。
+複製下方整段內容發送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登錄或組態密鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以后管理代码仓库、推送分支和提交 PR 用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以後管理程式碼倉庫、推送分支和提交 PR 用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 准备 GitHub 账号。
-- 在浏览器打开授权链接并输入对应的一次性验证码。
+- 準備 GitHub 帳號。
+- 在瀏覽器打開授權連結並輸入對應的一次性驗證碼。
 
-## 来源
+## 來源
 
-- [GitHub CLI Linux 安装文档](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
-- [gh auth login 官方手册](https://cli.github.com/manual/gh_auth_login)
+- [GitHub CLI Linux 安裝文件](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+- [gh auth login 官方手冊](https://cli.github.com/manual/gh_auth_login)
 
-> 本页为社区非官方整理，与该工具厂商、xAI 均无隶属关系，命令以官方文档为准。
+> 本頁為社群非官方整理，與該工具廠商、xAI 均無隸屬關係，命令以官方文件為準。
 
-[← 返回目录](/tools/)
+[← 返回目錄](/tools/)

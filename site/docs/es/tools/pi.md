@@ -21,7 +21,7 @@ Copia todo el contenido siguiente y envíalo a tu Grok Bot; este lo instalará y
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 Pi Coding Agent（https://pi.dev），以后定制开发工作流和写代码用它。需要填密钥时请提醒我自己填。
+幫我在你的雲端電腦上安裝 Pi Coding Agent（https://pi.dev），以後客製化開發工作流和寫程式碼用它。需要填密鑰時請提醒我自己填。
 ````
 
 </div>

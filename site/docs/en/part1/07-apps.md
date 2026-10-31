@@ -77,15 +77,15 @@ For teams, an administrator must enable "Agent Email" in the admin dashboard (`c
 
 1. Claim address: Go to "Connect apps" > "Email" in the sidebar to create one, or send `claim your email` or the command:
 ```text
-  给自己申请一个电子邮件地址
+  給自己申請一個電子郵件地址
   ```
 2. Query inbound mail: Directly search within the chat:
 ```text
-今天你的收件箱里收到了什么？帮我找出过去一周收到的所有费用账单与回执。
+今天你的收件箱裡收到了什麼？幫我找出過去一週收到的所有費用帳單與回執。
 ```
 3. Configure Routine: Create a Routine to listen for senders (supports `*@example.com`, does not support filtering by subject):
 ```text
-收到来自 billing@example.com 的电子邮件时，总结其中的账单金额与截止日期，并将摘要整理后发送给我。
+收到來自 billing@example.com 的電子郵件時，總結其中的帳單金額與截止日期，並將摘要整理後發送給我。
 ```
 4. Human-in-the-loop approval: **Unattended silent outbound sending is strictly prohibited by the system**. The bot only generates a draft card; it is truly delivered only after a human clicks "Send".
 
@@ -119,11 +119,11 @@ Grok Bot integrated read-only X search in v0.70.2 (2026-10-08). **It directly us
 1. **Send natural language instructions directly**: Supports searching posts network-wide, scraping public tweet content, checking account posts and mentions (@ records), or analyzing 7-day engagement trends for specific topics.
 
 ```text
-检索 X 平台账号 @xai 最近 24 小时发布的所有推文。按时间倒序整理每条推文的核心内容、发布时间、点赞数、转推数，并附带原帖链接。
+檢索 X 平台帳號 @xai 最近 24 小時發表的所有推文。按時間倒序整理每條推文的核心內容、發表時間、按讚數、轉推數，並附帶原帖連結。
 ```
 
 ```text
-检索 X 平台上关于 #AIagents 话题过去 7 天的热门讨论。筛选互动量最高的前 5 条推文，提取核心观点，并汇总该话题本周的讨论热度变化趋势。
+檢索 X 平台上關於 #AIagents 話題過去 7 天的熱門討論。篩選互動量最高的前 5 條推文，提取核心觀點，並彙總該話題本週的討論熱度變化趨勢。
 ```
 
 2. **Acceptance Criteria**: **Results must include post timestamps, engagement metrics, and original tweet links**, without any connector installation prompts or scraping truncation throughout the process.
@@ -149,8 +149,8 @@ For architectural overviews, see ["4.5 Connectors, Skills, Templates, and Extern
 2. Install open-source Skills. Send the repository URL directly in the chat to let the bot deploy it. If an Access Token is required, submit it through the secure card upon system prompt; **pasting the token directly into the chat box is strictly prohibited**.
 
 ```text
-帮我安装这个开源 Skill：https://github.com/example/custom-data-skill
-阅读仓库内的说明文档，将其注册为我的可用技能，并告诉我它支持的触发指令与所需参数。
+幫我安裝這個開源 Skill：https://github.com/example/custom-data-skill
+閱讀倉庫內的說明文件，將其註冊為我的可用技能，並告訴我它支援的觸發指令與所需參數。
 ```
 
 3. Log into Codex CLI independently. First, enable "Device code login" under "Account Security & Login" in the web portal. Run the login command in the cloud terminal to get the device verification code, and verify it using your local browser.

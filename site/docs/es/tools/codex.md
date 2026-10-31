@@ -20,7 +20,7 @@ Copia el contenido completo que aparece a continuación y envíalo a tu Grok Bot
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上装好 Codex CLI（https://developers.openai.com/codex/cli），用我的 ChatGPT 账号登录，以后写代码、跑脚本和生图用它。需要我授权时把链接发给我。
+幫我在你的雲端電腦上裝好 Codex CLI（https://developers.openai.com/codex/cli），用我的 ChatGPT 帳號登入，以後寫程式碼、跑指令碼和生圖用它。需要我授權時把連結發給我。
 ````
 
 </div>

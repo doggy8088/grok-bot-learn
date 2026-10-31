@@ -25,19 +25,19 @@ Aquí se recopilan **15 guías prácticas extensas** validadas y puestas a prueb
 Antes de comenzar con la configuración, envía el siguiente prompt al Bot principal **para que te ayude a definir los límites de cada puesto y la estructura de directorios de ejecución**.
 
 ```text
-我打算参考以下业务场景搭建一套 Grok Bot 工作流：【填入具体业务目标】。
-请按以下步骤帮我拆解：
-1. 列出该流程所需的 Bot 岗位清单，明确每个角色的输入文件、交付成果和绝对禁止动作。
-2. 在 /workspace 下为我规划一套清晰的目录结构，规定上下游交接的文件格式。
-3. 标出涉及外部发信、数据修改、敏感登录或支付的环节，单独列出必须等待人工审批的节点清单。
-4. 给出该流程第一步的测试提示词，明确要求未确认信息标注为待确认，严禁编造数据。
+我打算參考以下業務場景搭建一套 Grok Bot 工作流：【填入具體業務目標】。
+請按以下步驟幫我拆解：
+1. 列出該流程所需的 Bot 崗位清單，明確每個角色的輸入文件、交付成果和絕對禁止動作。
+2. 在 /workspace 下為我規劃一套清晰的目錄結構，規定上下游交接的文件格式。
+3. 標出涉及外部發信、資料修改、敏感登錄或支付的環節，單獨列出必須等待人工審批的節點清單。
+4. 給出該流程第一步的測試提示詞，明確要求未確認資訊標註為待確認，嚴禁編造資料。
 ```
 
 ## Introducción y mecanismos básicos
 
 ### Guía exhaustiva | Grok Bot desde cero: primera toma de contacto
 
-> Fuente: [万文长｜Grok Bot 从零入门第一次上](https://x.com/TodayKan/status/2104789484277473522)  
+> Fuente: [萬文長｜Grok Bot 從零入門第一次上](https://x.com/TodayKan/status/2104789484277473522)  
 > Autor: [Today🦘 @TodayKan](https://x.com/TodayKan)
 El acceso de vinculación de la versión de escritorio solo aparece en la página inicial; **una vez vinculado, no se puede migrar**. Si te encuentras con un inicio de sesión web, utiliza directamente **Take over para introducir la contraseña manualmente** y tomar el control.
 
@@ -52,7 +52,7 @@ Al redactar la primera tarea, debes tener claros estos cinco puntos:
 
 ### Cómo dominar Grok Bot en una hora
 
-> Fuente: [如何在一个小时内深入使用 Grok Bot](https://x.com/tspy/status/2109440690862342187)  
+> Fuente: [如何在一個小時內深入使用 Grok Bot](https://x.com/tspy/status/2109440690862342187)  
 > Autor: [yishan @tspy](https://x.com/tspy)
 
 ![Cómo dominar Grok Bot en una hora](/cases-img/fs33-0.jpg)
@@ -70,8 +70,8 @@ En las inspecciones habituales, mantén la regla de **guardar solo el registro s
 
 ### 10 lecciones indispensables para optimizar tu Grok Bot
 
-> Fuente: [10 条必备经验，让你的 Grok Bot 变得更好用](https://x.com/eze_is_1/status/2109850538045264151)  
-> Autor: [一泽Eze @eze_is_1](https://x.com/eze_is_1)
+> Fuente: [10 條必備經驗，讓你的 Grok Bot 變得更好用](https://x.com/eze_is_1/status/2109850538045264151)  
+> Autor: [一澤Eze @eze_is_1](https://x.com/eze_is_1)
 
 ![10 lecciones indispensables para optimizar tu Grok Bot](/cases-img/fs37-0.jpg)
 
@@ -88,7 +88,7 @@ El modo de suspensión local puede provocar la desconexión de las rutinas; **mo
 
 ### Cómo crear un equipo de medios digitales con Grok Bot: tutorial paso a paso | Adrian Punk
 
-> Fuente: [用Grok Bot搭建自媒体团队：保姆级教程](https://x.com/AdrianPunk115/status/2097311704547987756)  
+> Fuente: [用Grok Bot搭建自媒體團隊：保姆級課程](https://x.com/AdrianPunk115/status/2097311704547987756)  
 > Autor: [Adrian Punk @AdrianPunk115](https://x.com/AdrianPunk115)
 
 ![Cómo crear un equipo de medios digitales con Grok Bot: tutorial paso a paso](/cases-img/fs26-0.jpg)
@@ -113,7 +113,7 @@ En cuanto a la seguridad, establece líneas rojas estrictas: **todo el proceso d
 
 ### Cómo aprovechar al máximo Grok Bot en medios digitales | Kin
 
-> Fuente: [做自媒体怎么用好 Grok bot](https://x.com/KinGao476942/status/2099736121781764594)  
+> Fuente: [做自媒體怎麼用好 Grok bot](https://x.com/KinGao476942/status/2099736121781764594)  
 > Autor: [Kin @KinGao476942](https://x.com/KinGao476942)
 Ideal para creadores que buscan tráfico inicial para sus productos y que a menudo se quedan sin ideas de temas.
 
@@ -125,7 +125,7 @@ Ideal para creadores que buscan tráfico inicial para sus productos y que a menu
 
 ### Cómo conectar Grok Bot a tu WeChat: guía paso a paso para principiantes (incluye prompts detallados) | Kin
 
-> Fuente: [如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）](https://x.com/KinGao476942/status/2108132811635032316)  
+> Fuente: [如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）](https://x.com/KinGao476942/status/2108132811635032316)  
 > Autor: [Kin @KinGao476942](https://x.com/KinGao476942)
 
 ![Cómo conectar Grok Bot a tu WeChat: guía paso a paso para principiantes (incluye prompts detallados)](/cases-img/fs29-0.jpg)
@@ -146,8 +146,8 @@ La comunicación y la tolerancia a fallos se evalúan con estos tres criterios:
 
 ### Convierte tus publicaciones en un sitio web de perfil personal: tutorial paso a paso con Grok Bot desde el análisis de rasgos hasta el lanzamiento
 
-> Fuente: [把自己的推文做成个人画像网站,  用 Grok Bot 从分析特点到上线分享保姆级教程](https://x.com/0xlangeai/status/2109115005069341175)  
-> Autor: [蓝哥AI @0xlangeai](https://x.com/0xlangeai)
+> Fuente: [把自己的推文做成個人畫像網站,  用 Grok Bot 從分析特點到上線分享保姆級課程](https://x.com/0xlangeai/status/2109115005069341175)  
+> Autor: [藍哥AI @0xlangeai](https://x.com/0xlangeai)
 
 ![Convierte tus publicaciones en un sitio web de perfil personal: tutorial paso a paso con Grok Bot desde el análisis de rasgos hasta el lanzamiento](/cases-img/fs32-0.jpg)
 
@@ -165,7 +165,7 @@ Invita a cuatro bots al chat grupal del proyecto, **haciendo circular el trabajo
 
 ### Gestiona X con una sola frase en WeChat: revelo mis 5 plantillas de bots
 
-> Fuente: [微信里说一句，就能运营X：我的 5 个 Bot 模板公开了](https://x.com/Chchenhao0129/status/2109258247790313478)  
+> Fuente: [微信裡說一句，就能運營X：我的 5 個 Bot 樣板公開了](https://x.com/Chchenhao0129/status/2109258247790313478)  
 > Autor: [Hardy Chen @Chchenhao0129](https://x.com/Chchenhao0129)
 
 ![Gestiona X con una sola frase en WeChat: revelo mis 5 plantillas de bots](/cases-img/fs34-0.jpg)
@@ -189,7 +189,7 @@ Este método integra el plugin ClawBot de WeChat: con enviar una sola frase en W
 
 ### ¿Cómo pueden los ingenieros aprovechar Grok Bot?
 
-> Fuente: [工程师如何用好 Grok bot?](https://x.com/KinGao476942/status/2096232745538334913)  
+> Fuente: [工程師如何用好 Grok bot?](https://x.com/KinGao476942/status/2096232745538334913)  
 > Autor: [Kin @KinGao476942](https://x.com/KinGao476942)
 
 ![¿Cómo pueden los ingenieros aprovechar Grok Bot?](/cases-img/fs25-0.jpg)
@@ -206,7 +206,7 @@ El equipo de SpaceXAI configuró 5 bots de I+D (encargados de móvil, escritorio
 
 ### ¿Qué sentido tiene hacer cientos de PR al día?
 
-> Fuente: [一天几百个 PR 有什么意义？我照着 SpaceXAI 工程师 Lauren（@poteto）的九类清单，把自己的活拆了一遍](https://x.com/MaiYangAI/status/2108519046446727633)  
+> Fuente: [一天幾百個 PR 有什麼意義？我照著 SpaceXAI 工程師 Lauren（@poteto）的九類清單，把自己的活拆了一遍](https://x.com/MaiYangAI/status/2108519046446727633)  
 > Autor: [Mai Yang @MaiYangAI](https://x.com/MaiYangAI)
 
 Frente a la controversia de fusionar cientos de PR en un solo día, la ingeniera desglosó el trabajo en una lista de nueve categorías que abarcan rendimiento, corrección de errores, refactorización, cadenas de herramientas y nuevas funcionalidades.
@@ -226,7 +226,7 @@ La aprobación de cambios se canaliza según el nivel de riesgo para evitar mét
 
 ### Casos prácticos cotidianos con Grok Bot | Miles Ma
 
-> Fuente: [Grok Bot 应用指南实操案例：闲鱼上架、小红书做图、找工具、做短视频、整理收藏](https://x.com/miles_mazy/status/2098708209095819605)  
+> Fuente: [Grok Bot 應用指南實操案例：閒魚上架、小紅書做圖、找工具、做短影片、整理收藏](https://x.com/miles_mazy/status/2098708209095819605)  
 > Autor: [Miles Ma @miles_mazy](https://x.com/miles_mazy)
 
 ![Casos prácticos de la guía de aplicación de Grok Bot: publicación en Xianyu, diseño de imágenes para Xiaohongshu, búsqueda de herramientas, creación de vídeos cortos y organización de favoritos](/cases-img/fs27-0.jpg)
@@ -244,7 +244,7 @@ Para evitar errores graves, **el prompt debe exigir estrictamente que «toda inf
 
 ### Creación de un equipo de Amazon con Grok Bot | Zach
 
-> Fuente: [用 Grok Bot 做跨境电商的实战分享，从 0 到 1 搭建起一整个亚马逊团队](https://x.com/1999Zach22/status/2110078772225667115)  
+> Fuente: [用 Grok Bot 做跨境電商的實戰分享，從 0 到 1 搭建起一整個亞馬遜團隊](https://x.com/1999Zach22/status/2110078772225667115)  
 > Autor: [Zach @1999Zach22](https://x.com/1999Zach22)
 
 ![Experiencia práctica de comercio electrónico transfronterizo con Grok Bot: creación de un equipo completo de Amazon desde cero](/cases-img/fs38-0.jpg)
@@ -265,8 +265,8 @@ La línea roja de permisos es **prohibir expresamente que el Bot de publicidad e
 
 ### Expansión progresiva
 
-> Fuente: [万字长文｜Grok Bot 从入门到精通](https://x.com/jinchenma_ai/status/2094984812251746424)  
-> Autor: [金尘马 @jinchenma_ai](https://x.com/jinchenma_ai)
+> Fuente: [萬字長文｜Grok Bot 從入門到精通](https://x.com/jinchenma_ai/status/2094984812251746424)  
+> Autor: [金塵馬 @jinchenma_ai](https://x.com/jinchenma_ai)
 
 ![Guía exhaustiva | Grok Bot: de principiante a experto](/cases-img/fs24-0.jpg)
 
@@ -280,7 +280,7 @@ Dos bots intercambian archivos mediante `/workspace`. La descripción del puesto
 
 ### Integración por capas
 
-> Fuente: [从一个 Bot 到一整个组织，Grok Bot 的进阶用法分享：本地电脑、AI 分工和知识库怎么接起来](https://x.com/1999Zach22/status/2109607405696983158)  
+> Fuente: [從一個 Bot 到一整個組織，Grok Bot 的進階用法分享：本地電腦、AI 分工和知識庫怎麼接起來](https://x.com/1999Zach22/status/2109607405696983158)  
 > Autor: [Zach @1999Zach22](https://x.com/1999Zach22)
 
 ![De un solo Bot a toda una organización, uso avanzado de Grok Bot: cómo conectar la computadora local, la división del trabajo de IA y las bases de conocimiento](/cases-img/fs35-0.png)
@@ -297,7 +297,7 @@ En local, Claude/Codex pule los SOP en modo Plan y los sincroniza con la PC en l
 
 ### Pipeline automatizado
 
-> Fuente: [零基础搭建全自动化Agent团队，Grok Bot从开通到多AI协作全流程【万字长文】](https://x.com/xilo2991/status/2109613437215293905)  
+> Fuente: [零基礎搭建全自動化Agent團隊，Grok Bot從開通到多AI協作全流程【萬字長文】](https://x.com/xilo2991/status/2109613437215293905)  
 > Autor: [xilo @xilo2991](https://x.com/xilo2991)
 
 ![Creación de un equipo de agentes totalmente automatizado desde cero: flujo completo de Grok Bot desde la activación hasta la colaboración multi-IA (guía exhaustiva)](/cases-img/fs36-0.jpg)

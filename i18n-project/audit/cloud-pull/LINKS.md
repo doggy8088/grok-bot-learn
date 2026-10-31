@@ -1,13 +1,13 @@
-# 依据链接
+# 依據連結
 
-未下载音视频。
+未下載音影片。
 
 - https://bot.fmcat.top/sitemap.xml
 - https://bot.fmcat.top/xhs
 - https://bot.fmcat.top/group
 - https://bot.fmcat.top/part3/22-feishu-wechat
 - https://github.com/RongleCat/grok-bot-learn
-- https://raw.githubusercontent.com/RongleCat/grok-bot-learn/main/i18n-project/SOURCE_PAGES.tsv （404，清单不在仓库）
+- https://raw.githubusercontent.com/RongleCat/grok-bot-learn/main/i18n-project/SOURCE_PAGES.tsv （404，清單不在倉庫）
 - https://cursor.com/help/grok-bot/models
 - https://cursor.com/help/grok-bot/edit-bot.md
 - https://cursor.com/help/grok-bot/mobile.md

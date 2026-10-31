@@ -1,29 +1,29 @@
-# 插件、邮箱与 Secrets
+# 外掛、郵箱與 Secrets
 
-## 接入顺序：先跑通界面，再挂连接器
+## 接入順序：先跑通介面，再掛連線器
 
-人能手动点完的事，先让 Bot 用云电脑和浏览器去点；跑稳、验证过价值，再换成插件/连接器或脚本，避免一次装一堆插件徒增维护。
+人能手動點完的事，先讓 Bot 用雲端電腦和瀏覽器去點；跑穩、驗證過價值，再換成外掛/連線器或指令碼，避免一次裝一堆外掛徒增維護。
 
-## 插件（连接器）
+## 外掛（連線器）
 
-在设置里连接支持的服务（如 Slack、GitHub、Google 等），Bot 以你的身份读写。插件 ≠ 触发器：要"某事发生就开工"请用[例程](/core/skills-routines)。
+在設定裡連線支援的服務（如 Slack、GitHub、Google 等），Bot 以你的身份讀寫。外掛 ≠ 觸發器：要"某事發生就開工"請用[例程](/core/skills-routines)。
 
-## Bot 专属邮箱
+## Bot 專屬郵箱
 
-对 Bot 说 `claim your email`，可获得 `名字@mail.grokbot.com` 地址，用于收信、注册网站、联络客户；从该地址**发信前需要你在界面批准**。团队账号需管理员允许。
+對 Bot 說 `claim your email`，可獲得 `名字@mail.grokbot.com` 地址，用於收信、註冊網站、聯絡客戶；從該地址**發信前需要你在介面批准**。團隊帳號需管理員允許。
 
 ## Secrets
 
-API Key 等放进设置的 **Secrets**，不要贴在对话里。
+API Key 等放進設定的 **Secrets**，不要貼在對話裡。
 
-## 技能/CLI 扩展
+## 技能/CLI 擴充
 
-- 开源 Skill：把仓库地址发给 Bot 说"帮我安装"，所需 Key 放 Secrets。
-- 云电脑上的 CLI 工具要在 Bot 电脑终端里**单独登录**，不要拷贝本机登录态（会互相顶 token）。
+- 開源 Skill：把倉庫地址發給 Bot 說"幫我安裝"，所需 Key 放 Secrets。
+- 雲端電腦上的 CLI 工具要在 Bot 電腦終端裡**單獨登錄**，不要拷貝本機登錄態（會互相頂 token）。
 
-## 来源
+## 來源
 
-- [官方：连接插件](https://cursor.com/cn/help/grok-bot/connect-plugins)
-- [官方：Bot 邮箱](https://cursor.com/cn/help/grok-bot/agent-email)
+- [官方：連線外掛](https://cursor.com/cn/help/grok-bot/connect-plugins)
+- [官方：Bot 郵箱](https://cursor.com/cn/help/grok-bot/agent-email)
 - [官方：Secrets](https://cursor.com/cn/help/grok-bot/secrets)
-- [4.5 连接器、Skill、模板与对外入口](https://jcng5q8n0f3z.feishu.cn/wiki/XDkUwLJZxih7Dok0SKqcajKQn4e)
+- [4.5 連線器、Skill、樣板與對外入口](https://jcng5q8n0f3z.feishu.cn/wiki/XDkUwLJZxih7Dok0SKqcajKQn4e)

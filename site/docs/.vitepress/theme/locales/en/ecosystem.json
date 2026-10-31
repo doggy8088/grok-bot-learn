@@ -10,7 +10,7 @@
     "cta": "View Extension"
    },
    {
-    "name": "小铁柱",
+    "name": "小鐵柱",
     "tag": "WeChat Group Assistant",
     "desc": "Automated operations manager for WeChat groups, providing daily chat digests and curated web summaries.",
     "cta": "View Service"
@@ -31,7 +31,7 @@
   "download": "Download Package",
   "source": "Source Code",
   "meta": "v0.4.0 · Supports Chrome / Edge / Firefox",
-  "unofficial": "A third-party extension independently developed by 铁柱AGI, not an official product of xAI or Cursor.",
+  "unofficial": "A third-party extension independently developed by 鐵柱AGI, not an official product of xAI or Cursor.",
   "videoTitle": "Hands-on Feature Demo",
   "videoLead": "Two quick walk-through videos covering everyday features.",
   "videos": [
@@ -140,9 +140,9 @@
  },
  "xiaotiezhu": {
   "slogan": "Keep valuable chat insights afloat: the automated operations manager for high-value communities",
-  "lead": "小铁柱 is a lightweight operations assistant built specifically for WeChat communities, periodically summarizing daily discussions and key highlights. Say goodbye to tedious manual scrolling and easily accumulate your community's digital assets.",
+  "lead": "小鐵柱 is a lightweight operations assistant built specifically for WeChat communities, periodically summarizing daily discussions and key highlights. Say goodbye to tedious manual scrolling and easily accumulate your community's digital assets.",
   "meta": "WeChat Group Operations Assistant · Per-group Pricing · Ready Out of the Box",
-  "unofficial": "This service is provided by the 铁柱AGI community and is not an official WeChat product",
+  "unofficial": "This service is provided by the 鐵柱AGI community and is not an official WeChat product",
   "ctaPrimary": "Add WeChat to Inquire & Activate",
   "ctaSecondary": "View Group Chat Summary Samples",
   "featuresTitle": "Core Capabilities: Automated Extraction, Visual Presentation, and Long-Term Accumulation",
@@ -175,7 +175,7 @@
     "name": "Single Group Standard",
     "price": "79",
     "unit": "RMB/month",
-    "note": "Invite 小铁柱 to 1 group: 79 RMB/month"
+    "note": "Invite 小鐵柱 to 1 group: 79 RMB/month"
    },
    {
     "name": "Multi-Group Special",
@@ -208,7 +208,7 @@
    },
    {
     "k": "Dedicated Manager Support",
-    "v": "Enjoy dedicated customer service Q&A and status health checks throughout the service period to ensure 小铁柱 runs stably and reliably."
+    "v": "Enjoy dedicated customer service Q&A and status health checks throughout the service period to ensure 小鐵柱 runs stably and reliably."
    }
   ],
   "stepsTitle": "Quick Activation in Three Steps",
@@ -222,19 +222,19 @@
     "v": "Finalize the summary visual style and **routine task** trigger times to complete fast onboarding."
    },
    {
-    "k": "3. Invite 小铁柱 to Group",
-    "v": "**Invite 小铁柱 to the group** for official delivery, and automated operations and daily digest services launch immediately."
+    "k": "3. Invite 小鐵柱 to Group",
+    "v": "**Invite 小鐵柱 to the group** for official delivery, and automated operations and daily digest services launch immediately."
    }
   ],
   "faqTitle": "Frequently Asked Questions",
   "faq": [
    {
     "q": "Do I need to prepare my own server or special accounts to activate the service?",
-    "a": "Not at all. 小铁柱 operates on a fully managed model: you only need to **invite 小铁柱 to the group** on WeChat, and we handle all environments and operations."
+    "a": "Not at all. 小鐵柱 operates on a fully managed model: you only need to **invite 小鐵柱 to the group** on WeChat, and we handle all environments and operations."
    },
    {
     "q": "How are pricing rules calculated if I have multiple groups?",
-    "a": "Invite 小铁柱 to 1 group: 79 RMB/month; for 2 or more groups: 59 RMB per group/month—the more groups you have, the better the value."
+    "a": "Invite 小鐵柱 to 1 group: 79 RMB/month; for 2 or more groups: 59 RMB per group/month—the more groups you have, the better the value."
    },
    {
     "q": "What are the advantages of web-based chat summaries?",
@@ -249,7 +249,7 @@
     "a": "No extra fee. Included in the service: supports daily chat summaries; daily chat content is packaged and emailed to the designated inbox. Simply provide the recipient email upon activation."
    }
   ],
-  "endTitle": "Leave tedious organization to 小铁柱, deliver profound value to your members",
+  "endTitle": "Leave tedious organization to 小鐵柱, deliver profound value to your members",
   "endText": "A reliable manager for high-value WeChat groups—say goodbye to information overload and chat scrolling. Add the manager on WeChat now to unlock automated group operations immediately.",
   "endBtn": "Add WeChat to Inquire & Activate"
  }

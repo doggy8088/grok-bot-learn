@@ -3,9 +3,9 @@
     "groupPill": "Paid Q&A Group"
   },
   "footer": {
-    "mpBtn": "Official Account 「铁柱AGI」",
-    "mpDialog": "QR Code for Official Account 「铁柱AGI」",
-    "mpAlt": "Search on WeChat: 铁柱AGI",
+    "mpBtn": "Official Account 「鐵柱AGI」",
+    "mpDialog": "QR Code for Official Account 「鐵柱AGI」",
+    "mpAlt": "Search on WeChat: 鐵柱AGI",
     "group": "Paid Q&A Group",
     "about": "About the Author",
     "friends": "Friend Links",
@@ -27,10 +27,10 @@
     "chipOurs": "Our Take"
   },
   "xiaotiezhu": {
-    "title": "小铁柱",
-    "joinHint": "Scan the QR code to add the assistant on WeChat and activate 小铁柱"
+    "title": "小鐵柱",
+    "joinHint": "Scan the QR code to add the assistant on WeChat and activate 小鐵柱"
   },
   "join": {
-    "qrAlt": "Personal WeChat QR code of 铁柱"
+    "qrAlt": "Personal WeChat QR code of 鐵柱"
   }
 }

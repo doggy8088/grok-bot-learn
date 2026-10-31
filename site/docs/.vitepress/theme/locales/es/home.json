@@ -39,7 +39,7 @@
  "casesTitle": "Casos prácticos",
  "casesMore": "Todos los casos",
  "cases": [
-  {"t": "Guardar información automáticamente en la base de conocimiento con Webhooks y Atajos", "a": "铁柱", "link": "/part2/16-knowledge"},
+  {"t": "Guardar información automáticamente en la base de conocimiento con Webhooks y Atajos", "a": "鐵柱", "link": "/part2/16-knowledge"},
   {"t": "Cinco Bots colaborando en la gestión de contenidos y redes sociales", "a": "Adrian Punk", "link": "/part2/12-content"},
   {"t": "Publicación de productos en Xianyu, creación de imágenes para Xiaohongshu y producción de videos cortos", "a": "Miles Ma", "link": "/part2/15-ecommerce"},
   {"t": "Configurar un Bot para la operativa diaria de una tienda en Amazon", "a": "Vendedor de comercio electrónico transfronterizo", "link": "/part2/15-ecommerce"},

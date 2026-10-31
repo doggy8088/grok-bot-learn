@@ -15,12 +15,12 @@ GitHub 公式のコマンドラインツールです。Bot が**クラウド PC*
 
 ## Bot に送信するプロンプト
 
-以下の内容を丸ごとコピーして Grok Bot に送信してください。クラウド PC 上で自動的にインストールと検証が行われ、ログインや認証が必要になると一時停止して操作を待機します。
+以下の內容を丸ごとコピーして Grok Bot に送信してください。クラウド PC 上で自動的にインストールと検証が行われ、ログインや認証が必要になると一時停止して操作を待機します。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以后管理代码仓库、推送分支和提交 PR 用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以後管理程式碼倉庫、推送分支和提交 PR 用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>
@@ -35,6 +35,6 @@ GitHub 公式のコマンドラインツールです。Bot が**クラウド PC*
 - [GitHub CLI Linux インストールドキュメント](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
 - [gh auth login 公式マニュアル](https://cli.github.com/manual/gh_auth_login)
 
-> 本ページはコミュニティによる非公式なまとめであり、対象ツールのベンダーおよび xAI との提携関係はありません。コマンドの仕様は公式ドキュメントに準拠します。
+> 本ページはコミュニティによる非公式なまとめであり、対象ツールのベンダーおよび xAI との提攜関係はありません。コマンドの仕様は公式ドキュメントに準拠します。
 
 [← 目次に戻る](/tools/)

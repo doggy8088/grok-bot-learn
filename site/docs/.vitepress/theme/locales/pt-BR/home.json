@@ -39,7 +39,7 @@
  "casesTitle": "Casos Práticos",
  "casesMore": "Todos os casos",
  "cases": [
-  {"t": "Salvar materiais automaticamente na base de conhecimento usando Webhooks e Atalhos", "a": "铁柱", "link": "/part2/16-knowledge"},
+  {"t": "Salvar materiais automaticamente na base de conhecimento usando Webhooks e Atalhos", "a": "鐵柱", "link": "/part2/16-knowledge"},
   {"t": "Cinco Bots colaborando na gestão de redes sociais", "a": "Adrian Punk", "link": "/part2/12-content"},
   {"t": "Cadastro de produtos no Xianyu, criação de imagens no Xiaohongshu e produção de vídeos curtos", "a": "Miles Ma", "link": "/part2/15-ecommerce"},
   {"t": "Criar um Bot para a operação diária de uma loja na Amazon", "a": "Vendedor de e-commerce internacional", "link": "/part2/15-ecommerce"},

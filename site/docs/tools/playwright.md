@@ -9,28 +9,28 @@ next: false
 
 <ToolMeta id="playwright" />
 
-Playwright 是微软开源的自动化库，适合让 Bot 执行 **批量网页截图与渲染抓取**，无需手动耗费浏览器交互额度。
+Playwright 是微軟開源的自動化庫，適合讓 Bot 執行 **批量網頁截圖與渲染抓取**，無需手動耗費瀏覽器交互額度。
 
-## 发给 Bot 的提示词
+## 發給 Bot 的提示詞
 
-复制下方整段内容发送给你的 Grok Bot，它会在云电脑上自动安装并验证，遇到登录或配置密钥时会暂停等待你操作。
+複製下方整段內容發送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登錄或組態密鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 Playwright（https://playwright.dev/python/docs/intro），以后网页渲染、截图和抓取任务用它。
+幫我在你的雲端電腦上安裝 Playwright（https://playwright.dev/python/docs/intro），以後網頁渲染、截圖和抓取任務用它。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 确认云电脑具备 Python 运行环境。
+- 確認雲端電腦具備 Python 執行環境。
 
-## 来源
+## 來源
 
-- [Playwright Python 官方文档](https://playwright.dev/python/docs/intro)
+- [Playwright Python 官方文件](https://playwright.dev/python/docs/intro)
 
-> 本页为社区非官方整理，与该工具厂商、xAI 均无隶属关系，命令以官方文档为准。
+> 本頁為社群非官方整理，與該工具廠商、xAI 均無隸屬關係，命令以官方文件為準。
 
-[← 返回目录](/tools/)
+[← 返回目錄](/tools/)

@@ -32,7 +32,7 @@ Acompanhe duas métricas na rotina diária:
 Basta enviar as seguintes regras para o seu Bot principal para que entrem em vigor:
 
 ```text
-以后长资料、排查日志和中间结果都存成 /workspace/ 下的文件，回我时只给结论和文件路径，不要把原文贴回聊天。给你自己建一个 notes.md 记录角色、正在做的事和做过的决定，每做完一段就更新。面对批量处理或长流程任务，先使用 1 到 2 个最小样本进行单步验证，完成单步后必须暂停等待我确认。
+以後長資料、排查記錄和中間結果都存成 /workspace/ 下的文件，回我時只給結論和文件路徑，不要把原文貼回聊天。給你自己建一個 notes.md 記錄角色、正在做的事和做過的決定，每做完一段就更新。面對批量處理或長流程任務，先使用 1 到 2 個最小樣本進行單步驗證，完成單步後必須暫停等待我確認。
 ```
 
 ### Análise da assinatura unificada do X: como novos usuários devem escolher e se assinantes antigos devem migrar? Tudo explicado em um artigo
@@ -62,7 +62,7 @@ Fique longe destes três grandes buracos negros de consumo:
 ### Recapitulação do evento presencial de Hangzhou: Como fiz a cota do Grok Bot durar mais
 
 > Fonte: [Recapitulação do evento presencial de Hangzhou: Como fiz a cota do Grok Bot durar mais](https://x.com/cgnot996/status/2096415217710461078)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Recapitulação do evento presencial de Hangzhou: Como fiz a cota do Grok Bot durar mais](/cases-img/fs09-1.jpg)
 
@@ -79,7 +79,7 @@ Se o login remoto na máquina virtual estiver travando, resolva em duas etapas:
 ### Economizando ainda mais a cota do Grok Bot: Otimização extrema de tarefas agendadas
 
 > Fonte: [Economizando ainda mais a cota do Grok Bot: Otimização extrema de tarefas agendadas](https://x.com/cgnot996/status/2107418115412046064)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Economizando ainda mais a cota do Grok Bot: Otimização extrema de tarefas agendadas](/cases-img/fs12-0.jpg)
 
@@ -96,7 +96,7 @@ Routines agendadas que rodam ociosas com frequência quando acionadas consomem m
 ### Guia completo para iniciantes: Duração ultra-longa da cota do Grok Bot (envie diretamente para o Bot!)
 
 > Fonte: [Guia completo para iniciantes: Duração ultra-longa da cota do Grok Bot (envie diretamente para o Bot!)](https://x.com/cgnot996/status/2108504325609984233)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Guia completo para iniciantes: Duração ultra-longa da cota do Grok Bot (envie diretamente para o Bot!)](/cases-img/fs13-0.jpg)
 
@@ -130,13 +130,13 @@ Com Webhooks configurados, o Grok Bot atua como um **nó de automação 24/7**.
 Envie o prompt abaixo para **gerar automaticamente um endpoint de recebimento**:
 
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面包含一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面包含一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 
 ### Grok Bot Webhook + Atalhos: Construção de pipeline de ingestão automática de conhecimento
 
 > Fonte: [Grok Bot Webhook + Atalhos: Construção de pipeline de ingestão automática de conhecimento](https://x.com/cgnot996/status/2097487429104197688)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Atalhos: Construção de pipeline de ingestão automática de conhecimento](/cases-img/fs06-0.jpg)
 
@@ -152,8 +152,8 @@ Ideal para usuários Apple arquivarem textos, imagens e vídeos a qualquer momen
 
 ### Integrando o histórico do WeChat ao Grok Bot: Versão avançada com Atalhos
 
-> Fonte: [微信聊天记录打通 Grok Bot：快捷指令进阶版](https://x.com/cgnot996/status/2107039351519707602)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Fonte: [微信聊天記錄打通 Grok Bot：快捷指令進階版](https://x.com/cgnot996/status/2107039351519707602)  
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Integrando o histórico do WeChat ao Grok Bot: Versão avançada com Atalhos](/cases-img/fs11-0.png)
 
@@ -171,7 +171,7 @@ Esta solução utiliza a cadeia "Atalhos + drive em nuvem temporário + Webhook"
 ### Tutorial completo de integração do Grok Bot da equipe ao Feishu (com template de gerenciador do Feishu)
 
 > Fonte: [Tutorial completo de integração do Grok Bot da equipe ao Feishu (com template de gerenciador do Feishu)](https://x.com/cgnot996/status/2109247903785198076)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Tutorial completo de integração do Grok Bot da equipe ao Feishu (com template de gerenciador do Feishu)](/cases-img/fs15-0.jpg)
 
@@ -206,13 +206,13 @@ Backups manuais não são viáveis; **é fundamental transformar a lógica de re
 Configure o prompt a seguir em um Bot dedicado de operações para manter o registro geral de serviços e os scripts de recuperação:
 
 ```text
-你是「虚拟机服务管家」，负责维护这台机器部署的所有第三方服务。你维护一份登记总账（REGISTRY.md 与 registry.json）、每个服务的独立恢复脚本（restore/restore-<服务>.sh，必须幂等可重复运行）、总入口 restore/restore-all.sh，以及一份排除日志和密钥的自写源码备份 service-src/。总账记录服务 ID、用途、安装方式、启停命令、健康检查命令和密钥存放路径。仓库严禁存入明文密钥。收到恢复指令后，按依赖顺序跑脚本并逐项交出健康检查验收清单。
+你是「虛擬機器服務管家」，負責維護這台機器部署的所有第三方服務。你維護一份登記總帳（REGISTRY.md 與 registry.json）、每個服務的獨立恢復指令碼（restore/restore-<服務>.sh，必須冪等可重複執行）、總入口 restore/restore-all.sh，以及一份排除記錄和密鑰的自寫原始碼備份 service-src/。總帳記錄服務 ID、用途、安裝方式、啟停命令、健康檢查命令和密鑰存放路徑。倉庫嚴禁存入明文密鑰。收到恢復指令後，按依賴順序跑指令碼並逐項交出健康檢查驗收清單。
 ```
 
 ### A grande evacuação do Grok Bot: Uma solução completa de backup de sistema Agent
 
 > Fonte: [A grande evacuação do Grok Bot: Uma solução completa de backup de sistema Agent](https://x.com/cgnot996/status/2098222795847315967)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![A grande evacuação do Grok Bot: Uma solução completa de backup de sistema Agent](/cases-img/fs10-0.jpg)
 
@@ -229,7 +229,7 @@ Como a plataforma oficial não oferece exportação de memória com um clique, e
 ### Ferramentas sumiram após reset da máquina virtual do Grok Bot? Tutorial de backup e recuperação (com prompts inclusos)
 
 > Fonte: [Ferramentas sumiram após reset da máquina virtual do Grok Bot? Tutorial de backup e recuperação (com prompts inclusos)](https://x.com/cgnot996/status/2108874629163229628)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Ferramentas sumiram após reset da máquina virtual do Grok Bot? Tutorial de backup e recuperação (com prompts inclusos)](/cases-img/fs14-0.jpg)
 
@@ -271,7 +271,7 @@ Referência de divisão de funções e prevenção de armadilhas:
 
 ### Coletânea de tweets de Tiezhu ②: Recursos do produto e observações de versão
 
-Autor: 铁柱AGI (coletânea de tweets) | Para quem é recomendado: Exploradores técnicos interessados em mecanismos de ambiente subjacentes e que desejam dominar a integração multidispositivo e a solução de problemas de rede
+Autor: 鐵柱AGI (coletânea de tweets) | Para quem é recomendado: Exploradores técnicos interessados em mecanismos de ambiente subjacentes e que desejam dominar a integração multidispositivo e a solução de problemas de rede
 
 A coletânea documenta a evolução da infraestrutura do Grok Bot. **Todos os Bots sob a mesma conta compartilham o mesmo computador em nuvem Linux**, com configuração de 8 núcleos, 16 GB de RAM e disco rígido de 128 GB, com sessões de desktop independentes entre si. O texto também aborda como solicitar caixas de correio exclusivas, invocar a busca nativa do X e diagnosticar redes de saída.
 
@@ -283,7 +283,7 @@ Guarde dois pontos fundamentais na resolução de problemas do ambiente:
 
 ### Coletânea de tweets de Tiezhu ③: Casos de uso e práticas reais
 
-Autor: 铁柱AGI (coletânea de tweets) | Para quem é recomendado: Praticantes em busca de inspiração para implementação em negócios e que desejam evitar banimento de contas em automações e loops infinitos
+Autor: 鐵柱AGI (coletânea de tweets) | Para quem é recomendado: Praticantes em busca de inspiração para implementação em negócios e que desejam evitar banimento de contas em automações e loops infinitos
 
 Tiezhu registrou mais de dez funções de Bot em operação real, incluindo inspeção de repositórios e relatórios diários de SEO, além de coleta no WeChat, contabilidade em tabelas multidimensionais e chamadas de API para montagem de imagens, fornecendo uma regra de implementação em quatro etapas, desde a configuração de função única até o backup de recuperação de desastres persistente.
 
@@ -295,7 +295,7 @@ Para uma operação estável, duas normas de manutenção devem ser seguidas:
 
 ### Coletânea de tweets de Tiezhu ④: Comunidade, ecossistema e comparação com concorrentes
 
-Autor: 铁柱AGI (coletânea de tweets) | Para quem é recomendado: Arquitetos avaliando escolhas entre múltiplos frameworks de Agent e procurando recursos de código aberto
+Autor: 鐵柱AGI (coletânea de tweets) | Para quem é recomendado: Arquitetos avaliando escolhas entre múltiplos frameworks de Agent e procurando recursos de código aberto
 
 Tiezhu comparou horizontalmente os principais frameworks de Agent com o Grok Bot. O Grok Bot segue a abordagem de máquina pronta, vindo com computador em nuvem pronto para uso, mas limitado por cotas; computadores montados (DIY), como o Hermes, oferecem alto controle, mas exigem manutenção própria.
 

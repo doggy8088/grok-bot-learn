@@ -8,11 +8,11 @@ DeepSeek Harness
 muse2api
 agy
 KinGao
-铁柱AGI
+鐵柱AGI
 @cgnot996
 bot.fmcat.top
 vip.fmcat.top
-小铁柱
+小鐵柱
 Grok Bot Clipper
 VitePress
 OpenCC

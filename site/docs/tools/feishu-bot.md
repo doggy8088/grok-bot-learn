@@ -1,40 +1,40 @@
 ---
-title: 飞书机器人长连接
+title: 飛書機器人長連線
 sidebar: false
 prev: false
 next: false
 ---
 
-# 飞书机器人长连接
+# 飛書機器人長連線
 
 <ToolMeta id="feishu-bot" />
 
-基于飞书官方 Python SDK 的长连接消息方案，适合在无需公网 IP 的 **云电脑** 上实现事件监听与群聊机器人协作。
+基於飛書官方 Python SDK 的長連線訊息方案，適合在無需公網 IP 的 **雲端電腦** 上實作事件監聽與群聊機器人協作。
 
-结论是：适合在无公网IP的云电脑上，基于长连接实现飞书事件监听与群聊协作。
+結論是：適合在無公網IP的雲端電腦上，基於長連線實作飛書事件監聽與群聊協作。
 
-## 发给 Bot 的提示词
+## 發給 Bot 的提示詞
 
-复制下方整段内容发送给你的 Grok Bot，它会在云电脑上自动安装并验证，遇到登录或配置密钥时会暂停等待你操作。
+複製下方整段內容發送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登錄或組態密鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上配置基于飞书 Python SDK（https://github.com/larksuite/oapi-sdk-python）的长连接机器人，以后接收群聊事件和派发任务用它。需要填密钥时请提醒我自己填。
+幫我在你的雲端電腦上組態基於飛書 Python SDK（https://github.com/larksuite/oapi-sdk-python）的長連線機器人，以後接收群聊事件和派發任務用它。需要填密鑰時請提醒我自己填。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 在飞书开放平台创建企业自建应用并开启长连接与机器人功能。
-- 根据提示自行填入应用的 App ID 与 App Secret。
+- 在飛書開放平台建立企業自建應用並開啟長連線與機器人功能。
+- 根據提示自行填入應用的 App ID 與 App Secret。
 
-## 来源
+## 來源
 
-- [飞书官方 Python SDK（larksuite/oapi-sdk-python）](https://github.com/larksuite/oapi-sdk-python)
-- [飞书开放平台](https://open.feishu.cn/)
+- [飛書官方 Python SDK（larksuite/oapi-sdk-python）](https://github.com/larksuite/oapi-sdk-python)
+- [飛書開放平台](https://open.feishu.cn/)
 
-> 本页为社区非官方整理，与该工具厂商、xAI 均无隶属关系，命令以官方文档为准。
+> 本頁為社群非官方整理，與該工具廠商、xAI 均無隸屬關係，命令以官方文件為準。
 
-[← 返回目录](/tools/)
+[← 返回目錄](/tools/)

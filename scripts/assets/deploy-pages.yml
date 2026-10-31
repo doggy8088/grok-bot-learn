@@ -1,0 +1,60 @@
+name: Deploy VitePress site to GitHub Pages
+
+# This file is the canonical copy kept on the main branch under
+# scripts/assets/. The sync workflow copies it into
+# .github/workflows/deploy-pages.yml on the zh-tw branch.
+# Pushes made by the sync workflow itself use GITHUB_TOKEN and therefore do
+# not trigger this workflow; the sync workflow deploys Pages directly.
+# This workflow covers manual pushes to zh-tw and manual dispatch.
+
+on:
+  push:
+    branches: [zh-tw]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Checkout zh-tw
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build VitePress site
+        working-directory: site
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/docs/.vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-26.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

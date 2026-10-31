@@ -1,10 +1,10 @@
-# 六语种接线自检（2026-10-29）
+# 六語種接線自檢（2026-10-29）
 
 ## build
-- `cd site && npm run build`：**PASS**（vitepress 1.6.4，约 26.2s，无 RangeError）
-- 未执行 push / deploy
+- `cd site && npm run build`：**PASS**（vitepress 1.6.4，約 26.2s，無 RangeError）
+- 未執行 push / deploy
 
-## locales 结构
+## locales 結構
 | locale | md | UI JSON | sidebar JSON | nav/sidebar 非空 |
 |---|---|---|---|---|
 | zh-CN (root) | 真源 | theme/*.json | sidebar.json | 是 |
@@ -15,22 +15,22 @@
 | es | 61 | 6 | sidebar.es.json | 是 |
 | pt-BR | 61 | 6 | sidebar.pt-BR.json | 是 |
 
-## 语言切换
-- VitePress 内建 locales 下拉（顶栏 / 移动菜单）
-- config.mts `locales` 含 root + 上述 6 语种
+## 語言切換
+- VitePress 內建 locales 下拉（頂欄 / 行動選單）
+- config.mts `locales` 含 root + 上述 6 語種
 
-## JSON 接线
-- `theme/i18n.ts`：`useLocaleJson` 按 `theme/locales/<locale>/*.json` 整文件覆盖
+## JSON 接線
+- `theme/i18n.ts`：`useLocaleJson` 按 `theme/locales/<locale>/*.json` 整文件覆蓋
 - 已接入：Home / BotHire / Changelog / EcoIndex / ClipperLanding / XiaoTiezhuLanding / ToolIndex / ToolMeta / JoinCard / DocEndCard
 
-## 抽检注意
-- **en/part1 部分标题混入日文**（如 `01-what-is.md`、`03-install.md` 含「とは」）——内容问题，交翻译官修；侧栏目前按页标题取文案会带出该瑕疵
+## 抽檢注意
+- **en/part1 部分標題混入日文**（如 `01-what-is.md`、`03-install.md` 含「とは」）——內容問題，交翻譯官修；側欄目前按頁標題取文案會帶出該瑕疵
 - `git stash@{0}: seo-temp` 仍在，未 drop
 
-## 待部署清单（等铁柱策略后再动）
-1. 确认上线策略：七语种全开 / 先繁英日 / 先只繁体（若只开部分，部署前从 `locales` 与切换器隐藏未开放语种）
-2. 保留 `stash@{0}: seo-temp`，合并/应用策略由总控定
+## 待部署清單（等鐵柱策略後再動）
+1. 確認上線策略：七語種全開 / 先繁英日 / 先只繁體（若只開部分，部署前從 `locales` 與切換器隱藏未開放語種）
+2. 保留 `stash@{0}: seo-temp`，合併/應用策略由總控定
 3. `cd site && npm run build` 再跑一遍
-4. 按仓库 `deploy.sh` 发布（Cloudflare Pages + EdgeOne bot.fmcat.top）
-5. 抽检：每开放语种首页、一篇手册、一篇工具、语言切换、hreflang/og:locale
-6. **本岗不自行 push/deploy**，等 Bot学习站指令
+4. 按倉庫 `deploy.sh` 發表（Cloudflare Pages + EdgeOne bot.fmcat.top）
+5. 抽檢：每開放語種首頁、一篇手冊、一篇工具、語言切換、hreflang/og:locale
+6. **本崗不自行 push/deploy**，等 Bot學習站指令

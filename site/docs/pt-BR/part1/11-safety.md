@@ -32,7 +32,7 @@ Se você precisar de isolamento rigoroso, deverá abrir uma conta separada do Cu
 ### Qual é o padrão de excelência
 - **Fronteiras físicas claras**: o isolamento subjacente de microVMs é eficaz.
 - **Tarefas estritamente separadas**: nunca misture operações de alto risco com scraping externo não confiável sob a mesma conta.
-- **Credenciais totalmente limpas**: nenhuma sessão órfã após a conclusão do projeto; consulte [《4.4 权限、安全与人闸》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd).
+- **Credenciais totalmente limpas**: nenhuma sessão órfã após a conclusão do projeto; consulte [《4.4 權限、安全與人閘》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd).
 
 ## Classificação de Ações: Dividindo Permissões pela Regra de Reversibilidade em Um Minuto
 
@@ -55,7 +55,7 @@ Se você precisar de isolamento rigoroso, deverá abrir uma conta separada do Cu
 Critérios de aceitação:
 - Preparação concluída de forma autônoma dentro da sandbox e do diretório de trabalho.
 - **Pausa ativa aguardando confirmação humana via cartão** antes de acionar ações irreversíveis.
-- Tarefas automatizadas noturnas não são interrompidas por timeout. [《4.4 权限、安全与人闸》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
+- Tarefas automatizadas noturnas não são interrompidas por timeout. [《4.4 權限、安全與人閘》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
 
 ## Mecanismo de Aprovação e Interceptação de Ações pelo Auto Review
 
@@ -88,7 +88,7 @@ send, post, buy, transfer, delete, permissions, production, terms
 
 **Passe a sessão, não os segredos**. O Bot opera usando a sua identidade; em caso de login, autenticação de dois fatores (2FA) ou pagamento, você mesmo deve assumir o controle pessoalmente. Nunca envie senhas na caixa de chat.
 
-1. **Assumir a tela**: clique em "Take over" no topo da janela para digitar pessoalmente ou preencher com o 1Password. Para mecanismos de mascaramento, consulte [安全存储机密信息](https://cursor.com/cn/help/grok-bot/secrets).
+1. **Assumir a tela**: clique em "Take over" no topo da janela para digitar pessoalmente ou preencher com o 1Password. Para mecanismos de mascaramento, consulte [安全儲存機密資訊](https://cursor.com/cn/help/grok-bot/secrets).
 2. **Permissões somente leitura**: conceda chaves externas apenas para consulta; transferências ou gravações são estritamente proibidas.
 3. **Permissões locais**: vá em Configurações > Computer > Your computer > Execution on this computer e, entre as três opções, escolha "Never allow" (as outras opções são "Ask every time" e "Always allow").
 
@@ -106,61 +106,61 @@ send, post, buy, transfer, delete, permissions, production, terms
 ### Etapas de configuração
 1. **Finalize o Prompt com instruções rígidas de parada:**
 ```text
-核对营销活动数据，并起草一份推荐的预算调整方案。不要更改营销活动，也不要联系代理商。在展示当前值、建议值和预期影响之后，请求批准。
+核對行銷活動資料，並起草一份推薦的預算調整方案。不要更改行銷活動，也不要聯繫代理商。在展示當前值、建議值和預期影響之後，請求批准。
 ```
 2. **Consolidar o contrato de seis linhas**: para Bots pessoais, envie as regras abaixo na conversa e peça para que ele as memorize; para Bots compartilhados, insira-as na descrição (Description) da seção About dos detalhes:
 ```text
-Own: 唯一负责的业务结果与目标
-Sources: 允许读取的应用、数据源网址或本地绝对路径
-Output: 交付格式、字数限制与落盘文件位置
-Approval: 在执行前必须停下来等待人工批准的动作清单（never publish, never email, never modify without approval）
-Failure: 当外部数据源缺失、超时或失效时的应对规则（如实报错并停止，严禁编造数据）
-Never: 绝对禁止触碰的系统操作或越权行为
+Own: 唯一負責的業務結果與目標
+Sources: 允許讀取的應用、資料源網址或本地絕對路徑
+Output: 交付格式、字數限制與落盤文件位置
+Approval: 在執行前必須停下來等待人工批准的動作清單（never publish, never email, never modify without approval）
+Failure: 當外部資料源缺失、超時或失效時的應對規則（如實報錯並停止，嚴禁編造資料）
+Never: 絕對禁止觸碰的系統操作或越權行為
 ```
 3. **Implantar o contrato de Chefe de Gabinete (Chief of Staff)**: para tarefas complexas, utilize o Chief of Staff do kocer como ponto de entrada único. Para o Bot controlador pessoal, envie o contrato na conversa e peça para ele memorizar; para Bots compartilhados, insira-o na descrição (Description) da seção About:
-::: details 配置步骤
+::: details 組態步驟
 ```text
 Name: Chief
 Title: Chief of Staff
 Reports to: 你的名字
 
 What I own:
-- 接收你发送的每一个目标，并决定是由我完成、委派还是暂存等待批准。
-- 将目标拆解为子任务，为每个子任务明确指定负责人、数据源和评审节点。
-- 维护每日简报、每周复盘和日常 Routine 审计。其他人不得改动这些。
-- 实时更新 /workspace/state/chief_log.md，记录我做出的每一项决定和跳过的每一项操作。
+- 接收你發送的每一個目標，並決定是由我完成、委派還是暫存等待批准。
+- 將目標拆解為子任務，為每個子任務明確指定負責人、資料源和評審節點。
+- 維護每日簡報、每週覆盤和日常 Routine 審計。其他人不得改動這些。
+- 實時更新 /workspace/state/chief_log.md，記錄我做出的每一項決定和跳過的每一項操作。
 
 What good output looks like:
-- 提交的每一个数据都必须标明来源和日期。如果无法引证，直接舍弃。
-- 每一个委派的任务都必须有明确的负责人、一句简短的目标说明和停止规则。
-- 每一份报告末尾必须附带三行：已完成的内容、等待你确认的内容、已被我废弃的内容及原因。
-- 严禁出现“我认为”或“可能”。要么确认，要么停下来询问。
+- 提交的每一個資料都必須標明來源和日期。如果無法引證，直接捨棄。
+- 每一個委派的任務都必須有明確的負責人、一句簡短的目標說明和停止規則。
+- 每一份報告末尾必須附帶三行：已完成的內容、等待你確認的內容、已被我廢棄的內容及原因。
+- 嚴禁出現“我認為”或“可能”。要麼確認，要麼停下來詢問。
 
-Where I stop (始终暂存等待批准，绝不单独执行):
-- 向公司外部人员发送任何信息。
-- 转移、花费或承诺任何资金。
-- 对外公开公开发布任何内容。
-- 删除任何不是明显垃圾的文件。
-- 注册账户、同意任何条款或接受任何合同。
-- 更改账户设置、账单配置或已连接的插件。
-- 任何无法在一分钟内撤销的操作。
+Where I stop (始終暫存等待批准，絕不單獨執行):
+- 向公司外部人員發送任何資訊。
+- 轉移、花費或承諾任何資金。
+- 對外公開公開發表任何內容。
+- 刪除任何不是明顯垃圾的文件。
+- 註冊帳戶、同意任何條款或接受任何合同。
+- 更改帳戶設定、帳單組態或已連線的外掛。
+- 任何無法在一分鐘內撤銷的操作。
 
-Style: 简短、结构化、无废话。如实汇报进展。
+Style: 簡短、結構化、無廢話。如實彙報進展。
 ```
 :::
 Envie as dez regras fundamentais para o Bot e salve como a Skill `house_rules`:
-::: details 配置步骤
+::: details 組態步驟
 ```text
-Rule 1. 可逆性底线：如果我无法在一分钟内撤销某项操作，我必须暂停并请求批准。
-Rule 2. 无来源不填数字：如果我无法标明数字的出处，我必须将其剔除，严禁臆测。
-Rule 3. 字段不全不假定：如果任务缺少交付结果、数据源、产出形式或审查节点，必须先问清楚再开始。
-Rule 4. 交付必带凭证：每项完成的工作都要交出最终成果、来源清单，并将推断部分单独列出。
-Rule 5. 各阶段单一负责人：进行任务委派时，每个阶段只能由一个 Bot 负责，严禁向同一文件并发写入。
-Rule 6. 审批权专属于人：我绝不代替人类审批其他 Bot 的不可逆操作，只有你能批准。
-Rule 7. 沉默即是状态：如果挂起的操作 24 小时未收到回复，我只提醒一次，随后停止执行。
-Rule 8. 凡操作必有记录：我的每一次决策和跳过的每一次操作，都要带时间戳写入 /workspace/state/chief_log.md。
-Rule 9. 会话替代机密：我绝不在聊天中要求或粘贴密码、密钥或 Token。登录一律通过人工接管完成。
-Rule 10. 紧急熔断开关：一旦收到 STOP ALL 消息，我立即中止所有正在运行的任务和 Routine，汇报当前状态并等待指令。
+Rule 1. 可逆性底線：如果我無法在一分鐘內撤銷某項操作，我必須暫停並請求批准。
+Rule 2. 無來源不填數位：如果我無法標明數位的出處，我必須將其剔除，嚴禁臆測。
+Rule 3. 欄位不全不假定：如果任務缺少交付結果、資料源、產出形式或審查節點，必須先問清楚再開始。
+Rule 4. 交付必帶憑證：每項完成的工作都要交出最終成果、來源清單，並將推斷部分單獨列出。
+Rule 5. 各階段單一負責人：進行任務委派時，每個階段只能由一個 Bot 負責，嚴禁向同一文件平行處理寫入。
+Rule 6. 審批權專屬於人：我絕不代替人類審批其他 Bot 的不可逆操作，只有你能批准。
+Rule 7. 沉默即是狀態：如果掛起的操作 24 小時未收到回覆，我只提醒一次，隨後停止執行。
+Rule 8. 凡操作必有記錄：我的每一次決策和跳過的每一次操作，都要帶時間戳記寫入 /workspace/state/chief_log.md。
+Rule 9. 會話替代機密：我絕不在聊天中要求或粘貼密碼、密鑰或 Token。登錄一律通過人工接管完成。
+Rule 10. 緊急熔斷開關：一旦收到 STOP ALL 訊息，我立即中止所有正在執行的任務和 Routine，彙報當前狀態並等待指令。
 ```
 :::
 
@@ -190,10 +190,10 @@ Suporta domínios da web, bem como faixas de IP e portas para TCP bruto, sem lim
 - Os IPs estáticos de saída compartilhados são comuns a todos os clientes e **nunca devem ser usados para identificar uma equipe específica**. Caso precise liberar acessos na rede interna, solicite a faixa de IPs mais recente à equipe da sua conta.
 - Liberar `api2.cursor.sh` no gateway enquanto descriptografa domínios aninhados fará com que a máquina trave em Setting up computer; **é obrigatório colocar `*.cursorvm.com` e `*.*.cursorvm.com` na lista de permissões em todos os profiles e ignorar a descriptografia de certificados**.
 
-  Consulte [配置 TLS 检查代理](https://cursor.com/cn/docs/grok-bot/proxies).
+  Consulte [組態 TLS 檢查代理](https://cursor.com/cn/docs/grok-bot/proxies).
 - Para acessar recursos da rede interna, você pode ativar o encaminhamento de tráfego do desktop (Allow Local Egress Routing) ou usar scripts de configuração de ambiente de equipe (Team Setup Scripts) para instalar um cliente VPN de forma unificada durante a inicialização.
 
-  Consulte [连接到私有网络](https://cursor.com/cn/docs/grok-bot/private-networks).
+  Consulte [連線到私有網路](https://cursor.com/cn/docs/grok-bot/private-networks).
 
 ### Qual é o padrão de excelência
 - **Bloqueio explícito de solicitações desnecessárias para a rede externa**
@@ -208,7 +208,7 @@ Suporta domínios da web, bem como faixas de IP e portas para TCP bruto, sem lim
 
 Configure uma Routine leve para **verificar automaticamente comandos anômalos e loops infinitos todas as sextas-feiras à tarde**:
 
-::: details 日志审计与运行追踪
+::: details 記錄審計與執行追蹤
 ```text
 Every Friday at 16:00, produce a review with four sections:
 - Finished: what I approved this week, one line each.
@@ -246,13 +246,13 @@ A auditoria de faturas de SaaS relatou uma economia de $720. O cancelamento de a
 - A autenticação OAuth segue as permissões individuais do membro solicitante, com responsabilidades bem definidas; configurar diretamente uma API Key global criaria uma porta dos fundos compartilhada por toda a equipe.
 - **É estritamente proibido configurar chaves de nível de administrador da organização para Bots públicos**; todas as credenciais compartilhadas devem ser isoladas em sandbox com base no princípio de menor privilégio.
 
-[《4.4 权限、安全与人闸》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
+[《4.4 權限、安全與人閘》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
 
 ## Principais Pontos do FAQ de Segurança
 
 - **Isolamento multilocatário (multi-tenant)**: entre usuários, há isolamento no nível de kernel com o Firecracker; no entanto, **todos os Bots do mesmo usuário compartilham a mesma máquina virtual, disco persistente e ambiente de navegador**.
 
-  Consulte [Grok Bot 安全常见问题](https://cursor.com/cn/docs/grok-bot/security-faq).
+  Consulte [Grok Bot 安全常見問題](https://cursor.com/cn/docs/grok-bot/security-faq).
 - **Implantação e residência**: **executado integralmente na nuvem dos EUA gerenciada pelo Cursor**, sem suporte a implantação local/on-premise, VPC própria ou imagens personalizadas; o plano US-only para Enterprise não o inclui por padrão, e garantias formais por escrito exigem contato específico com a equipe da conta.
 - **Permissões e modelos**: administradores **não podem forçar o envio de conectores**, podendo apenas permitir ou bloquear; listas de permissão corporativas de modelos não se aplicam a ele, que orquestra de forma unificada modelos da xAI e de subprocessadores secundários, sem oferecer seletor de alternância.
 - **Encerramento e dados**: finalizar a máquina virtual no painel encerra apenas a execução, **mantendo o disco persistente e sem revogar permissões de acesso**; após o encerramento do serviço e mediante solicitação por escrito, os dados são excluídos em até 30 dias, com backups diários criptografados para recuperação externa.
@@ -288,17 +288,17 @@ A auditoria de faturas de SaaS relatou uma economia de $720. O cancelamento de a
 
 ## Leituras Adicionais
 
-- Capítulo relacionado: [第 5 章 共享云电脑：文件、浏览器与接管](/part1/05-computer)
-- Capítulo relacionado: [第 25 章 常见问题与排错](/part4/25-faq)
+- Capítulo relacionado: [第 5 章 共享雲端電腦：文件、瀏覽器與接管](/part1/05-computer)
+- Capítulo relacionado: [第 25 章 常見問題與排錯](/part4/25-faq)
 - Documentação oficial: [Grok Bot 安全](https://cursor.com/cn/docs/grok-bot/security)
-- Documentação oficial: [Grok Bot 安全常见问题](https://cursor.com/cn/docs/grok-bot/security-faq)
-- Documentação oficial: [面向 Teams 和企业版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
-- Documentação oficial: [配置身份与访问](https://cursor.com/cn/docs/grok-bot/identity)
-- Documentação oficial: [连接到私有网络](https://cursor.com/cn/docs/grok-bot/private-networks)
-- Documentação oficial: [配置 TLS 检查代理](https://cursor.com/cn/docs/grok-bot/proxies)
-- Suporte oficial: [安全存储机密信息](https://cursor.com/cn/help/grok-bot/secrets)
-- Suporte oficial: [哪些 AI 模型为 Grok Bot 提供支持？](https://cursor.com/cn/help/grok-bot/models)
-- Suporte oficial: [Grok Bot 计算机](https://cursor.com/cn/help/grok-bot/computer-recovery)
-- Suporte oficial: [团队 Bot](https://cursor.com/cn/help/grok-bot/shared-bots.md)
-- Artigo original da comunidade: [《4.4 权限、安全与人闸》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
+- Documentação oficial: [Grok Bot 安全常見問題](https://cursor.com/cn/docs/grok-bot/security-faq)
+- Documentação oficial: [面向 Teams 和企業版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
+- Documentação oficial: [組態身份與訪問](https://cursor.com/cn/docs/grok-bot/identity)
+- Documentação oficial: [連線到私有網路](https://cursor.com/cn/docs/grok-bot/private-networks)
+- Documentação oficial: [組態 TLS 檢查代理](https://cursor.com/cn/docs/grok-bot/proxies)
+- Suporte oficial: [安全儲存機密資訊](https://cursor.com/cn/help/grok-bot/secrets)
+- Suporte oficial: [哪些 AI 模型為 Grok Bot 提供支援？](https://cursor.com/cn/help/grok-bot/models)
+- Suporte oficial: [Grok Bot 電腦](https://cursor.com/cn/help/grok-bot/computer-recovery)
+- Suporte oficial: [團隊 Bot](https://cursor.com/cn/help/grok-bot/shared-bots.md)
+- Artigo original da comunidade: [《4.4 權限、安全與人閘》](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
 - Artigo original da comunidade: [《Grok Bot Chief of Staff: the charter, 10 rules and 5 routines I run｜kocer》](https://jcng5q8n0f3z.feishu.cn/wiki/BquAwgIC8iWFQlkPZFxc7uOsnSh)

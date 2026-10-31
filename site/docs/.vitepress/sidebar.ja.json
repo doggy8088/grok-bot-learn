@@ -29,7 +29,7 @@
    "/ja/part1/06-memory"
   ],
   [
-   "アプリケーション連携",
+   "アプリケーション連攜",
    "/ja/part1/07-apps"
   ],
   [
@@ -55,7 +55,7 @@
    "/ja/part2/12-content"
   ],
   [
-   "事例：Xでのコンテンツ制作と運用",
+   "事例：Xでのコンテンツ製作と運用",
    "/ja/part2/13-x-ops"
   ],
   [
@@ -63,11 +63,11 @@
    "/ja/part2/14-engineering"
   ],
   [
-   "事例：EC・日常生活での実践",
+   "事例：EC・日常生活での実踐",
    "/ja/part2/15-ecommerce"
   ],
   [
-   "事例：ナレッジ自動取り込みと WeChat 連携",
+   "事例：ナレッジ自動取り込みと WeChat 連攜",
    "/ja/part2/16-knowledge"
   ],
   [
@@ -75,7 +75,7 @@
    "/ja/part2/17-gtm"
   ],
   [
-   "事例：一人会社と AI チーム",
+   "事例：一人會社と AI チーム",
    "/ja/part2/18-solo"
   ]
  ],
@@ -93,13 +93,13 @@
    "/ja/part3/21-backup"
   ],
   [
-   "FeishuとWeChatの連携",
+   "FeishuとWeChatの連攜",
    "/ja/part3/22-feishu-wechat"
   ]
  ],
  "part4": [
   [
-   "チーム版とエンタープライズ導入",
+   "チーム版とエンタープライズ匯入",
    "/ja/part4/23-enterprise"
   ],
   [
@@ -117,7 +117,7 @@
    "/ja/cases/x-hot"
   ],
   [
-   "中国語長文セレクション",
+   "中國語長文セレクション",
    "/ja/cases/cn"
   ],
   [
@@ -129,7 +129,7 @@
    "/ja/cases/en2"
   ],
   [
-   "铁柱の実践長文記事とツイート",
+   "鐵柱の実踐長文記事とツイート",
    "/ja/cases/tiezhu"
   ]
  ]

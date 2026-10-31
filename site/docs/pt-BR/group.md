@@ -8,7 +8,7 @@ next: false
 
 # Grupo Pago de Dúvidas
 
-Sou o Tiezhu. Costumo escrever na conta oficial 「铁柱AGI」, e meu perfil no X é @cgnot996.
+Sou o Tiezhu. Costumo escrever na conta oficial 「鐵柱AGI」, e meu perfil no X é @cgnot996.
 
 Criei um "Grupo de Dúvidas sobre AI Agents". **Aqui conversamos sobre tudo relacionado a AI Agents, e o Grok Bot é o assunto mais perguntado**. O grupo é pago; basta me perguntar sobre os valores no WeChat.
 

@@ -18,7 +18,7 @@ Copy the entire content below and send it to your Grok Bot. It will automaticall
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 yt-dlp（https://github.com/yt-dlp/yt-dlp），以后批量下载音视频和提取音频用它。
+幫我在你的雲端電腦上安裝 yt-dlp（https://github.com/yt-dlp/yt-dlp），以後批量下載音影片和提取音訊用它。
 ````
 
 </div>

@@ -3,19 +3,19 @@
     "groupPill": "有料Q&Aグループ"
   },
   "footer": {
-    "mpBtn": "公式アカウント「铁柱AGI」",
-    "mpDialog": "公式アカウント「铁柱AGI」QRコード",
-    "mpAlt": "WeChatで検索：铁柱AGI",
+    "mpBtn": "公式アカウント「鐵柱AGI」",
+    "mpDialog": "公式アカウント「鐵柱AGI」QRコード",
+    "mpAlt": "WeChatで検索：鐵柱AGI",
     "group": "有料Q&Aグループ",
     "about": "作者について",
     "friends": "リンク集",
-    "note": "当サイトはコミュニティによる非公式の学習サイトであり、xAI公式ではありません。"
+    "note": "當サイトはコミュニティによる非公式の學習サイトであり、xAI公式ではありません。"
   },
   "parts": {
     "part1": "第1部 · 利用マニュアル",
     "part2": "第2部 · 事例編",
     "part3": "第3部 · 応用編",
-    "part4": "第4部 · 実践編",
+    "part4": "第4部 · 実踐編",
     "cases": "事例集"
   },
   "changelog": {
@@ -23,14 +23,14 @@
     "tabAll": "すべて",
     "tabPc": "PC",
     "tabMobile": "モバイル",
-    "tabOurs": "当サイトの解説",
-    "chipOurs": "当サイトの解説"
+    "tabOurs": "當サイトの解説",
+    "chipOurs": "當サイトの解説"
   },
   "xiaotiezhu": {
-    "title": "小铁柱",
-    "joinHint": "QRコードをスキャンしてサポート担当のWeChatを追加し、小铁柱を開通"
+    "title": "小鐵柱",
+    "joinHint": "QRコードをスキャンしてサポート擔當のWeChatを追加し、小鐵柱を開通"
   },
   "join": {
-    "qrAlt": "铁柱の個人WeChat QRコード"
+    "qrAlt": "鐵柱の個人WeChat QRコード"
   }
 }

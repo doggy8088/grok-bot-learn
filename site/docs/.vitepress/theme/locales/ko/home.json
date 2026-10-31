@@ -39,7 +39,7 @@
  "casesTitle": "실전 사례",
  "casesMore": "전체 사례",
  "cases": [
-  {"t": "Webhook과 단축어를 활용해 자료를 지식 베이스에 자동 저장하기", "a": "铁柱", "link": "/part2/16-knowledge"},
+  {"t": "Webhook과 단축어를 활용해 자료를 지식 베이스에 자동 저장하기", "a": "鐵柱", "link": "/part2/16-knowledge"},
   {"t": "5개의 Bot이 협업하여 1인 미디어 운영하기", "a": "Adrian Punk", "link": "/part2/12-content"},
   {"t": "Xianyu 상품 등록, Xiaohongshu 이미지 제작 및 숏폼 영상 제작", "a": "Miles Ma", "link": "/part2/15-ecommerce"},
   {"t": "아마존 매장 일상 운영을 위한 Bot 구축하기", "a": "크로스보더 이커머스 셀러", "link": "/part2/15-ecommerce"},

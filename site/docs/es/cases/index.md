@@ -26,7 +26,7 @@ Al pasar de una sola ventana de chat a la colaboración multi-agente y a la auto
 
 12 artículos incluidos
 
-## [Artículos extensos y tuits prácticos de 铁柱](/cases/tiezhu)
+## [Artículos extensos y tuits prácticos de 鐵柱](/cases/tiezhu)
 
 Cuando muchos principiantes empiezan a experimentar con Grok Bot, el problema más común que encuentran es la fragmentación de la información y la incapacidad de aplicar la experiencia en la práctica. Al revisar tuits y tutoriales dispersos, algunos explican cómo elegir suscripciones, otros cómo conectar atajos y otros cómo escribir scripts de monitoreo. Al intentar seguir las instrucciones en la práctica, a menudo caen en varias trampas típicas: sin darse cuenta, acumulan todas las tareas de alto consumo en la conversación principal, agotando la cuota de toda una semana en dos o tres días; pierden todas las herramientas que tanto costó configurar cuando la computadora en la nube se reinicia; o agregan varios bots a un chat grupal, provocando activaciones en bucle que hacen que el consumo colapse al instante.
 

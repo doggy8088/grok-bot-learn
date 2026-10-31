@@ -10,7 +10,7 @@ for path, title, *_ in J["jobs"]:
     if not os.path.exists(src): continue
     t = open(src).read()
     slug = path.split("/")[1]
-    if STAGE >= 2 and (path.startswith("part2") or path.startswith("cases")) and "> 来源：" not in t:
+    if STAGE >= 2 and (path.startswith("part2") or path.startswith("cases")) and "> 來源：" not in t:
         t, _ = process(t)
     if STAGE >= 3 and os.path.exists(f"../site/docs/public/info/{slug}.png"):
         i = t.find("\n## ")

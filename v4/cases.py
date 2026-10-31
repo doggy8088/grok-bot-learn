@@ -9,7 +9,7 @@ for k, v in M.items():
         U2F[v["url"].rstrip("/")] = k
         U2F[v["url"].split("/status/")[0] + "/status/" + v["url"].split("/status/")[-1]] = k
 CASEF = {k for k, v in M.items() if v["author"] and k not in ("fs07", "fs08", "fs16")}
-SKIP = re.compile(r"容易踩的坑|做完怎么验收|延伸阅读|提示词库|对照|索引")
+SKIP = re.compile(r"容易踩的坑|做完怎麼驗收|延伸閱讀|提示詞庫|對照|索引")
 PICK = {"fs09": [1, 2], "fs15": [0, 2], "fs56": [], "fs30": []}
 def imgs(k):
     a = sorted(glob.glob(f"img/{k}-*"))
@@ -34,7 +34,7 @@ def by_name(h, body, used):
     return (l or a)[0]
 def head(k):
     v = M[k]
-    s = f"> 来源：[{v['title']}]({v['url']})  \n> 作者：[{v['author']} @{v['handle']}](https://x.com/{v['handle']})\n"
+    s = f"> 來源：[{v['title']}]({v['url']})  \n> 作者：[{v['author']} @{v['handle']}](https://x.com/{v['handle']})\n"
     for p in imgs(k):
         s += f"\n![{v['title']}](/cases-img/{os.path.basename(p)})\n"
     return s

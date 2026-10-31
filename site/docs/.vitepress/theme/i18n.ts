@@ -1,4 +1,4 @@
-// 多语言 JSON：theme/locales/<locale>/<filename>.json 整文件覆盖 root；缺译回退 zh-CN
+// 多語言 JSON：theme/locales/<locale>/<filename>.json 整文件覆蓋 root；缺譯回退 zh-CN
 import { computed, type ComputedRef } from 'vue'
 import { useData, withBase } from 'vitepress'
 
@@ -30,15 +30,15 @@ export function localeSeg(relativePath: string): string {
   return (NON_ROOT as readonly string[]).includes(seg) ? seg : 'zh-CN'
 }
 
-/** 当前页语种（zh-CN / en / …） */
+/** 當前頁語種（zh-CN / en / …） */
 export function useLocaleSeg(): ComputedRef<string> {
   const { page } = useData()
   return computed(() => localeSeg(page.value.relativePath))
 }
 
 /**
- * 内部链接加语种前缀：zh-CN 根站无前缀；其他 → /en/group 等。
- * 返回的函数已包 withBase。
+ * 內部連結加語種前綴：zh-CN 根站無前綴；其他 → /en/group 等。
+ * 返回的函式已包 withBase。
  */
 export function useLocalePath(): (path: string) => string {
   const { page } = useData()
@@ -50,7 +50,7 @@ export function useLocalePath(): (path: string) => string {
   }
 }
 
-/** 去掉路径上的语种前缀，便于查 root 路径 key（如 /en/part1/x → /part1/x） */
+/** 去掉路徑上的語種前綴，便於查 root 路徑 key（如 /en/part1/x → /part1/x） */
 export function stripLocalePrefix(path: string): string {
   let p = path.replace(/\.html$/, '')
   if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1)
@@ -62,7 +62,7 @@ export function stripLocalePrefix(path: string): string {
   return p || '/'
 }
 
-/** 篇章段：路由第一段或第二段（跳过 locale） */
+/** 篇章段：路由第一段或第二段（跳過 locale） */
 export function partKeyFromPath(path: string): string {
   const parts = path.split('/').filter(Boolean)
   if (!parts.length) return ''

@@ -296,7 +296,7 @@ Source: [Top 10 Grok Bot Prompts That Replace an Entire Team | maestro](https://
 When just connecting a CRM for initial outreach screening, **use the official starter prompt directly**:
 
 ```text
-调研此 CRM 视图中的 25 个账户。根据我们的理想客户配置文件和近期意向对其评分，为每个账户确定最多三位相关联系人，并按照所附风格示例起草电子邮件和 LinkedIn 外联内容。跳过已在活跃序列中的联系人。返回评审列表；不要发送邮件或将任何人加入序列。
+調研此 CRM 檢視中的 25 個帳戶。根據我們的理想客戶組態檔和近期意向對其評分，為每個帳戶確定最多三位相關聯繫人，並按照所附風格範例起草電子郵件和 LinkedIn 外聯內容。跳過已在活躍序列中的聯繫人。返回評審列表；不要發送郵件或將任何人加入序列。
 ```
 
 Source: [Grok Bot Use Cases](https://cursor.com/cn/docs/grok-bot/use-cases).

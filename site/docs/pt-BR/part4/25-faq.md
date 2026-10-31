@@ -38,7 +38,7 @@ Versões desatualizadas do aplicativo podem causar incompatibilidade de protocol
 
 Envie um prompt ao Bot para confirmar o status de login.
 ```text
-请检查当前运行环境的网络连通性与 Cursor 身份验证状态，汇报当前登录的用户环境标识，但不要输出任何敏感 Token。
+請檢查當前執行環境的網路連通性與 Cursor 身份驗證狀態，彙報當前登錄的使用者環境標識，但不要輸出任何敏感 Token。
 ```
 
 ## Como recuperar o Grok Bot quando ele não consegue se conectar ao computador em nuvem? {#computador-em-nuvem-e-recuperacao-de-ambiente}
@@ -71,7 +71,7 @@ O reparo é considerado concluído quando o **status do computador ficar verde i
 - Alerta de disco: quando for exibido Computer is low on disk space, clique em Go to Disk Saver; **a exclusão só deve ocorrer após confirmação manual**.
 
 ```text
-请检查当前云端计算机根目录与工作目录的磁盘占用情况，找出体积超过 200MB 的文件与缓存目录，列出清单供我确认，不要擅自执行任何删除命令。
+請檢查當前雲端電腦根目錄與工作目錄的磁盤佔用情況，找出體積超過 200MB 的文件與快取目錄，列出清單供我確認，不要擅自執行任何刪除命令。
 ```
 
 ## Como solucionar problemas quando as rotinas automatizadas do Grok Bot não são acionadas? {#gerenciamento-de-rotinas-e-solucao-de-problemas-de-automacao}
@@ -98,7 +98,7 @@ No celular, consulte o "Histórico de execuções" para ver **Running**, **Succe
 
 Prompt para criação e correção de rotinas automatizadas:
 ```text
-请修改名为“工单同步”的例程：仅在 #ops-alert 频道出现包含“[P0-Error]”文字的新消息时才触发，忽略其他日常聊天，并列出更新后的 When to run 描述。
+請修改名為“工單同步”的例程：僅在 #ops-alert 頻道出現包含“[P0-Error]”文字的新訊息時才觸發，忽略其他日常聊天，並列出更新後的 When to run 描述。
 ```
 
 ## Anomalias de Uso e Controle de Cotas
@@ -121,7 +121,7 @@ A cota do Grok Bot é redefinida semanalmente. Quando a cota básica se esgota, 
 | Avaliação zerada | Verificar varreduras de grandes projetos ou refatorações | Cota única esgotada não é restaurada |
 
 ```text
-请列出你当前账号下所有处于活跃状态的例程，评估它们各自的执行频率与触发条件，指出哪一个例程最容易引发高额用量消耗。
+請列出你當前帳號下所有處於活躍狀態的例程，評估它們各自的執行頻率與觸發條件，指出哪一個例程最容易引發高額用量消耗。
 ```
 
 ## Chats em Grupo, Colaboração e Governança de Bots Auxiliares
@@ -145,7 +145,7 @@ Barra lateral sem Bots desnecessários, com operações rotineiras de alta frequ
 |Obrigatório pelo administrador|Conforme o cenário|Não pode ser ignorado|Autorização manual obrigatória|
 
 ```text
-请梳理我们在此会话中频繁执行的文件读取与构建指令，为它们生成一组最小权限的安全规则建议，以便我添加到 Auto-review 的自定义白名单中。
+請梳理我們在此會話中頻繁執行的文件讀取與建構指令，為它們生成一組最小權限的安全規則建議，以便我新增到 Auto-review 的自訂白名單中。
 ```
 
 ## Plugins e Conexão com Aplicativos Externos
@@ -166,7 +166,7 @@ Barra lateral sem Bots desnecessários, com operações rotineiras de alta frequ
 Veja detalhes em [Conectar aplicativos](https://cursor.com/cn/help/grok-bot/connect-apps.md).
 
 ```text
-请刷新当前已连接的插件列表，使用带有“工作”标签的账户连接，读取最近更新的 3 个页面，确认授权是否正常。
+請重新整理當前已連線的外掛列表，使用帶有“工作”標記的帳戶連線，讀取最近更新的 3 個頁面，確認授權是否正常。
 ```
 
 ## Cancelamento de Conta e Limpeza de Dados
@@ -205,24 +205,24 @@ No Linux, se aparecer Update required e a atualização automática falhar, exec
 ::: details Como fazer
 ```text
 收件人：hi@cursor.com
-主题：【Grok Bot 故障申报】云端电脑持续重连且 Recover 失败 - [你的账号邮箱]
+主題：【Grok Bot 故障申報】雲端電腦持續重連且 Recover 失敗 - [你的帳號郵箱]
 
-支持团队：
-我的账号遇到了云端电脑无法连通的故障，无法正常执行任务，以下是详细环境与排查信息：
+支援團隊：
+我的帳號遇到了雲端電腦無法連通的故障，無法正常執行任務，以下是詳細環境與排查資訊：
 
-1. 账号邮箱：developer@example.com
-2. 版本信息：Version 1.2.4 (Channel: stable, OS: Darwin x64 23.4.0)
-3. 故障发生场景：我尝试让 Bot 运行自动化部署脚本，终端在拉取镜像时中断。
-4. 核心报错信息：界面持续提示“Couldn't Reach Grok Bot's Computer”，伴随“Bot failed to respond”。
-5. 已尝试的排错操作：
-   - 已彻底 Quit 应用并重启；
-   - 尝试在“设置 > 计算机”执行 Update，提示备份未就绪；
-   - 尝试点击 Recover，重试一次后依然在进度条处卡住报错；
-   - 查看 status.cursor.com 确认官方各项服务状态正常。
-6. 请求 ID (Request ID)：req_98af7c32e01b44d7a1
-7. 附件：包含当前报错卡片截图及“设置 > 计算机”面板状态截图。
+1. 帳號郵箱：developer@example.com
+2. 版本資訊：Version 1.2.4 (Channel: stable, OS: Darwin x64 23.4.0)
+3. 故障發生場景：我嘗試讓 Bot 執行自動化部署指令碼，終端在拉取鏡像時中斷。
+4. 核心報錯資訊：介面持續提示“Couldn't Reach Grok Bot's Computer”，伴隨“Bot failed to respond”。
+5. 已嘗試的排錯操作：
+   - 已徹底 Quit 應用並重啟；
+   - 嘗試在“設定 > 電腦”執行 Update，提示備份未就緒；
+   - 嘗試點選 Recover，重試一次後依然在進度條處卡住報錯；
+   - 查看 status.cursor.com 確認官方各項服務狀態正常。
+6. 請求 ID (Request ID)：req_98af7c32e01b44d7a1
+7. 附件：包含當前報錯卡片截圖及“設定 > 電腦”面板狀態截圖。
 
-请协助在后台检查该实例的宿主节点状态，谢谢。
+請協助在後台檢查該實例的宿主節點狀態，謝謝。
 ```
 :::
 

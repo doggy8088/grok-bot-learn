@@ -77,15 +77,15 @@ Los equipos requieren que el administrador active «Agent Email» en el panel de
 
 1. Reclamar dirección: ve a la barra lateral en «Connect apps» > «Email» para crearla, o envía `claim your email` y el comando:
 ```text
-  给自己申请一个电子邮件地址
+  給自己申請一個電子郵件地址
   ```
 2. Consultar correos recibidos: busca directamente en la conversación:
 ```text
-今天你的收件箱里收到了什么？帮我找出过去一周收到的所有费用账单与回执。
+今天你的收件箱裡收到了什麼？幫我找出過去一週收到的所有費用帳單與回執。
 ```
 3. Configurar rutinas: crea una Routine para monitorizar remitentes (admite `*@example.com`, no admite filtrado por asunto):
 ```text
-收到来自 billing@example.com 的电子邮件时，总结其中的账单金额与截止日期，并将摘要整理后发送给我。
+收到來自 billing@example.com 的電子郵件時，總結其中的帳單金額與截止日期，並將摘要整理後發送給我。
 ```
 4. Aprobación humana (Human-in-the-loop): **el sistema prohíbe estrictamente los envíos externos silenciosos y desatendidos**. El bot solo genera una tarjeta de borrador, y el correo solo se envía realmente después de que un humano hace clic en «Send».
 
@@ -119,11 +119,11 @@ Grok Bot integró la búsqueda de solo lectura de X en v0.70.2 (2026-10-08). **U
 1. **Envía instrucciones directas en lenguaje natural**: admite la búsqueda global de publicaciones, la extracción del cuerpo de tweets públicos, la consulta de publicaciones de cuentas y menciones con @, o el análisis estadístico de tendencias de interacción de un tema específico durante 7 días.
 
 ```text
-检索 X 平台账号 @xai 最近 24 小时发布的所有推文。按时间倒序整理每条推文的核心内容、发布时间、点赞数、转推数，并附带原帖链接。
+檢索 X 平台帳號 @xai 最近 24 小時發表的所有推文。按時間倒序整理每條推文的核心內容、發表時間、按讚數、轉推數，並附帶原帖連結。
 ```
 
 ```text
-检索 X 平台上关于 #AIagents 话题过去 7 天的热门讨论。筛选互动量最高的前 5 条推文，提取核心观点，并汇总该话题本周的讨论热度变化趋势。
+檢索 X 平台上關於 #AIagents 話題過去 7 天的熱門討論。篩選互動量最高的前 5 條推文，提取核心觀點，並彙總該話題本週的討論熱度變化趨勢。
 ```
 
 2. **Criterios de aceptación**: **los resultados deben incluir la hora de publicación, las métricas de interacción y el enlace original al tweet**, sin avisos de instalación de conectores ni truncamiento en la extracción durante todo el proceso.
@@ -149,8 +149,8 @@ Para un desglose de la arquitectura, consulta [《4.5 Conectores, Skill, plantil
 2. Instala Skills de código abierto. Envía directamente la dirección del repositorio en el chat para que el bot lo despliegue. Si se requiere un Access Token, espera a que el sistema lo solicite y envíalo mediante la tarjeta de seguridad; **está estrictamente prohibido pegar el Token directamente en el chat**.
 
 ```text
-帮我安装这个开源 Skill：https://github.com/example/custom-data-skill
-阅读仓库内的说明文档，将其注册为我的可用技能，并告诉我它支持的触发指令与所需参数。
+幫我安裝這個開源 Skill：https://github.com/example/custom-data-skill
+閱讀倉庫內的說明文件，將其註冊為我的可用技能，並告訴我它支援的觸發指令與所需參數。
 ```
 
 3. Inicia sesión de forma independiente en Codex CLI. Primero, en la interfaz web, ve a «Seguridad de la cuenta e inicio de sesión» y activa «Inicio de sesión con código de dispositivo» (Device code login). Ejecuta el comando de inicio de sesión en la terminal en la nube, obtén el código de verificación del dispositivo y verifícalo con el navegador local.

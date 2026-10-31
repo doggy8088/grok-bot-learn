@@ -13,12 +13,12 @@ DeepSeek 官方開源的 **「一切皆外掛」架構 Agent**，支援桌面端
 
 ## 發給 Bot 的提示詞
 
-複製下方整段內容傳送給你的 Grok Bot，它會在雲電腦上自動安裝並驗證，遇到登入或配置金鑰時會暫停等待你操作。
+複製下方整段內容傳送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登入或組態金鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装配置 DeepSeek Harness（https://github.com/deepseek-ai/deepseek-harness），以后日常办公、调研、写代码和跑定时任务用它。需要配置 DeepSeek API Key 时请停下来提醒我自己填。
+幫我在你的雲端電腦上安裝組態 DeepSeek Harness（https://github.com/deepseek-ai/deepseek-harness），以後日常辦公、調研、寫程式碼和跑定時任務用它。需要組態 DeepSeek API Key 時請停下來提醒我自己填。
 ````
 
 </div>

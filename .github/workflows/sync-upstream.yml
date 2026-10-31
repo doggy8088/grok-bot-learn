@@ -1,0 +1,151 @@
+name: Sync upstream and publish zh-TW
+
+# Daily automation:
+#   1. Mirror RongleCat/grok-bot-learn@main into this repo's main branch
+#      EXACTLY (identical commits, no additions): main is a pure tracking
+#      mirror of upstream and carries no automation files.
+#   2. Regenerate the zh-tw branch from upstream main: full-repo
+#      conversion to Taiwan Traditional Chinese with @willh/opencc-cli
+#      (cn -> tw2), VitePress config patched for GitHub Pages, footer
+#      credit added.
+#   3. Build the VitePress site from zh-tw and deploy to GitHub Pages.
+#
+# All automation files (this workflow, scripts/) live ONLY on the zh-tw
+# branch, which is also the default branch scheduled workflows run from.
+# The sync job checks out zh-tw to reach the automation, mirrors main
+# with a direct refspec push, and builds zh-tw from the upstream tree.
+# Because pushes made with GITHUB_TOKEN do not trigger other workflows,
+# this workflow deploys Pages itself in the deploy job; zh-tw also
+# carries deploy-pages.yml for manual pushes.
+
+on:
+  schedule:
+    # Daily at 03:17 UTC (11:17 Asia/Taipei)
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Redeploy Pages even if zh-tw did not change'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync-zhtw
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-26.04
+    outputs:
+      zhtw_changed: ${{ steps.publish-zhtw.outputs.zhtw_changed }}
+    steps:
+      - name: Checkout zh-tw (automation home)
+        uses: actions/checkout@v7
+        with:
+          ref: zh-tw
+          fetch-depth: 0
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Stash automation files from zh-tw
+        run: |
+          mkdir -p "$RUNNER_TEMP/automation"
+          cp -r scripts "$RUNNER_TEMP/automation/scripts"
+          cp -r .github/workflows "$RUNNER_TEMP/automation/workflows"
+
+      - name: Fetch upstream and origin branches
+        run: |
+          git remote add upstream https://github.com/RongleCat/grok-bot-learn.git
+          git fetch upstream main
+          git fetch origin main zh-tw
+
+      - name: Mirror main exactly from upstream
+        run: |
+          UP_SHA="$(git rev-parse upstream/main)"
+          MAIN_SHA="$(git rev-parse origin/main)"
+          if [ "$UP_SHA" = "$MAIN_SHA" ]; then
+            echo "main already identical to upstream ($UP_SHA)."
+          else
+            git push --force-with-lease="main:${MAIN_SHA}" origin "${UP_SHA}:main"
+            echo "main mirrored to upstream $UP_SHA (was $MAIN_SHA)."
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install opencc-cli
+        run: npm install -g @willh/opencc-cli@0.1.4
+
+      - name: Regenerate zh-tw branch
+        run: |
+          git checkout -B work upstream/main
+          mkdir -p scripts .github/workflows
+          cp -r "$RUNNER_TEMP/automation/scripts/." scripts/
+          cp -r "$RUNNER_TEMP/automation/workflows/." .github/workflows/
+          node scripts/convert-to-zhtw.mjs
+          # GitHub forbids GITHUB_TOKEN from creating/updating workflow
+          # files, so keep the workflow files already published on zh-tw
+          # (they are maintained via PAT pushes, not by this workflow).
+          if git rev-parse --verify origin/zh-tw >/dev/null 2>&1; then
+            git checkout origin/zh-tw -- .github/workflows/ || true
+          fi
+          git add -A
+
+      - name: Publish zh-tw branch
+        id: publish-zhtw
+        run: |
+          UPSTREAM_SHA="$(git rev-parse --short upstream/main)"
+          if git rev-parse --verify origin/zh-tw >/dev/null 2>&1 && \
+             git diff --cached --quiet origin/zh-tw; then
+            echo "zh-tw content unchanged."
+            echo "zhtw_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "docs: auto-convert to Traditional Chinese (zh-TW) from upstream ${UPSTREAM_SHA}"
+            git push --force-with-lease origin HEAD:zh-tw
+            echo "zhtw_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: sync
+    if: needs.sync.outputs.zhtw_changed == 'true' || inputs.force_deploy == true
+    runs-on: ubuntu-26.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout zh-tw
+        uses: actions/checkout@v7
+        with:
+          ref: zh-tw
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Install dependencies
+        working-directory: site
+        run: npm ci
+      - name: Build VitePress site
+        working-directory: site
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/docs/.vitepress/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

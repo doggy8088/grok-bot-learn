@@ -9,25 +9,25 @@ next: false
 
 <ToolMeta id="codex" />
 
-OpenAI 官方終端編碼 Agent，適合 **程式碼修改、指令碼執行與生圖審圖**，可直接使用 ChatGPT 訂閱額度。
+OpenAI 官方終端寫程式 Agent，適合 **程式碼修改、指令碼執行與生圖審圖**，可直接使用 ChatGPT 訂閱額度。
 適合需要修改程式碼、執行指令碼與生圖審圖的 ChatGPT 訂閱使用者。
 
 
 ## 發給 Bot 的提示詞
 
-複製下方整段內容傳送給你的 Grok Bot，它會在雲電腦上自動安裝並驗證，遇到登入或配置金鑰時會暫停等待你操作。
+複製下方整段內容傳送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登入或組態金鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上装好 Codex CLI（https://developers.openai.com/codex/cli），用我的 ChatGPT 账号登录，以后写代码、跑脚本和生图用它。需要我授权时把链接发给我。
+幫我在你的雲端電腦上裝好 Codex CLI（https://developers.openai.com/codex/cli），用我的 ChatGPT 帳號登入，以後寫程式碼、跑指令碼和生圖用它。需要我授權時把連結發給我。
 ````
 
 </div>
 
 ## 需要你自己做的事
 
-- 準備 ChatGPT 賬號並確認開啟裝置碼登入許可權。
+- 準備 ChatGPT 帳號並確認開啟裝置碼登入許可權。
 - 在瀏覽器開啟 Bot 傳送的裝置碼連結完成確認。
 
 ## 來源

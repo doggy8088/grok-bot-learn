@@ -25,12 +25,12 @@ Here is a curated collection of **15 community-tested in-depth case studies**, s
 Before building, send the following prompt to the master Bot to **help define role boundaries and execution directories**.
 
 ```text
-我打算参考以下业务场景搭建一套 Grok Bot 工作流：【填入具体业务目标】。
-请按以下步骤帮我拆解：
-1. 列出该流程所需的 Bot 岗位清单，明确每个角色的输入文件、交付成果和绝对禁止动作。
-2. 在 /workspace 下为我规划一套清晰的目录结构，规定上下游交接的文件格式。
-3. 标出涉及外部发信、数据修改、敏感登录或支付的环节，单独列出必须等待人工审批的节点清单。
-4. 给出该流程第一步的测试提示词，明确要求未确认信息标注为待确认，严禁编造数据。
+我打算參考以下業務場景搭建一套 Grok Bot 工作流：【填入具體業務目標】。
+請按以下步驟幫我拆解：
+1. 列出該流程所需的 Bot 崗位清單，明確每個角色的輸入文件、交付成果和絕對禁止動作。
+2. 在 /workspace 下為我規劃一套清晰的目錄結構，規定上下游交接的文件格式。
+3. 標出涉及外部發信、資料修改、敏感登錄或支付的環節，單獨列出必須等待人工審批的節點清單。
+4. 給出該流程第一步的測試提示詞，明確要求未確認資訊標註為待確認，嚴禁編造資料。
 ```
 
 ## Getting Started & Core Mechanisms
@@ -71,7 +71,7 @@ During routine inspections, adhere to **saving records without sending notificat
 ### 10 Essential Tips to Make Your Grok Bot More Effective
 
 > Source: [10 Essential Tips to Make Your Grok Bot More Effective](https://x.com/eze_is_1/status/2109850538045264151)  
-> Author: [一泽Eze @eze_is_1](https://x.com/eze_is_1)
+> Author: [一澤Eze @eze_is_1](https://x.com/eze_is_1)
 
 ![10 Essential Tips to Make Your Grok Bot More Effective](/cases-img/fs37-0.jpg)
 
@@ -147,7 +147,7 @@ Acceptance for communication and fault tolerance follows these three standards:
 ### Turn Your Tweets into a Personal Profile Website: Step-by-Step Tutorial from Feature Analysis to Online Sharing with Grok Bot
 
 > Source: [Turn Your Tweets into a Personal Profile Website: Step-by-Step Tutorial from Feature Analysis to Online Sharing with Grok Bot](https://x.com/0xlangeai/status/2109115005069341175)  
-> Author: [蓝哥AI @0xlangeai](https://x.com/0xlangeai)
+> Author: [藍哥AI @0xlangeai](https://x.com/0xlangeai)
 
 ![Turn Your Tweets into a Personal Profile Website: Step-by-Step Tutorial from Feature Analysis to Online Sharing with Grok Bot](/cases-img/fs32-0.jpg)
 
@@ -266,7 +266,7 @@ The permission baseline **strictly prohibits advertising Bots from writing to th
 ### Progressive Expansion
 
 > Source: [Comprehensive Guide | Grok Bot from Beginner to Master](https://x.com/jinchenma_ai/status/2094984812251746424)  
-> Author: [金尘马 @jinchenma_ai](https://x.com/jinchenma_ai)
+> Author: [金塵馬 @jinchenma_ai](https://x.com/jinchenma_ai)
 
 ![Comprehensive Guide | Grok Bot from Beginner to Master](/cases-img/fs24-0.jpg)
 

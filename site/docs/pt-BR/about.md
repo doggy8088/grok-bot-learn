@@ -1,14 +1,14 @@
 ---
-title: Sobre 铁柱AGI
+title: Sobre 鐵柱AGI
 sidebar: false
 aside: false
 prev: false
 next: false
 ---
 
-# Sobre 铁柱AGI
+# Sobre 鐵柱AGI
 
-**Sou 铁柱AGI, um usuário assíduo do Grok Bot, que compartilha continuamente dicas de uso e também autor do Grok App de código aberto e da extensão de navegador para o Grok Bot.**
+**Sou 鐵柱AGI, um usuário assíduo do Grok Bot, que compartilha continuamente dicas de uso e também autor do Grok App de código aberto e da extensão de navegador para o Grok Bot.**
 
 ## O que estou fazendo
 
@@ -41,9 +41,9 @@ Disponibilizei 9 modelos públicos de Grok Bot na seção [Contratação Direta 
 
 - X: [@cgnot996](https://x.com/cgnot996)
 - GitHub: [RongleCat](https://github.com/RongleCat)
-- Conta oficial no WeChat: 铁柱AGI
+- Conta oficial no WeChat: 鐵柱AGI
 - Contato: Mensagem direta (DM) no X ou adicione no WeChat pela [página do grupo pago de tira-dúvidas](/group).
 
 ---
 
-O "Guia para Iniciantes do Grok Bot" deste site é organizado e mantido por 铁柱AGI, sendo um tutorial comunitário não oficial, sem vínculo com a xAI ou o Cursor.
+O "Guia para Iniciantes do Grok Bot" deste site é organizado e mantido por 鐵柱AGI, sendo um tutorial comunitário não oficial, sem vínculo com a xAI ou o Cursor.

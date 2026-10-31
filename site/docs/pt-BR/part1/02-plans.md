@@ -12,7 +12,7 @@ A partir de 12 de outubro de 2026, a empresa passou a adotar a assinatura unific
 
 ![Planos e Assinaturas: Escolha o Nível Certo Primeiro](/info/02-plans.png)
 
-## Qual plano de assinatura é necessário para usar o Grok Bot? {#统一订阅全貌-the-x-subscription-的四档与免费档}
+## Qual plano de assinatura é necessário para usar o Grok Bot? {#統一訂閱全貌-the-x-subscription-的四檔與免費檔}
 
 **A assinatura unificada divide-se em quatro níveis: Plus, Premium, Super e Ultra. Como o plano Plus não inclui o Grok Bot de forma alguma, o ponto de partida para executar tarefas de automação deve ser o plano Premium de US$ 30/mês.**
 
@@ -45,13 +45,13 @@ Calculado pelo uso por dólar (com Plus como base 1, Premium cerca de 1,07, Supe
 5. Pague com um cartão de crédito ou débito internacional aceito, ou via Apple Pay / Google Pay na web.
 6. Abra o cliente do Grok Bot, faça login e confirme se a tela inicial liberou as permissões para criar e executar agentes.
 
-Para uma análise detalhada, consulte [Análise da Assinatura Unificada do X: Como Novos Usuários Devem Escolher e se Assinantes Antigos Devem Migrar? Tudo Explicado](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) e [Coletânea de Posts do 铁柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Para uma análise detalhada, consulte [Análise da Assinatura Unificada do X: Como Novos Usuários Devem Escolher e se Assinantes Antigos Devem Migrar? Tudo Explicado](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) e [Coletânea de Posts do 鐵柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Critérios de sucesso
 
 Abra o cliente desktop do Grok Bot: **se a criação de uma nova tarefa conseguir alocar um ambiente na nuvem para execução e a fatura exibir o status Premium com cobrança mensal**, a configuração foi concluída com sucesso.
 
-## Como é calculado o pool de uso semanal do Grok Bot? {#每周共享用量池-额度结算与多端共用机制}
+## Como é calculado o pool de uso semanal do Grok Bot? {#每週共享用量池-額度結算與多端共用機制}
 
 **A assinatura fornece um pool fixo de cotas semanalmente com sincronização em tempo real entre múltiplos dispositivos. Os modelos oficiais na web, no Bot e nas conclusões de código do Cursor compartilham o consumo de acordo com o volume de tarefas e o número de etapas; já os modelos de terceiros são cobrados separadamente conforme o preço de tabela da API.**
 
@@ -80,7 +80,7 @@ Para evitar esgotar as cotas nos três primeiros dias, planeje a rotina em três
 
 **Mantenha o consumo médio diário das automações de rotina estável entre 10% e 15%.** Deixar uma margem de reserva de cerca de 20% no dia anterior à renovação semanal, sem receber pop-ups de alerta de esgotamento de cota, indica que o ritmo está ideal.
 
-## Como vincular o Cursor para compartilhar a cota do Grok? {#授权互通-cursor-套餐与-supergrok-关联规则}
+## Como vincular o Cursor para compartilhar a cota do Grok? {#授權互通-cursor-套餐與-supergrok-關聯規則}
 
 **O Cursor pode ser vinculado diretamente à conta do Grok para mapear a cota. A vinculação não altera o plano original nem gera cobranças adicionais; a cota passa a valer pelo nível mais alto entre as duas contas, sem acúmulo, e o pareamento é permanente, sem possibilidade de desvinculação ou transferência.**
 
@@ -180,7 +180,7 @@ Antes de migrar, abra o painel de uso para checar a distribuição real das cham
 
 **Usuários que assinaram o Cursor pela Apple e decidirem migrar devem cancelar a renovação automática manualmente nos ajustes do celular**; a atualização pela web não fará isso por você.
 
-Para mais detalhes sobre a análise da decisão, consulte [Análise da Assinatura Unificada do X: Como Novos Usuários Devem Escolher e se Assinantes Antigos Devem Migrar? Tudo Explicado](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) e [Coletânea de Posts do 铁柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Para mais detalhes sobre a análise da decisão, consulte [Análise da Assinatura Unificada do X: Como Novos Usuários Devem Escolher e se Assinantes Antigos Devem Migrar? Tudo Explicado](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) e [Coletânea de Posts do 鐵柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Critérios de sucesso
 
@@ -205,23 +205,23 @@ Para usuários que mantiverem o plano antigo, certifique-se de que o status de r
 Para um único Bot convencional, preencha o primeiro bloco para fixar um raciocínio de baixo consumo e aumentar o intervalo de polling, evitando que o Bot funcione à toa em segundo plano.
 
 ```text
-你是一个自动化执行助手。在后续所有任务执行中，必须严格遵守以下资源控制规则：
-1. 任务规划阶段必须输出极简执行步骤，禁止发起非必要的递归搜索与多轮冗余工具自检。
-2. 在处理代码与文本分析任务时，保持适度推理强度，优先给出核心结果，不要输出冗长无关的修饰性文字。
-3. 如果任务涉及定时轮询或周期监控，单次轮询时间间隔不得低于 30 分钟，严禁设置分钟级高频循环。
-4. 严禁自行尝试调用外部视频生成或音频转换能力；如遇复杂多步骤任务，分步向我汇报进度并等待确认。
+你是一個自動化執行助手。在後續所有任務執行中，必須嚴格遵守以下資源控制規則：
+1. 任務規劃階段必須輸出極簡執行步驟，禁止發起非必要的遞歸搜尋與多輪冗餘工具自檢。
+2. 在處理程式碼與文本分析任務時，保持適度推理強度，優先給出核心結果，不要輸出冗長無關的修飾性文字。
+3. 如果任務涉及定時輪詢或週期監控，單次輪詢時間間隔不得低於 30 分鐘，嚴禁設定分鐘級高頻循環。
+4. 嚴禁自行嘗試呼叫外部影片生成或音訊轉換能力；如遇複雜多步驟任務，分步向我彙報進度並等待確認。
 ```
 
 Para colaboração entre múltiplos Bots, preencha o segundo bloco. **A transmissão frequente (broadcast) de múltiplos Bots na mesma tarefa é a armadilha que mais consome cotas rapidamente (relato do autor, não verificado); é obrigatório adotar uma comunicação em cadeia ponto a ponto.**
 
 ```text
-你在多智能体协同流水线中担任协同节点。必须严格执行以下通信约束：
-1. 全面采用点对点（Agent-to-Agent）单向派活与回传，禁止向群聊或未指名的公共上下文广播全量数据。
-2. 传递工作流结果时，只提取关键字段与结构化结果摘要，严禁将完整的历史对话日志重复打包转发。
-3. 协助任务交付完毕后，立即输出任务终止状态，主动退出协作监听，切断后续消息的被动接收与重复解析。
+你在多智慧體協同流水線中擔任協同節點。必須嚴格執行以下通信約束：
+1. 全面採用點對點（Agent-to-Agent）單向派活與回傳，禁止向群聊或未指名的公共上下文廣播全量資料。
+2. 傳遞工作流結果時，只提取關鍵欄位與結構化結果摘要，嚴禁將完整的歷史對話記錄重複封裝轉發。
+3. 協助任務交付完畢後，立即輸出任務終止狀態，主動退出協作監聽，切斷後續訊息的被動接收與重複解析。
 ```
 
-Estratégia baseada na [Coletânea de Posts do 铁柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Estratégia baseada na [Coletânea de Posts do 鐵柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Critérios de sucesso
 
@@ -264,4 +264,4 @@ Após injetar o prompt, **o Bot deve responder claramente confirmando a conformi
 - Documentação oficial: [Assinar nos Aplicativos Móveis](https://cursor.com/cn/help/grok-bot/mobile-purchase.md)
 - Documentação oficial: [Modelos do Grok Bot](https://cursor.com/cn/help/grok-bot/models.md)
 - Análise prática da comunidade: [Análise da Assinatura Unificada do X: Como Novos Usuários Devem Escolher e se Assinantes Antigos Devem Migrar? Tudo Explicado](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee)
-- Coletânea prática da comunidade: [Coletânea de Posts do 铁柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc)
+- Coletânea prática da comunidade: [Coletânea de Posts do 鐵柱 ①: Ativação, Planos e Cotas](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc)

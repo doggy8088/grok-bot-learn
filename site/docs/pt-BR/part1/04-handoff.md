@@ -35,11 +35,11 @@ Consulte as regras de upload em [Usando o Grok Bot](https://cursor.com/cn/docs/g
 1. **Não pressione Enter logo após arrastar os arquivos**; descreva claramente a identidade de cada arquivo, a lógica de relação entre eles e as instruções de proteção.
 
 ```text
-上传的 PDF 是已经签署的标准采购合同模板。上传的 Excel 是本月供应商提交的实际报价清单。
-请对照合同模板中第 4 条关于各类物料的基准单价，逐行核验 Excel 里的实际报价。
-标出单价超出基准价的所有条目，在附带的备忘中引用合同中的对应条款编号。
-将核验结果另存为一份新的 Excel 表格，并输出一份简短的异常摘要。
-请勿改动原始上传文件。
+上傳的 PDF 是已經簽署的標準採購合同樣板。上傳的 Excel 是本月供應商提交的實際報價清單。
+請對照合同樣板中第 4 條關於各類物料的基準單價，逐行核驗 Excel 裡的實際報價。
+標出單價超出基準價的所有條目，在附帶的備忘中引用合同中的對應條款編號。
+將核驗結果另存為一份新的 Excel 表格，並輸出一份簡短的例外摘要。
+請勿改動原始上傳文件。
 ```
 
 2. Em chats em grupo, a comunicação entre Bots **suporta apenas texto puro**. Se um Bot subsequente precisar ver os anexos, envie-os em uma conversa privada.
@@ -50,56 +50,56 @@ Para cenários comuns, **use os modelos diretamente**; basta fazer pequenos ajus
 
 1. **Pesquisa e prospecção**: coletar leads e preparar materiais, sem enviar diretamente.
 ```text
-从我们的 CRM 系统中获取本周销售管道的重点评审列表。
-请跳过当前已经处于活跃跟进序列中的联系人。
-在指定公开网页和已授权的 Slack 相关频道中，深入调研排名前五的重点账户，找出负责采购或技术的对口联系人。
-参考我在系统中历史邮件的口吻，为这五位联系人分别起草个性化的初次外联邮件。
-将草稿保存在系统草稿箱中，并在明天上午 9 点前在此对话中列出清单供我审批。未经我的明确确认，绝不向外发送任何邮件。
+從我們的 CRM 系統中獲取本週銷售管道的重點評審列表。
+請跳過當前已經處於活躍跟進序列中的聯繫人。
+在指定公開網頁和已授權的 Slack 相關頻道中，深入調研排名前五的重點帳戶，找出負責採購或技術的對口聯繫人。
+參考我在系統中歷史郵件的口吻，為這五位聯繫人分別起草個性化的初次外聯郵件。
+將草稿保存在系統草稿箱中，並在明天上午 9 點前在此對話中列出清單供我審批。未經我的明確確認，絕不向外發送任何郵件。
 ```
 2. **Verificação de anexos**: conciliar múltiplas planilhas e auditar receitas e despesas.
 ```text
-附件中的 PDF 为《2026 年度差旅与报销政策细则》，CSV 表格为本月部门提交的待审批费用报销流水。
-请逐项核对 CSV 中的每一笔申报项目：
-1. 检查报销金额是否超过对应城市级别的住宿与餐饮标准。
-2. 检查单笔超过 500 元的支出是否有对应的发票类别标记。
-3. 提取所有不符合政策规定的异常申报，列明行号、申报人、金额、超标原因及违背的政策条款。
-最后生成一份 Markdown 格式的核查报告，并列出通过与未通过的统计汇总。保持原始 CSV 文件不被改动。
+附件中的 PDF 為《2026 年度差旅與報銷政策細則》，CSV 表格為本月部門提交的待審批費用報銷流水。
+請逐項核對 CSV 中的每一筆申報項目：
+1. 檢查報銷金額是否超過對應城市級別的住宿與餐飲標準。
+2. 檢查單筆超過 500 元的支出是否有對應的發票類別標記。
+3. 提取所有不符合政策規定的例外申報，列明行號、申報人、金額、超標原因及違背的政策條款。
+最後生成一份 Markdown 格式的核查報告，並列出通過與未通過的統計彙總。保持原始 CSV 文件不被改動。
 ```
 3. **Inspeção de websites**: inspecionar páginas e registrar evidências.
 ::: details Biblioteca de prompts práticos para entrega de tarefas
 ```text
-你负责检查我的网站运行状态。本次只访问我提供的以下三个页面：首页、最新更新日志页、用户注册页。
-逐一核验各页面是否能正常打开、关键按钮是否响应、文本信息是否存在断链或明显过期内容。
-排查过程中必须执行以下要求：
-1. 发现任何显示异常或报错时，保存完整的页面 URL、检查时间戳以及当时的屏幕截图。
-2. 区分页面直接看到的事实与你的推测，事实写在证据栏，分析写在备注栏。
-3. 检查受阻或遇到需要验证码时，记录阻碍原因并继续检查下一个页面，不要重复尝试。
-4. 检查结果报告保存在 /workspace/site-check/ 目录下，命名为 check-report.md。
-你仅有只读检查与生成报告的权限，严禁更改后台设置或提交任何表单。
+你負責檢查我的網站執行狀態。本次只訪問我提供的以下三個頁面：首頁、最新更新記錄頁、使用者註冊頁。
+逐一核驗各頁面是否能正常打開、關鍵按鈕是否回應、文本資訊是否存在斷鏈或明顯過期內容。
+排查過程中必須執行以下要求：
+1. 發現任何顯示例外或報錯時，保存完整的頁面 URL、檢查時間戳記以及當時的螢幕截圖。
+2. 區分頁面直接看到的事實與你的推測，事實寫在證據欄，分析寫在備註欄。
+3. 檢查受阻或遇到需要驗證碼時，記錄阻礙原因並繼續檢查下一個頁面，不要重複嘗試。
+4. 檢查結果報告保存在 /workspace/site-check/ 目錄下，命名為 check-report.md。
+你僅有隻讀檢查與生成報告的權限，嚴禁更改後台設定或提交任何表單。
 ```
 :::
 4. **Validação de plano**: revisar a lógica antes de operações complexas para evitar desvios.
 ::: details Biblioteca de prompts práticos para entrega de tarefas
 ```text
-我准备让你整理过去一个季度跨 Notion、Gmail 和 GitHub 的客户产品缺陷反馈。
-在正式开始执行数据读取与整理之前，请先不要调用任何批量工具，先在对话中向我提交一份执行计划：
-1. 列出你准备按顺序访问的系统、模块与具体检索词。
-2. 说明你打算提取哪些关键字段，以及如何去重。
-3. 标明整个流程中哪些环节可能涉及对外部状态的更改。
-4. 说明你打算将阶段性文件保存在云电脑的哪个路径，以及遇到权限不足时如何处理。
-我确认并批准你的计划后，你再开始执行。
+我準備讓你整理過去一個季度跨 Notion、Gmail 和 GitHub 的客戶產品缺陷回饋。
+在正式開始執行資料讀取與整理之前，請先不要呼叫任何批量工具，先在對話中向我提交一份執行計劃：
+1. 列出你準備按順序訪問的系統、模組與具體檢索詞。
+2. 說明你打算提取哪些關鍵欄位，以及如何去重。
+3. 標明整個流程中哪些環節可能涉及對外部狀態的更改。
+4. 說明你打算將階段性文件保存在雲端電腦的哪個路徑，以及遇到權限不足時如何處理。
+我確認並批准你的計劃後，你再開始執行。
 ```
 :::
 5. **Triagem de e-mails**: extrair pontos-chave e categorizar para encaminhamento.
 ::: details Biblioteca de prompts práticos para entrega de tarefas
 ```text
-使用已连接的邮箱插件，读取收件箱过去 24 小时内收到的全部新邮件。
-按照以下业务逻辑进行分类处理：
-1. 属于系统续费、订阅扣款账单的邮件，提取服务商、扣款金额与下次续费时间。
-2. 属于用户直接提问或反馈 Bug 的邮件，提取发件人邮箱、问题概括与紧急程度。
-3. 属于营销推广、垃圾资讯的邮件，直接归入忽略清单。
-在当前会话中输出一份分栏概览：仅展示需我关注的账单与紧急反馈，并在每条记录后附带邮件主题与时间。
-所有邮件保持未读或已读原状，未经审批严禁归档、删除或起草回复。
+使用已連線的郵箱外掛，讀取收件箱過去 24 小時內收到的全部新郵件。
+按照以下業務邏輯進行分類處理：
+1. 屬於系統續費、訂閱扣款帳單的郵件，提取服務商、扣款金額與下次續費時間。
+2. 屬於使用者直接提問或回饋 Bug 的郵件，提取發件人郵箱、問題概括與緊急程度。
+3. 屬於行銷推廣、垃圾資訊的郵件，直接歸入忽略清單。
+在當前會話中輸出一份分欄概覽：僅展示需我關注的帳單與緊急回饋，並在每條記錄後附帶郵件主題與時間。
+所有郵件保持未讀或已讀原狀，未經審批嚴禁歸檔、刪除或起草回覆。
 ```
 :::
 
@@ -181,64 +181,64 @@ O Grok Bot inclui **dois recursos de voz distintos**: ditado e chamadas. Para ma
 
 1. **Delimitação de caminho**: sem definir o escopo e os métodos, o Bot clicará desordenadamente no console e **poderá até modificar o código do ambiente de produção**.
 ```text
-  帮我维护一下网站，看看有没有什么 Bug。
+  幫我維護一下網站，看看有沒有什麼 Bug。
   ```
 Corrija delimitando as páginas e as etapas de inspeção:
 ```text
-  对站点清单（/workspace/sites.txt）中的三个静态展示页进行巡检。
-  用云浏览器打开每个页面，检查控制台是否有 404 或 500 报错，检查顶部导航栏链接是否全部有效。
-  将报错信息、对应页面 URL 及当时的屏幕截图写入 /workspace/logs/err-20261014.md。
-  全程仅做只读检查，严禁点击任何带有提交或删除性质的表单按钮。
+  對站點清單（/workspace/sites.txt）中的三個靜態展示頁進行巡檢。
+  用雲端瀏覽器打開每個頁面，檢查主控台是否有 404 或 500 報錯，檢查頂部導覽欄連結是否全部有效。
+  將報錯資訊、對應頁面 URL 及當時的螢幕截圖寫入 /workspace/logs/err-20261014.md。
+  全程僅做唯讀檢查，嚴禁點選任何帶有提交或刪除性質的表單按鈕。
   ```
 
 2. **Limites de aprovação**: não conceda permissão irrestrita de envio externo; se a interpretação falhar, **ele poderá facilmente enviar mensagens incorretas a clientes importantes**.
 ```text
-  读取 Gmail 里的未读邮件，重要的直接帮我回一下。
+  讀取 Gmail 裡的未讀郵件，重要的直接幫我回一下。
   ```
 Mantenha a aprovação humana em etapas críticas:
 ```text
-  读取 Gmail 中过去 12 小时的未读邮件。
-  仅筛选出发件人属于我们现有企业客户、且正文包含售后或咨询诉求的邮件。
-  根据产品常见问题手册，为每封邮件起草回复草稿并存入 Gmail 草稿箱。
-  在当前对话中列出客户名称、邮件摘要与草稿正文，等待我的审批。未经我的明确确认，绝不点击发送。
+  讀取 Gmail 中過去 12 小時的未讀郵件。
+  僅篩選出發件人屬於我們現有企業客戶、且正文包含售後或諮詢訴求的郵件。
+  根據產品常見問題手冊，為每封郵件起草回覆草稿並存入 Gmail 草稿箱。
+  在當前對話中列出客戶名稱、郵件摘要與草稿正文，等待我的審批。未經我的明確確認，絕不點選發送。
   ```
 
 3. **Separação de fatos**: não inclua vieses no prompt, **evitando que o Bot valide suposições e confunda uma pequena promoção com uma guerra de preços**.
 ```text
-  去看看竞品今天的动态，总结一下他们是不是要跟我们打价格战。
+  去看看競品今天的動態，總結一下他們是不是要跟我們打價格戰。
   ```
 Separe os dados objetivos das suposições:
 ```text
-  访问竞品官网的公开定价页与首页横幅，获取他们当下的方案价格表。
-  对照我们在 /workspace/competitor/last-month-price.json 中记录的旧价格：
-  1. 事实列：标出哪些 SKU 的标价发生了变动，变动金额是多少，附带页面截图与访问时间。
-  2. 推测列：基于该降价是限时促销还是永久调价，给出你的分析理由。
-  两部分内容必须分开分栏呈现，不得将分析推论当作已知事实。
+  訪問競品官網的公開定價頁與首頁橫幅，獲取他們當下的方案價格表。
+  對照我們在 /workspace/competitor/last-month-price.json 中記錄的舊價格：
+  1. 事實列：標出哪些 SKU 的標價發生了變動，變動金額是多少，附帶頁面截圖與訪問時間。
+  2. 推測列：基於該降價是限時促銷還是永久調價，給出你的分析理由。
+  兩部分內容必須分開分欄呈現，不得將分析推論當作已知事實。
   ```
 
 4. **Proteção somente leitura**: se não indicar a tabela principal/secundária e os campos a preservar, **os dados originais poderão ser facilmente sobrescritos e corrompidos**.
 ```text
-  （直接拖入三个 Excel 表格）把这几个表整理一下。
+  （直接拖入三個 Excel 表格）把這幾個表整理一下。
   ```
 Deixe explícito qual tabela é a referência e configure-a como somente leitura:
 ```text
-  上传的三个表格分别是 7 月、8 月和 9 月的销售明细。
-  以「订单编号」为唯一主键进行数据去重合并：
-  1. 字段统一保留：订单号、成交日期、客户名称、销售代表、成交金额。
-  2. 生成一份全新的 Q3_sales_summary.csv 文件，保存在当前工作区。
-  3. 保持我上传的原始 7、8、9 月表格内容与文件名完全不变。
+  上傳的三個表格分別是 7 月、8 月和 9 月的銷售明細。
+  以「訂單編號」為唯一主鍵進行資料去重合並：
+  1. 欄位統一保留：訂單號、成交日期、客戶名稱、銷售代表、成交金額。
+  2. 生成一份全新的 Q3_sales_summary.csv 文件，保存在當前工作區。
+  3. 保持我上傳的原始 7、8、9 月表格內容與檔名完全不變。
   ```
 
 5. **Missão única**: não acumule múltiplas tarefas em um único Bot; além de poluir a memória, **isso consumirá rapidamente sua cota semanal**.
 ```text
-  你帮我写一篇关于新产品的推文，顺便把昨天的账目算了，然后再帮我看看竞品推特。
+  你幫我寫一篇關於新產品的推文，順便把昨天的帳目算了，然後再幫我看看競品推特。
   ```
 Divida em tarefas únicas com fluxos dedicados:
 ```text
-  遵循一个 Bot 负责一项核心任务的原则。当前 Bot 仅承担社媒文案起草职责：
-  依据 /workspace/product/spec.md 中的新功能说明，为 X 平台起草三条不同风格的发布文案。
-  要求突出性能提升数据，字数控制在 280 字符以内。
-  账目核算与竞品调研交由对应的专用 Bot 负责，不要在此会话中处理。
+  遵循一個 Bot 負責一項核心任務的原則。當前 Bot 僅承擔社媒文案起草職責：
+  依據 /workspace/product/spec.md 中的新功能說明，為 X 平台起草三條不同風格的發表文案。
+  要求突出效能提升資料，字數控制在 280 字元以內。
+  帳目核算與競品調研交由對應的專用 Bot 負責，不要在此會話中處理。
   ```
 
 ## Casos Reais de Handoff em Negócios
@@ -249,7 +249,7 @@ O webmaster yishan transformou os requisitos de inspeção diretamente em crité
 - Se encontrar logins expirados ou links quebrados, registre a pendência e pule imediatamente, sendo proibido insistir repetidamente. Para o procedimento detalhado, consulte [Como Usar o Grok Bot a Fundo em Uma Hora](https://jcng5q8n0f3z.feishu.cn/wiki/GBV8wdZOaijukikjO0pcYFWKnbg).
 
 ### Central de Entrada e Roteamento de Demandas
-一泽Eze configurou um Bot dedicado à caixa de entrada para gerenciar o Gmail, sem conceder acesso direto ao e-mail para os Bots downstream.
+一澤Eze configurou um Bot dedicado à caixa de entrada para gerenciar o Gmail, sem conceder acesso direto ao e-mail para os Bots downstream.
 - Ao receber e-mails de feedback, ele os encaminha via chat privado para o "Bot de Feedback do Produto", e faturas para o "Bot de Gestão de Assinaturas".
 - A comparação puramente numérica é delegada diretamente a scripts de linha de comando. **Sincronizar apenas dados incrementais com o Bot ajuda a economizar a cota semanal de uso.**
 - Não conecte ferramentas de alta permissão em todos os lugares; usar um ponto de entrada dedicado para a triagem inicial é a abordagem mais segura.

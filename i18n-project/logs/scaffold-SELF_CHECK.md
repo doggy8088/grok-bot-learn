@@ -1,80 +1,80 @@
-# VitePress i18n 脚手架自检报告
+# VitePress i18n 腳手架自檢報告
 
 日期：2026-10-29
-阶段：2 — VitePress i18n 脚手架与部署接线准备
+階段：2 — VitePress i18n 腳手架與部署接線準備
 
-## 构建状态
+## 建構狀態
 
-⏳ **需请求方手动验证**：当前环境 shell 命令受限，无法执行 `npm run build`。
-请在本地运行：
+⏳ **需請求方手動驗證**：當前環境 shell 命令受限，無法執行 `npm run build`。
+請在本地執行：
 
 ```bash
 cd site && npm run build
 ```
 
-预期结果：退出码 0，产出约 70+ 页面（61 篇 zh-CN + 6 个 locale 首页 + 404 等）。
+預期結果：退出碼 0，產出約 70+ 頁面（61 篇 zh-CN + 6 個 locale 首頁 + 404 等）。
 
-## 检查项
+## 檢查項
 
-### 1. config.mts locales 配置
-- [x] `locales.root`：label=简体中文, lang=zh-CN
+### 1. config.mts locales 組態
+- [x] `locales.root`：label=簡體中文, lang=zh-CN
 - [x] `locales['zh-Hant']`：label=繁體中文, lang=zh-Hant, link=/zh-Hant/
 - [x] `locales.en`：label=English, lang=en-US, link=/en/
 - [x] `locales.ja`：label=日本語, lang=ja, link=/ja/
 - [x] `locales.ko`：label=한국어, lang=ko, link=/ko/
 - [x] `locales.es`：label=Español, lang=es, link=/es/
 - [x] `locales['pt-BR']`：label=Português (Brasil), lang=pt-BR, link=/pt-BR/
-- [x] 路径前缀与 PLAN.md 一致
+- [x] 路徑前綴與 PLAN.md 一致
 
-### 2. 非 root 语种目录骨架
-- [x] `site/docs/en/index.md` 存在，含 title/description/非官方声明
+### 2. 非 root 語種目錄骨架
+- [x] `site/docs/en/index.md` 存在，含 title/description/非官方宣告
 - [x] `site/docs/zh-Hant/index.md` 存在
 - [x] `site/docs/ja/index.md` 存在
 - [x] `site/docs/ko/index.md` 存在
 - [x] `site/docs/es/index.md` 存在
 - [x] `site/docs/pt-BR/index.md` 存在
-- [x] 未复制 61 篇简体正文
+- [x] 未複製 61 篇簡體正文
 
-### 3. 语言切换
-- [x] VitePress locales 自带下拉，桌面端在顶栏 nav 右侧，移动端在汉堡菜单
-- [x] 每个 locale 有 label 和 link，下拉可用
+### 3. 語言切換
+- [x] VitePress locales 自帶下拉，桌面端在頂欄 nav 右側，行動裝置端在漢堡選單
+- [x] 每個 locale 有 label 和 link，下拉可用
 
 ### 4. hreflang / og:locale
-- [x] `transformHead` 按 `pageLocale(rel)` 检测当前语种
-- [x] `og:locale` 动态输出（zh_CN / en_US / zh_TW / ja_JP / ko_KR / es_ES / pt_BR）
-- [x] 为所有 7 种语言输出 `link[rel=alternate][hreflang=...]`
-- [x] `hreflang=x-default` 指向根站对等页
-- [x] `og:locale:alternate` 为其余 6 种输出
-- [x] canonical URL 含正确语种前缀
+- [x] `transformHead` 按 `pageLocale(rel)` 檢測當前語種
+- [x] `og:locale` 動態輸出（zh_CN / en_US / zh_TW / ja_JP / ko_KR / es_ES / pt_BR）
+- [x] 為所有 7 種語言輸出 `link[rel=alternate][hreflang=...]`
+- [x] `hreflang=x-default` 指向根站對等頁
+- [x] `og:locale:alternate` 為其餘 6 種輸出
+- [x] canonical URL 含正確語種前綴
 
-### 5. JSON 驱动页 locale 能力
+### 5. JSON 驅動頁 locale 能力
 - [x] `theme/i18n.ts` 提供 `useLocaleJson` composable
-- [x] 通过 `import.meta.glob('./locales/*/*.json')` 自动加载
-- [x] 缺译回退原始 JSON（zh-CN）
-- [x] `theme/locales/.gitkeep` 占位目录
-- [x] ENGINEERING.md 写明 JSON 分文件规则和组件接入示例
+- [x] 通過 `import.meta.glob('./locales/*/*.json')` 自動載入
+- [x] 缺譯回退原始 JSON（zh-CN）
+- [x] `theme/locales/.gitkeep` 佔位目錄
+- [x] ENGINEERING.md 寫明 JSON 分文件規則和元件接入範例
 
-### 6. 导航/页脚/UI 字符串
-- [x] 每个 locale 的 themeConfig 包含翻译后的 UI 标签（outline, docFooter, darkModeSwitch 等）
-- [x] 缺译 locale 回退到顶层 themeConfig（zh-CN 字符串）
-- [x] 页脚 SiteFooter.vue 硬编码中文，作为 zh-CN 回退（翻译官后续可替换）
+### 6. 導覽/頁腳/UI 字串
+- [x] 每個 locale 的 themeConfig 包含翻譯後的 UI 標記（outline, docFooter, darkModeSwitch 等）
+- [x] 缺譯 locale 回退到頂層 themeConfig（zh-CN 字串）
+- [x] 頁腳 SiteFooter.vue 硬寫程式中文，作為 zh-CN 回退（翻譯官後續可替換）
 
 ### 7. buildEnd (llms.txt)
-- [x] `isDoc()` 只匹配 root 路径前缀，非 root locale 页不进入 llms 索引
-- [x] 根站逻辑不受影响
+- [x] `isDoc()` 只匹配 root 路徑前綴，非 root locale 頁不進入 llms 索引
+- [x] 根站邏輯不受影響
 
-### 8. 产出文件
+### 8. 產出文件
 - [x] `config.mts` 已改造
-- [x] `theme/i18n.ts` 已创建
-- [x] 6 个语种 `index.md` 已创建
-- [x] `i18n-project/ENGINEERING.md` 已写
+- [x] `theme/i18n.ts` 已建立
+- [x] 6 個語種 `index.md` 已建立
+- [x] `i18n-project/ENGINEERING.md` 已寫
 - [x] `i18n-project/logs/scaffold-SELF_CHECK.md`（本文件）
 - [x] `i18n-project/logs/scaffold-CHANGED.txt`
 
-### 9. 禁止项
-- [x] 未引入付费 API
+### 9. 禁止項
+- [x] 未引入付費 API
 - [x] 未照抄 grokguide.si
-- [x] 未把整站中文 md 复制进各 locales
-- [x] 未执行 deploy.sh
+- [x] 未把整站中文 md 複製進各 locales
+- [x] 未執行 deploy.sh
 - [x] 未提交 secrets / node_modules / dist
-- [x] 未删除非官方声明
+- [x] 未刪除非官方宣告

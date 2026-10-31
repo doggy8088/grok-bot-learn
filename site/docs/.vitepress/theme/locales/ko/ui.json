@@ -3,9 +3,9 @@
     "groupPill": "유료 Q&A방"
   },
   "footer": {
-    "mpBtn": "공식 계정 「铁柱AGI」",
-    "mpDialog": "공식 계정 「铁柱AGI」 QR 코드",
-    "mpAlt": "WeChat 검색: 铁柱AGI",
+    "mpBtn": "공식 계정 「鐵柱AGI」",
+    "mpDialog": "공식 계정 「鐵柱AGI」 QR 코드",
+    "mpAlt": "WeChat 검색: 鐵柱AGI",
     "group": "유료 Q&A방",
     "about": "제작자 소개",
     "friends": "추천 링크",
@@ -27,10 +27,10 @@
     "chipOurs": "자체 해설"
   },
   "xiaotiezhu": {
-    "title": "小铁柱",
-    "joinHint": "QR 코드를 스캔하여 매니저 WeChat을 추가하고 小铁柱를 활성화하세요"
+    "title": "小鐵柱",
+    "joinHint": "QR 코드를 스캔하여 매니저 WeChat을 추가하고 小鐵柱를 활성화하세요"
   },
   "join": {
-    "qrAlt": "铁柱 개인 WeChat QR 코드"
+    "qrAlt": "鐵柱 개인 WeChat QR 코드"
   }
 }

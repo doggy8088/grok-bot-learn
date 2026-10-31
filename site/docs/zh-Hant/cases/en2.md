@@ -1,6 +1,6 @@
 # 英文長文精選（下）
 
-搞 7×24 小時後臺自動化和多 Agent 協同，**最怕角色邊界模糊**。把所有雜活和許可權塞給單個 Bot，上下文很快脹破，容易在網頁上誤操作，一天就能耗光一週額度。
+搞 7×24 小時後台自動化和多 Agent 協同，**最怕角色邊界模糊**。把所有雜活和許可權塞給單個 Bot，上下文很快脹破，容易在網頁上誤操作，一天就能耗光一週額度。
 
 另一個坑是盲目新建 Bot。**缺乏任務看板與交付狀態機**，最後只能整天在聊天框裡手動撈資訊。
 
@@ -11,30 +11,30 @@
 | 自動化運維 | Gipp：24/7 Repo Ops | 倉庫巡檢與 CI 報錯自動修復 | 6 具名 Bot 與 Kimi K3，設 Draft PR 防線 |
 | 自動化運維 | Morlex：Opus 5.5 | 強推理模型接入與複雜任務分解 | Chief 排程中樞、Cursor Agent 與資料紅線 |
 | 自動化運維 | 社群：Issue 修復流水線 | 全天候 GitHub Issue 自動化修復 | /workspace/devdesk 狀態機、獨立 Review 與熔斷上報 |
-| 團隊架構 | Movez：9 席位團隊 | 官方 9 席位多 Agent 配置 | 5 訊號切分、Attention List，缺數直接報錯 |
-| 團隊架構 | distort：數字員工 | 首個數字員工配置與晉升規範 | 五大崗位欄位、純文字推演與可逆性許可權 |
+| 團隊架構 | Movez：9 席位團隊 | 官方 9 席位多 Agent 組態 | 5 訊號切分、Attention List，缺數直接報錯 |
+| 團隊架構 | distort：數位員工 | 首個數位員工組態與晉升規範 | 五大崗位欄位、純文字推演與可逆性許可權 |
 | 團隊架構 | 社群：6 Bot 編隊 | 6 Bot 極簡研運編隊搭建 | 獨立記憶切分、5 態看板與清晨 5 點站會 |
 | 團隊架構 | 社群：29 個 Agent | 跨領域多 Agent 協同飛輪 | 排程入口 Emma、Cursor Agent 配合跨角色接力 |
 | 一人公司 | maestro：Top 10 | 覆蓋銷售、招聘與法務提示詞 | 差異表與草稿交付、通用五行防線及專屬憑證 |
-| 一人公司 | beamnxw：一人公司 | 一人數字企業業務運轉支架 | 公司簡報單源、六欄位看板與 Auto Review |
+| 一人公司 | beamnxw：一人公司 | 一人數位企業業務運轉支架 | 公司簡報單源、六欄位看板與 Auto Review |
 | 記憶控費 | n2parko：Team Bots | 組織級知識資產化與共享同事 | Databot、10x Engineer 與隔離雙層記憶 |
-| 記憶控費 | Radar：控費組合拳 | 額度快速耗盡歸因與控費 | 喚醒頻率控制、Duplicate 斬斷上下文與指令碼批處理 |
+| 記憶控費 | Radar：控費組合拳 | 額度快速耗盡歸因與控費 | 喚醒頻率控制、Duplicate 斬斷上下文與指令碼批次處理 |
 | 記憶控費 | rari：記憶工程規範 | 共享 Team Bot 記憶工程規範 | 五類上下文容器、快慢時鐘與外部審查卡片 |
 
 準備搭建多 Bot 協同流程時，**把提示詞直接發給主 Bot**，梳理崗位邊界與執行目錄。
 
 ```text
-我打算参考英文社区的工程与自动化实践，在 Grok Bot 中搭建一套多 Agent 工作流：【填入具体业务场景，例如夜间代码缺陷巡检 / 一人公司日常运营】。
-请帮我完成以下设计：
-1. 明确角色编制：列出所需 Bot 清单（包括唯一的调度入口 Chief 与各专职角色），按「记忆边界」与「审批范围」划清每个角色的职责。
-2. 规划工作目录：在云电脑 /workspace 下设计标准文件夹层次，定义状态转移文件（如 status.json、task.md），规范上下游交付物的流转格式。
-3. 设立权限人闸：区分完全可逆的自动执行动作与不可逆的报批动作，明确外部发信、代码合并、资金支付与修改生产配置的拦截规则。
-4. 优化额度消耗：为定时例程规划低频运行策略与「无新内容保持静默」机制，标出哪些批量规则计算应交由终端 Python 脚本处理。
+我打算參考英文社群的工程與自動化實踐，在 Grok Bot 中搭建一套多 Agent 工作流：【填入具體業務場景，例如夜間程式碼缺陷巡檢 / 一人公司日常運營】。
+請幫我完成以下設計：
+1. 明確角色編制：列出所需 Bot 清單（包括唯一的排程入口 Chief 與各專職角色），按「記憶邊界」與「審批範圍」劃清每個角色的職責。
+2. 規劃工作目錄：在雲端電腦 /workspace 下設計標準資料夾層次，定義狀態轉移文件（如 status.json、task.md），規範上下游交付物的流轉格式。
+3. 設立權限人閘：區分完全可逆的自動執行動作與不可逆的報批動作，明確外部發信、程式碼合併、資金支付與修改生產組態的攔截規則。
+4. 優化額度消耗：為定時例程規劃低頻執行策略與「無新內容保持靜默」機制，標出哪些批量規則計算應交由終端 Python 指令碼處理。
 ```
 
 ## 自動化研發與工程運維
 
-程式碼倉庫的日常維護充滿偶發測試報錯、依賴補丁和規範檢查。把機械性工作交給後臺 Agent 處理能省下大量時間，核心在於嚴格限制改動範圍與合併許可權。
+程式碼倉庫的日常維護充滿偶發測試報錯、依賴補丁和規範檢查。把機械性工作交給後台 Agent 處理能省下大量時間，核心在於嚴格限制改動範圍與合併許可權。
 
 ### How to Build a 24/7 Repo Ops Desk on Grok Bot + Kimi K3 (Complete Guide)｜Gipp 🦅
 
@@ -45,7 +45,7 @@
 
 ![How to Build a 24/7 Repo Ops Desk on Grok Bot + Kimi K3 (Complete Guide)](/cases-img/fs51-1.jpg)
 
-架構用 Grok Bot 當互動總控臺，底層靠 Kimi K3 扛併發監控異常，單機號稱能跑 300 個子 Agent，一共部署 6 個具名 Bot。
+架構用 Grok Bot 當互動總控台，底層靠 Kimi K3 扛平行處理監控例外，單機號稱能跑 300 個子 Agent，一共部署 6 個具名 Bot。
 
 1. Fix Bot 讀取待修清單，專修 flaky test 和格式規範，自動提 Draft PR。
 2. **指令碼絕不碰業務邏輯**，而且**只提待審草稿，絕不自動合入主分支**。
@@ -62,9 +62,9 @@
 
 ![Grok Bot + Opus 5.5: The Ultimate Agent Harness in 10 Steps](/cases-img/fs59-1.jpg)
 
-Grok Bot 引入 Claude Opus 5.5 後，Morlex 梳理了十步配置法，重點是**以操作可逆性劃分人閘**。
+Grok Bot 引入 Claude Opus 5.5 後，Morlex 梳理了十步組態法，重點是**以操作可逆性劃分人閘**。
 
-1. 架構上由通用 Bot Chief 統籌，按業務派生專能 Bot，並調動 Cursor 雲端 Agent 協同編碼。
+1. 架構上由通用 Bot Chief 統籌，按業務派生專能 Bot，並調動 Cursor 雲端 Agent 協同寫程式。
 2. 檢索、排版與草稿由 Bot 自主執行；涉及外部發信與資金變動，**一律停下報批**。
 3. 設立明確紅線，禁止 Bot 檢索財務目錄、法律檔案與敏感金鑰。
 
@@ -78,12 +78,12 @@ Grok Bot 引入 Claude Opus 5.5 後，Morlex 梳理了十步配置法，重點�
 ![Grok Bot + Opus 5.5: Build a 24/7 AI Engineering Team in 12 Steps](/cases-img/fs62-0.jpg)
 
 ![Grok Bot + Opus 5.5: Build a 24/7 AI Engineering Team in 12 Steps](/cases-img/fs62-1.jpg)
-Mori 在雲電腦 `/workspace/devdesk` 跑狀態機修 GitHub 缺陷，由 Chief 排程四個專職角色推進。
-1. Triage 復現故障並提供失敗用例。
+Mori 在雲端電腦 `/workspace/devdesk` 跑狀態機修 GitHub 缺陷，由 Chief 排程四個專職角色推進。
+1. Triage 復現故障並提供失敗使用案例。
 2. Builder 調 Cursor 雲端 Agent 獨立分支寫補丁。
 3. Reviewer 獨立複核，交由 Release 釋出。
 
-- 驗收：**補丁交付必須包含復現用例的前後對比執行日誌**。
+- 驗收：**補丁交付必須包含復現使用案例的前後對比執行記錄**。
 - 熔斷：**同一測試報錯兩次立即停機呼叫人工**，防止死迴圈空耗額度。
 
 [閱讀原文](https://jcng5q8n0f3z.feishu.cn/wiki/PxkpwzPFgi4NgCktD8NcfCpmnYf)
@@ -138,7 +138,7 @@ Profile 要包含 Owns、Inputs、May、Must ask before 和 Done when 五個欄�
 ![Grok Bot: How to Build Your First AI Team (Full Guide)](/cases-img/fs60-0.jpg)
 
 ![Grok Bot: How to Build Your First AI Team (Full Guide)](/cases-img/fs60-1.jpg)
-distort 分享了用 6 個 Bot 驅動高併發業務的架構（自述單月合併超 2000 個 PR），適合搭建 3 到 6 人 Bot 體系參考：
+distort 分享了用 6 個 Bot 驅動高平行處理業務的架構（自述單月合併超 2000 個 PR），適合搭建 3 到 6 人 Bot 體系參考：
 
 - **Chief of Staff 負責統籌**：作為唯一中樞對介面，**嚴禁親自寫程式碼或做具體任務**。
 - **專職 Bot 切分業務**：各自保留獨立記憶，任務全沉澱線上上看板推進。
@@ -153,7 +153,7 @@ distort 分享了用 6 個 Bot 驅動高併發業務的架構（自述單月合�
 Melvin Vivas（@melvindvivas）用總管 Emma 串聯 **29 個 Agent**（自述未核），分調研、研發、內容與商務 4 組協作。
 
 1. 調研 Bot 發現新模型，Emma 派程式碼 Bot 調 Cursor 雲端 Agent 寫範例並提 GitHub PR。
-2. 內容團隊接力出教程草稿，各 Bot 用**共享雲電腦檔案系統**互傳物料。
+2. 內容團隊接力出課程草稿，各 Bot 用**共享雲端電腦檔案系統**互傳物料。
 3. **定期審計並下線無用任務**，避免多 Bot 帶來無效背景消耗。
 
 [閱讀原文](https://jcng5q8n0f3z.feishu.cn/wiki/YBjswa1rnivPkjk5BpscN6mcnDh)
@@ -167,7 +167,7 @@ Melvin Vivas（@melvindvivas）用總管 Emma 串聯 **29 個 Agent**（自述�
 
 這套現成指令覆蓋銷售拓展、簡歷初篩與合同審查等 10 個場景。Bot 只產出草稿、差異比對或整理清單，**絕不跨過外部執行紅線**。
 
-- 風險隔離：多 Bot 共享同一雲電腦環境，必須用專用郵箱與獨立卡號。
+- 風險隔離：多 Bot 共享同一雲端電腦環境，必須用專用郵箱與獨立卡號。
 - 驗收標準：事實陳述必須附帶原始網頁連結，無證據直接丟棄。
 - 防線機制：全域性規則寫入五行防線，每次執行完畢必須彙報處理條數、跳過項和具體報錯。
 
@@ -182,7 +182,7 @@ Melvin Vivas（@melvindvivas）用總管 Emma 串聯 **29 個 Agent**（自述�
 
 ![Grok Bot Engineering: Set Up a Harness for Your One-Person Company](/cases-img/fs58-1.jpg)
 
-這套支架以 Operator 為核心，用單源簡報鎖死報價、客群與審批底線，搭配六欄位看板跟蹤流轉。
+這套支架以 Operator 為核心，用單源簡報鎖死報價、客群與審批底線，搭配六欄位看板追蹤流轉。
 
 - 減少重複：單源業務簡報作為行為基準，避免每次派活重複交代背景。
 - 人工把關：**執行不可逆操作前主動掛起**，關鍵決策留在人手裡。
@@ -222,8 +222,8 @@ Fan Grok Bot Radar（@GrokBotRadar）拆解發現，**用量本質是喚醒頻�
 1. 壓縮頻次：全天 15 分鐘輪詢縮減為工作時段定時檢查。
 2. 切斷歷史：**定期用 Duplicate 複製 Bot 重置歷史**（自述單次 Token 降低約 75%，未核）。
 3. 物理拆分：高頻聊天的 Bot 和跑例程的 Bot 分開部署。
-4. 指令碼兜底：郵件篩選等確定性雜務交給雲電腦終端跑 Python 指令碼。
-5. 驗收標準：**給監控例程加上靜默規則**，無異常絕不產生無用訊息。
+4. 指令碼兜底：郵件篩選等確定性雜務交給雲端電腦終端跑 Python 指令碼。
+5. 驗收標準：**給監控例程加上靜默規則**，無例外絕不產生無用訊息。
 
 [閱讀原文](https://jcng5q8n0f3z.feishu.cn/wiki/HO20w5OQQiNtNuk92mhcdQEynOi)
 

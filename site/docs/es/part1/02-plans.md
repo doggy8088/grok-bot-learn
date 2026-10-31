@@ -12,7 +12,7 @@ Desde el 12 de octubre de 2026, se introdujo oficialmente la suscripción unific
 
 ![Planes y suscripciones: elige primero el nivel adecuado](/info/02-plans.png)
 
-## ¿Qué plan de suscripción necesito comprar para usar Grok Bot? {#统一订阅全貌-the-x-subscription-的四档与免费档}
+## ¿Qué plan de suscripción necesito comprar para usar Grok Bot? {#統一訂閱全貌-the-x-subscription-的四檔與免費檔}
 
 **La suscripción unificada se divide en cuatro niveles: Plus, Premium, Super y Ultra. Como el nivel Plus no incluye en absoluto Grok Bot, para ejecutar tareas de automatización es obligatorio empezar con el nivel Premium de $30 al mes.**
 
@@ -45,13 +45,13 @@ Calculado según el uso por dólar (tomando Plus como base 1, Premium aprox. 1.0
 5. Paga con tarjetas de crédito o débito internacionales compatibles, o mediante Apple Pay o Google Pay en la web.
 6. Abre el cliente de Grok Bot, inicia sesión y confirma que en la interfaz principal ya se hayan desbloqueado los permisos para crear y ejecutar agentes.
 
-Para un análisis detallado, consulta [«Análisis de la suscripción unificada de X: ¿cómo eligen los nuevos usuarios y deberían cambiarse los antiguos suscriptores? Explicado con claridad»](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) y [«Colección de tuits de 铁柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Para un análisis detallado, consulta [«Análisis de la suscripción unificada de X: ¿cómo eligen los nuevos usuarios y deberían cambiarse los antiguos suscriptores? Explicado con claridad»](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) y [«Colección de tuits de 鐵柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Cuándo se considera correcto
 
 Al abrir el cliente de escritorio de Grok Bot, **se considera apto si las nuevas tareas pueden asignarse a un entorno en la nube para ejecutarse y la facturación muestra el estado Premium con cobro mensual**.
 
-## ¿Cómo se liquida el fondo de uso semanal de Grok Bot? {#每周共享用量池-额度结算与多端共用机制}
+## ¿Cómo se liquida el fondo de uso semanal de Grok Bot? {#每週共享用量池-額度結算與多端共用機制}
 
 **La suscripción proporciona un fondo de cuota fija semanal que se sincroniza en tiempo real entre múltiples dispositivos; los modelos oficiales se descuentan de forma compartida en la web, Bot y el autocompletado de Cursor según el volumen de tareas y los pasos, mientras que los modelos de terceros se cobran por separado según el precio de catálogo.**
 
@@ -80,7 +80,7 @@ Para evitar agotar la cuota en los primeros tres días, planifica la rutina diar
 
 **En automatizaciones habituales, mantén el consumo diario estable entre el 10% y el 15%**. Si reservas un margen de amortiguación de alrededor del 20% el día anterior al reinicio semanal y no recibes ventanas emergentes de advertencia por cuota crítica, el ritmo se considera adecuado.
 
-## ¿Cómo vincular Cursor para compartir la cuota de Grok? {#授权互通-cursor-套餐与-supergrok-关联规则}
+## ¿Cómo vincular Cursor para compartir la cuota de Grok? {#授權互通-cursor-套餐與-supergrok-關聯規則}
 
 **Cursor se puede vincular directamente con una cuenta de Grok para mapear la cuota; la vinculación no modifica el plan original ni genera cargos adicionales, la cuota toma vigencia según el nivel más alto de ambos sin acumularse, y una vez emparejados queda bloqueada de por vida sin posibilidad de desvincularse o transferirse.**
 
@@ -180,7 +180,7 @@ Antes de realizar el cambio, abre el panel de uso para comprobar la distribució
 
 **Los usuarios que se hayan suscrito a Cursor a través de Apple deben cancelar manualmente la renovación automática en los ajustes del móvil tras decidir migrar**, ya que la actualización web no lo gestionará de forma automática.
 
-Para más detalles sobre el análisis de decisiones, consulta [«Análisis de la suscripción unificada de X: ¿cómo eligen los nuevos usuarios y deberían cambiarse los antiguos suscriptores? Explicado con claridad»](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) y [«Colección de tuits de 铁柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Para más detalles sobre el análisis de decisiones, consulta [«Análisis de la suscripción unificada de X: ¿cómo eligen los nuevos usuarios y deberían cambiarse los antiguos suscriptores? Explicado con claridad»](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee) y [«Colección de tuits de 鐵柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Cuándo se considera correcto
 
@@ -205,23 +205,23 @@ Los usuarios que mantengan el plan antiguo deben confirmar que el estado de reno
 Para un solo Bot estándar, introduce el primer fragmento para fijar un razonamiento de bajo consumo y alargar los ciclos de sondeo, evitando la ejecución ociosa en segundo plano.
 
 ```text
-你是一个自动化执行助手。在后续所有任务执行中，必须严格遵守以下资源控制规则：
-1. 任务规划阶段必须输出极简执行步骤，禁止发起非必要的递归搜索与多轮冗余工具自检。
-2. 在处理代码与文本分析任务时，保持适度推理强度，优先给出核心结果，不要输出冗长无关的修饰性文字。
-3. 如果任务涉及定时轮询或周期监控，单次轮询时间间隔不得低于 30 分钟，严禁设置分钟级高频循环。
-4. 严禁自行尝试调用外部视频生成或音频转换能力；如遇复杂多步骤任务，分步向我汇报进度并等待确认。
+你是一個自動化執行助手。在後續所有任務執行中，必須嚴格遵守以下資源控制規則：
+1. 任務規劃階段必須輸出極簡執行步驟，禁止發起非必要的遞歸搜尋與多輪冗餘工具自檢。
+2. 在處理程式碼與文本分析任務時，保持適度推理強度，優先給出核心結果，不要輸出冗長無關的修飾性文字。
+3. 如果任務涉及定時輪詢或週期監控，單次輪詢時間間隔不得低於 30 分鐘，嚴禁設定分鐘級高頻循環。
+4. 嚴禁自行嘗試呼叫外部影片生成或音訊轉換能力；如遇複雜多步驟任務，分步向我彙報進度並等待確認。
 ```
 
 Para la coordinación de múltiples Bot, introduce el segundo fragmento. **La difusión frecuente entre múltiples Bot en la misma tarea es la trampa que consume cuota más rápidamente (declaración del autor, no verificada); es obligatorio forzar la comunicación en cadena punto a punto**.
 
 ```text
-你在多智能体协同流水线中担任协同节点。必须严格执行以下通信约束：
-1. 全面采用点对点（Agent-to-Agent）单向派活与回传，禁止向群聊或未指名的公共上下文广播全量数据。
-2. 传递工作流结果时，只提取关键字段与结构化结果摘要，严禁将完整的历史对话日志重复打包转发。
-3. 协助任务交付完毕后，立即输出任务终止状态，主动退出协作监听，切断后续消息的被动接收与重复解析。
+你在多智慧體協同流水線中擔任協同節點。必須嚴格執行以下通信約束：
+1. 全面採用點對點（Agent-to-Agent）單向派活與回傳，禁止向群聊或未指名的公共上下文廣播全量資料。
+2. 傳遞工作流結果時，只提取關鍵欄位與結構化結果摘要，嚴禁將完整的歷史對話記錄重複封裝轉發。
+3. 協助任務交付完畢後，立即輸出任務終止狀態，主動退出協作監聽，切斷後續訊息的被動接收與重複解析。
 ```
 
-Estrategia basada en [«Colección de tuits de 铁柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
+Estrategia basada en [«Colección de tuits de 鐵柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc).
 
 ### Cuándo se considera correcto
 
@@ -264,4 +264,4 @@ Tras inyectar el prompt, **el Bot debe responder explícitamente confirmando que
 - Documentación oficial: [Suscribirse en aplicaciones móviles](https://cursor.com/cn/help/grok-bot/mobile-purchase.md)
 - Documentación oficial: [Modelos de Grok Bot](https://cursor.com/cn/help/grok-bot/models.md)
 - Análisis práctico de la comunidad: [«Análisis de la suscripción unificada de X: ¿cómo eligen los nuevos usuarios y deberían cambiarse los antiguos suscriptores? Explicado con claridad»](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee)
-- Recopilación práctica de la comunidad: [«Colección de tuits de 铁柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc)
+- Recopilación práctica de la comunidad: [«Colección de tuits de 鐵柱 ①: Apertura, planes y cuota»](https://jcng5q8n0f3z.feishu.cn/wiki/PCZIw5IqgiZLjTkXqNncpxannpc)

@@ -20,7 +20,7 @@ Copia todo el contenido a continuación y envíalo a tu Grok Bot; se instalará 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上部署 muse2api（https://github.com/czg86389-hub/muse2api），以后调用多模态接口进行对话、生图和生视频用它。需要填密钥时请提醒我自己填。
+幫我在你的雲端電腦上部署 muse2api（https://github.com/czg86389-hub/muse2api），以後呼叫多模態介面進行對話、生圖和生影片用它。需要填密鑰時請提醒我自己填。
 ````
 
 </div>

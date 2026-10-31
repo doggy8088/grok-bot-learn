@@ -10,7 +10,7 @@
     "cta": "Ver extensión"
    },
    {
-    "name": "小铁柱",
+    "name": "小鐵柱",
     "tag": "Asistente para grupos de WeChat",
     "desc": "Gestor de automatización para grupos de WeChat, que ofrece resúmenes diarios del chat y compilaciones web destacadas.",
     "cta": "Ver servicio"
@@ -31,7 +31,7 @@
   "download": "Descargar instalador",
   "source": "Código fuente",
   "meta": "v0.4.0 · Compatible con Chrome / Edge / Firefox",
-  "unofficial": "Extensión de terceros desarrollada independientemente por 铁柱AGI, no es un producto oficial de xAI ni de Cursor.",
+  "unofficial": "Extensión de terceros desarrollada independientemente por 鐵柱AGI, no es un producto oficial de xAI ni de Cursor.",
   "videoTitle": "Demostración práctica de funciones",
   "videoLead": "Dos videos introductorios para repasar rápidamente las funciones más utilizadas.",
   "videos": [
@@ -140,9 +140,9 @@
  },
  "xiaotiezhu": {
   "slogan": "Evita que el contenido valioso del chat se pierda: el gestor de automatización para comunidades de alto valor",
-  "lead": "小铁柱 es un asistente de gestión ligero diseñado para comunidades de WeChat, que resume periódicamente las discusiones y los puntos clave diarios. Despídete de leer manualmente cientos de mensajes y consolida sin esfuerzo los activos digitales de tu comunidad.",
+  "lead": "小鐵柱 es un asistente de gestión ligero diseñado para comunidades de WeChat, que resume periódicamente las discusiones y los puntos clave diarios. Despídete de leer manualmente cientos de mensajes y consolida sin esfuerzo los activos digitales de tu comunidad.",
   "meta": "Asistente para grupos de WeChat · Facturación por grupo · Listo para usar",
-  "unofficial": "Este servicio es proporcionado por la comunidad 铁柱AGI y no es un producto oficial de WeChat",
+  "unofficial": "Este servicio es proporcionado por la comunidad 鐵柱AGI y no es un producto oficial de WeChat",
   "ctaPrimary": "Contactar por WeChat para activar",
   "ctaSecondary": "Ver ejemplo de resumen de chat",
   "featuresTitle": "Capacidades clave: síntesis automatizada, presentación visual y archivo a largo plazo",
@@ -175,7 +175,7 @@
     "name": "Edición estándar para un grupo",
     "price": "79",
     "unit": "RMB/mes",
-    "note": "Invitar a 小铁柱 a 1 grupo: 79 RMB al mes"
+    "note": "Invitar a 小鐵柱 a 1 grupo: 79 RMB al mes"
    },
    {
     "name": "Edición especial multigrupo",
@@ -208,7 +208,7 @@
    },
    {
     "k": "Soporte de gestor dedicado",
-    "v": "Durante el período de servicio, disfruta de atención al cliente dedicada y monitorización de estado para garantizar que 小铁柱 funcione de manera estable y confiable."
+    "v": "Durante el período de servicio, disfruta de atención al cliente dedicada y monitorización de estado para garantizar que 小鐵柱 funcione de manera estable y confiable."
    }
   ],
   "stepsTitle": "Activación rápida en tres pasos",
@@ -222,19 +222,19 @@
     "v": "Define el estilo visual del resumen del grupo y los horarios de las **tareas programadas** para completar una integración rápida."
    },
    {
-    "k": "3. Invitar a 小铁柱 al grupo",
-    "v": "Basta con **invitar a 小铁柱 al grupo** para realizar la entrega oficial; el servicio de gestión automatizada e informes diarios comenzará de inmediato."
+    "k": "3. Invitar a 小鐵柱 al grupo",
+    "v": "Basta con **invitar a 小鐵柱 al grupo** para realizar la entrega oficial; el servicio de gestión automatizada e informes diarios comenzará de inmediato."
    }
   ],
   "faqTitle": "Preguntas frecuentes",
   "faq": [
    {
     "q": "¿Necesito preparar mi propio servidor o cuentas especiales para activar el servicio?",
-    "a": "En absoluto. 小铁柱 funciona con un modelo totalmente gestionado; solo necesitas **invitar a 小铁柱 al grupo** en WeChat, y nosotros nos encargaremos de todo el entorno y el mantenimiento."
+    "a": "En absoluto. 小鐵柱 funciona con un modelo totalmente gestionado; solo necesitas **invitar a 小鐵柱 al grupo** en WeChat, y nosotros nos encargaremos de todo el entorno y el mantenimiento."
    },
    {
     "q": "¿Cómo se calculan las tarifas si tengo múltiples grupos?",
-    "a": "Invitar a 小铁柱 a 1 grupo: 79 RMB al mes; si son dos o más grupos: 59 RMB por grupo al mes; cuantos más grupos, más económico."
+    "a": "Invitar a 小鐵柱 a 1 grupo: 79 RMB al mes; si son dos o más grupos: 59 RMB por grupo al mes; cuantos más grupos, más económico."
    },
    {
     "q": "¿Cuáles son las ventajas del resumen web del chat?",
@@ -249,7 +249,7 @@
     "a": "No tiene costo adicional. El servicio ya incluye: soporte para resúmenes diarios del chat y empaquetado y envío diario a la dirección de correo indicada; solo indícanos el correo de recepción al activar el servicio."
    }
   ],
-  "endTitle": "Deja la organización tediosa a 小铁柱 y brinda valor profundo a tu comunidad",
+  "endTitle": "Deja la organización tediosa a 小鐵柱 y brinda valor profundo a tu comunidad",
   "endText": "El aliado ideal para grupos de WeChat de alto valor: despídete de la sobrecarga de información y de leer historiales interminables. Agrega al gestor por WeChat ahora e inicia la administración automatizada de tu grupo.",
   "endBtn": "Contactar por WeChat para activar"
  }

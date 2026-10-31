@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>备份与恢复：电脑重置也不慌</title>
+<title>備份與恢復：電腦重置也不慌</title>
 <style>
   * { box-sizing: border-box; }
   html, body { width: 1200px; height: 760px; margin: 0; overflow: hidden; }
@@ -40,45 +40,45 @@
 </head>
 <body>
 <main>
-  <h1>备份与恢复：把脆弱系统变成可随时重建的硬资产</h1>
-  <p class="lead">云电脑环境和 Bot 记忆，拆成两条并行的灾备流水线</p>
+  <h1>備份與恢復：把脆弱系統變成可隨時重建的硬資產</h1>
+  <p class="lead">雲端電腦環境和 Bot 記憶，拆成兩條並行的災備流水線</p>
   <img class="bot" src="bots/galet-rouge.png" alt="">
-  <section class="flow" aria-label="备份与恢复流程">
+  <section class="flow" aria-label="備份與恢復流程">
     <article class="shock">
-      <div class="eyebrow">系统重置</div>
-      <h2>所有 Bot 共享<br>同一台云端虚拟机</h2>
-      <p>已安装的应用和软件包、项目目录里的 node_modules 或 Python 虚拟环境，都会被移除。</p>
+      <div class="eyebrow">系統重置</div>
+      <h2>所有 Bot 共享<br>同一台雲端虛擬機器</h2>
+      <p>已安裝的應用和軟體套件、專案目錄裡的 node_modules 或 Python 虛擬環境，都會被移除。</p>
     </article>
     <div class="arrow" aria-hidden="true"></div>
     <section class="destination">
-      <h2>私有 Git 仓库：两条备份流水线</h2>
+      <h2>私有 Git 倉庫：兩條備份流水線</h2>
       <div class="lanes">
         <article class="lane">
           <header class="lane-head">
-            <h3>虚机服务</h3>
-            <p>服务总账与自动化恢复脚本</p>
+            <h3>虛機服務</h3>
+            <p>服務總帳與自動化恢復指令碼</p>
           </header>
           <div class="steps">
-            <div class="step"><b class="num">1</b><div><strong>服务总账</strong><span>REGISTRY.md 与 registry.json</span></div></div>
-            <div class="step"><b class="num">2</b><div><strong>自写源码</strong><span>service-src/ 单独抽离存入</span></div></div>
-            <div class="step"><b class="num">3</b><div><strong>恢复入口</strong><span>restore-all.sh 按依赖顺序执行</span></div></div>
-            <div class="step"><b class="num">4</b><div><strong>健康检查与汇总</strong><span>失败记录错误日志并继续下一项</span></div></div>
+            <div class="step"><b class="num">1</b><div><strong>服務總帳</strong><span>REGISTRY.md 與 registry.json</span></div></div>
+            <div class="step"><b class="num">2</b><div><strong>自寫原始碼</strong><span>service-src/ 單獨抽離存入</span></div></div>
+            <div class="step"><b class="num">3</b><div><strong>恢復入口</strong><span>restore-all.sh 按依賴順序執行</span></div></div>
+            <div class="step"><b class="num">4</b><div><strong>健康檢查與彙總</strong><span>失敗記錄錯誤記錄並繼續下一項</span></div></div>
           </div>
         </article>
         <article class="lane">
           <header class="lane-head">
-            <h3>Bot 记忆</h3>
-            <p>记忆管家写成纯文本 Markdown</p>
+            <h3>Bot 記憶</h3>
+            <p>記憶管家寫成純文字 Markdown</p>
           </header>
           <div class="steps">
-            <div class="step"><b class="num">1</b><div><strong>枚举 Bot 名单</strong><span>圈定参与持久化备份的核心名单</span></div></div>
-            <div class="step"><b class="num">2</b><div><strong>调度下发指令</strong><span>提炼并写入对应的 Markdown 文件</span></div></div>
-            <div class="step"><b class="num">3</b><div><strong>抓取验证并入库</strong><span>敏感信息扫描后统一 Git 提交</span></div></div>
-            <div class="step"><b class="num">4</b><div><strong>全量快照</strong><span>Git 负责增量追踪与历史回溯</span></div></div>
+            <div class="step"><b class="num">1</b><div><strong>枚舉 Bot 名單</strong><span>圈定參與持久化備份的核心名單</span></div></div>
+            <div class="step"><b class="num">2</b><div><strong>排程下發指令</strong><span>提煉並寫入對應的 Markdown 文件</span></div></div>
+            <div class="step"><b class="num">3</b><div><strong>抓取驗證併入庫</strong><span>敏感資訊掃描後統一 Git 提交</span></div></div>
+            <div class="step"><b class="num">4</b><div><strong>全量快照</strong><span>Git 負責增量追蹤與歷史回溯</span></div></div>
           </div>
         </article>
       </div>
-      <div class="principle">留路径，不留明文</div>
+      <div class="principle">留路徑，不留明文</div>
     </section>
   </section>
 </main>

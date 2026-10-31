@@ -16,7 +16,7 @@ Miles Ma (@miles_mazy, inspired by @0xlangeai) built this Bot. When selling seco
 3. Upload real photos and send the prompt, taking a secondhand Logitech K380s keyboard priced at 89 RMB as an example.
 
 ```text
-帮我做一份闲鱼上架资料。商品是罗技 K380s，黑色，用了 8 个月，空格键有轻微磨痕，逐键输入正常，没拆过机；附两节在用电池，无包装，卖 89 元，支持自提，邮费待确认。查官方型号资料，整理标题、商品描述、需要补拍的照片和常见咨询回复，做成可打开的资料板，并附可复制的上架正文。没提供的信息标为待确认。
+幫我做一份閒魚上架資料。商品是羅技 K380s，黑色，用了 8 個月，空格鍵有輕微磨痕，逐鍵輸入正常，沒拆過機；附兩節在用電池，無包裝，賣 89 元，支援自提，郵費待確認。查官方型號資料，整理標題、商品描述、需要補拍的照片和常見諮詢回覆，做成可打開的資料板，並附可複製的上架正文。沒提供的資訊標為待確認。
 ```
 
 4. The Bot browses the web for official specs and generates an HTML info board alongside a plain text draft.
@@ -44,7 +44,7 @@ Miles Ma (@miles_mazy, inspired by @0xlangeai) built this Bot. When selling seco
 3. Enter the chat interface and send the prompt:
 
 ```text
-给电脑新手做一套小红书图文，主题是“Windows 截图后，图片去哪了”。查微软官方资料，做 6 张 1080×1440 的图：封面、框选截图、整屏保存、当前窗口、剪贴板历史、快捷键对照表。用米白、深蓝和亮黄，文字清楚，配操作示意。直接交 PNG 成图、SVG 源文件和配套发布正文，再做一个能看全套图片的画廊。
+給電腦新手做一套小紅書圖文，主題是“Windows 截圖後，圖片去哪了”。查微軟官方資料，做 6 張 1080×1440 的圖：封面、框選截圖、整屏保存、當前窗口、剪貼板歷史、快速鍵對照表。用米白、深藍和亮黃，文字清楚，配操作示意。直接交 PNG 成圖、SVG 源文件和配套發表正文，再做一個能看全套圖片的畫廊。
 ```
 
 4. **The Bot will check official documentation to verify shortcut keys**, generate SVGs, render PNGs, and assemble everything into an HTML gallery.
@@ -82,7 +82,7 @@ The "Tool Intelligence Officer" Bot built by Miles Ma specializes in fetching op
 3. Enter the chat interface and send the prompt:
 
 ```text
-帮内容工作室整理 PowerToys、MarkItDown 和 changedetection.io，查官方仓库和文档。每个工具写清能帮忙做什么、上手需要什么、主要限制，再给一个具体使用例子。做成能按用途筛选的网页简报，附来源链接。
+幫內容工作室整理 PowerToys、MarkItDown 和 changedetection.io，查官方倉庫和文件。每個工具寫清能幫忙做什麼、上手需要什麼、主要限制，再給一個具體使使用案例子。做成能按用途篩選的網頁簡報，附來源連結。
 ```
 
 4. The Bot fetches repository READMEs and dependencies, **writes an HTML brief containing filtering scripts**, and saves it to the workspace.
@@ -107,7 +107,7 @@ This is an approach by Miles Ma (@miles_mazy, inspired by @0xlangeai Brother Lan
 3. Send the prompt:
 
 ```text
-给孩子做一个魔方入门小工具，能认识六个面、点按钮演示右面顺转和逆转，再展示右面连续转四次回到原位。把实际操作录成一分钟左右的教学视频，加中文配音和字幕，交付视频和工具文件。
+給孩子做一個魔方入門小工具，能認識六個面、點按鈕示範右面順轉和逆轉，再展示右面連續轉四次回到原位。把實際操作錄成一分鐘左右的教學影片，加中文配音和字幕，交付影片和工具文件。
 ```
 
 4. The Bot automatically writes the web page, simulates clicks, records the screen, and generates a video with Chinese subtitles.
@@ -136,7 +136,7 @@ Miles Ma (@miles_mazy) created this Bot to convert bookmarks into a topic librar
 3. Send the prompt:
 
 ```text
-整理这几条 X 收藏链接，按主题分类，每条留下作者、原链接、核心观点和可以借鉴的写法。再围绕“给新手的 AI 实操教程”提出三个具体选题，做成 Markdown 素材库和选题清单。
+整理這幾條 X 收藏連結，按主題分類，每條留下作者、原連結、核心觀點和可以借鑑的寫法。再圍繞“給新手的 AI 實操課程”提出三個具體選題，做成 Markdown 素材庫和選題清單。
 ```
 
 4. The Bot organizes and generates **two Markdown files**: "Bookmark Material Library" and "Topic Suggestions".
@@ -186,11 +186,11 @@ Run three validations using the cloud computer's US IP and browser:
 3. **Scheduled competitor monitoring**: Track prices and coupons, **sending notifications only when changes occur**—no disturbance if unchanged.
 
 ```text
-每天固定时间去前台检查自家 Listing：主图和价格是否正确，变体是否正常挂载，核心关键词是否能搜索到，是否存在跟卖。只记录指定商品和关键词，有异常才发提醒，并附带与前一日的对比数据和页面截图证据。不登录店铺后台，不执行任何写操作。
+每天固定時間去前台檢查自家 Listing：主圖和價格是否正確，變體是否正常掛載，核心關鍵詞是否能搜尋到，是否存在跟賣。只記錄指定商品和關鍵詞，有例外才發提醒，並附帶與前一日的對比資料和頁面截圖證據。不登錄店鋪後台，不執行任何寫操作。
 ```
 
 ```text
-从消费者的角度，尽可能多地把 Alexa for Shopping 体验一遍，最后给我一份报告。
+從消費者的角度，儘可能多地把 Alexa for Shopping 體驗一遍，最後給我一份報告。
 ```
 
 #### 3. Deconstruct Functions and Role Boundaries
@@ -198,11 +198,11 @@ Run three validations using the cloud computer's US IP and browser:
 - **Sensitive roles such as advertising and new listings are explicitly forbidden from writing to the backend**, delivering only "approval checklists" and defining clear consultation boundaries.
 
 ```text
-你是合理烧钱的广告投手。负责分析广告效率、搜索词转化率、出价与预算建议。
-边界约束：
-1. 绝对不登录广告后台，不直接修改出价，不调整预算，不添加否定关键词，不新建广告活动；
-2. 所有优化建议必须生成「待批清单」，每条建议必须附带调整依据和预期影响；
-3. 待批清单单线交付给出海船长，由船长提报给业务负责人审核，严禁自主执行。
+你是合理燒錢的廣告投手。負責分析廣告效率、搜尋詞轉化率、出價與預算建議。
+邊界約束：
+1. 絕對不登錄廣告後台，不直接修改出價，不調整預算，不新增否定關鍵詞，不新建廣告活動；
+2. 所有優化建議必須生成「待批清單」，每條建議必須附帶調整依據和預期影響；
+3. 待批清單單線交付給出海船長，由船長提報給業務負責人審核，嚴禁自主執行。
 ```
 
 #### 4. Orchestrate the "1+N" Handover Chain
@@ -210,12 +210,12 @@ Run three validations using the cloud computer's US IP and browser:
 - **Adopt a 1+N architecture**; humans interact only with the "Cross-Border Captain", who assigns tasks and consolidates results.
 
 ```text
-你是出海船长，负责统筹 12 个业务岗位。日常接收业务负责人的目标，拆解为具体子任务派发给对应岗位。所有下属岗位向你单线汇报，由你汇总结果、审核质量；不达标的打回重做，需要人工决策的整理为带选项和依据的待批清单汇报给人。严格遵守交接链规则：
-1. 巡检链：助理上报异常与证据，派给数据或广告岗位做归因分析；
-2. 选品链：海盗提交机会报告，财务测算单品利润，由你整理为立项建议书提报给人；
-3. 上新链：文案出草稿，设计出图，守门员审核，你做终检后交给人确认，由人工在后台发布；
-4. 复盘链：收齐各岗位经验，复盘机器人写周报并更新经验库，据此编排下周计划。
-所有岗位严禁直接登录店铺后台或执行未授权的修改操作。
+你是出海船長，負責統籌 12 個業務崗位。日常接收業務負責人的目標，拆解為具體子任務派發給對應崗位。所有下屬崗位向你單線彙報，由你彙總結果、審核質量；不達標的打回重做，需要人工決策的整理為帶選項和依據的待批清單彙報給人。嚴格遵守交接鏈規則：
+1. 巡檢鏈：助理上報例外與證據，派給資料或廣告崗位做歸因分析；
+2. 選品鏈：海盜提交機會報告，財務測算單品利潤，由你整理為立項建議書提報給人；
+3. 上新鏈：文案出草稿，設計出圖，守門員審核，你做終檢後交給人確認，由人工在後台發表；
+4. 覆盤鏈：收齊各崗位經驗，覆盤機器人寫週報並更新經驗庫，據此編排下週計劃。
+所有崗位嚴禁直接登錄店鋪後台或執行未授權的修改操作。
 ```
 
 #### 5. Shared Assets and Local Takeover

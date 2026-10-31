@@ -28,7 +28,7 @@ I have put all the beginner steps and verified real-world case studies together 
 ## Three Real-World Case Studies
 
 <div class="tz-cases" data-from="xhs">
-<a class="tz-case" href="/part2/16-knowledge"><img src="/cases-img/fs06-0.jpg" alt="Auto-save mobile shares to knowledge base" loading="lazy" decoding="async" /><strong>Auto-Save Mobile Shares to Knowledge Base</strong><span>Configure Shortcuts and Webhooks so tapping share on your phone automatically organizes content into your knowledge base.</span><em>铁柱AGI</em></a>
+<a class="tz-case" href="/part2/16-knowledge"><img src="/cases-img/fs06-0.jpg" alt="Auto-save mobile shares to knowledge base" loading="lazy" decoding="async" /><strong>Auto-Save Mobile Shares to Knowledge Base</strong><span>Configure Shortcuts and Webhooks so tapping share on your phone automatically organizes content into your knowledge base.</span><em>鐵柱AGI</em></a>
 <a class="tz-case" href="/part2/12-content"><img src="/cases-img/fs26-0.jpg" alt="Five Bots collaborating on social media content" loading="lazy" decoding="async" /><strong>Five Bots Collaborating on Social Media Content</strong><span>Five Bots divide work across topic selection, image generation, and proofreading, outputting drafts without publishing directly.</span><em>Adrian Punk</em></a>
 <a class="tz-case" href="/part2/15-ecommerce"><img src="/cases-img/fs27-0.jpg" alt="Xianyu second-hand listing assistant" loading="lazy" decoding="async" /><strong>Xianyu Second-Hand Listing Assistant</strong><span>Look up specs, create info sheets, and draft replies for second-hand inquiries on Xianyu.</span><em>Miles Ma</em></a>
 </div>

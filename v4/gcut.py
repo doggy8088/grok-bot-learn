@@ -1,5 +1,5 @@
 import subprocess, sys, os, re, shutil
-PR = r"(?s:```.*?```)|(?:^> (?:来源|作者)：.*(?:\n|$))+|^!\[[^\]]*\]\(/cases-img/[^)]*\)"
+PR = r"(?s:```.*?```)|(?:^> (?:來源|作者)：.*(?:\n|$))+|^!\[[^\]]*\]\(/cases-img/[^)]*\)"
 RULE = open("/home/box/agent-data/workflows/lieflat-less-ai-tone/SKILL.md").read()
 P = sys.argv[1]; slug = P.split("/")[1]
 orig = {int(l.split()[1]): int(l.split()[2]) for l in open(sys.argv[2]) if l.startswith(slug + " ")}
@@ -15,18 +15,18 @@ for f in sorted(os.listdir(S)):
     if os.path.exists(out): continue
     T = int(orig.get(i, len(s)) * 0.5)
     if "--nc" in sys.argv: T = int(ORIG_NC[i] * 0.5)
-    if "## 延伸阅读" in s or nc(s) <= T * 1.1:
+    if "## 延伸閱讀" in s or nc(s) <= T * 1.1:
         shutil.copy(f"{S}/{f}", out); print(slug, i, "keep", nc(s), T, flush=True); continue
     codes = [c.rstrip("\n") for c in re.findall(PR, s, flags=re.M)]; ph = s
     for n, c in enumerate(codes): ph = ph.replace(c, f"[[CODE{n}]]", 1)
     Tc = T - (nc(s) - len(re.sub(r"\[\[CODE\d+\]\]", "", ph)))
-    q = f"""以下是去 AI 腔写作规则：
+    q = f"""以下是去 AI 腔寫作規則：
 {RULE}
 
-按上面规则写出没有 AI 腔的中文，不要调用任何工具，直接输出。下面这段教程现在约 {len(ph)} 字，请删到 {T} 字以内（硬性要求，超出即失败）。
-可以删：背景铺垫、重复上文的话、举例里的第二第三个例子、作者自述的旁枝细节、“未核”类说明以外的修饰语、过渡句、总结句、表格里次要的列。
-不能删：操作步骤和菜单路径、命令、具体价格数字与限制、坑点、验收标准、链接、图片行，以及形如 [[CODE0]] 的占位符（各自单独一行原样保留）。
-二级标题原样保留，三级标题可合并。每段 1 到 3 句，关键句 **加粗**，每节 1 到 3 处。不加 emoji、注释、装饰标签，不写开场白和结束语，只输出 Markdown。
+按上面規則寫出沒有 AI 腔的中文，不要呼叫任何工具，直接輸出。下面這段課程現在約 {len(ph)} 字，請刪到 {T} 字以內（硬性要求，超出即失敗）。
+可以刪：背景鋪墊、重複上文的話、舉例裡的第二第三個例子、作者自述的旁枝細節、“未核”類說明以外的修飾語、過渡句、總結句、表格裡次要的列。
+不能刪：操作步驟和選單路徑、命令、具體價格數位與限制、坑點、驗收標準、連結、圖片行，以及形如 [[CODE0]] 的佔位符（各自單獨一行原樣保留）。
+二級標題原樣保留，三級標題可合併。每段 1 到 3 句，關鍵句 **加粗**，每節 1 到 3 處。不加 emoji、註釋、裝飾標記，不寫開場白和結束語，只輸出 Markdown。
 
 {ph}"""
     best = None

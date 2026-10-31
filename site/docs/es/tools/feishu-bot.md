@@ -18,7 +18,7 @@ Copia todo el contenido siguiente y envíalo a tu Grok Bot. Se instalará y veri
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上配置基于飞书 Python SDK（https://github.com/larksuite/oapi-sdk-python）的长连接机器人，以后接收群聊事件和派发任务用它。需要填密钥时请提醒我自己填。
+幫我在你的雲端電腦上組態基於飛書 Python SDK（https://github.com/larksuite/oapi-sdk-python）的長連線機器人，以後接收群聊事件和派發任務用它。需要填密鑰時請提醒我自己填。
 ````
 
 </div>

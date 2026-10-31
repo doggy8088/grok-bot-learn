@@ -1,14 +1,14 @@
-# 第 12 章 · 权限、安全与人闸
+# 第 12 章 · 權限、安全與人閘
 
-## 要点
+## 要點
 
-- 批准与 Auto Review
-- 按可逆性分级：只读/草稿放行，外发/付费/删除必批
-- 网络策略与日志
-- 凭证处理
+- 批准與 Auto Review
+- 按可逆性分級：唯讀/草稿放行，外發/付費/刪除必批
+- 網路策略與記錄
+- 憑證處理
 
-## 来源
+## 來源
 
 - [官方：安全](https://cursor.com/cn/docs/grok-bot/security)
 - [官方：安全 FAQ](https://cursor.com/cn/docs/grok-bot/security-faq)
-- [4.4 权限、安全与人闸](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)
+- [4.4 權限、安全與人閘](https://jcng5q8n0f3z.feishu.cn/wiki/Fxfiwuf4TiCqHTkTzFgcosQ7nzd)

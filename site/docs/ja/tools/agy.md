@@ -9,18 +9,18 @@ next: false
 
 <ToolMeta id="agy" />
 
-Google公式のターミナルAgentで、**動画理解、長文執筆、コード修正**に適しており、動画ファイルの直接読み込みに対応しています。
+Google公式のターミナルAgentで、**動畫理解、長文執筆、コード修正**に適しており、動畫ファイルの直接読み込みに対応しています。
 
-結論として、agyは動画理解、長文執筆、コード修正に適しており、動画ファイルの直接読み込みに対応しています。
+結論として、agyは動畫理解、長文執筆、コード修正に適しており、動畫ファイルの直接読み込みに対応しています。
 
 ## Botに送信するプロンプト
 
-以下の内容をすべてコピーしてGrok Botに送信してください。クラウドPC上で自動的にインストールと検証が行われ、ログインやAPIキーの設定が必要になると一時停止して操作を促します。
+以下の內容をすべてコピーしてGrok Botに送信してください。クラウドPC上で自動的にインストールと検証が行われ、ログインやAPIキーの設定が必要になると一時停止して操作を促します。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装配置 Antigravity CLI（https://antigravity.google/docs/getting-started/），以后视频理解、长文写作与代码修改用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝組態 Antigravity CLI（https://antigravity.google/docs/getting-started/），以後影片理解、長文寫作與程式碼修改用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>
@@ -30,7 +30,7 @@ Google公式のターミナルAgentで、**動画理解、長文執筆、コー�
 - Googleアカウントを用意する。
 - ブラウザでBotから送られてきた認証リンクを開き、認証を完了する。
 
-## 参考リンク
+## 參考リンク
 
 - [Antigravity 公式ドキュメント：クイックスタート](https://antigravity.google/docs/getting-started/)
 - [Antigravity CLI 公式リポジトリ](https://github.com/google-antigravity/antigravity-cli)
