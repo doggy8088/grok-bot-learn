@@ -1,11 +1,11 @@
-# Publicaciones extensas y tweets prácticos de 铁柱
+# Publicaciones extensas y tweets prácticos de 鐵柱
 
 Al empezar a trabajar con Grok Bot, es muy fácil caer en **tres trampas principales**:
 1. Acumular todas las tareas de alto consumo en la conversación principal, agotando la cuota de toda la semana en dos o tres días.
 2. Si el ordenador en la nube se reinicia, se pierden todas las herramientas y el entorno configurados.
 3. Múltiples bots que entran a un grupo y se despiertan en bucle, agotando el consumo al instante.
 
-Aquí se recopilan los **9 artículos prácticos extensos y 4 colecciones sistemáticas de tweets** de 铁柱 (@cgnot996), que cubren cuatro temas: cuotas de suscripción y colaboración externa, copias de seguridad ante desastres y selección de arquitectura. Cada artículo incluye una tarjeta de resumen manual y enlaces directos para facilitar la copia directa de prompts, scripts y estrategias de derivación.
+Aquí se recopilan los **9 artículos prácticos extensos y 4 colecciones sistemáticas de tweets** de 鐵柱 (@cgnot996), que cubren cuatro temas: cuotas de suscripción y colaboración externa, copias de seguridad ante desastres y selección de arquitectura. Cada artículo incluye una tarjeta de resumen manual y enlaces directos para facilitar la copia directa de prompts, scripts y estrategias de derivación.
 
 ## Planes de suscripción y optimización minuciosa de la cuota de cómputo
 
@@ -32,7 +32,7 @@ En las comprobaciones diarias, revisa dos métricas:
 Envía estas reglas a tu Bot principal para que entren en vigor:
 
 ```text
-以后长资料、排查日志和中间结果都存成 /workspace/ 下的文件，回我时只给结论和文件路径，不要把原文贴回聊天。给你自己建一个 notes.md 记录角色、正在做的事和做过的决定，每做完一段就更新。面对批量处理或长流程任务，先使用 1 到 2 个最小样本进行单步验证，完成单步后必须暂停等待我确认。
+以後長資料、排查記錄和中間結果都存成 /workspace/ 下的文件，回我時只給結論和文件路徑，不要把原文貼回聊天。給你自己建一個 notes.md 記錄角色、正在做的事和做過的決定，每做完一段就更新。面對批量處理或長流程任務，先使用 1 到 2 個最小樣本進行單步驗證，完成單步後必須暫停等待我確認。
 ```
 
 ### Guía de la suscripción unificada a X: ¿Cómo eligen los nuevos usuarios y deberían cambiar los antiguos suscriptores? Todo explicado con claridad
@@ -44,7 +44,7 @@ El nuevo plan se divide en cuatro niveles: Plus, Premium, Super y Ultra.
 
 [Leer artículo original](https://jcng5q8n0f3z.feishu.cn/wiki/Myw6wFW8EicOiRkoEAXcVJqinee)
 
-### Colección de tweets de 铁柱 ①: Activación, planes y cuotas
+### Colección de tweets de 鐵柱 ①: Activación, planes y cuotas
 
 Para que los principiantes eviten agotar la cuota en pocos días, recuerda que **la gestión de la cuota está por encima de todo**.
 
@@ -62,7 +62,7 @@ Evita a toda costa los tres grandes agujeros negros de consumo:
 ### Repaso del evento presencial en Hangzhou: Cómo logré que la cuota de Grok Bot dure más
 
 > Fuente: [Repaso del evento presencial en Hangzhou: Cómo logré que la cuota de Grok Bot dure más](https://x.com/cgnot996/status/2096415217710461078)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Repaso del evento presencial en Hangzhou: Cómo logré que la cuota de Grok Bot dure más](/cases-img/fs09-1.jpg)
 
@@ -79,7 +79,7 @@ Si el inicio de sesión remoto en la máquina virtual sufre retrasos o cuelgues,
 ### Ahorra aún más cuota de Grok Bot: Optimización extrema de tareas programadas
 
 > Fuente: [Ahorra aún más cuota de Grok Bot: Optimización extrema de tareas programadas](https://x.com/cgnot996/status/2107418115412046064)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Ahorra aún más cuota de Grok Bot: Optimización extrema de tareas programadas](/cases-img/fs12-0.jpg)
 
@@ -96,7 +96,7 @@ Cuando las rutinas programadas (Routine) se ejecutan en vacío con frecuencia al
 ### Guía paso a paso para principiantes para maximizar la autonomía de cuota de Grok Bot (¡envíasela directamente al Bot!)
 
 > Fuente: [Guía paso a paso para principiantes para maximizar la autonomía de cuota de Grok Bot (¡envíasela directamente al Bot!)](https://x.com/cgnot996/status/2108504325609984233)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Guía paso a paso para principiantes para maximizar la autonomía de cuota de Grok Bot (¡envíasela directamente al Bot!)](/cases-img/fs13-0.jpg)
 
@@ -130,13 +130,13 @@ Equipado con Webhook, Grok Bot se convierte en un **nodo de automatización 24/7
 Envía este prompt para **generar automáticamente un endpoint receptor**:
 
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面包含一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面包含一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 
 ### Grok Bot Webhook + Atajos: Creación de una canalización de ingesta automática de conocimiento
 
 > Fuente: [Grok Bot Webhook + Atajos: Creación de una canalización de ingesta automática de conocimiento](https://x.com/cgnot996/status/2097487429104197688)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Atajos: Creación de una canalización de ingesta automática de conocimiento](/cases-img/fs06-0.jpg)
 
@@ -153,7 +153,7 @@ Ideal para usuarios de Apple que desean archivar texto, imágenes y vídeo en cu
 ### Conectar el historial de chat de WeChat con Grok Bot: Versión avanzada con Atajos
 
 > Fuente: [Conectar el historial de chat de WeChat con Grok Bot: Versión avanzada con Atajos](https://x.com/cgnot996/status/2107039351519707602)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Conectar el historial de chat de WeChat con Grok Bot: Versión avanzada con Atajos](/cases-img/fs11-0.png)
 
@@ -171,7 +171,7 @@ Esta solución utiliza la cadena "Atajos + almacenamiento en la nube temporal + 
 ### Tutorial paso a paso para integrar equipos de Grok Bot en Feishu (con plantilla de administrador de Feishu)
 
 > Fuente: [Tutorial paso a paso para integrar equipos de Grok Bot en Feishu (con plantilla de administrador de Feishu)](https://x.com/cgnot996/status/2109247903785198076)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Tutorial paso a paso para integrar equipos de Grok Bot en Feishu (con plantilla de administrador de Feishu)](/cases-img/fs15-0.jpg)
 
@@ -206,13 +206,13 @@ Las copias de seguridad manuales no son realistas; **es imprescindible codificar
 Asigna el siguiente prompt al Bot de operaciones independiente para mantener el registro maestro de servicios y los scripts de recuperación:
 
 ```text
-你是「虚拟机服务管家」，负责维护这台机器部署的所有第三方服务。你维护一份登记总账（REGISTRY.md 与 registry.json）、每个服务的独立恢复脚本（restore/restore-<服务>.sh，必须幂等可重复运行）、总入口 restore/restore-all.sh，以及一份排除日志和密钥的自写源码备份 service-src/。总账记录服务 ID、用途、安装方式、启停命令、健康检查命令和密钥存放路径。仓库严禁存入明文密钥。收到恢复指令后，按依赖顺序跑脚本并逐项交出健康检查验收清单。
+你是「虛擬機器服務管家」，負責維護這台機器部署的所有第三方服務。你維護一份登記總帳（REGISTRY.md 與 registry.json）、每個服務的獨立恢復指令碼（restore/restore-<服務>.sh，必須冪等可重複執行）、總入口 restore/restore-all.sh，以及一份排除記錄和密鑰的自寫原始碼備份 service-src/。總帳記錄服務 ID、用途、安裝方式、啟停命令、健康檢查命令和密鑰存放路徑。倉庫嚴禁存入明文密鑰。收到恢復指令後，按依賴順序跑指令碼並逐項交出健康檢查驗收清單。
 ```
 
 ### La gran evacuación de Grok Bot: Un esquema completo de respaldo para sistemas de agentes
 
 > Fuente: [La gran evacuación de Grok Bot: Un esquema completo de respaldo para sistemas de agentes](https://x.com/cgnot996/status/2098222795847315967)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![La gran evacuación de Grok Bot: Un esquema completo de respaldo para sistemas de agentes](/cases-img/fs10-0.jpg)
 
@@ -229,7 +229,7 @@ La plataforma oficial no ofrece la exportación de memoria con un solo clic. Est
 ### ¿Se perdieron todas las herramientas tras reiniciar la máquina virtual de Grok Bot? Tutorial de respaldo y recuperación (con prompts incluidos)
 
 > Fuente: [¿Se perdieron todas las herramientas tras reiniciar la máquina virtual de Grok Bot? Tutorial de respaldo y recuperación (con prompts incluidos)](https://x.com/cgnot996/status/2108874629163229628)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![¿Se perdieron todas las herramientas tras reiniciar la máquina virtual de Grok Bot? Tutorial de respaldo y recuperación (con prompts incluidos)](/cases-img/fs14-0.jpg)
 
@@ -249,7 +249,7 @@ Tras el restablecimiento del ordenador en la nube, **codificar la lógica de rec
 
 En el uso diario de agentes, mantén el principio de "un rol por agente". **No cargues en un solo Bot la programación, la extracción de datos, el archivo personal y la publicación en redes**, ya que los prompts pueden entrar en conflicto y un contexto excesivamente largo desviará al modelo.
 
-Para la selección de plataforma, puedes consultar la comparación de 铁柱 entre "ordenador de marca preensamblado" y "equipo DIY montado por piezas":
+Para la selección de plataforma, puedes consultar la comparación de 鐵柱 entre "ordenador de marca preensamblado" y "equipo DIY montado por piezas":
 
 | Enfoque | Productos representativos | Ventajas | Escenarios de aplicación y limitaciones |
 | :--- | :--- | :--- | :--- |
@@ -269,9 +269,9 @@ Referencia para la división de roles y prevención de errores:
 | Vida y archivo | Gestor de contabilidad, ingesta de base de conocimiento | Recibir texto e imágenes enviados por Atajos, ingresarlos en tablas multidimensionales | Configurar identificadores aleatorios de alta seguridad para alojamientos temporales de imágenes, evitando que la privacidad confidencial pase por puentes públicos |
 | Colaboración y orquestación | Editor jefe de artículos, gestor de máquinas virtuales | Desglosar temas, coordinar distintos bots, administrar el registro general de backend | Utilizar autorización por código de dispositivo (Device Code) para herramientas externas, evitando que dos máquinas anulen mutuamente sus sesiones activas |
 
-### Colección de tweets de 铁柱 ②: Funcionalidades del producto y observación de versiones
+### Colección de tweets de 鐵柱 ②: Funcionalidades del producto y observación de versiones
 
-Autor: 铁柱AGI (Colección de tweets) | Para quién es: Exploradores técnicos interesados en los mecanismos del entorno subyacente que deseen dominar la sincronización multidispositivo y la resolución de problemas de red
+Autor: 鐵柱AGI (Colección de tweets) | Para quién es: Exploradores técnicos interesados en los mecanismos del entorno subyacente que deseen dominar la sincronización multidispositivo y la resolución de problemas de red
 
 Esta colección documenta la evolución subyacente de Grok Bot. **Todos los bots de una misma cuenta comparten el mismo ordenador en la nube Linux**, con una configuración de 8 núcleos, 16 GB de RAM y 128 GB de disco, manteniendo sesiones de escritorio independientes entre sí. El texto también recoge métodos para solicitar cuentas de correo exclusivas, invocar la búsqueda nativa en X y diagnosticar redes de salida.
 
@@ -281,11 +281,11 @@ Recuerda dos puntos clave para la resolución de problemas en el entorno:
 
 [Leer artículo original](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 
-### Colección de tweets de 铁柱 ③: Casos prácticos y formas de uso
+### Colección de tweets de 鐵柱 ③: Casos prácticos y formas de uso
 
-Autor: 铁柱AGI (Colección de tweets) | Para quién es: Profesionales en busca de inspiración para la implementación empresarial que quieran evitar bloqueos por automatización y bucles infinitos
+Autor: 鐵柱AGI (Colección de tweets) | Para quién es: Profesionales en busca de inspiración para la implementación empresarial que quieran evitar bloqueos por automatización y bucles infinitos
 
-铁柱 documenta más de una decena de puestos de bots en funcionamiento real, desde la inspección de repositorios y reportes diarios de SEO hasta la extracción de datos de WeChat, contabilidad en tablas multidimensionales y llamadas a interfaces de composición de imágenes, proporcionando una regla de implementación en cuatro pasos que va desde la configuración de un puesto individual hasta la recuperación ante desastres persistente.
+鐵柱 documenta más de una decena de puestos de bots en funcionamiento real, desde la inspección de repositorios y reportes diarios de SEO hasta la extracción de datos de WeChat, contabilidad en tablas multidimensionales y llamadas a interfaces de composición de imágenes, proporcionando una regla de implementación en cuatro pasos que va desde la configuración de un puesto individual hasta la recuperación ante desastres persistente.
 
 Para un funcionamiento estable se deben cumplir dos normas de operaciones:
 - **La publicación de contenidos debe realizarse a través de la API oficial; está estrictamente prohibido simular publicaciones con navegadores headless en la máquina virtual**, evitando restricciones en la cuenta.
@@ -293,11 +293,11 @@ Para un funcionamiento estable se deben cumplir dos normas de operaciones:
 
 [Leer artículo original](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
 
-### Colección de tweets de 铁柱 ④: Comunidad, ecosistema y comparativa con competidores
+### Colección de tweets de 鐵柱 ④: Comunidad, ecosistema y comparativa con competidores
 
-Autor: 铁柱AGI (Colección de tweets) | Para quién es: Arquitectos que sopesan entre múltiples frameworks de agentes, evalúan opciones y buscan recursos de código abierto
+Autor: 鐵柱AGI (Colección de tweets) | Para quién es: Arquitectos que sopesan entre múltiples frameworks de agentes, evalúan opciones y buscan recursos de código abierto
 
-铁柱 compara horizontalmente los principales frameworks de agentes con Grok Bot. Grok Bot sigue la línea de equipo preensamblado, con un ordenador en la nube listo para usar pero limitado por cuotas; los equipos por piezas como Hermes son altamente controlables, pero requieren mantenimiento propio.
+鐵柱 compara horizontalmente los principales frameworks de agentes con Grok Bot. Grok Bot sigue la línea de equipo preensamblado, con un ordenador en la nube listo para usar pero limitado por cuotas; los equipos por piezas como Hermes son altamente controlables, pero requieren mantenimiento propio.
 
 El texto también resume la experiencia del repositorio awesome-grok-bot, donde un Bot inspecciona de manera autónoma para recopilar eventos y documentación.
 

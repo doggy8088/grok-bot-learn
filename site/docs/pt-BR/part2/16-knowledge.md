@@ -28,7 +28,7 @@ Para mais detalhes, consulte os [Planos e preços](https://cursor.com/cn/help/gr
 
 **A solução coloca a captura, transcrição de áudio e vídeo e resumo totalmente na nuvem do Grok Bot; o celular só envia a URL para disparar.
 
-** 铁柱AGI（@cgnot996）utilizou o Webhook de [Rotinas](https://cursor.com/cn/help/grok-bot/routines) para conseguir o disparo imediato ao enviar a requisição.
+** 鐵柱AGI（@cgnot996）utilizou o Webhook de [Rotinas](https://cursor.com/cn/help/grok-bot/routines) para conseguir o disparo imediato ao enviar a requisição.
 
 ### Passos de configuração
 1. No cliente para desktop, acesse Details e localize Routines. Peça ao Bot para criar uma tarefa de análise e **salve com cuidado a Webhook URL e a key geradas**.
@@ -45,7 +45,7 @@ Para mais detalhes, consulte os [Planos e preços](https://cursor.com/cn/help/gr
 
 ### Critérios de validação
 > Fonte: [Grok Bot Webhook + Atalhos: Criação de um pipeline de ingestão automática de conhecimento](https://x.com/cgnot996/status/2097487429104197688)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Atalhos: Criação de um pipeline de ingestão automática de conhecimento](/cases-img/fs06-0.jpg)
 
@@ -82,7 +82,7 @@ Entre dispositivos diferentes não é possível ler o disco local, e colocar arq
 Envie este prompt na conversa principal do cliente desktop:
 
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面只有一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面只有一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 
 **Após o envio, anote a Webhook URL e a key em "Rotinas" do Bot.**
@@ -105,7 +105,7 @@ No Mac, use o Raycast ou a barra de menus; no celular, vincule ao Botão de Aç�
 ### O que esperar de um resultado satisfatório
 
 > Fonte: [Integração do histórico de conversas do WeChat com o Grok Bot: Versão avançada de Atalhos](https://x.com/cgnot996/status/2107039351519707602)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Integração do histórico de conversas do WeChat com o Grok Bot: Versão avançada de Atalhos](/cases-img/fs11-0.png)
 
@@ -143,21 +143,21 @@ Toda a comunicação consiste em requisições de saída, **sem necessidade de a
 1. Envie o prompt na conversa principal do computador e aguarde a criação da rotina "Entrada de Comandos do WeChat".
 ::: details Como fazer: passo a passo prático e prompt completo
 ```text
-我想把你接到我的微信上，让我能在微信里直接给你发消息、收到你的回复。请按下面的思路做，每做完一步告诉我结果，需要我操作的地方停下来等我。
+我想把你接到我的微信上，讓我能在微信裡直接給你發訊息、收到你的回覆。請按下面的思路做，每做完一步告訴我結果，需要我操作的地方停下來等我。
 
-1、先调研方案：腾讯「微信ClawBot」插件用的是 iLink 接口（ilinkai.weixin.qq.com）。请确认怎么用 getupdates 长轮询收消息、怎么用 sendmessage 回消息。整个程序只走出站请求，不要开公网端口。
+1、先調研方案：騰訊「微信ClawBot」外掛用的是 iLink 介面（ilinkai.weixin.qq.com）。請確認怎麼用 getupdates 長輪詢收訊息、怎麼用 sendmessage 回訊息。整個程式只走出站請求，不要開公網端口。
 
-2、在 Grok Bot 里建一个由 webhook 触发的 routine，名字可以叫「微信下旨入口」。建好后告诉我去 routine 面板复制 Webhook URL 和 key，然后弹出加密弹框让我填进去，不要让我在聊天里发明文。
+2、在 Grok Bot 裡建一個由 webhook 觸發的 routine，名字可以叫「微信下旨入口」。建好後告訴我去 routine 面板複製 Webhook URL 和 key，然後彈出加密彈框讓我填進去，不要讓我在聊天裡發明文。
 
-3、在你的云端电脑上写一个小转发程序：收到微信消息后 POST 给这个 routine；你处理完以后，用一个 reply 脚本把回复发回微信，同时在我们的主聊天里同步一份。
+3、在你的雲端電腦上寫一個小轉發程式：收到微信訊息後 POST 給這個 routine；你處理完以後，用一個 reply 指令碼把回覆發回微信，同時在我們的主聊天裡同步一份。
 
-4、等我在手机微信里启用 ClawBot 插件以后，生成二维码让我用手机扫码确认，同时给我一个可以在微信里直接打开的备用链接。二维码大约 5 分钟有效。
+4、等我在手機微信裡啟用 ClawBot 外掛以後，生成二維碼讓我用手機掃碼確認，同時給我一個可以在微信裡直接打開的備用連結。二維碼大約 5 分鐘有效。
 
-5、绑定成功后，提醒我先在 ClawBot 对话里发一句话，因为回复要用到这条消息带的 context_token。
+5、綁定成功後，提醒我先在 ClawBot 對話裡發一句話，因為回覆要用到這條訊息帶的 context_token。
 
-6、规则：只认绑定的这一个人，别人的消息不处理；回复一律用纯文本，不要用 Markdown，因为微信不渲染 Markdown。
+6、規則：只認綁定的這一個人，別人的訊息不處理；回覆一律用純文字，不要用 Markdown，因為微信不渲染 Markdown。
 
-7、最后告诉我：云端电脑重启以后，怎么把转发程序重新拉起来；如果遇到错误码 -14（凭证过期），提醒我重新扫码。
+7、最後告訴我：雲端電腦重啟以後，怎麼把轉發程式重新拉起來；如果遇到錯誤碼 -14（憑證過期），提醒我重新掃碼。
 ```
 :::
 2. Copie a URL e a key da rotina. **É estritamente proibido enviar em texto simples na conversa**; preencha o cartão de segredos até exibir "Salvo com segurança e mantido em sigilo", consulte [Armazenamento seguro de informações confidenciais](https://cursor.com/cn/help/grok-bot/secrets).

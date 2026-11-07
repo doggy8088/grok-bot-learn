@@ -1,7 +1,7 @@
 ---
 layout: page
 sidebar: false
-title: Grok 云电脑工具箱
+title: Grok 雲端電腦工具箱
 ---
 
 <ToolIndex />

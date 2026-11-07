@@ -10,7 +10,7 @@ Este capítulo aborda quatro conteúdos principais:
 
 ![O que é o Grok Bot: Um colega de IA com computador próprio](/info/01-what-is.png)
 
-## Qual é o mecanismo de funcionamento subjacente do Grok Bot? {#产品机制-环境底座与思考模型拆分}
+## Qual é o mecanismo de funcionamento subjacente do Grok Bot? {#產品機制-環境底座與思考模型拆分}
 
 **O núcleo do Grok Bot é a separação entre a base Linux residente na nuvem e o modelo de pensamento agendado sob demanda, equipado com terminal, navegador e arquivos persistentes; mesmo se o computador for desligado ou fechado, as tarefas em segundo plano continuam rodando no computador em nuvem.**
 
@@ -27,9 +27,9 @@ A xAI e a Cursor lançaram o Grok Bot em 11 de agosto de 2026, **com o núcleo s
 | Agente de linha de comando | Terminal local | Para ao sair, limitado ao repositório local |
 | Grok Bot | Computador em nuvem persistente | **Continua rodando mesmo desligado**, transferência de arquivos entre tarefas |
 
-Para detalhes do mecanismo, consulte [《1.1 Grok Bot 是什么：一页看懂》](https://jcng5q8n0f3z.feishu.cn/wiki/I04Gw3wEaisftUkBikxcg43rnpc).
+Para detalhes do mecanismo, consulte [《1.1 Grok Bot 是什麼：一頁看懂》](https://jcng5q8n0f3z.feishu.cn/wiki/I04Gw3wEaisftUkBikxcg43rnpc).
 
-## Como funciona o isolamento e a tomada de controle no computador em nuvem compartilhado do Grok Bot? {#共享云电脑的物理边界与接管机制}
+## Como funciona o isolamento e a tomada de controle no computador em nuvem compartilhado do Grok Bot? {#共享雲端電腦的物理邊界與接管機制}
 
 **Todos os Bots da mesma conta compartilham o computador em nuvem e não podem isolar caminhos ou cookies; as transferências entre tarefas exigem salvar arquivos em /workspace, e em operações como digitar senhas ou pagamentos é possível clicar em Take over para assumir o controle manualmente.**
 
@@ -44,7 +44,7 @@ Para especificações, consulte a [Documentação de Computador e Aplicativos do
 - Para digitar senhas, autenticação de dois fatores ou pagamentos, clique em Take over para gerenciar; **nunca envie senhas em texto puro no chat**.
 - Controlar o computador local requer autorização separada. Isolado do local, ative em Settings → General → Agent → Execution on Local Computer, com pop-up de confirmação na execução.
 
-## Para quais tarefas o Grok Bot é adequado e inadequado? {#适合与不适合的任务类型}
+## Para quais tarefas o Grok Bot é adequado e inadequado? {#適合與不適合的任務型別}
 
 **O Grok Bot é adequado para tarefas de processos fixos, alta frequência de repetição e que exigem chamadas entre ferramentas, como monitoramento de inteligência e reprodução de bugs, mas não é adequado para perguntas e respostas imediatas, codificação local e operações de alto risco sem aprovação humana.**
 
@@ -72,7 +72,7 @@ Para especificações, consulte a [Documentação de Computador e Aplicativos do
 - Polling sem verificação incremental: Atualizar incondicionalmente a cada 5 minutos desperdiçará cota de inferência.
 - Operações de alto risco: Disparo de e-mails em massa e exclusão de bancos de dados exigem obrigatoriamente um portão de aprovação humana.
 
-Para métodos de planejamento, consulte [《1.2 Grok Bot 和 Muse、Hermes、dots、Cue 怎么选》](https://jcng5q8n0f3z.feishu.cn/wiki/BnH9wLTmyiQZ03kJhsecOrffnAd).
+Para métodos de planejamento, consulte [《1.2 Grok Bot 和 Muse、Hermes、dots、Cue 怎麼選》](https://jcng5q8n0f3z.feishu.cn/wiki/BnH9wLTmyiQZ03kJhsecOrffnAd).
 
 ## Comparativo de seleção: Confronto horizontal entre o Grok Bot e os principais agentes residentes
 
@@ -86,17 +86,17 @@ A escolha de um agente residente depende de preferir praticidade ou gostar de co
 | --- | --- | --- |
 | Grok Bot | Computador em nuvem Linux compartilhado. A partir de 12/10/2026 aplica-se o plano unificado The X Subscription (Premium $30/mês, Super $100/mês, Ultra $200/mês), **o plano Plus não inclui o Bot**; o cliente v0.70.2 suporta e-mail independente e cartões de conexão | Residente 24/7, suporta rotinas e habilidades, entrega assíncrona de arquivos entre múltiplos Bots e buscas na plataforma X. Ideal para zero manutenção, colaboração em múltiplos cargos e conciliação de inspeções |
 | OpenAI dots | Computador em nuvem residente pessoal; ChatGPT Pro e Business Premium incluem o primeiro dot | Baseado no GPT-6 Astra (dots lançado em 29/09/2026), residente em segundo plano conectado a mais de 4.000 aplicativos, focado em acompanhamento diário e tarefas leves |
-| Manus Cue | Computador em nuvem independente, em fase de acesso antecipado | Experimentado por 铁柱 em 29/09/2026; inclui nativamente e-mail colaborativo independente, telefone e carteira, executando cadastros e compras de forma autônoma, com altíssima autonomia e riscos operacionais associados |
+| Manus Cue | Computador em nuvem independente, em fase de acesso antecipado | Experimentado por 鐵柱 em 29/09/2026; inclui nativamente e-mail colaborativo independente, telefone e carteira, executando cadastros e compras de forma autônoma, com altíssima autonomia e riscos operacionais associados |
 | Meta Muse | Agente em nuvem gerenciado pela Meta, avaliado pelo Capitão Nuoya como voltado ao ecossistema doméstico | Fortemente integrado à rede social e ao hardware da Meta, adequado para o cotidiano familiar e assistência social |
 | Hermes | Servidor local ou privado, código aberto auto-hospedado | Liberdade para trocar modelos de código aberto sem restrições de cotas comerciais. Ideal para pipelines de dados sensíveis locais, **mas requer configurar o ambiente e solucionar erros manualmente** |
 
-Para um comparativo detalhado em posts, consulte [《铁柱推文合集④：社区、生态与竞品对照》](https://jcng5q8n0f3z.feishu.cn/wiki/RMRTwk3MqiUqEwk0TzTchA4LnDg).
+Para um comparativo detalhado em posts, consulte [《鐵柱推文合集④：社群、生態與競品對照》](https://jcng5q8n0f3z.feishu.cn/wiki/RMRTwk3MqiUqEwk0TzTchA4LnDg).
 
 ## Análise de casos práticos típicos
 
-### O Diretor de Inteligência do 金尘马 (Cargo de pesquisa pessoal)
+### O Diretor de Inteligência do 金塵馬 (Cargo de pesquisa pessoal)
 
-金尘马 (@jinchenma_ai) já escreveu regras de cargo de longo prazo no Description do Edit Profile (este menu foi removido; veja o Capítulo 3 para a prática atual), definindo-o como pesquisador de inteligência. As atribuições estabelecem os cinco elementos: resultados e fontes, restrições e formatos, e pontos de confirmação; pesquisa artigos longos na plataforma X distinguindo postagens de vídeo, indicando dados de visualização, sendo **estritamente proibido inventar dados na ausência de fontes primárias**.
+金塵馬 (@jinchenma_ai) já escreveu regras de cargo de longo prazo no Description do Edit Profile (este menu foi removido; veja o Capítulo 3 para a prática atual), definindo-o como pesquisador de inteligência. As atribuições estabelecem os cinco elementos: resultados e fontes, restrições e formatos, e pontos de confirmação; pesquisa artigos longos na plataforma X distinguindo postagens de vídeo, indicando dados de visualização, sendo **estritamente proibido inventar dados na ausência de fontes primárias**.
 
 Após corrigir o formato pela primeira vez, instruiu o Bot a consolidar o fluxo como a Skill "Coleta de Inteligência sobre Tutoriais de IA".
 
@@ -104,9 +104,9 @@ Após testar com sucesso um segundo conjunto de entradas, configurou uma Routine
 
 **A descrição de cargo consolida regras de longo prazo, enquanto demandas temporárias seguem via mensagens**, desacoplando múltiplos Bots por meio de arquivos gravados no `/workspace`.
 
-Para mais detalhes, consulte [《万字长文｜Grok Bot 从入门到精通｜金尘马》](https://jcng5q8n0f3z.feishu.cn/wiki/MIKpwiUXpiE9mWkyG8ccFM6Znee).
+Para mais detalhes, consulte [《萬字長文｜Grok Bot 從入門到精通｜金塵馬》](https://jcng5q8n0f3z.feishu.cn/wiki/MIKpwiUXpiE9mWkyG8ccFM6Znee).
 
-### A equipe de operações de e-commerce do 金尘马 (Pipeline com divisão de papéis)
+### A equipe de operações de e-commerce do 金塵馬 (Pipeline com divisão de papéis)
 
 A equipe é composta por 4 Bots trabalhando em colaboração. Primeiro, foi criado o "Plantonista de Operações da Loja" para ler tabelas de produtos, estoque e pedidos a fim de enviar o relatório matinal, **estabelecendo uma linha vermelha estrita de somente leitura: estritamente proibido alterar preços e estoque, bem como enviar mensagens ou emitir reembolsos**.
 
@@ -114,9 +114,9 @@ O plantonista original foi promovido a "Supervisor de Operações de E-commerce"
 
 Não comece construindo uma equipe enorme imediatamente; **todas as operações envolvendo finanças, estoque e envios externos devem ser bloqueadas com aprovação humana**.
 
-### O Bot administrador de repositório open source do 铁柱 (Inspeção e manutenção automatizadas)
+### O Bot administrador de repositório open source do 鐵柱 (Inspeção e manutenção automatizadas)
 
-铁柱AGI (@cgnot996) criou um Bot residente para manter a base de conhecimento awesome-grok-bot. O sistema inspeciona periodicamente posts na plataforma X, logs de atualização oficiais e comunidades técnicas, categorizando e indexando novos casos de uso, tutoriais, documentações oficiais e eventos.
+鐵柱AGI (@cgnot996) criou um Bot residente para manter a base de conhecimento awesome-grok-bot. O sistema inspeciona periodicamente posts na plataforma X, logs de atualização oficiais e comunidades técnicas, categorizando e indexando novos casos de uso, tutoriais, documentações oficiais e eventos.
 
 Os materiais relevantes já haviam sido incluídos automaticamente antes do anúncio oficial, **ultrapassando 130+ Stars em agosto de 2026 (relato do autor, não verificado)**, além de receber um convite com formulário de inscrição da equipe oficial.
 
@@ -138,20 +138,20 @@ Escolha o plano de acordo com o plano unificado The X Subscription em vigor a pa
 
 1. Na barra lateral, clique em **+** (ou Cmd+N) para criar um Bot, nomeando-o como "Monitor de Inteligência Competitiva". Bots individuais não possuem mais Description; envie as seis linhas abaixo no chat e peça para ele memorizar; para Bots compartilhados, escreva no Description da seção About dos detalhes.
 ```text
-Own: 负责监控目标清单的每周功能更新与定价变动
-Sources: Notion 中的关注名单、目标官网 Changelog 页面
-Output: 不超过 8 条核心动态，附带日期与原始链接，存入 /workspace/scan.md
-Approval: 严禁对外发布任何内容，严禁主动发送任何邮件
-Failure: 若目标页面无法打开，在报告中明确标为数据缺失，严禁推测或编造内容
-Never: 在源系统可访问时，严禁依赖自身记忆给出概括
+Own: 負責監控目標清單的每週功能更新與定價變動
+Sources: Notion 中的關注名單、目標官網 Changelog 頁面
+Output: 不超過 8 條核心動態，附帶日期與原始連結，存入 /workspace/scan.md
+Approval: 嚴禁對外發表任何內容，嚴禁主動發送任何郵件
+Failure: 若目標頁面無法打開，在報告中明確標為資料缺失，嚴禁推測或編造內容
+Never: 在源系統可訪問時，嚴禁依賴自身記憶給出概括
 ```
 2. Envie o comando de teste na caixa de diálogo, especificando claramente os cinco elementos: objetivo, fontes, restrições, formato e pontos de confirmação.
 ```text
-调研所附竞品清单中的前 3 个产品官网。
-比对它们过去两周内的功能更新与价格调整。
-跳过无任何变动的模块。
-提取核心变动点，整理成 Markdown 表格，并直接保存到 /workspace/scan.md。
-在对话框中仅回复处理状态与保存路径；不要对外发送任何通知，不要擅自更改系统设置。
+調研所附競品清單中的前 3 個產品官網。
+比對它們過去兩週內的功能更新與價格調整。
+跳過無任何變動的模組。
+提取核心變動點，整理成 Markdown 表格，並直接保存到 /workspace/scan.md。
+在對話框中僅回覆處理狀態與保存路徑；不要對外發送任何通知，不要擅自更改系統設定。
 ```
 3. **Observe a janela do computador em nuvem à direita**. O Bot acionará automaticamente o navegador em nuvem para extrair a página e salvar o conteúdo no arquivo especificado.
 
@@ -162,8 +162,8 @@ Never: 在源系统可访问时，严禁依赖自身记忆给出概括
    Bloqueie estritamente envio de mensagens (`send`), postagens (`post`), cobranças/compras (`buy`), exclusão de arquivos (`delete`, incluindo `/workspace` ou arquivos locais) e alteração de permissões (`permissions`); quando acionadas, um cartão pop-up pausará a execução aguardando sua aprovação manual.
 2. Após a tarefa de scraping rodar de forma estável por duas vezes consecutivas, envie a instrução de consolidação no chat.
 ```text
-把刚才已经跑通的竞品页面抓取与格式整理流程保存为一个 Skill，名称叫「竞品动态巡检」。
-写清调用条件、所需权限、抓取步骤、异常报错逻辑与产出文件格式。
+把剛才已經跑通的競品頁面抓取與格式整理流程保存為一個 Skill，名稱叫「競品動態巡檢」。
+寫清呼叫條件、所需權限、抓取步驟、例外報錯邏輯與產出文件格式。
 ```
 3. Troque por outra URL de concorrente e digite `/` para acionar e testar esta Skill. Após validar, **configure o agendamento da Routine**, definindo para rodar automaticamente toda segunda-feira às 9:00, enviando o resumo no chat atual e salvando o relatório detalhado em `/workspace`.
 
@@ -192,26 +192,26 @@ Never: 在源系统可访问时，严禁依赖自身记忆给出概括
 
 ### Capítulos relacionados
 
-- [第 5 章 共享云电脑：文件、浏览器与接管](/part1/05-computer)
-- [第 6 章 记忆：让 Bot 越用越懂你](/part1/06-memory)
-- [第 7 章 连接应用：插件、邮箱与 Secrets](/part1/07-apps)
-- [第 11 章 权限、安全与人闸](/part1/11-safety)
-- [Grok 和 Grok Bot 有什么区别](/part1/grok-vs-grok-bot)
-- [第 2 章 方案与订阅：先选对档位](/part1/02-plans)
+- [第 5 章 共享雲端電腦：文件、瀏覽器與接管](/part1/05-computer)
+- [第 6 章 記憶：讓 Bot 越用越懂你](/part1/06-memory)
+- [第 7 章 連線應用：外掛、郵箱與 Secrets](/part1/07-apps)
+- [第 11 章 權限、安全與人閘](/part1/11-safety)
+- [Grok 和 Grok Bot 有什麼區別](/part1/grok-vs-grok-bot)
+- [第 2 章 方案與訂閱：先選對檔位](/part1/02-plans)
 
 ### Páginas e documentação oficiais
 
-- [Grok Bot 快速入门指南](https://cursor.com/cn/docs/grok-bot/get-started)
-- [使用 Grok Bot：计算机、应用与任务](https://cursor.com/cn/docs/grok-bot/work)
-- [Grok Bot 使用场景与典型角色](https://cursor.com/cn/docs/grok-bot/use-cases)
-- [面向团队版和企业版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
-- [Grok Bot 方案与计费说明](https://cursor.com/cn/help/grok-bot/plans)
-- [团队 Bot 使用规范](https://cursor.com/cn/help/grok-bot/shared-bots.md)
-- [Grok Bot 安全架构与 Auto-review 规则](https://cursor.com/cn/docs/grok-bot/security)
+- [Grok Bot 快速入門指南](https://cursor.com/cn/docs/grok-bot/get-started)
+- [使用 Grok Bot：電腦、應用與任務](https://cursor.com/cn/docs/grok-bot/work)
+- [Grok Bot 使用場景與典型角色](https://cursor.com/cn/docs/grok-bot/use-cases)
+- [面向團隊版和企業版的 Grok Bot](https://cursor.com/cn/docs/grok-bot/teams)
+- [Grok Bot 方案與計費說明](https://cursor.com/cn/help/grok-bot/plans)
+- [團隊 Bot 使用規範](https://cursor.com/cn/help/grok-bot/shared-bots.md)
+- [Grok Bot 安全架構與 Auto-review 規則](https://cursor.com/cn/docs/grok-bot/security)
 
 ### Práticas da comunidade e comparativos horizontais
 
-- [《1.1 Grok Bot 是什么：一页看懂》](https://jcng5q8n0f3z.feishu.cn/wiki/I04Gw3wEaisftUkBikxcg43rnpc)
-- [《1.2 Grok Bot 和 Muse、Hermes、dots、Cue 怎么选》](https://jcng5q8n0f3z.feishu.cn/wiki/BnH9wLTmyiQZ03kJhsecOrffnAd)
-- [《铁柱推文合集④：社区、生态与竞品对照》](https://jcng5q8n0f3z.feishu.cn/wiki/RMRTwk3MqiUqEwk0TzTchA4LnDg)
-- [《万字长文｜Grok Bot 从入门到精通｜金尘马》](https://jcng5q8n0f3z.feishu.cn/wiki/MIKpwiUXpiE9mWkyG8ccFM6Znee)
+- [《1.1 Grok Bot 是什麼：一頁看懂》](https://jcng5q8n0f3z.feishu.cn/wiki/I04Gw3wEaisftUkBikxcg43rnpc)
+- [《1.2 Grok Bot 和 Muse、Hermes、dots、Cue 怎麼選》](https://jcng5q8n0f3z.feishu.cn/wiki/BnH9wLTmyiQZ03kJhsecOrffnAd)
+- [《鐵柱推文合集④：社群、生態與競品對照》](https://jcng5q8n0f3z.feishu.cn/wiki/RMRTwk3MqiUqEwk0TzTchA4LnDg)
+- [《萬字長文｜Grok Bot 從入門到精通｜金塵馬》](https://jcng5q8n0f3z.feishu.cn/wiki/MIKpwiUXpiE9mWkyG8ccFM6Znee)

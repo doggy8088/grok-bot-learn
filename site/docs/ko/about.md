@@ -1,14 +1,14 @@
 ---
-title: 铁柱AGI 소개
+title: 鐵柱AGI 소개
 sidebar: false
 aside: false
 prev: false
 next: false
 ---
 
-# 铁柱AGI 소개
+# 鐵柱AGI 소개
 
-**저는 Grok Bot 헤비 유저이자 꾸준히 활용 팁을 공유하고 있으며, 오픈소스 Grok App과 Grok Bot 브라우저 확장 프로그램의 제작자인 铁柱AGI입니다.**
+**저는 Grok Bot 헤비 유저이자 꾸준히 활용 팁을 공유하고 있으며, 오픈소스 Grok App과 Grok Bot 브라우저 확장 프로그램의 제작자인 鐵柱AGI입니다.**
 
 ## 제가 하고 있는 일
 
@@ -41,9 +41,9 @@ next: false
 
 - X: [@cgnot996](https://x.com/cgnot996)
 - GitHub: [RongleCat](https://github.com/RongleCat)
-- WeChat 공식 계정: 铁柱AGI
+- WeChat 공식 계정: 鐵柱AGI
 - 연락처: X DM 또는 [유료 Q&A 그룹 페이지](/group)를 통해 WeChat 추가.
 
 ---
 
-본 사이트의 「Grok Bot 초보자 가이드」는 铁柱가 정리 및 관리하고 있는 커뮤니티 비공식 튜토리얼이며, xAI, Cursor와 어떠한 제휴나 소속 관계도 없습니다.
+본 사이트의 「Grok Bot 초보자 가이드」는 鐵柱가 정리 및 관리하고 있는 커뮤니티 비공식 튜토리얼이며, xAI, Cursor와 어떠한 제휴나 소속 관계도 없습니다.

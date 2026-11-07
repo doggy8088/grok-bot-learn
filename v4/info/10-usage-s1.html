@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>扣费原理</title>
+<title>扣費原理</title>
 <style>
 *{box-sizing:border-box}
 html,body{width:1200px;height:760px;margin:0;overflow:hidden}
@@ -34,35 +34,35 @@ h1{margin:0;font-size:42px;line-height:1.16;letter-spacing:-1.5px;font-weight:75
 <body>
 <main class="canvas">
 <header class="top">
-<h1>扣费原理</h1>
+<h1>扣費原理</h1>
 <img class="bot" src="bots/galet-rouge.png" alt="">
 </header>
-<section class="formula" aria-label="每周总消耗公式">
-<span>每周总消耗</span><span class="mark">=</span><span>Bot 唤醒的总次数</span><span class="mark">×</span><span>每次唤醒时重读的上下文长度</span>
+<section class="formula" aria-label="每週總消耗公式">
+<span>每週總消耗</span><span class="mark">=</span><span>Bot 喚醒的總次數</span><span class="mark">×</span><span>每次喚醒時重讀的上下文長度</span>
 </section>
 <section class="flow">
 <article class="card">
-<h2>单会长对话</h2>
-<p>按模型实际调用的 token 计费。</p>
-<p>每次回复或定时唤醒，都会把<span class="accent">全部历史重新读取一遍</span>。</p>
-<p>会话堆积大量日志或网页时，单次重读可达数十万 token。</p>
+<h2>單會長對話</h2>
+<p>按模型實際呼叫的 token 計費。</p>
+<p>每次回覆或定時喚醒，都會把<span class="accent">全部歷史重新讀取一遍</span>。</p>
+<p>會話堆積大量記錄或網頁時，單次重讀可達數十萬 token。</p>
 </article>
 <div class="arrow">→</div>
 <article class="card rule">
-<h2>额度规则</h2>
+<h2>額度規則</h2>
 <ul>
-<li><span class="accent">额度池不叠加</span>：多档订阅只取每周额度最高的一方，不合并累加。</li>
-<li><span class="accent">共享池范围</span>：每周额度覆盖 Grok Bot 和 Cursor 里的 Grok。</li>
+<li><span class="accent">額度池不疊加</span>：多檔訂閱只取每週額度最高的一方，不合並累加。</li>
+<li><span class="accent">共享池範圍</span>：每週額度覆蓋 Grok Bot 和 Cursor 裡的 Grok。</li>
 <li>到期固定重置。</li>
-<li>第三方模型单独计费。</li>
+<li>第三方模型單獨計費。</li>
 </ul>
 </article>
 <div class="arrow">→</div>
 <article class="card final">
 <h2>控制成本</h2>
-<p>官方明确没有模型选择器，无法切到低配模型。</p>
-<p>只能<span class="accent">降低唤醒频率</span>、截断上下文长度，或把高耗计算分流到外部。</p>
-<p>周额度耗尽后开 On-demand 计入月度限额；关掉则停止响应等待重置。</p>
+<p>官方明確沒有模型選擇器，無法切到低配模型。</p>
+<p>只能<span class="accent">降低喚醒頻率</span>、截斷上下文長度，或把高耗計算分流到外部。</p>
+<p>周額度耗盡後開 On-demand 計入月度限額；關掉則停止回應等待重置。</p>
 </article>
 </section>
 </main>

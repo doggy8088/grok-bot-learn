@@ -31,47 +31,47 @@ h2{margin:0;font-size:22px;line-height:1.1;letter-spacing:.01em}
 <header class="top">
 <div>
 
-<h1>云电脑生命周期</h1>
+<h1>雲端電腦生命週期</h1>
 
 </div>
 <img class="bot" src="bots/nuage-turquoise.png" alt="">
 </header>
-<section class="grid" aria-label="云电脑状态操作对比">
+<section class="grid" aria-label="雲端電腦狀態操作對比">
 <article class="card strong">
-<div class="head"><h2>软件更新</h2><span class="type">安全点暂停</span></div>
-<div class="row"><span class="label">触发</span><span class="value">更新 Bot 的计算机</span></div>
-<div class="row"><span class="label">任务</span><span class="value">当前回合暂停并恢复</span></div>
-<div class="row"><span class="label">保留</span><span class="value">全部保留，包括已安装的应用和工具</span></div>
+<div class="head"><h2>軟體更新</h2><span class="type">安全點暫停</span></div>
+<div class="row"><span class="label">觸發</span><span class="value">更新 Bot 的電腦</span></div>
+<div class="row"><span class="label">任務</span><span class="value">當前回合暫停並恢復</span></div>
+<div class="row"><span class="label">保留</span><span class="value">全部保留，包括已安裝的應用和工具</span></div>
 </article>
 <article class="card">
-<div class="head"><h2>计算机更新</h2><span class="type">切换到新镜像</span></div>
-<div class="row"><span class="label">触发</span><span class="value">更新 Bot 的计算机</span></div>
-<div class="row"><span class="label">保留</span><span class="value">持久磁盘、已同步的 Bot、文件与浏览器登录态</span></div>
-<div class="row compact"><span class="label">清除</span><span class="value">自行安装的应用、软件包、node_modules 与 Python 虚拟环境</span></div>
+<div class="head"><h2>電腦更新</h2><span class="type">切換到新鏡像</span></div>
+<div class="row"><span class="label">觸發</span><span class="value">更新 Bot 的電腦</span></div>
+<div class="row"><span class="label">保留</span><span class="value">持久磁盤、已同步的 Bot、文件與瀏覽器登錄態</span></div>
+<div class="row compact"><span class="label">清除</span><span class="value">自行安裝的應用、軟體套件、node_modules 與 Python 虛擬環境</span></div>
 </article>
 <article class="card warn">
-<div class="head"><h2>Recover</h2><span class="type">工作会被中断</span></div>
-<div class="row"><span class="label">触发</span><span class="value">重新连接界面，或更新卡住时</span></div>
-<div class="row"><span class="label">保留</span><span class="value">尽可能先做一次快照保存</span></div>
-<div class="row compact"><span class="label">注意</span><span class="value">若无法连上机器保存，最近更改会丢失</span></div>
+<div class="head"><h2>Recover</h2><span class="type">工作會被中斷</span></div>
+<div class="row"><span class="label">觸發</span><span class="value">重新連線介面，或更新卡住時</span></div>
+<div class="row"><span class="label">保留</span><span class="value">儘可能先做一次快照保存</span></div>
+<div class="row compact"><span class="label">注意</span><span class="value">若無法連上機器保存，最近更改會丟失</span></div>
 </article>
 <article class="card warn">
-<div class="head"><h2>Reset</h2><span class="type">工作会被中断</span></div>
-<div class="row"><span class="label">触发</span><span class="value">重置 Bot 的计算机</span></div>
-<div class="row"><span class="label">保留</span><span class="value">最近一次成功保存的数据、文件与登录态</span></div>
-<div class="row compact"><span class="label">清除</span><span class="value">自行安装的应用与软件包；最近更改可能丢失</span></div>
+<div class="head"><h2>Reset</h2><span class="type">工作會被中斷</span></div>
+<div class="row"><span class="label">觸發</span><span class="value">重置 Bot 的電腦</span></div>
+<div class="row"><span class="label">保留</span><span class="value">最近一次成功保存的資料、文件與登錄態</span></div>
+<div class="row compact"><span class="label">清除</span><span class="value">自行安裝的應用與軟體套件；最近更改可能丟失</span></div>
 </article>
 <article class="card">
-<div class="head"><h2>重建 VMs</h2><span class="type">企业管理员</span></div>
-<div class="row"><span class="label">任务</span><span class="value">在安全点暂停，新机就绪后切换</span></div>
-<div class="row"><span class="label">保留</span><span class="value">持久磁盘、已同步的 Bot、文件与登录态</span></div>
-<div class="row compact"><span class="label">清除</span><span class="value">自行安装的应用与软件包；团队环境设置脚本会自动重跑</span></div>
+<div class="head"><h2>重建 VMs</h2><span class="type">企業管理員</span></div>
+<div class="row"><span class="label">任務</span><span class="value">在安全點暫停，新機就緒後切換</span></div>
+<div class="row"><span class="label">保留</span><span class="value">持久磁盤、已同步的 Bot、文件與登錄態</span></div>
+<div class="row compact"><span class="label">清除</span><span class="value">自行安裝的應用與軟體套件；團隊環境設定指令碼會自動重跑</span></div>
 </article>
 <article class="card warn">
-<div class="head"><h2>终止 VMs</h2><span class="type">立即停止</span></div>
-<div class="row"><span class="label">触发</span><span class="value">管理员触发，或闲置 30 天自动终止</span></div>
-<div class="row"><span class="label">保留</span><span class="value">持久磁盘；文件和登录态仍在</span></div>
-<div class="row compact"><span class="label">清除</span><span class="value">自行安装的应用与软件包；正在运行的一轮任务进度</span></div>
+<div class="head"><h2>終止 VMs</h2><span class="type">立即停止</span></div>
+<div class="row"><span class="label">觸發</span><span class="value">管理員觸發，或閒置 30 天自動終止</span></div>
+<div class="row"><span class="label">保留</span><span class="value">持久磁盤；文件和登錄態仍在</span></div>
+<div class="row compact"><span class="label">清除</span><span class="value">自行安裝的應用與軟體套件；正在執行的一輪任務進度</span></div>
 </article>
 </section>
 </main>

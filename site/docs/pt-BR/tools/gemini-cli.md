@@ -20,7 +20,7 @@ Copie todo o conteúdo abaixo e envie para o seu Grok Bot; ele instalará e veri
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 Gemini CLI（https://geminicli.com/docs/get-started/installation/），以后终端交互和开发协作用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 Gemini CLI（https://geminicli.com/docs/get-started/installation/），以後終端交互和開發協作用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

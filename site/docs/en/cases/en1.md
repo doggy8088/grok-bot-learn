@@ -29,12 +29,12 @@ You can refer to the guide table below before reading. It allows you to quickly 
 When preparing to set up business workflows, you can send the following structured prompt to your primary Bot to help organize role divisions and execution directories:
 
 ```text
-我打算参考英文社区的实战经验，在 Grok Bot 中搭建一套自动化业务工作流：【填入具体业务场景，例如 GTM 客户拓展 / 自动化研发巡检 / 社媒内容生产】。
-请帮我完成以下系统设计：
-1. 岗位与中枢规划：设立统一的中枢调度 Bot（Chief of Staff）与专职角色，明确各角色的负责目标、输入源与交付物，严格遵循一人一岗原则。
-2. 权限与人闸控制：按照操作可逆性划分权限，数据调研、草稿起草与归档分类由 Bot 自主执行，涉及外部发信、资金支付、配置修改与删除操作必须挂起等待人工确认。
-3. 交付标准与证据链：为每个交付物制定验收标准，要求包含真实数据来源、时间戳或截图凭证，找不到数据直接报错，严禁猜测推断。
-4. 运行稳定性设计：规划定时例程与静默规则，无新异常时保持静默不发无用通知，遇到连续执行失败时及时熔断并报警。
+我打算參考英文社群的實戰經驗，在 Grok Bot 中搭建一套自動化業務工作流：【填入具體業務場景，例如 GTM 客戶拓展 / 自動化研發巡檢 / 社媒內容生產】。
+請幫我完成以下系統設計：
+1. 崗位與中樞規劃：設立統一的中樞排程 Bot（Chief of Staff）與專職角色，明確各角色的負責目標、輸入源與交付物，嚴格遵循一人一崗原則。
+2. 權限與人閘控制：按照操作可逆性劃分權限，資料調研、草稿起草與歸檔分類由 Bot 自主執行，涉及外部發信、資金支付、組態修改與刪除操作必須掛起等待人工確認。
+3. 交付標準與證據鏈：為每個交付物制定驗收標準，要求包含真實資料來源、時間戳記或截圖憑證，找不到資料直接報錯，嚴禁猜測推斷。
+4. 執行穩定性設計：規劃定時例程與靜默規則，無新例外時保持靜默不發無用通知，遇到連續執行失敗時及時熔斷並報警。
 ```
 
 ## Mechanism Understanding & Practical Starting

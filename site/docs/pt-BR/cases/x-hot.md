@@ -544,7 +544,7 @@ Grupos pagos de tira-dúvidas demandam o envio agendado de notícias do setor e 
 
 Todo o fluxo armazena as mensagens do grupo em um banco de dados para processamento consolidado pelo assistente em segundo plano, retornando o conteúdo de forma centralizada para o grupo; o assistente atua apenas em notícias e boletins programados e só responde no dia a dia quando mencionado (@) pelo dono do grupo. **No grupo, envia-se diariamente apenas uma imagem longa estruturada com os destaques e o link para uma página web detalhada, poupando os membros de lerem centenas de mensagens antigas; além disso, diálogos livres entre todos os participantes foram evitados propositalmente, contornando o risco de esgotar a cota de Webhooks.**
 
-Segundo a experiência do próprio autor, o assistente de operação do grupo pago "小铁柱" está operando de forma estável; o boletim pode ser visualizado tanto pela imagem quanto acessando o site, e a arquitetura contornou com sucesso os limites de frequência de chamadas da API (experiência do próprio autor).
+Segundo a experiência do próprio autor, o assistente de operação do grupo pago "小鐵柱" está operando de forma estável; o boletim pode ser visualizado tanto pela imagem quanto acessando o site, e a arquitetura contornou com sucesso os limites de frequência de chamadas da API (experiência do próprio autor).
 
 ### Geração rápida de página de treino no Pages: pronúncia ao clicar nas palavras para dominar apresentação pessoal em inglês｜@cgnot996
 
@@ -650,9 +650,9 @@ Segundo o autor, acumulou cerca de 2,4 milhões de visualizações em 21 dias (r
 
 > Post original: [@cgnot996](https://x.com/cgnot996/status/2115317431019430249)
 
-Após o boletim diário do 小铁柱 receber feedback positivo em seu próprio grupo pago de dúvidas, o autor quis replicá-lo no grupo da professora Xiaowan e avaliar a viabilidade de prestar serviços a outras comunidades externas.
+Após o boletim diário do 小鐵柱 receber feedback positivo em seu próprio grupo pago de dúvidas, o autor quis replicá-lo no grupo da professora Xiaowan e avaliar a viabilidade de prestar serviços a outras comunidades externas.
 
-Primeiro, integrou o recurso de boletins diários de chat ao grupo de dúvidas da Xiaowan; **em seguida, usou o Grok Bot para criar uma landing page de divulgação do "小铁柱" e a vinculou aos materiais do site de aprendizado**. O site detalha a possibilidade de contratá-lo para enviar boletins em grupos de chat, mantendo a garantia de qualidade com revisão humana final.
+Primeiro, integrou o recurso de boletins diários de chat ao grupo de dúvidas da Xiaowan; **em seguida, usou o Grok Bot para criar uma landing page de divulgação do "小鐵柱" e a vinculou aos materiais do site de aprendizado**. O site detalha a possibilidade de contratá-lo para enviar boletins em grupos de chat, mantendo a garantia de qualidade com revisão humana final.
 
 Segundo a experiência do próprio autor, a integração ao grupo da Xiaowan foi concluída e a landing page foi lançada com sucesso (experiência do próprio autor; conversão comercial não verificada).
 

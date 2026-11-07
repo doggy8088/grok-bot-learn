@@ -25,14 +25,14 @@ Una vez que la tarea funcione correctamente, no cierres la conversación todaví
 
 ::: details Cómo consolidar habilidades
 ```text
-请把我们刚刚完成的这套流程保存为名为“每日工单异常审查”的技能。
-技能内容必须包含以下要素：
-1. 适用场景：工作日审查支持渠道中滞留超过 4 小时的工单。
-2. 输入数据：从已连接的工单插件中读取状态为 Open 且优先级为 High 的列表。
-3. 决策规则：若工单包含退款申请且金额大于 500 元，标记为一级风险；其余标记为二级跟进。
-4. 交付格式：生成 Markdown 表格，列出工单编号、客户标识、滞留时长、风险等级与跟进建议。
-5. 异常处理：若工单系统接口无响应或无符合条件的数据，输出明确说明，严禁使用历史缓存或伪造数据。
-6. 安全边界：未经人工明确批准，严禁直接调用接口回复客户或变更工单状态。
+請把我們剛剛完成的這套流程保存為名為“每日工單例外審查”的技能。
+技能內容必須包含以下要素：
+1. 適用場景：工作日審查支援渠道中滯留超過 4 小時的工單。
+2. 輸入資料：從已連線的工單外掛中讀取狀態為 Open 且優先級為 High 的列表。
+3. 決策規則：若工單包含退款申請且金額大於 500 元，標記為一級風險；其餘標記為二級跟進。
+4. 交付格式：生成 Markdown 表格，列出工單編號、客戶標識、滯留時長、風險等級與跟進建議。
+5. 例外處理：若工單系統介面無回應或無符合條件的資料，輸出明確說明，嚴禁使用歷史快取或偽造資料。
+6. 安全邊界：未經人工明確批准，嚴禁直接呼叫介面回覆客戶或變更工單狀態。
 ```
 :::
 
@@ -77,7 +77,7 @@ Fuente: [《4.3 Desencadenadores y automatización: programación, Webhooks y as
 En la versión de escritorio, envía una instrucción directamente en el cuadro de chat para crearla:
 
 ```text
-每个工作日上午 8:30，调用“每日工单异常审查”技能，在此对话中输出审查清单。如果未检索到高风险工单，只发一行“今日无高风险工单”即可，不要刷屏。
+每個工作日上午 8:30，呼叫“每日工單例外審查”技能，在此對話中輸出審查清單。如果未檢索到高風險工單，只發一行“今日無高風險工單”即可，不要刷屏。
 ```
 
 Gestión en la versión de escritorio:
@@ -134,8 +134,8 @@ A partir del 2026-10-12, Grok Bot se integra en el sistema The X Subscription, c
 Envía una instrucción en la ventana de chat para que el Bot cree un desencadenador Webhook.
 
 ```text
-为当前 Bot 创建一个 Webhook 触发的例程，命名为“外部知识接收端”。
-指令内容：读取请求体中的 JSON 数据，提取 url 和 note 字段，将其抓取整理为 Markdown 存入 /workspace/notes 目录。
+為當前 Bot 建立一個 Webhook 觸發的例程，命名為“外部知識接收端”。
+指令內容：讀取請求體中的 JSON 資料，提取 url 和 note 欄位，將其抓取整理為 Markdown 存入 /workspace/notes 目錄。
 ```
 
 Abre los detalles de la rutina en la versión de escritorio y despliega Webhook para ver los campos principales:
@@ -153,7 +153,7 @@ Los sistemas externos envían datos mediante solicitudes POST, incluyendo direct
 {
   "url": "https://example.com/article/1024",
   "source": "ios_share",
-  "note": "精读核心论点并归档"
+  "note": "精讀核心論點並歸檔"
 }
 ```
 
@@ -169,7 +169,7 @@ El complemento de Slack es una herramienta de lectura y escritura invocada en ti
 Envía una instrucción en lenguaje natural para configurar la escucha.
 
 ```text
-创建一个 Slack 触发例程：当 #incident-response 频道中有人发消息提及 @bot 且包含短语 "needs repro" 时，在云电脑上拉取报错日志并尝试复现。不要监听其他频道，也不要在没有该短语时响应。
+建立一個 Slack 觸發例程：當 #incident-response 頻道中有人發訊息提及 @bot 且包含短語 "needs repro" 時，在雲端電腦上拉取報錯記錄並嘗試復現。不要監聽其他頻道，也不要在沒有該短語時回應。
 ```
 
 Se admiten cuatro tipos de escucha: mención al Bot, coincidencia de palabras o frases específicas, adición de reacciones con emojis o recepción de cualquier mensaje.
@@ -183,22 +183,22 @@ Se admiten cuatro tipos de escucha: mención al Bot, coincidencia de palabras o 
 
 ### Caso 1: Entrada directa a la base de conocimiento desde el móvil con un toque (Atajos de iOS + Webhook)
 
-El autor de la comunidad 铁柱 (@cgnot996) configuró un flujo de archivado. Al ver un artículo técnico o un vídeo en el móvil y pulsar la opción de compartir del sistema, Grok Bot extrae automáticamente el texto completo, resume los puntos clave y lo estructura en formato Markdown guardándolo en `/workspace/knowledge/inbox.md`.
+El autor de la comunidad 鐵柱 (@cgnot996) configuró un flujo de archivado. Al ver un artículo técnico o un vídeo en el móvil y pulsar la opción de compartir del sistema, Grok Bot extrae automáticamente el texto completo, resume los puntos clave y lo estructura en formato Markdown guardándolo en `/workspace/knowledge/inbox.md`.
 
 Configúralo siguiendo estos pasos:
 1. **Crear una nueva rutina en la nube**: En Grok Bot, crea una nueva rutina "Archivado de conocimiento móvil", selecciona Webhook como condición de activación y obtén la URL de POST exclusiva y el encabezado Authorization.
 2. **Escribir la instrucción de procesamiento**: Configura la instrucción para recibir la URL entrante y abrirla en el navegador del ordenador en la nube; si es un vídeo, extrae la transcripción; tras analizarlo, extrae el título y las etiquetas según el formato, organiza los puntos clave y los enlaces relacionados, y añádelos al final de `/workspace/knowledge/inbox.md`.
 3. **Crear el atajo en el móvil**: Abre la app "Atajos" en el iPhone y crea uno nuevo, activa "Mostrar al compartir" y selecciona "Páginas web y texto" como tipo de entrada aceptada.
-4. **Añadir el nodo de solicitud**: Añade la acción "Obtener contenido de URL", selecciona `POST` como método, introduce la dirección de destino del Webhook en la URL, añade el encabezado `Authorization` con el valor `Bearer [你的私钥]`, selecciona `JSON` en el cuerpo de la solicitud y vincula `url` a "Entrada del atajo".
+4. **Añadir el nodo de solicitud**: Añade la acción "Obtener contenido de URL", selecciona `POST` como método, introduce la dirección de destino del Webhook en la URL, añade el encabezado `Authorization` con el valor `Bearer [你的私鑰]`, selecciona `JSON` en el cuerpo de la solicitud y vincula `url` a "Entrada del atajo".
 5. **Resolver limitaciones al compartir**: Aplicaciones como las cuentas oficiales de WeChat no pueden abrir directamente el panel de compartir con atajos. **Crea un atajo adicional de "puente por cuadro de texto" vinculado al Botón de acción (Action Button)**, ábrelo para pegar el enlace en la ventana emergente y luego reenvíalo al Webhook.
 
 **El móvil solo realiza la captura ligera de parámetros y el envío HTTP, mientras que la pesada extracción de contenidos y maquetación se delegan por completo a la nube para ejecutarse de forma asíncrona.** De este modo, el móvil no consume batería ni te obliga a esperar, permitiéndote salir en pocos segundos.
 
-Fuente: [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)，[《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)。
+Fuente: [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)，[《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)。
 
 ### Caso 2: Inspección en dos fases en máquina virtual y optimización extrema de cuota
 
-El autor de la comunidad 铁柱 (@cgnot996) optimizó las 6 tareas rutinarias del Bot "Director de Marketing". Cambió las inspecciones de seguimiento de respuestas de xAI y la revisión diaria de PRs —que consistían puramente en esperar cambios— por comparaciones ligeras, despertando al modelo solo cuando hay avances reales, ahorrando entre 8 y 10 ejecuciones innecesarias en vacío por semana.
+El autor de la comunidad 鐵柱 (@cgnot996) optimizó las 6 tareas rutinarias del Bot "Director de Marketing". Cambió las inspecciones de seguimiento de respuestas de xAI y la revisión diaria de PRs —que consistían puramente en esperar cambios— por comparaciones ligeras, despertando al modelo solo cuando hay avances reales, ahorrando entre 8 y 10 ejecuciones innecesarias en vacío por semana.
 
 Las tareas se dividen en dos categorías:
 
@@ -215,7 +215,7 @@ La implementación se realiza en cuatro pasos:
 
 El juicio mecánico se delega a los scripts locales, y el modelo solo se despierta cuando se requiere capacidad de razonamiento. Así se evita consumir en vano el contexto del modelo de lenguaje para un simple "hoy no ha ocurrido nada".
 
-Fuente: [《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
+Fuente: [《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
 
 ### Caso 3: Monitorización diaria del riesgo de pérdida de clientes (churn)
 
@@ -266,7 +266,7 @@ Fuente: [《Guía de uso de Grok Bot》](https://cursor.com/cn/help/grok-bot/how
 | Actualización de software | El entorno y los archivos del ordenador en la nube no se ven afectados |
 | Actualización del ordenador ("Ajustes" > "Ordenador" > "Actualizar ordenador del Bot") | Reconstruye la imagen; conserva `/workspace` y la sesión iniciada en el navegador, pero **borra los paquetes globales de apt (como cron)** |
 
-Fuente: [《Guía de uso de Grok Bot》](https://cursor.com/cn/help/grok-bot/how-to.md)，[《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
+Fuente: [《Guía de uso de Grok Bot》](https://cursor.com/cn/help/grok-bot/how-to.md)，[《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
 
 ## Errores comunes que debes evitar
 
@@ -276,7 +276,7 @@ Fuente: [《Guía de uso de Grok Bot》](https://cursor.com/cn/help/grok-bot/how
    [《4.3 Desencadenadores y automatización: programación, Webhooks y asignación de tareas en X》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)。
 3. **No pegues claves de Webhook en el chat**: Quedarán registradas en el historial en la nube. **Las credenciales deben introducirse en la tarjeta de solicitud de información confidencial segura**; si la pegas por error, elimínala de inmediato.
 
-   [《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
+   [《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
 4. **Evitar fallos silenciosos por intercepción de aprobación**: Al configurar intercepciones, debes activar las notificaciones móviles. **Tras aparecer la solicitud de aprobación, caduca y se cancela si nadie responde en 10 minutos** [《Guía de uso de Grok Bot》](https://cursor.com/cn/help/grok-bot/how-to.md)。
 5. **Entorno compartido de Bots**: Borrar archivos en `/workspace/temp` afectará a otros Bots; **al escribir archivos, es obligatorio especificar subdirectorios independientes para cada proyecto**.
 
@@ -297,7 +297,7 @@ Fuente: [《4.3 Desencadenadores y automatización: programación, Webhooks y as
 
 ### Capítulos relacionados
 
-- [第 20 章 可靠的自动化：定时、Webhook 与事件触发](/part3/20-automation)
+- [第 20 章 可靠的自動化：定時、Webhook 與事件觸發](/part3/20-automation)
 
 ### Documentación oficial
 
@@ -308,5 +308,5 @@ Fuente: [《4.3 Desencadenadores y automatización: programación, Webhooks y as
 ### Prácticas de la comunidad
 
 - [《4.3 Desencadenadores y automatización: programación, Webhooks y asignación de tareas en X》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
-- [《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
-- [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+- [《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
+- [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)

@@ -1020,9 +1020,9 @@ summary,
 .gh-part[data-i='2'] { background: var(--tz-tint-3); }
 .gh-part[data-i='3'] { background: var(--tz-tint-4); }
 
-/* 语言切换与主题切换并排：VitePress 默认仅 ≥1280px 显示 VPNavBarTranslations，
-   这里对齐 appearance 的 ≥960px 规则；960–1279 隐藏 Extra 内重复项。
-   <960px 继续用汉堡菜单内 Translations。 */
+/* 語言切換與主題切換並排：VitePress 預設僅 ≥1280px 顯示 VPNavBarTranslations，
+   這裡對齊 appearance 的 ≥960px 規則；960–1279 隱藏 Extra 內重複項。
+   <960px 繼續用漢堡選單內 Translations。 */
 @media (min-width: 960px) {
   .VPNavBar .content-body > .VPNavBarAppearance,
   .VPNavBar .content-body > .VPNavBarTranslations,

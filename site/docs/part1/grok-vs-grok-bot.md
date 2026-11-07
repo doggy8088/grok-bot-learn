@@ -1,70 +1,70 @@
-# Grok 和 Grok Bot 有什么区别
+# Grok 和 Grok Bot 有什麼區別
 
-**Grok 是对话助手，Grok Bot 是在云电脑上替你干活的常驻 AI 同事。**
-Grok 负责你问我答，关闭网页或 App 对话即结束；Grok Bot 则在独立云电脑里常驻，关掉客户端后台任务依然照跑。
-两者都来自 xAI（现名 SpaceXSI），但在交互形态与应用定位上完全不同。
+**Grok 是對話助手，Grok Bot 是在雲端電腦上替你幹活的常駐 AI 同事。**
+Grok 負責你問我答，關閉網頁或 App 對話即結束；Grok Bot 則在獨立雲端電腦裡常駐，關掉客戶端後台任務依然照跑。
+兩者都來自 xAI（現名 SpaceXSI），但在交互形態與應用定位上完全不同。
 
-## Grok 和 Grok Bot 的核心区别是什么？
+## Grok 和 Grok Bot 的核心區別是什麼？
 
-**核心区别在于 Grok 只动嘴给建议，而 Grok Bot 会在云电脑里实际动手操作。**
-Grok 是纯粹的对话助手，你问一句它答一句；Grok Bot 则是 2026 年 8 月 11 日由 xAI 和 Cursor 推出的常驻 AI 同事，目前仍是 Beta。
-想要建立整体概念，可以先阅读[第 1 章 Grok Bot 是什么](/part1/01-what-is)。
+**核心區別在於 Grok 只動嘴給建議，而 Grok Bot 會在雲端電腦裡實際動手操作。**
+Grok 是純粹的對話助手，你問一句它答一句；Grok Bot 則是 2026 年 8 月 11 日由 xAI 和 Cursor 推出的常駐 AI 同事，目前仍是 Beta。
+想要建立整體概念，可以先閱讀[第 1 章 Grok Bot 是什麼](/part1/01-what-is)。
 
-| 维度 | Grok | Grok Bot |
+| 維度 | Grok | Grok Bot |
 | --- | --- | --- |
-| 是什么 | xAI 的 AI 对话助手 | 一组常驻的 AI 同事（AI teammates），目前处于 Beta |
-| 在哪用 | grok.com 网页、iOS 和 Android App、X 里的 Grok 标签页 | macOS、Windows、Linux 桌面端，iPhone、iPad、Android 移动端 |
-| 怎么干活 | 你问一句它答一句，支持文字、语音、上传文件分析、生图生视频等 | 用打字或语音发消息交代任务，在带浏览器、文件系统和终端的常驻云电脑上跨应用干活，需批准时才找你 |
-| 关掉后还跑不跑 | 不跑，用完关掉网页或 App 对话就结束 | 照样跑，合上笔记本、关掉 App，后台任务和例程继续跑 |
-| 能不能操作网站和软件 | 不能，不替你在别的网站和软件里动手干活 | 能，登录常用网站和应用把活干完，敏感步骤由人点 Take over 接管 |
-| 需要哪档订阅 | 免费可试用，订阅提高额度；包含在 The X Subscription 免费档、Plus 档及以上 | 包含在 The X Subscription 的 Premium、Super、Ultra；Plus 不含 |
-| 适合的事 | 即时问答、查报错、写一段文字、生图生视频、看 X 最新动态 | 流程固定、高频重复、跨多网站或软件的活（如巡检官网、每周对账、汇总晨报、复现 Issue） |
+| 是什麼 | xAI 的 AI 對話助手 | 一組常駐的 AI 同事（AI teammates），目前處於 Beta |
+| 在哪用 | grok.com 網頁、iOS 和 Android App、X 裡的 Grok 標記頁 | macOS、Windows、Linux 桌面端，iPhone、iPad、Android 行動裝置端 |
+| 怎麼幹活 | 你問一句它答一句，支援文字、語音、上傳文件分析、生圖生影片等 | 用打字或語音發訊息交代任務，在帶瀏覽器、檔案系統和終端的常駐雲端電腦上跨應用幹活，需批准時才找你 |
+| 關掉後還跑不跑 | 不跑，用完關掉網頁或 App 對話就結束 | 照樣跑，合上筆記本、關掉 App，後台任務和例程繼續跑 |
+| 能不能操作網站和軟體 | 不能，不替你在別的網站和軟體裡動手幹活 | 能，登錄常用網站和應用把活幹完，敏感步驟由人點 Take over 接管 |
+| 需要哪檔訂閱 | 免費可試用，訂閱提高額度；包含在 The X Subscription 免費檔、Plus 檔及以上 | 包含在 The X Subscription 的 Premium、Super、Ultra；Plus 不含 |
+| 適合的事 | 即時問答、查報錯、寫一段文字、生圖生影片、看 X 最新動態 | 流程固定、高頻重複、跨多網站或軟體的活（如巡檢官網、每週對帳、彙總晨報、復現 Issue） |
 
-**同一账号的所有 Bot 共用一台云电脑，共享文件、浏览器登录态和应用登录。**
-每个 Bot 虽然有自己的屏幕，但官方提醒不要把不同 Bot 当成安全隔离，具体运行机制见[第 5 章 共享云电脑](/part1/05-computer)。
-若需配置环境，可以参考[第 3 章 安装登录与第一个 Bot](/part1/03-install)。
+**同一帳號的所有 Bot 共用一台雲端電腦，共享文件、瀏覽器登錄態和應用登錄。**
+每個 Bot 雖然有自己的螢幕，但官方提醒不要把不同 Bot 當成安全隔離，具體執行機制見[第 5 章 共享雲端電腦](/part1/05-computer)。
+若需組態環境，可以參考[第 3 章 安裝登錄與第一個 Bot](/part1/03-install)。
 
-## 什么时候用 Grok，什么时候用 Grok Bot？
+## 什麼時候用 Grok，什麼時候用 Grok Bot？
 
-**几秒内能给结果的即时问答用 Grok，需要跨软件、定时跑或多步执行的重复事务用 Grok Bot。**
+**幾秒內能給結果的即時問答用 Grok，需要跨軟體、定時跑或多步執行的重複交易用 Grok Bot。**
 
-**适合用 Grok 的场景，集中在即时问答与单次内容生成。**
-比如查报错、写一段文字、生图生视频（视频最长 15 秒），或者实时联网搜索网页和 X 的最新动态。
-这类任务几秒钟就能搞定，不用动用云电脑。
+**適合用 Grok 的場景，集中在即時問答與單次內容生成。**
+比如查報錯、寫一段文字、生圖生影片（影片最長 15 秒），或者實時聯網搜尋網頁和 X 的最新動態。
+這類任務幾秒鐘就能搞定，不用動用雲端電腦。
 
-**适合用 Grok Bot 的场景，主要是流程固定、高频重复且跨多个网站或软件的繁杂工作。**
-典型任务包括定期巡检官网出摘要、每周对账、每天汇总晨报、读 Issue 复现缺陷等。
-这类工作必须能由人核验结果，高危动作（发信、付款、删除）会停下来等待批准，遇上输密码、两步验证、验证码或付款时可以点 Take over 人工接管。
+**適合用 Grok Bot 的場景，主要是流程固定、高頻重複且跨多個網站或軟體的繁雜工作。**
+典型任務包括定期巡檢官網出摘要、每週對帳、每天彙總晨報、讀 Issue 復現缺陷等。
+這類工作必須能由人核驗結果，高危動作（發信、付款、刪除）會停下來等待批准，遇上輸密碼、兩步驗證、驗證碼或付款時可以點 Take over 人工接管。
 
-一次跑通的流程还能存成技能，并设成例程定时自动跑，多个 Bot 也可以在群聊里协作交接。
-**需要留意的是，高频轮询和视频处理等任务会迅速消耗每周额度。**
-关于额度规划和消耗细节，建议提前查看[第 10 章 额度与成本](/part1/10-usage)。
+一次跑通的流程還能存成技能，並設成例程定時自動跑，多個 Bot 也可以在群聊裡協作交接。
+**需要留意的是，高頻輪詢和影片處理等任務會迅速消耗每週額度。**
+關於額度規劃和消耗細節，建議提前查看[第 10 章 額度與成本](/part1/10-usage)。
 
-## 用 Grok Bot 需要买哪档订阅？
+## 用 Grok Bot 需要買哪檔訂閱？
 
-**使用 Grok Bot 至少需要每月 30 美元的 Premium 方案，8 美元的 Plus 档并不包含 Grok Bot。**
+**使用 Grok Bot 至少需要每月 30 美元的 Premium 方案，8 美元的 Plus 檔並不包含 Grok Bot。**
 
-自 2026 年 10 月起，官方推出了 The X Subscription 统一订阅方案，把 Grok、Grok Bot、Cursor 和 X Premium 整合在一起。
-该订阅分为五档：Free（$0）、Plus（$8/月）、Premium（$30/月）、Super（$100/月）与 Ultra（$200/月）。
+自 2026 年 10 月起，官方推出了 The X Subscription 統一訂閱方案，把 Grok、Grok Bot、Cursor 和 X Premium 整合在一起。
+該訂閱分為五檔：Free（$0）、Plus（$8/月）、Premium（$30/月）、Super（$100/月）與 Ultra（$200/月）。
 
-**Grok 在免费档和 Plus 档就能使用，而 Grok Bot 仅对 Premium、Super、Ultra 开放。**
-付费档每周提供一个共享额度池，由 Grok、Grok Bot 以及 Cursor 里的 Grok 模型共同使用。
+**Grok 在免費檔和 Plus 檔就能使用，而 Grok Bot 僅對 Premium、Super、Ultra 開放。**
+付費檔每週提供一個共享額度池，由 Grok、Grok Bot 以及 Cursor 裡的 Grok 模型共同使用。
 
-**老用户也可以直接使用 Grok Bot。**
-拥有老的 Cursor 付费个人版、Cursor 团队版，或者关联了 SuperGrok、SuperGrok Plus、SuperGrok Heavy 的账号，都能直接使用 Grok Bot。
-更详细的订阅权益，可以查阅[第 2 章 方案与订阅](/part1/02-plans)。
+**老使用者也可以直接使用 Grok Bot。**
+擁有老的 Cursor 付費個人版、Cursor 團隊版，或者關聯了 SuperGrok、SuperGrok Plus、SuperGrok Heavy 的帳號，都能直接使用 Grok Bot。
+更詳細的訂閱權益，可以查閱[第 2 章 方案與訂閱](/part1/02-plans)。
 
-## 延伸阅读
+## 延伸閱讀
 
-本站章节：
-- [第 1 章 Grok Bot 是什么](/part1/01-what-is)
-- [第 2 章 方案与订阅](/part1/02-plans)
-- [第 3 章 安装登录与第一个 Bot](/part1/03-install)
-- [第 5 章 共享云电脑](/part1/05-computer)
-- [第 10 章 额度与成本](/part1/10-usage)
+本站章節：
+- [第 1 章 Grok Bot 是什麼](/part1/01-what-is)
+- [第 2 章 方案與訂閱](/part1/02-plans)
+- [第 3 章 安裝登錄與第一個 Bot](/part1/03-install)
+- [第 5 章 共享雲端電腦](/part1/05-computer)
+- [第 10 章 額度與成本](/part1/10-usage)
 
-官方页面：
-- [Grok 官方页面](https://x.ai/grok)
-- [Grok Bot 发布公告](https://x.ai/news/introducing-grok-bot)
-- [Grok Bot 官方概览文档](https://docs.x.ai/grok-bot/overview)
-- [The X Subscription 订阅文档](https://docs.x.ai/x-subscription/grok-bot)
+官方頁面：
+- [Grok 官方頁面](https://x.ai/grok)
+- [Grok Bot 發表公告](https://x.ai/news/introducing-grok-bot)
+- [Grok Bot 官方概覽文件](https://docs.x.ai/grok-bot/overview)
+- [The X Subscription 訂閱文件](https://docs.x.ai/x-subscription/grok-bot)

@@ -544,7 +544,7 @@ Paid Q&A groups require scheduled delivery of industry news and daily highlights
 
 The entire workflow first buffers group messages into a database for batch processing by a backend assistant before returning them to the group. The assistant handles only scheduled news and daily briefs, responding solely to @-mentions from the group owner. **The group pushes only structured daily summary long-images with links to detailed web pages to reduce scroll fatigue, intentionally disabling open chat for all members to reliably avoid saturating Webhook quotas.**
 
-According to personal experience, the paid Q&A group operations assistant "小铁柱" has been running smoothly; daily briefs can be viewed directly as images or checked on the web, with the architecture successfully avoiding API rate limit bottlenecks (personal experience).
+According to personal experience, the paid Q&A group operations assistant "小鐵柱" has been running smoothly; daily briefs can be viewed directly as images or checked on the web, with the architecture successfully avoiding API rate limit bottlenecks (personal experience).
 
 ### Quickly Generate a Pages Sparring Webpage: Click-to-Pronounce for English Self-Introductions | @cgnot996
 
@@ -650,9 +650,9 @@ According to the author, this strategy generated around 2.4M views in 21 days (a
 
 > Original Post: [@cgnot996](https://x.com/cgnot996/status/2115317431019430249)
 
-After the 小铁柱 Daily received positive feedback in his own paid Q&A group, he sought to replicate it in Teacher Xiaowan's group and further explore the feasibility of providing automated operations for more external communities.
+After the 小鐵柱 Daily received positive feedback in his own paid Q&A group, he sought to replicate it in Teacher Xiaowan's group and further explore the feasibility of providing automated operations for more external communities.
 
-He first integrated group chat daily brief capabilities into the Xiaowan Q&A group, **then built a promotional landing page for "小铁柱" using Grok Bot, linking it to the learning site's perimeter ecosystem.** It clearly indicates that the bot can be hired to publish group daily briefs, while maintaining human oversight over final delivery quality.
+He first integrated group chat daily brief capabilities into the Xiaowan Q&A group, **then built a promotional landing page for "小鐵柱" using Grok Bot, linking it to the learning site's perimeter ecosystem.** It clearly indicates that the bot can be hired to publish group daily briefs, while maintaining human oversight over final delivery quality.
 
 In personal experience, the integration into the Xiaowan group and the landing page launch were completed smoothly (personal experience; commercial conversion unverified).
 

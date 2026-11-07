@@ -8,7 +8,7 @@ next: false
 
 # Paid Q&A Group
 
-I am Tiezhu. I usually write articles on my WeChat Official Account "铁柱AGI", and my X handle is @cgnot996.
+I am Tiezhu. I usually write articles on my WeChat Official Account "鐵柱AGI", and my X handle is @cgnot996.
 
 I created an "AI Agent Q&A Group". **We discuss everything related to AI Agents here, with Grok Bot being the most frequently asked topic.** This is a paid group; you can ask me directly on WeChat about the fee.
 

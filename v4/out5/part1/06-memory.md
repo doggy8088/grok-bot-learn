@@ -1,85 +1,85 @@
-# 第 6 章 记忆：让 Bot 越用越懂你
+# 第 6 章 記憶：讓 Bot 越用越懂你
 
-Bot 记忆是跨会话的工作上下文。把所有聊天当记忆，容易把临时变通当规矩，甚至拿过期数据乱做决定。
+Bot 記憶是跨會話的工作上下文。把所有聊天當記憶，容易把臨時變通當規矩，甚至拿過期資料亂做決定。
 
-- 搞清五类容器与快慢时钟，分清记忆与技能。
-- 团队协作定好晋升协议，**变动数据实时回源核对**。
-- 用 Git 搭建备份流水线，**云电脑重置也能完整还原**。
+- 搞清五類容器與快慢時鐘，分清記憶與技能。
+- 團隊協作定好晉升協議，**變動資料實時回源核對**。
+- 用 Git 搭建備份流水線，**雲端電腦重置也能完整還原**。
 
-## 6.1 官方记忆机制：Bot 究竟记住了什么
+## 6.1 官方記憶機制：Bot 究竟記住了什麼
 
-Bot 记偏好、事实与摘要，见 [使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)。
+Bot 記偏好、事實與摘要，見 [使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)。
 
-**别把 Bot 当数据库**。
-- 变动数据留源系统，重大决策核查源头。
-- 记错或假设过时，直接对话纠正或删除。
-- **安全与权限靠审批弹窗和 Auto-review 把关**，绝不靠记忆。
-- 长期规则首条讲清，单次任务当轮生效。
+**別把 Bot 當資料庫**。
+- 變動資料留源系統，重大決策核查源頭。
+- 記錯或假設過時，直接對話糾正或刪除。
+- **安全與權限靠審批彈窗和 Auto-review 把關**，絕不靠記憶。
+- 長期規則首條講清，單次任務當輪生效。
 
-点顶部名称改配置。iPhone 复制 Bot：
-- 继承：配置、技能、Routine 与头像
-- 不继承：对话、记忆与附件
+點頂部名稱改組態。iPhone 複製 Bot：
+- 繼承：組態、技能、Routine 與頭像
+- 不繼承：對話、記憶與附件
 
-后续还用建议**在侧边栏设为「隐藏」**，直接删会清空记录。坑点：所有 Bot 共用云电脑，删 Bot 不清文件与登录态，残留需手动进文件系统清理。
+後續還用建議**在側邊欄設為「隱藏」**，直接刪會清空記錄。坑點：所有 Bot 共用雲端電腦，刪 Bot 不清文件與登錄態，殘留需手動進檔案系統清理。
 
-## 6.2 记忆分层：五类容器与快慢时钟
+## 6.2 記憶分層：五類容器與快慢時鐘
 
-数据分为共享层与专属层，见《4.6 虚拟机、记忆与备份》 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。五类容器模型见《Grok Bot Memory Engineering: How One Agent Learns With a Team｜rari》 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)。
+資料分為共享層與專屬層，見《4.6 虛擬機器、記憶與備份》 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。五類容器模型見《Grok Bot Memory Engineering: How One Agent Learns With a Team｜rari》 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)。
 
 ```text
-实时数据源 (LIVE SOURCE)  -> 存在 Linear、Datadog、CRM、代码库或知识库里的当前事实
-团队技能 (TEAM SKILL)     -> 由 Bot 所有者维护的标准化、可重复执行的操作流程
-团队记忆 (TEAM MEMORY)    -> 经过核准的全员共享决策与稳定业务定义
-私人便签 (PRIVATE NOTE)   -> 个人专属偏好与单人工作上下文
-任务状态 (TASK STATE)     -> 当前正在执行的任务进度与临时上下文
+實時資料源 (LIVE SOURCE)  -> 存在 Linear、Datadog、CRM、程式碼庫或知識庫裡的當前事實
+團隊技能 (TEAM SKILL)     -> 由 Bot 所有者維護的標準化、可重複執行的操作流程
+團隊記憶 (TEAM MEMORY)    -> 經過核准的全員共享決策與穩定業務定義
+私人便籤 (PRIVATE NOTE)   -> 個人專屬偏好與單人工作上下文
+任務狀態 (TASK STATE)     -> 當前正在執行的任務進度與臨時上下文
 ```
 
-**容器不能混用**。日志随跑随丢，流程入技能，习惯记便签，P0 定义才进团队记忆。
+**容器不能混用**。記錄隨跑隨丟，流程入技能，習慣記便籤，P0 定義才進團隊記憶。
 
-防污染用**快慢时钟分流**。
-- 慢时钟：风格与定义以月年计，写入记忆。
-- 快时钟：余额随时变，**行动前必须回源查询**。
+防汙染用**快慢時鐘分流**。
+- 慢時鐘：風格與定義以月年計，寫入記憶。
+- 快時鐘：餘額隨時變，**行動前必須回源查詢**。
 
-密码与 Token 绝不入记忆，文档只存指针。实时状态查 API，别凭记忆放行权限。
+密碼與 Token 絕不入記憶，文件只存指標。實時狀態查 API，別憑記憶放行權限。
 
-## 6.3 记忆与技能的边界：知道什么与怎么做
+## 6.3 記憶與技能的邊界：知道什麼與怎麼做
 
-| 记忆(周活降40%) | 技能 |
+| 記憶(周活降40%) | 技能 |
 | :- | :- |
-| 事实与偏好 | 流程与审批 |
+| 事實與偏好 | 流程與審批 |
 
-好流程**指令存为技能**：
+好流程**指令存為技能**：
 ```text
-将我们用于此任务的流程保存为名为“每周账户健康状况”的技能。
-包括源系统、风险定义、输出格式，以及联系客户始终需要批准这条规则。
+將我們用於此任務的流程保存為名為“每週帳戶健康狀況”的技能。
+包括源系統、風險定義、輸出格式，以及聯繫客戶始終需要批准這條規則。
 ```
 
-**屏幕演示**三步走：
-1. 对话开计算机视图
-2. 选「教会任务」输结果
-3. 屏幕演示
+**螢幕示範**三步走：
+1. 對話開電腦檢視
+2. 選「教會任務」輸結果
+3. 螢幕示範
 
-限10分钟，不录麦克风与密码。@mvanhorn 提醒超10分钟易失败，拆成短阶段串联。[fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)
+限10分鐘，不錄麥克風與密碼。@mvanhorn 提醒超10分鐘易失敗，拆成短階段串聯。[fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)
 
-Lauren Tan **排错优先级**：消除根源 > 测试校验 > 专有规则 > 改记忆。团队技能由 Creator 或 Manager 发布，私聊只属个人。[fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)
+Lauren Tan **排錯優先級**：消除根源 > 測試校驗 > 專有規則 > 改記憶。團隊技能由 Creator 或 Manager 發表，私聊只屬個人。[fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)
 
-## 6.4 团队记忆管理：写入协议、权限隔离与防冲突
+## 6.4 團隊記憶管理：寫入協議、權限隔離與防衝突
 
-多人共用 Bot，**一人教错会影响全员**。
+多人共用 Bot，**一人教錯會影響全員**。
 
 ```text
-观察 (OBSERVE) -> 分类 (CLASSIFY) -> 核实 (VERIFY) -> 晋升 (PROMOTE) -> 重核 (RECHECK)
+觀察 (OBSERVE) -> 分類 (CLASSIFY) -> 核實 (VERIFY) -> 晉升 (PROMOTE) -> 重核 (RECHECK)
 ```
 
-写入记忆遵循五步：
-1. **观察**：捕捉纠偏与新决策。
-2. **分类**：区分个人偏好与共用规则。
-3. **核实**：核对文档或代码，**严禁口头推测入库**。
-4. **晋升**：责任人确认后存入规则与权威链接。
-5. **重核**：重大操作前或到期后复验源头。
+寫入記憶遵循五步：
+1. **觀察**：捕捉糾偏與新決策。
+2. **分類**：區分個人偏好與共用規則。
+3. **核實**：核對文件或程式碼，**嚴禁口頭推測入庫**。
+4. **晉升**：責任人確認後存入規則與權威連結。
+5. **重核**：重大操作前或到期後複驗源頭。
 
 ```yaml
-claim: "对外发布 API 变更前必须完成安全评审"
+claim: "對外發表 API 變更前必須完成安全評審"
 scope: "team"
 source: "https://intranet.example/docs/launch-checklist"
 owner: "security-team"
@@ -87,183 +87,183 @@ status: "approved"
 review_after: "2026-11-01"
 ```
 
-外部卡片核对出处与负责人后，发指令入库。
+外部卡片核對出處與負責人後，發指令入庫。
 
-**知识共享不等于权限共享**：
-- **个人 OAuth**：调 Gmail 等插件走本人授权，不盗用权限。
-- **服务密钥**：全员共享，**遵循最小权限且通常只读**。
-- **Slack 避坑**：群内查私密数据会暴露给全员。公频只发汇总，**敏感数据回私聊**。
+**知識共享不等於權限共享**：
+- **個人 OAuth**：調 Gmail 等外掛走本人授權，不盜用權限。
+- **服務密鑰**：全員共享，**遵循最小權限且通常唯讀**。
+- **Slack 避坑**：群內查私密資料會暴露給全員。公頻只發彙總，**敏感資料回私聊**。
 
-**冲突裁决**：**立即暂停关键操作** -> 查权威源 -> 责任人裁定 -> 更新源头 -> 修正记忆。
+**衝突裁決**：**立即暫停關鍵操作** -> 查權威源 -> 責任人裁定 -> 更新源頭 -> 修正記憶。
 
-**排查坏记忆**（如特批当常规）：
-1. 查：让 Bot 列出记忆定位错误，溯源对话与任务。
-2. 改：先修源头文档，再发指令删改记忆。
-3. 验：**换成员账号测试**确认不拦截，纠偏历史工单。
+**排查壞記憶**（如特批當常規）：
+1. 查：讓 Bot 列出記憶定位錯誤，溯源對話與任務。
+2. 改：先修源頭文件，再發指令刪改記憶。
+3. 驗：**換成員帳號測試**確認不攔截，糾偏歷史工單。
 
-## 6.5 记忆备份与恢复：把云电脑当成可替换容器
+## 6.5 記憶備份與恢復：把雲端電腦當成可替換容器
 
-同账号所有 Bot 共用 `/workspace`（v0.68.1 分辨率 1920×1200）。**云电脑随时会被官方重置**（2026-10-10 曾发生过），装好的包和未提交状态全会清空，本地数据丢了找不回来，背景见 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。
+同帳號所有 Bot 共用 `/workspace`（v0.68.1 分辨率 1920×1200）。**雲端電腦隨時會被官方重置**（2026-10-10 曾發生過），裝好的包和未提交狀態全會清空，本地資料丟了找不回來，背景見 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。
 
-### 备份流程与凭据安全
+### 備份流程與憑據安全
 
-建运维 Bot「记忆管家」，分四步备份到私有 Git。
-1. 新建 Bot 命名为「记忆管家」，职责写明负责定期导出所有 Bot 的章程、规则与记忆。
-2. 在 `/workspace` 关联私有 Git 仓库，建好 `bots-backup/charters/`（指令）、`bots-backup/memories/`（规则）与 `environment/`（含脚本和 `services-ledger.md`）。
-3. 配每周定时 Routine，把配置与记忆存为 Markdown。
-4. **由 Routine 自动跑 Git 命令提交并推送远端私有仓库**。
+建運維 Bot「記憶管家」，分四步備份到私有 Git。
+1. 新建 Bot 命名為「記憶管家」，職責寫明負責定期匯出所有 Bot 的章程、規則與記憶。
+2. 在 `/workspace` 關聯私有 Git 倉庫，建好 `bots-backup/charters/`（指令）、`bots-backup/memories/`（規則）與 `environment/`（含指令碼和 `services-ledger.md`）。
+3. 配每週定時 Routine，把組態與記憶存為 Markdown。
+4. **由 Routine 自動跑 Git 命令提交併推送遠端私有倉庫**。
 
-::: details 备份流程与凭据安全
+::: details 備份流程與憑據安全
 ```text
 /workspace/
 └── bots-backup/
-    ├── charters/          <- 各 Bot 的长期规则 (如 researcher.md, writer.md)
-    ├── memories/          <- 团队共用决策与业务定义 (如 definitions.md)
+    ├── charters/          <- 各 Bot 的長期規則 (如 researcher.md, writer.md)
+    ├── memories/          <- 團隊共用決策與業務定義 (如 definitions.md)
     └── environment/
-        ├── services-ledger.md  <- 服务总账，记录工具依赖与启动命令
-        └── restore.sh          <- 虚拟机一键重置恢复脚本
+        ├── services-ledger.md  <- 服務總帳，記錄工具依賴與啟動命令
+        └── restore.sh          <- 虛擬機器一鍵重置恢復指令碼
 ```
 :::
 
-- **严禁把明文 Token 提交到 Git**。自动化脚本只读本地 `~/.env` 取密钥。
-- 遇到登录、两步验证或 CAPTCHA 时人工接管屏幕。Bot 只继承 Cookie，碰不到明文密码，详见 [使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)。
+- **嚴禁把明文 Token 提交到 Git**。自動化指令碼唯讀本地 `~/.env` 取密鑰。
+- 遇到登錄、兩步驗證或 CAPTCHA 時人工接管螢幕。Bot 只繼承 Cookie，碰不到明文密碼，詳見 [使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)。
 
-## 6.6 开箱即用的实战提示词
+## 6.6 開箱即用的實戰提示詞
 
-### 三层指令框架
-建 Bot 别写笼统简介，**用三层框架明确规则、职责和当前聚焦**。详见 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)。
+### 三層指令框架
+建 Bot 別寫籠統簡介，**用三層框架明確規則、職責和當前聚焦**。詳見 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)。
 
-::: details 三层指令框架
+::: details 三層指令框架
 ```text
-BASE INSTRUCTIONS (基础规则，本账号所有 Bot 通用)
-- 涉及产生财务支出、向外部发送任何信息、删除文件等操作前，必须等待人工确认。
-- 当结论涉及重要业务决策时，必须调取当前权威来源进行核对，严禁单凭记忆作答。
-- 若执行受阻，用单行明确说明受阻点，禁止擅自寻找不可靠的绕行方案。
-- 阶段性工作交接结果统一写入 /workspace/shared/handoffs/ 目录。
+BASE INSTRUCTIONS (基礎規則，本帳號所有 Bot 通用)
+- 涉及產生財務支出、向外部發送任何資訊、刪除文件等操作前，必須等待人工確認。
+- 當結論涉及重要業務決策時，必須調取當前權威來源進行核對，嚴禁單憑記憶作答。
+- 若執行受阻，用單行明確說明受阻點，禁止擅自尋找不可靠的繞行方案。
+- 階段性工作交接結果統一寫入 /workspace/shared/handoffs/ 目錄。
 
-ROLE (角色职责)
-- 你的身份：每周账户健康状况审计专员。
-- 你负责的固定作业：获取客户产品用量与工单信号，标记流失或扩张迹象。
-- 验收标准：每项结论必须附带源系统监控图表或工单链接。
-- 允许操作：读取日志、检索系统指标、在共享目录生成评估报告。
-- 严禁操作：未经明确批准，绝不私自联络客户，绝不修改账户权限。
+ROLE (角色職責)
+- 你的身份：每週帳戶健康狀況審計專員。
+- 你負責的固定作業：獲取客戶產品用量與工單信號，標記流失或擴張跡象。
+- 驗收標準：每項結論必須附帶源系統監控圖表或工單連結。
+- 允許操作：讀取記錄、檢索系統指標、在共享目錄生成評估報告。
+- 嚴禁操作：未經明確批准，絕不私自聯絡客戶，絕不修改帳戶權限。
 
-CURRENT FOCUS (当前重点)
-- 本周重点核查用量环比下降超过 30% 的企业级客户名单。
+CURRENT FOCUS (當前重點)
+- 本週重點核查用量環比下降超過 30% 的企業級客戶名單。
 ```
 :::
 
-### 转为团队技能
-任务跑通后，直接**发指令沉淀为技能**。
+### 轉為團隊技能
+任務跑通後，直接**發指令沉澱為技能**。
 
-::: details 转为团队技能
+::: details 轉為團隊技能
 ```text
-请将本次执行的工作流整理并保存为团队技能，名称设为“客户流失风险排查”。
-要求包含以下内容：
-1. 触发场景与必需的前置凭据。
-2. 调取指标数据的具体步骤与判定阈值。
-3. 输出结果的格式规范（必须包含数据源链接）。
-4. 明确安全红线：向客户发送邮件或调整账户配置必须经由人工批准。
-完成后在对话中回复技能概要。
+請將本次執行的工作流整理並保存為團隊技能，名稱設為“客戶流失風險排查”。
+要求包含以下內容：
+1. 觸發場景與必需的前置憑據。
+2. 調取指標資料的具體步驟與判定閾值。
+3. 輸出結果的格式規範（必須包含資料源連結）。
+4. 明確安全紅線：向客戶發送郵件或調整帳戶組態必須經由人工批准。
+完成後在對話中回覆技能概要。
 ```
 :::
 
-### 写入共享记忆
-负责人审批过的规则，**带上来源和责任人写入**。
+### 寫入共享記憶
+負責人審批過的規則，**帶上來源和責任人寫入**。
 
 ```text
-请为全团队记住以下判定规则：
-对于所有对外发布的 API 变更，必须在发布前检查现行上线清单，并获取安全团队的正式签字评审。
-若上线流程发生变更，以上线清单源文档为准，记忆仅作为指引。
-来源文档：https://intranet.example/docs/api-checklist
-责任人：security-team
-复核日期：2026-11-01
+請為全團隊記住以下判定規則：
+對於所有對外發表的 API 變更，必須在發表前檢查現行上線清單，並獲取安全團隊的正式簽字評審。
+若上線流程發生變更，以上線清單源文件為準，記憶僅作為指引。
+來源文件：https://intranet.example/docs/api-checklist
+責任人：security-team
+複核日期：2026-11-01
 ```
 
-### 部署记忆管家
-在「记忆管家」Bot 里，**发指令配好自动备份 Routine**。
+### 部署記憶管家
+在「記憶管家」Bot 裡，**發指令配好自動備份 Routine**。
 
 ```text
-你是本账号的记忆管家。你的职责是定期归档全账号所有 Bot 的章程与共享记忆。
-请配置一个每周运行的例行任务（Routine）：
-1. 提取所有 Bot 当前的 Description/Instructions 规则，在 /workspace/bots-backup/charters/ 下按 Bot 名称分别保存为 .md 文件。
-2. 提取当前所有已保存的团队共用记忆，整合保存为 /workspace/bots-backup/memories/team-memory.md。
-3. 检查文件是否有更新。若有变更，自动执行 git add .、提交并推送至已配置好的私有 Git 仓库。
-4. 若 Git 推送失败，在当前对话中告警并说明报错信息；若无变更则保持静默，不要频繁推送无意义通知。
+你是本帳號的記憶管家。你的職責是定期歸檔全帳號所有 Bot 的章程與共享記憶。
+請組態一個每週執行的例行任務（Routine）：
+1. 提取所有 Bot 當前的 Description/Instructions 規則，在 /workspace/bots-backup/charters/ 下按 Bot 名稱分別保存為 .md 文件。
+2. 提取當前所有已保存的團隊共用記憶，整合保存為 /workspace/bots-backup/memories/team-memory.md。
+3. 檢查文件是否有更新。若有變更，自動執行 git add .、提交併推送至已組態好的私有 Git 倉庫。
+4. 若 Git 推送失敗，在當前對話中告警並說明報錯資訊；若無變更則保持靜默，不要頻繁推送無意義通知。
 ```
 
-### 坏记忆清理
-发现引用了错误或旧规则，**发指令直接纠偏清理**。
+### 壞記憶清理
+發現引用了錯誤或舊規則，**發指令直接糾偏清理**。
 
 ```text
-请检查并列出你当前记录的所有团队记忆中涉及“企业客户续约审批”的条目。
-删除其中“所有企业客户续约必须经由 VP 逐笔批准”的内容。
-该规则仅为上周特定情况下的临时特例，不是长期标准。
-从现在起，企业客户续约标准重新以财务知识库的正式文档为准：https://intranet.example/finance/renewals
-确认修改后，请向我展示修正后的相关记忆列表。
+請檢查並列出你當前記錄的所有團隊記憶中涉及“企業客戶續約審批”的條目。
+刪除其中“所有企業客戶續約必須經由 VP 逐筆批准”的內容。
+該規則僅為上週特定情況下的臨時特例，不是長期標準。
+從現在起，企業客戶續約標準重新以財務知識庫的正式文件為準：https://intranet.example/finance/renewals
+確認修改後，請向我展示修正後的相關記憶列表。
 ```
 
-## 6.7 经典案例复盘
+## 6.7 經典案例覆盤
 
-### 案例 1：SpaceXAI 数据分析 Bot
+### 案例 1：SpaceXAI 資料分析 Bot
 
-SpaceXAI 团队要查询 45,000 张表的超大数仓。
-- **别把庞大数据硬塞进记忆**。他们给 Bot 配置只读数仓凭证，把找表和查询沉淀为技能库。
-- 记忆只保留指标口径和纠偏规则，变动数据靠实时调取计算。
+SpaceXAI 團隊要查詢 45,000 張表的超大數倉。
+- **別把龐大資料硬塞進記憶**。他們給 Bot 組態唯讀數倉憑證，把找表和查詢沉澱為技能庫。
+- 記憶只保留指標口徑和糾偏規則，變動資料靠實時調取計算。
 
-详见 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)。
+詳見 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)。
 
-### 案例 2：多 Bot 协作推文画像流水线
+### 案例 2：多 Bot 協作推文畫像流水線
 
-0xlangeai 搭建整理员、分析师、设计师、工程师四个 Bot 跑推文画像流水线。
-- 不同 Bot 无法读取彼此的聊天记录。
-- **跨 Bot 协作要靠文件系统传递成果**。整理员生成 `tweets.md`，分析师读取后产出 `profile.md`，设计师据此出 `design.md`，工程师拉取代码构建上线。
+0xlangeai 搭建整理員、分析師、設計師、工程師四個 Bot 跑推文畫像流水線。
+- 不同 Bot 無法讀取彼此的聊天記錄。
+- **跨 Bot 協作要靠檔案系統傳遞成果**。整理員生成 `tweets.md`，分析師讀取後產出 `profile.md`，設計師據此出 `design.md`，工程師拉取程式碼建構上線。
 
-详见 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。
+詳見 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)。
 
-### 案例 3：Jon ONeill 的管道派单系统
+### 案例 3：Jon ONeill 的管道派單系統
 
-Jon ONeill 自动化处理跨 Gmail、Slack、ServiceTitan 和客户门户的工单排期。
-- 单个全能调度 Bot 承担所有规则容易混乱出错，最终只能停用。
-- 任务切分给专职 Bot：Gary 盯 Gmail，Steve 查 ServiceTitan 工期，Quinn 发短信，Sarah 对接 Slack 员工，Atlas 统筹。
-- **拆细职责后每天稳定处理 5 到 6 个紧急工单，10 分钟内完成全流程排期**。
+Jon ONeill 自動化處理跨 Gmail、Slack、ServiceTitan 和客戶門戶的工單排期。
+- 單個全能排程 Bot 承擔所有規則容易混亂出錯，最終只能停用。
+- 任務切分給專職 Bot：Gary 盯 Gmail，Steve 查 ServiceTitan 工期，Quinn 發簡訊，Sarah 對接 Slack 員工，Atlas 統籌。
+- **拆細職責後每天穩定處理 5 到 6 個緊急工單，10 分鐘內完成全流程排期**。
 
-详见 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)。
+詳見 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)。
 
 ## 6.8 容易踩的坑
 
-- **变动数据走实时查询**：库存别存记忆，防 Bot 拿旧数据误判。
-- **配置必写脚本**：云电脑手动配置，重置全归零。
-- **私聊指令别全队用**：特批直接共用会污染团队行为。
-- **分 Bot 做不了隔离**：同账号共享文件，靠权限与 Ask-first 审批。
-- **密码别发聊天框**：防日志泄露，走安全凭据或人工接管。
-- **Slack 别查私密数据**：公开频道提问，容易把隐私打在公屏。
+- **變動資料走實時查詢**：庫存別存記憶，防 Bot 拿舊資料誤判。
+- **組態必寫指令碼**：雲端電腦手動組態，重置全歸零。
+- **私聊指令別全隊用**：特批直接共用會汙染團隊行為。
+- **分 Bot 做不了隔離**：同帳號共享文件，靠權限與 Ask-first 審批。
+- **密碼別發聊天框**：防記錄洩露，走安全憑據或人工接管。
+- **Slack 別查私密資料**：公開頻道提問，容易把隱私打在公屏。
 
-## 6.9 做完怎么验收
+## 6.9 做完怎麼驗收
 
-测记忆边界直接跑社区作者 rari（@0xwhrrari）设计的 M01-M05 用例。
+測記憶邊界直接跑社群作者 rari（@0xwhrrari）設計的 M01-M05 使用案例。
 ```text
-M01 个人偏好隔离测试 -> 成员 A 在私聊中设定个性化偏好，使用成员 B 账号发起提问，确认 B 绝不继承 A 的私聊偏好。
-M02 团队规则晋升测试 -> 成员 A 提交一条经审批的团队规则并写入团队记忆，成员 B 发起任务时应生效该规则，但看不到 A 当时的私聊对话。
-M03 状态时效回源测试 -> 在团队记忆中保留一条旧状态，在源系统修改为新状态。向 Bot 提问，Bot 必须调取最新源数据，而不是采信记忆中的旧状态。
-M04 冲突自动阻断测试 -> 两个成员分别向 Bot 给出互相矛盾的业务说法。Bot 应识别出冲突并主动停止高风险操作，指出需要责任人裁决，而不是悄悄采纳最后一条说法。
-M05 共享渠道边界测试 -> 在 Slack 共享频道线程中，要求 Bot 调用某成员的个人连接器。Bot 必须正确发起审批，且回复内容只包含团队可见的脱敏结论。
+M01 個人偏好隔離測試 -> 成員 A 在私聊中設定個性化偏好，使用成員 B 帳號發起提問，確認 B 絕不繼承 A 的私聊偏好。
+M02 團隊規則晉升測試 -> 成員 A 提交一條經審批的團隊規則並寫入團隊記憶，成員 B 發起任務時應生效該規則，但看不到 A 當時的私聊對話。
+M03 狀態時效回源測試 -> 在團隊記憶中保留一條舊狀態，在源系統修改為新狀態。向 Bot 提問，Bot 必須調取最新源資料，而不是採信記憶中的舊狀態。
+M04 衝突自動阻斷測試 -> 兩個成員分別向 Bot 給出互相矛盾的業務說法。Bot 應識別出衝突並主動停止高風險操作，指出需要責任人裁決，而不是悄悄採納最後一條說法。
+M05 共享渠道邊界測試 -> 在 Slack 共享頻道執行緒中，要求 Bot 呼叫某成員的個人連線器。Bot 必須正確發起審批，且回覆內容只包含團隊可見的脫敏結論。
 ```
-这里**必须用两个不同的真实团队账号交叉测**，单个账号测不出隔离边界。
+這裡**必須用兩個不同的真實團隊帳號交叉測**，單個帳號測不出隔離邊界。
 
-1. 登录 GitHub 或 GitLab 私有库，确认 `bots-backup/charters/` 下各 Bot 的规则文件已提交，规则与权限没丢。
-2. 检查 `bots-backup/memories/team-memory.md`，确认团队判定规则与源系统链接完整。
-3. 在云电脑测试目录跑环境恢复脚本，**确认依赖与目录无报错，单行脚本能直接拉起服务**。
-::: details 6.9 做完怎么验收
+1. 登錄 GitHub 或 GitLab 私有庫，確認 `bots-backup/charters/` 下各 Bot 的規則文件已提交，規則與權限沒丟。
+2. 檢查 `bots-backup/memories/team-memory.md`，確認團隊判定規則與源系統連結完整。
+3. 在雲端電腦測試目錄跑環境恢復指令碼，**確認依賴與目錄無報錯，單行指令碼能直接拉起服務**。
+::: details 6.9 做完怎麼驗收
 ```bash
    bash /workspace/bots-backup/environment/restore.sh
    ```
 
-## 延伸阅读
+## 延伸閱讀
 
-- 官方文档：[使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)
-- 社区文章：rari《Grok Bot Memory Engineering: How One Agent Learns With a Team》 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)
-- 社区文章：《4.6 虚拟机、记忆与备份》 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)
-- 社区文章：Matt Van Horn《Every Grok Bot Hack I Know (Aug 2026)》 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)
+- 官方文件：[使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)
+- 社群文章：rari《Grok Bot Memory Engineering: How One Agent Learns With a Team》 [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0)
+- 社群文章：《4.6 虛擬機器、記憶與備份》 [fs69.md](https://jcng5q8n0f3z.feishu.cn/wiki/KUggwkhqqiRyxZkwTLhcrCU2ncg)
+- 社群文章：Matt Van Horn《Every Grok Bot Hack I Know (Aug 2026)》 [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adWcwN7env2)
 
 :::

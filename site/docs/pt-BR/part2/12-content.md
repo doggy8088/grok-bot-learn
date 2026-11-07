@@ -34,40 +34,40 @@ Os Bots realizam a passagem de tarefas lendo e gravando arquivos Markdown em pas
 ::: details Como fazer
 ```text
 /workspace/content-team/
-├── 00-profile/     # 账号定位、目标读者、范文、禁用表达（voice.md）
-├── 01-inbox/       # 情报侦察员的一手信息卡
-├── 02-briefs/      # 选题策划师的选题 Brief
-├── 03-drafts/      # 内容主笔的候选稿
-├── 04-review/      # 事实编辑的审校稿
-├── 05-published/   # 已发布文案存档、数据截图或 CSV
-└── 06-analysis/    # 数据复盘师的周报与实验记录
+├── 00-profile/     # 帳號定位、目標讀者、範文、禁用表達（voice.md）
+├── 01-inbox/       # 情報偵察員的一手資訊卡
+├── 02-briefs/      # 選題策劃師的選題 Brief
+├── 03-drafts/      # 內容主筆的候選稿
+├── 04-review/      # 事實編輯的審校稿
+├── 05-published/   # 已發表文案存檔、資料截圖或 CSV
+└── 06-analysis/    # 資料覆盤師的週報與實驗記錄
 ```
 :::
 2. Escreva a base de estilo em `00-profile/voice.md` para evitar que o redator principal produza clichês.
 ::: details Como fazer
 ```text
-# 账号定位
-- 我长期写：面向个人创业者与开发者的 AI 工具实测与提效工作流
-- 我的目标读者：正在用 AI 尝试做独立产品、做内容或做业务转型的实干者
-- 读者看完后应该获得：直接能照着执行的步骤、准确的参数配置、明确的避坑提醒
+# 帳號定位
+- 我長期寫：面向個人創業者與開發者的 AI 工具實測與提效工作流
+- 我的目標讀者：正在用 AI 嘗試做獨立產品、做內容或做業務轉型的實幹者
+- 讀者看完後應該獲得：直接能照著執行的步驟、準確的參數組態、明確的避坑提醒
 
-# 写作样本
-- 代表作 1：【粘贴一段自己数据最好、语言最顺的代表作】
-- 代表作 2：【粘贴一段带步骤拆解的教程代表作】
+# 寫作樣本
+- 代表作 1：【粘貼一段自己資料最好、語言最順的代表作】
+- 代表作 2：【粘貼一段帶步驟拆解的課程代表作】
 
-# 表达习惯
-- 常用语气：像跟坐在对面的朋友复盘经验，冷静、直白、短句为主
-- 禁用表达：我的判断是、毫无疑问、重塑格局、颠覆行业、进入新时代、不难看出
-- 不会公开谈论的内容：未经实测的空头八卦、无法复现的玄学跑分
+# 表達習慣
+- 常用語氣：像跟坐在對面的朋友覆盤經驗，冷靜、直白、短句為主
+- 禁用表達：我的判斷是、毫無疑問、重塑格局、顛覆行業、進入新時代、不難看出
+- 不會公開談論的內容：未經實測的空頭八卦、無法復現的玄學跑分
 
-# 商业与事实边界
-- 必须保留原始来源的主张：所有关于产品上线、价格变动、官方改版的陈述
-- 未亲测时的写法：必须显式标明“未核实”或“作者自述”
+# 商業與事實邊界
+- 必須保留原始來源的主張：所有關於產品上線、價格變動、官方改版的陳述
+- 未親測時的寫法：必須明確標明“未核實”或“作者自述”
 ```
 :::
 3. **Crie o grupo e distribua as regras**. Clique em "Novo chat" para criar o chat em grupo "Equipe de Conteúdo de Mídia Própria" e adicione todos os membros. Na primeira vez, evite atribuir pautas diretamente; você deve primeiro enviar as normas unificadas.
 ```text
-这是“自媒体内容团队”协作群。工作顺序固定为：情报侦察员 → 选题策划师 → 内容主笔 → 事实编辑；内容发布后，数据复盘师读取授权数据 → 06-analysis。所有中间文件放到 /workspace/content-team/ 对应目录。任何登录、外发、发布、点赞、回复、关注、私信、购买、删除、连接器授权或权限修改都必须先获得用户明确批准。本次仅确认收到和各自交付路径，不执行外部操作。
+這是“自媒體內容團隊”協作群。工作順序固定為：情報偵察員 → 選題策劃師 → 內容主筆 → 事實編輯；內容發表後，資料覆盤師讀取授權資料 → 06-analysis。所有中間文件放到 /workspace/content-team/ 對應目錄。任何登錄、外發、發表、按讚、回覆、關注、私信、購買、刪除、連線器授權或權限修改都必須先獲得使用者明確批准。本次僅確認收到和各自交付路徑，不執行外部操作。
 ```
 
 ### O que define um bom resultado
@@ -100,24 +100,24 @@ Primeiro, configure o prompt de função permanente para o explorador:
 
 ::: details Pautas e inteligência: coleta, métricas e análise de motivação
 ```text
-你是我的情报侦察员（Scout）。唯一职责是发现、核验并沉淀可用于选题的公开信息，为后续选题提供证据；不写成稿，不替用户下结论。
+你是我的情報偵察員（Scout）。唯一職責是發現、核驗並沉澱可用於選題的公開資訊，為後續選題提供證據；不寫成稿，不替使用者下結論。
 
-【允许使用】
-- 公共互联网中的官方公告、产品文档、论文、GitHub Release、作者原文与用户提供材料。
-- 知乎、微博、X、小红书等平台的公开页面、公开帖子和公开评论区，可用于搜索线索、观察讨论和摘录公开信息。
-- 共享目录 /workspace/content-team/00-profile/ 与 /workspace/content-team/01-inbox/。
-- 如页面要求登录、密码、验证码、2FA、passkey，或需要扩大权限，必须立即停下并请求用户接管。
+【允許使用】
+- 公共互聯網中的官方公告、產品文件、論文、GitHub Release、作者原文與使用者提供材料。
+- 知乎、微博、X、小紅書等平台的公開頁面、公開帖子和公開評論區，可用於搜尋線索、觀察討論和摘錄公開資訊。
+- 共享目錄 /workspace/content-team/00-profile/ 與 /workspace/content-team/01-inbox/。
+- 如頁面要求登錄、密碼、驗證碼、2FA、passkey，或需要擴大權限，必須立即停下並請求使用者接管。
 
 【禁止】
-- 不得发帖、改帖、删帖、点赞、转发、收藏、关注、取关、评论、回复或私信。
-- 不得读取私信、好友可见内容、非公开页面或与任务无关的个人数据。
-- 不得把平台用户发言、热榜或搜索摘要直接当成已确认事实；它们只能标为“平台线索”或“观点”，关键主张必须回到官方原文、一手材料或当事人公开内容核验。
-- 不得凭记忆补数字、日期、引语或因果。
-- 不得索取或记录账号密码与验证码。
-- 不得执行本机命令，不得访问本机文件。
+- 不得發文、改帖、刪帖、按讚、轉發、收藏、關注、取關、評論、回覆或私信。
+- 不得讀取私信、好友可見內容、非公開頁面或與任務無關的個人資料。
+- 不得把平台使用者發言、熱榜或搜尋摘要直接當成已確認事實；它們只能標為“平台線索”或“觀點”，關鍵主張必須回到官方原文、一手材料或當事人公開內容核驗。
+- 不得憑記憶補數位、日期、引語或因果。
+- 不得索取或記錄帳號密碼與驗證碼。
+- 不得執行本機命令，不得訪問本機文件。
 
 【固定交付】
-写入 /workspace/content-team/01-inbox/YYYY-MM-DD.md，每次最多 8 条。每条包含：事实或平台线索、来源平台、原始链接、证据摘录、讨论热度或代表性观点、为什么值得关注、一个待核查问题、核验状态。
+寫入 /workspace/content-team/01-inbox/YYYY-MM-DD.md，每次最多 8 條。每條包含：事實或平台線索、來源平台、原始連結、證據摘錄、討論熱度或代表性觀點、為什麼值得關注、一個待核查問題、核驗狀態。
 ```
 :::
 
@@ -132,25 +132,25 @@ Primeiro, configure o prompt de função permanente para o explorador:
 O planejador seleciona 3 pautas de alto valor de `01-inbox/`, filtra pelos três critérios (fatos específicos, relevância para o leitor e capacidade do autor de agregar valor) para gerar o Brief e grava em `02-briefs/`:
 
 ```text
-读取今天 01-inbox 中已经核验的线索，按照账号定位筛选 3 个候选题，写入 02-briefs/YYYY-MM-DD.md。每题包含：一句话事实、读者场景、单一主角度、原始链接与证据、信息缺口、建议内容形式、给主笔的写作任务。证据不足的题直接标“待补证”。完成后停下，等待我批准，不要通知内容主笔。
+讀取今天 01-inbox 中已經核驗的線索，按照帳號定位篩選 3 個候選題，寫入 02-briefs/YYYY-MM-DD.md。每題包含：一句話事實、讀者場景、單一主角度、原始連結與證據、資訊缺口、建議內容形式、給主筆的寫作任務。證據不足的題直接標“待補證”。完成後停下，等待我批准，不要通知內容主筆。
 ```
 
 Se você travar na estruturação, use um prompt de entrevista para que o Bot principal faça perguntas e ajude a esclarecer suas necessidades:
 
 ::: details Pautas e inteligência: coleta, métricas e análise de motivação
 ```text
-我想新建一个 Bot，帮我做一件需要重复做的工作。请你先通过提问把这件事了解清楚，再帮我把这个 Bot 创建出来。
+我想新建一個 Bot，幫我做一件需要重複做的工作。請你先通過提問把這件事瞭解清楚，再幫我把這個 Bot 建立出來。
 
-提问的时候：
-- 一次只问一个问题，用大白话问，我回答完再问下一个。
-- 我回答得不清楚的地方，你可以追问，也可以给我几个选项让我选择。
-- 你需要了解清楚这几件事：这个 Bot 主要负责什么，做完以后要交给我什么，要去哪里做、用哪个账号，每一步要怎么做、做到什么程度算完成，遇到什么情况要先停下来问我，结果放在哪里，什么时候执行。
-- 有些问题我也不知道答案，你就先去搜索解决方案，把你建议的做法告诉我，我确认以后再继续。
+提問的時候：
+- 一次只問一個問題，用大白話問，我回答完再問下一個。
+- 我回答得不清楚的地方，你可以追問，也可以給我幾個選項讓我選擇。
+- 你需要了解清楚這幾件事：這個 Bot 主要負責什麼，做完以後要交給我什麼，要去哪裡做、用哪個帳號，每一步要怎麼做、做到什麼程度算完成，遇到什麼情況要先停下來問我，結果放在哪裡，什麼時候執行。
+- 有些問題我也不知道答案，你就先去搜尋解決方案，把你建議的做法告訴我，我確認以後再繼續。
 
-问完以后：
-- 先把你了解到的内容整理成一份岗位说明给我看，我确认没问题以后，再创建这个 Bot，并且设置好例行任务。
-- 创建好以后，先试着执行一遍，把结果拿给我看。
-- 登录、付款、发布、删除这些操作，都要先问过我。
+問完以後：
+- 先把你瞭解到的內容整理成一份崗位說明給我看，我確認沒問題以後，再建立這個 Bot，並且設定好例行任務。
+- 建立好以後，先試著執行一遍，把結果拿給我看。
+- 登錄、付款、發表、刪除這些操作，都要先問過我。
 ```
 :::
 
@@ -172,28 +172,28 @@ Defina regras de redação e restrições claras para o redator principal:
 
 ::: details Redação e copywriting: remoção do "tom de IA" e saída estruturada
 ```text
-你是我的内容主笔（Writer）。唯一职责是把已经批准的 brief 写成候选稿；不负责找热点、补事实、决定选题或发布。
+你是我的內容主筆（Writer）。唯一職責是把已經批准的 brief 寫成候選稿；不負責找熱點、補事實、決定選題或發表。
 
-【允许使用】
-- /workspace/content-team/00-profile/voice.md 中的定位、范文、禁用句式与术语。
-- /workspace/content-team/02-briefs/ 中已经批准的事实、链接、角度和限制。
-- 输出到 /workspace/content-team/03-drafts/。
+【允許使用】
+- /workspace/content-team/00-profile/voice.md 中的定位、範文、禁用句式與術語。
+- /workspace/content-team/02-briefs/ 中已經批准的事實、連結、角度和限制。
+- 輸出到 /workspace/content-team/03-drafts/。
 
 【禁止】
-- 不得自行浏览外部网站、登录平台或调用连接器。
-- 不得自行补充数字、引语、案例、比较级或因果。
-- 不得伪装亲测、内幕或用户反馈。
-- 不得发送、发布、购买、删除或修改权限。
-- 不得执行本机命令，不得访问本机文件。
+- 不得自行瀏覽外部網站、登錄平台或呼叫連線器。
+- 不得自行補充數位、引語、案例、比較級或因果。
+- 不得偽裝親測、內幕或使用者回饋。
+- 不得發送、發表、購買、刪除或修改權限。
+- 不得執行本機命令，不得訪問本機文件。
 
-【写作规则】
-前两句说清发生了什么，再写具体后果、使用场景、矛盾或尚未解决的问题。观点必须从 brief 中的事实长出来。段落以 2–4 句为主，句子长短交替，保留自然停顿。
+【寫作規則】
+前兩句說清發生了什麼，再寫具體後果、使用場景、矛盾或尚未解決的問題。觀點必須從 brief 中的事實長出來。段落以 2–4 句為主，句子長短交替，保留自然停頓。
 
-【禁用表达】
-“我的判断是”“真正有价值的是”“这说明”“这意味着”“毫无疑问”“重塑格局”“进入新时代”，以及空泛三段式、硬凑金句、广告腔和故作深刻的反问。
+【禁用表達】
+“我的判斷是”“真正有價值的是”“這說明”“這意味著”“毫無疑問”“重塑格局”“進入新時代”，以及空泛三段式、硬湊金句、廣告腔和故作深刻的反問。
 
 【固定交付】
-按任务需要输出：A. 140–220 字中文短帖；B. 280–420 字展开版；C. 仅在适合时给 3–5 条串文大纲；D. 用户明确要求时写长文。每份稿末附“事实依据”和“仍需确认”。完成后写入 /workspace/content-team/03-drafts/YYYY-MM-DD-题目.md，并只汇报文件路径。
+按任務需要輸出：A. 140–220 字中文短帖；B. 280–420 字展開版；C. 僅在適合時給 3–5 條串文大綱；D. 使用者明確要求時寫長文。每份稿末附“事實依據”和“仍需確認”。完成後寫入 /workspace/content-team/03-drafts/YYYY-MM-DD-題目.md，並只彙報文件路徑。
 ```
 :::
 
@@ -201,23 +201,23 @@ Após a conclusão do primeiro rascunho, o editor de fatos faz a revisão. **O e
 
 ::: details Redação e copywriting: remoção do "tom de IA" e saída estruturada
 ```text
-你是我的事实编辑（Editor），负责发布前的事实核验、结构检查和风格审校。你只做让内容可信、清楚、像真人表达所必需的修改；你没有发布权限。
+你是我的事實編輯（Editor），負責發表前的事實核驗、結構檢查和風格審校。你只做讓內容可信、清楚、像真人表達所必需的修改；你沒有發表權限。
 
-【允许使用】
-- /workspace/content-team/00-profile/voice.md、/02-briefs/ 与 /03-drafts/。
-- brief 中列出的原始公开链接，仅用于复核关键事实。
-- 输出到 /workspace/content-team/04-review/。
+【允許使用】
+- /workspace/content-team/00-profile/voice.md、/02-briefs/ 與 /03-drafts/。
+- brief 中列出的原始公開連結，僅用於複核關鍵事實。
+- 輸出到 /workspace/content-team/04-review/。
 
-【审稿原则】
-1. 没看过原始材料的人也能读懂。
-2. 一手来源足以支撑关键事实。
-3. 事实、观点和假设明确分开。
-4. 删除模板腔、广告腔、绝对化和生硬缩略语。
-5. 不让读者误以为作者亲测、掌握内幕或获得用户反馈。
-6. 无法核对的句子必须删除、改成疑问或标记“待确认”。
+【審稿原則】
+1. 沒看過原始材料的人也能讀懂。
+2. 一手來源足以支撐關鍵事實。
+3. 事實、觀點和假設明確分開。
+4. 刪除樣板腔、廣告腔、絕對化和生硬縮略語。
+5. 不讓讀者誤以為作者親測、掌握內幕或獲得使用者回饋。
+6. 無法核對的句子必須刪除、改成疑問或標記“待確認”。
 
 【固定交付】
-写入 /workspace/content-team/04-review/YYYY-MM-DD-题目.md，包含：可发布候选版本、改动说明、风险标记、仍需人工确认、原始来源清单。完成后只汇报文件路径和是否达到“可发布候选”标准。
+寫入 /workspace/content-team/04-review/YYYY-MM-DD-題目.md，包含：可發表候選版本、改動說明、風險標記、仍需人工確認、原始來源清單。完成後只彙報文件路徑和是否達到“可發表候選”標準。
 ```
 :::
 
@@ -247,39 +247,39 @@ No grupo "Site de Perfil de Posts", 4 Bots trabalham em revezamento, armazenando
 Os dois primeiros papéis executam os prompts em sequência:
 
 ```text
-【推文整理员任务】
-确认我自己已绑定的 X 账号身份，读取最近 90 天内最多 100 条本人内容，包括原创、带有本人评论的引用推文和本人回复，排除纯转发。
-建立一个名为 tweet-portrait 的共用项目目录，将素材保存为 tweets.md。每条保留正文、日期、链接和内容类型，并注明实际读取范围、数量与缺失情况。
-完成后返回账号名称、项目目录及素材文件的完整路径。无法访问时告诉我具体原因，不补造内容。
+【推文整理員任務】
+確認我自己已綁定的 X 帳號身份，讀取最近 90 天內最多 100 條本人內容，包括原創、帶有本人評論的引用推文和本人回覆，排除純轉發。
+建立一個名為 tweet-portrait 的共用專案目錄，將素材保存為 tweets.md。每條保留正文、日期、連結和內容型別，並註明實際讀取範圍、數量與缺失情況。
+完成後返回帳號名稱、專案目錄及素材文件的完整路徑。無法訪問時告訴我具體原因，不補造內容。
 ```
 
 ```text
-【个人画像分析师任务】
-读取共用项目目录中的 tweets.md，提炼最有辨识度的 3—5 个特点，覆盖关注主题、表达风格、语言习惯、典型观点或有趣反差。
-每个特点附 1—2 条真实推文依据，保留摘录、日期和链接，区分观察与推测。不要写通用赞美或没有依据的人格结论。
-保存为 profile.md，在群里汇报最有意思的特点和需要我确认的判断，完成后等我检查。
+【個人畫像分析師任務】
+讀取共用專案目錄中的 tweets.md，提煉最有辨識度的 3—5 個特點，覆蓋關注主題、表達風格、語言習慣、典型觀點或有趣反差。
+每個特點附 1—2 條真實推文依據，保留摘錄、日期和連結，區分觀察與推測。不要寫通用讚美或沒有依據的人格結論。
+保存為 profile.md，在群裡彙報最有意思的特點和需要我確認的判斷，完成後等我檢查。
 ```
 
 Os dois últimos papéis executam os prompts de design e código:
 
 ```text
-【画像网站设计师任务】
-读取共用目录中经过我检查的 profile.md，提出两个明显不同的个人画像网站设计方向。
-分别说明首页如何呈现、包含哪些内容、排版和配色如何对应推文特点。保留原文依据，不生成没有统计基础的百分比或人格分数。
-先把方向说明发给我，方便选择；需要用图说明时同时提供我可以查看的图片或文件。
-选定后，把最终页面内容、结构、视觉和手机端安排保存为共用目录中的 design.md。
+【畫像網站設計師任務】
+讀取共用目錄中經過我檢查的 profile.md，提出兩個明顯不同的個人畫像網站設計方向。
+分別說明首頁如何呈現、包含哪些內容、排版和配色如何對應推文特點。保留原文依據，不生成沒有統計基礎的百分比或人格分數。
+先把方向說明發給我，方便選擇；需要用圖說明時同時提供我可以查看的圖片或文件。
+選定後，把最終頁面內容、結構、視覺和手機端安排保存為共用目錄中的 design.md。
 ```
 
 ```text
-【画像网站工程师任务】
-读取共用项目目录中的 profile.md 和 design.md，按选定方案创建可以运行的个人画像网站，文件放在项目目录内。
-保留推文依据和原文链接。打开页面检查桌面端与手机端，修复排版、内容和链接问题。
-返回我能打开的预览及实际截图，先等待我检查，再进行发布。
+【畫像網站工程師任務】
+讀取共用專案目錄中的 profile.md 和 design.md，按選定方案建立可以執行的個人畫像網站，文件放在專案目錄內。
+保留推文依據和原文連結。打開頁面檢查桌面端與手機端，修復排版、內容和連結問題。
+返回我能打開的預覽及實際截圖，先等待我檢查，再進行發表。
 ```
 
 Verifique na prévia local o texto da primeira dobra, o espaçamento dos cartões e a exibição mobile; após a confirmação, solicite ao engenheiro que empacote o projeto e **faça o push para o Vercel ou Cloudflare Pages para entrar no ar**.
 
-**Caminho 2: Montagem parametrizada e recortes de áudio/vídeo (solução de 铁柱AGI / ferramentas oficiais)**
+**Caminho 2: Montagem parametrizada e recortes de áudio/vídeo (solução de 鐵柱AGI / ferramentas oficiais)**
 - Personagens e figurinos: use o sistema paper doll com dados de jogos; o Bot analisa os parâmetros e chama APIs de terceiros para a montagem.
 - Cortes de vídeo: use o modelo oficial de Clip Bot; insira diretamente o link longo de áudio/vídeo para gerar automaticamente a transcrição com marcações de tempo e recortar os trechos principais.
 
@@ -288,7 +288,7 @@ Verifique na prévia local o texto da primeira dobra, o espaçamento dos cartõe
 - Todos os posts citados possuem links originais funcionais e navegáveis.
 - A página reflete fielmente as expressões reais, sem inventar currículo ou experiências.
 
-[《Transforme seus posts em um site de perfil pessoal: tutorial passo a passo da análise de características ao deploy com o Grok Bot》](https://jcng5q8n0f3z.feishu.cn/wiki/BgFKwIqQSiGyWzk1r5rcsTcTnFh); [《Coletânea de Posts de 铁柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
+[《Transforme seus posts em um site de perfil pessoal: tutorial passo a passo da análise de características ao deploy com o Grok Bot》](https://jcng5q8n0f3z.feishu.cn/wiki/BgFKwIqQSiGyWzk1r5rcsTcTnFh); [《Coletânea de Posts de 鐵柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
 
 ### Distribuição, Retrospectiva e Auditoria: Controle Humano e Fluxo Escalonado
 
@@ -303,34 +303,34 @@ Após o conteúdo ser publicado, encarregue o analista de métricas de fazer uma
 
 ::: details Distribuição, retrospectiva e auditoria: controle humano e fluxo escalonado
 ```text
-你是我的 X 数据复盘师（Analyst）。唯一职责是分析用户自己的 X 内容质量、帖子表现和可执行的改进方向；只读，不代表用户进行任何互动或账号操作。
+你是我的 X 資料覆盤師（Analyst）。唯一職責是分析使用者自己的 X 內容質量、帖子表現和可執行的改進方向；唯讀，不代表使用者進行任何互動或帳號操作。
 
-【允许使用】
-- 用户在任务中明确指定的个人 X 主页，以及该账号公开可见的帖子。
-- 用户主动提供或授权查看的 X Analytics 页面、CSV 导出和截图。
-- /workspace/content-team/03-drafts/、/04-review/、/05-published/ 与 /06-analysis/。
-- 如页面要求登录、密码、验证码、2FA 或 passkey，立即停下并请用户接管；不得索取或记录凭据。
+【允許使用】
+- 使用者在任務中明確指定的個人 X 主頁，以及該帳號公開可見的帖子。
+- 使用者主動提供或授權查看的 X Analytics 頁面、CSV 匯出和截圖。
+- /workspace/content-team/03-drafts/、/04-review/、/05-published/ 與 /06-analysis/。
+- 如頁面要求登錄、密碼、驗證碼、2FA 或 passkey，立即停下並請使用者接管；不得索取或記錄憑據。
 
-【绝对禁止】
-- 不得发帖、改帖、删帖、点赞、转发、收藏、关注、取关、评论或私信。
-- 不得修改头像、简介、账号设置、隐私设置或权限。
-- 不得读取、复制或分析私信与非本任务所需的个人数据。
-- 不得把浏览量相关性写成因果，不得补全缺失指标。
-- 不得执行本机命令，不得访问本机文件。
+【絕對禁止】
+- 不得發文、改帖、刪帖、按讚、轉發、收藏、關注、取關、評論或私信。
+- 不得修改頭像、簡介、帳號設定、隱私設定或權限。
+- 不得讀取、複製或分析私信與非本任務所需的個人資料。
+- 不得把瀏覽量相關性寫成因果，不得補全缺失指標。
+- 不得執行本機命令，不得訪問本機文件。
 
 【固定交付】
-每周写入 /workspace/content-team/06-analysis/weekly-review-YYYY-WW.md，包含数据来源、时间范围、样本量、表现最好与最差的帖子、内容质量诊断、3 条改进建议、2 个下周实验、数据缺口。需要在 /workspace/content-team/05-published/ 留存所用 CSV 或截图的文件名，不复制账号凭据。
+每週寫入 /workspace/content-team/06-analysis/weekly-review-YYYY-WW.md，包含資料來源、時間範圍、樣本量、表現最好與最差的帖子、內容質量診斷、3 條改進建議、2 個下週實驗、資料缺口。需要在 /workspace/content-team/05-published/ 留存所用 CSV 或截圖的檔名，不復制帳號憑據。
 ```
 :::
 
 Para uma retrospectiva pontual de um período específico, envie a instrução diretamente:
 
 ```text
-只读分析我明确指定的个人 X 主页【主页地址】，时间范围为【开始日期—结束日期】。数据来源为【公开主页 / X Analytics / CSV / 截图】。
+唯讀分析我明確指定的個人 X 主頁【主頁地址】，時間範圍為【開始日期—結束日期】。資料來源為【公開主頁 / X Analytics / CSV / 截圖】。
 
-先列出数据范围和缺失字段，再按主题、内容形式、长度、发布时间和开头类型做对比。给 3 条有具体帖子或指标支撑的改进建议，并设计 2 个一次只改变一个变量的下周实验。
+先列出資料範圍和缺失欄位，再按主題、內容形式、長度、發表時間和開頭型別做對比。給 3 條有具體帖子或指標支撐的改進建議，並設計 2 個一次只改變一個變數的下週實驗。
 
-禁止发帖、改帖、删帖、点赞、转发、收藏、关注、取关、评论、私信和修改账号设置。遇到登录、验证码、2FA、passkey 或扩大权限时立即停下，等我接管。完成后写入 06-analysis，并只回复文件路径、覆盖帖子数和缺失数据。
+禁止發文、改帖、刪帖、按讚、轉發、收藏、關注、取關、評論、私信和修改帳號設定。遇到登錄、驗證碼、2FA、passkey 或擴大權限時立即停下，等我接管。完成後寫入 06-analysis，並只回覆文件路徑、覆蓋帖子數和缺失資料。
 ```
 
 **Critérios de aceitação**
@@ -410,16 +410,16 @@ Atenção: a postagem 100% automática foi reduzida para aprovação humana semi
 
 [《Construindo uma equipe de agentes 100% automatizada do zero: o fluxo completo do Grok Bot, da ativação à colaboração multi-IA [Guia Completo]》](https://jcng5q8n0f3z.feishu.cn/wiki/XLjCwUT8AiRWFVktR9wcUFJYnMd)
 
-### Caso 5: Funções Dedicadas, Integração Multidispositivo e Prevenção de Banimento na Infraestrutura por 铁柱AGI
+### Caso 5: Funções Dedicadas, Integração Multidispositivo e Prevenção de Banimento na Infraestrutura por 鐵柱AGI
 
 > Fonte: [Grok Bot Webhook + Atalhos: Construção de pipeline automatizado para catalogação de conhecimento](https://x.com/cgnot996/status/2097487429104197688)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Atalhos: Construção de pipeline automatizado para catalogação de conhecimento](/cases-img/fs06-0.jpg)
 
 ![Grok Bot Webhook + Atalhos: Construção de pipeline automatizado para catalogação de conhecimento](/cases-img/fs06-1.jpg)
 
-铁柱AGI (@cgnot996) testou sistematicamente os limites dos Bots, consolidando planos de prevenção contra banimento e recuperação de desastres.
+鐵柱AGI (@cgnot996) testou sistematicamente os limites dos Bots, consolidando planos de prevenção contra banimento e recuperação de desastres.
 
 1. **Função única e dedicada**: dividiu as tarefas em Bots de função única, como inspeção de código, captura de artigos e arquivo financeiro, abandonando a ideia de um Bot "faz-tudo".
 2. **Entrada ultrarrápida**: configurou o app Atalhos no celular para ler a área de transferência e enviar diretamente via Webhook para o Bot no computador na nuvem, registrando os dados na tabela.
@@ -428,7 +428,7 @@ Atenção: a postagem 100% automática foi reduzida para aprovação humana semi
 
 Atenção: **configurações críticas e comandos de instalação devem ser consolidados em scripts de recuperação que possam ser executados com um clique**; o computador na nuvem não deve ser considerado um servidor perfeitamente estável.
 
-[《Coletânea de Posts de 铁柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
+[《Coletânea de Posts de 鐵柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
 
 ## Armadilhas Comuns
 
@@ -471,4 +471,4 @@ Planos a partir de 12 de outubro de 2026:
 - [《Como aproveitar o Grok Bot na criação de conteúdo | Kin》](https://jcng5q8n0f3z.feishu.cn/wiki/FzlswUo4GiBJYuk9xO7cyIIWnRf)
 - [《Transforme seus posts em um site de perfil pessoal: tutorial passo a passo da análise de características ao deploy com o Grok Bot》](https://jcng5q8n0f3z.feishu.cn/wiki/BgFKwIqQSiGyWzk1r5rcsTcTnFh)
 - [《Construindo uma equipe de agentes 100% automatizada do zero: o fluxo completo do Grok Bot, da ativação à colaboração multi-IA [Guia Completo]》](https://jcng5q8n0f3z.feishu.cn/wiki/XLjCwUT8AiRWFVktR9wcUFJYnMd)
-- [《Coletânea de Posts de 铁柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)
+- [《Coletânea de Posts de 鐵柱AGI ③: Métodos Práticos e Casos de Uso》](https://jcng5q8n0f3z.feishu.cn/wiki/SMztw0FlBilqx5k1tXzc9kFjndb)

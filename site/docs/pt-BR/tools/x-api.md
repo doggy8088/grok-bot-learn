@@ -20,7 +20,7 @@ Copie todo o conteúdo abaixo e envie para o seu Grok Bot; ele instalará e veri
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上配置 X API 发帖（https://docs.x.com/resources/fundamentals/authentication/oauth-1-0a/pin-based-oauth），以后发帖、传图和管理推文用它。需要填密钥时请提醒我自己填，需要登录授权时把链接发给我。
+幫我在你的雲端電腦上組態 X API 發文（https://docs.x.com/resources/fundamentals/authentication/oauth-1-0a/pin-based-oauth），以後發文、傳圖和管理推文用它。需要填密鑰時請提醒我自己填，需要登錄授權時把連結發給我。
 ````
 
 </div>

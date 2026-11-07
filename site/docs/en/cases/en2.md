@@ -24,12 +24,12 @@ Here is a curated selection of 12 hands-on, long-form articles published oversea
 When preparing to build a multi-Bot collaborative workflow, **send the prompt directly to the primary Bot** to define role boundaries and execution directories.
 
 ```text
-我打算参考英文社区的工程与自动化实践，在 Grok Bot 中搭建一套多 Agent 工作流：【填入具体业务场景，例如夜间代码缺陷巡检 / 一人公司日常运营】。
-请帮我完成以下设计：
-1. 明确角色编制：列出所需 Bot 清单（包括唯一的调度入口 Chief 与各专职角色），按「记忆边界」与「审批范围」划清每个角色的职责。
-2. 规划工作目录：在云电脑 /workspace 下设计标准文件夹层次，定义状态转移文件（如 status.json、task.md），规范上下游交付物的流转格式。
-3. 设立权限人闸：区分完全可逆的自动执行动作与不可逆的报批动作，明确外部发信、代码合并、资金支付与修改生产配置的拦截规则。
-4. 优化额度消耗：为定时例程规划低频运行策略与「无新内容保持静默」机制，标出哪些批量规则计算应交由终端 Python 脚本处理。
+我打算參考英文社群的工程與自動化實踐，在 Grok Bot 中搭建一套多 Agent 工作流：【填入具體業務場景，例如夜間程式碼缺陷巡檢 / 一人公司日常運營】。
+請幫我完成以下設計：
+1. 明確角色編制：列出所需 Bot 清單（包括唯一的排程入口 Chief 與各專職角色），按「記憶邊界」與「審批範圍」劃清每個角色的職責。
+2. 規劃工作目錄：在雲端電腦 /workspace 下設計標準資料夾層次，定義狀態轉移文件（如 status.json、task.md），規範上下游交付物的流轉格式。
+3. 設立權限人閘：區分完全可逆的自動執行動作與不可逆的報批動作，明確外部發信、程式碼合併、資金支付與修改生產組態的攔截規則。
+4. 優化額度消耗：為定時例程規劃低頻執行策略與「無新內容保持靜默」機制，標出哪些批量規則計算應交由終端 Python 指令碼處理。
 ```
 
 ## Automated R&D and Engineering Ops

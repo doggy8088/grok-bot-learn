@@ -8,28 +8,28 @@
 </head>
 <body>
 <main class="page">
-  <header class="head"><h1>从轮询走向被动唤醒</h1><img class="bot" src="bots/triangle-violet.png" alt=""></header>
+  <header class="head"><h1>從輪詢走向被動喚醒</h1><img class="bot" src="bots/triangle-violet.png" alt=""></header>
   <section class="compare">
     <article class="card poll">
-      <h2>定时轮询外部网页</h2>
-      <div class="steps"><div class="step"><span class="dot">1</span><span>高频空转</span></div><div class="step"><span class="dot">2</span><span>极费额度</span></div><div class="step"><span class="dot">3</span><span>迅速耗尽整周算力</span></div></div>
+      <h2>定時輪詢外部網頁</h2>
+      <div class="steps"><div class="step"><span class="dot">1</span><span>高頻空轉</span></div><div class="step"><span class="dot">2</span><span>極費額度</span></div><div class="step"><span class="dot">3</span><span>迅速耗盡整週算力</span></div></div>
     </article>
     <div class="arrow">→</div>
     <article class="card event">
-      <h2>事件驱动唤醒 Bot</h2>
-      <div class="steps"><div class="step"><span class="dot">1</span><span>平时彻底休眠</span></div><div class="step"><span class="dot">2</span><span>外部有变化</span></div><div class="step"><span class="dot">3</span><span>再被动触发</span></div></div>
+      <h2>事件驅動喚醒 Bot</h2>
+      <div class="steps"><div class="step"><span class="dot">1</span><span>平時徹底休眠</span></div><div class="step"><span class="dot">2</span><span>外部有變化</span></div><div class="step"><span class="dot">3</span><span>再被動觸發</span></div></div>
     </article>
   </section>
-  <p class="contrast">机械判断交给本地脚本，<strong>需要动脑才叫醒大模型</strong>。</p>
+  <p class="contrast">機械判斷交給本地指令碼，<strong>需要動腦才叫醒大模型</strong>。</p>
   <section class="lower">
     <article class="card flow">
-      <h2>Webhook：差异唤醒</h2>
-      <div class="flowrow"><div class="node">定时比对<br><span class="small">网页哈希值 / PR 数</span></div><div class="chev">›</div><div class="node violet"><strong>发现实质变动</strong></div><div class="chev">›</div><div class="node">向 Webhook<br>发起 POST 调用</div><div class="chev">›</div><div class="node violet">Bot 醒来后<br>开始处置</div></div>
-      <p class="flow-note">脚本耗时几秒且不消耗 Grok 订阅额度。</p>
+      <h2>Webhook：差異喚醒</h2>
+      <div class="flowrow"><div class="node">定時比對<br><span class="small">網頁哈希值 / PR 數</span></div><div class="chev">›</div><div class="node violet"><strong>發現實質變動</strong></div><div class="chev">›</div><div class="node">向 Webhook<br>發起 POST 呼叫</div><div class="chev">›</div><div class="node violet">Bot 醒來後<br>開始處置</div></div>
+      <p class="flow-note">指令碼耗時幾秒且不消耗 Grok 訂閱額度。</p>
     </article>
     <aside class="card guard">
-      <h2>Slack：防爆额度</h2>
-      <ul><li><span class="em">必须绑定单一专属频道</span></li><li>过滤条件尽量收紧</li><li>不要监听其他频道</li><li><span class="em">严禁在公共频道监听任意消息</span></li><li>只对创建后的新消息生效</li></ul>
+      <h2>Slack：防爆額度</h2>
+      <ul><li><span class="em">必須綁定單一專屬頻道</span></li><li>過濾條件儘量收緊</li><li>不要監聽其他頻道</li><li><span class="em">嚴禁在公共頻道監聽任意訊息</span></li><li>只對建立後的新訊息生效</li></ul>
     </aside>
   </section>
 </main>

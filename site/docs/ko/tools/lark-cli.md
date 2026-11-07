@@ -21,7 +21,7 @@ Bot이 개인 자격으로 클라우드 컴퓨터에서 페이슈 문서, 표 �
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装配置飞书 CLI（https://github.com/larksuite/cli），以后操作飞书云文档、多维表格和云盘用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝組態飛書 CLI（https://github.com/larksuite/cli），以後操作飛書雲文件、多維表格和雲端硬碟用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

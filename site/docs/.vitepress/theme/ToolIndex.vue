@@ -11,12 +11,12 @@ const ui = computed(() => (data.value as any).ui)
 const tools = computed(() => (data.value as any).tools as any[])
 const cats = computed(() => (data.value as any).cats as string[])
 const skin: Record<string, string> = {
-  '编码 Agent': 'cercle-bleu',
+  '寫程式 Agent': 'cercle-bleu',
   '模型/生成': 'goutte-rose',
-  '通讯与发布': 'squircle-orange',
-  '数据抓取': 'nuage-turquoise',
-  '基础工具': 'hexagone-ambre',
-  '編碼 Agent': 'cercle-bleu',
+  '通訊與發表': 'squircle-orange',
+  '資料抓取': 'nuage-turquoise',
+  '基礎工具': 'hexagone-ambre',
+  '寫程式 Agent': 'cercle-bleu',
   '資料抓取': 'nuage-turquoise',
   '通訊與釋出': 'squircle-orange',
   '基礎工具': 'hexagone-ambre',

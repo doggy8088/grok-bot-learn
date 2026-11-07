@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>可靠的自动化</title>
+<title>可靠的自動化</title>
 <style>
   * { box-sizing: border-box; }
   html, body { width: 1200px; height: 760px; margin: 0; overflow: hidden; }
@@ -58,50 +58,50 @@
   <main class="canvas">
     <section class="heading">
       <div>
-        <h1>可靠的自动化：定时、Webhook 与事件触发</h1>
-        <p class="lead">先分清任务属于“到点必须交付”还是“等待变化发生”</p>
+        <h1>可靠的自動化：定時、Webhook 與事件觸發</h1>
+        <p class="lead">先分清任務屬於“到點必須交付”還是“等待變化發生”</p>
       </div>
       <img class="bot" src="bots/galet-encre.png" alt="">
     </section>
 
     <section class="decision">
       <article class="question">
-        <div class="eyebrow">触发器选型</div>
-        <h2>到点必须交付还是等待变化发生</h2>
-        <p>这是决定触发器选型和额度消耗的根本依据。</p>
+        <div class="eyebrow">觸發器選型</div>
+        <h2>到點必須交付還是等待變化發生</h2>
+        <p>這是決定觸發器選型和額度消耗的根本依據。</p>
       </article>
       <div class="arrow"></div>
       <article class="trigger scheduled">
-        <div class="eyebrow">到点必须交付</div>
-        <h3>定时例程</h3>
-        <p>定期产出的 SEO 日报、周度汇总、月度财务核算</p>
+        <div class="eyebrow">到點必須交付</div>
+        <h3>定時例程</h3>
+        <p>定期產出的 SEO 日報、周度彙總、月度財務核算</p>
       </article>
     </section>
 
     <section class="split">
       <article class="stage clock">
-        <div class="eyebrow">等待变化发生</div>
-        <h3>机械检查（闹钟）</h3>
-        <p>Linux cron 定时跑一个纯 Python 或 Shell 脚本。</p>
-        <p class="small">只做机械对比。绝对不要调用任何大模型。</p>
+        <div class="eyebrow">等待變化發生</div>
+        <h3>機械檢查（鬧鐘）</h3>
+        <p>Linux cron 定時跑一個純 Python 或 Shell 指令碼。</p>
+        <p class="small">只做機械對比。絕對不要呼叫任何大模型。</p>
         <span class="connector"></span>
       </article>
       <article class="stage brain">
-        <div class="eyebrow">发现数据变化</div>
-        <h3>智能判断（大脑）</h3>
-        <p>脚本向本台机器上绑定的 Webhook 发送 POST 请求，唤醒 Bot。</p>
-        <p class="small">读取增量数据，做内容分析、归纳总结并生成通知。</p>
+        <div class="eyebrow">發現資料變化</div>
+        <h3>智慧判斷（大腦）</h3>
+        <p>指令碼向本台機器上綁定的 Webhook 發送 POST 請求，喚醒 Bot。</p>
+        <p class="small">讀取增量資料，做內容分析、歸納總結並生成通知。</p>
       </article>
     </section>
 
     <section class="bottom">
       <article class="rule">
-        <div class="eyebrow">选型原则</div>
-        <h3>只有出现新数据才需要处理的任务，一律改用 Webhook 或第三方事件驱动。</h3>
+        <div class="eyebrow">選型原則</div>
+        <h3>只有出現新資料才需要處理的任務，一律改用 Webhook 或第三方事件驅動。</h3>
       </article>
       <article class="rule safe">
-        <div class="eyebrow">安全人闸</div>
-        <h3>对于不可逆动作，必须强制设为手动审批。</h3>
+        <div class="eyebrow">安全人閘</div>
+        <h3>對於不可逆動作，必須強制設為手動審批。</h3>
       </article>
     </section>
   </main>

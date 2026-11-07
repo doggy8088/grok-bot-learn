@@ -20,7 +20,7 @@ Copy the entire text below and send it to your Grok Bot. It will automatically i
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上装好 Claude Code（https://code.claude.com/docs/en/setup），以后阅读代码库和多文件修改用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上裝好 Claude Code（https://code.claude.com/docs/en/setup），以後閱讀程式碼庫和多文件修改用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>
