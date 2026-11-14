@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1200, initial-scale=1">
-<title>更新、恢复与重置</title>
+<title>更新、恢復與重置</title>
 <style>
 *{box-sizing:border-box}
 html,body{width:1200px;height:760px;margin:0;overflow:hidden}
@@ -39,52 +39,52 @@ h1{margin:0;font-size:40px;line-height:1.18;letter-spacing:-1.5px;font-weight:76
 <body>
 <main class="page">
   <header class="hero">
-    <h1>更新、恢复与重置</h1>
+    <h1>更新、恢復與重置</h1>
     <img class="bot" src="bots/galet-encre.png" alt="">
   </header>
   <section class="lead">
     <span class="lead-mark"></span>
-    <p>同一账号下所有 Bot 共用同一台虚拟机，共享 /workspace 目录与系统进程。</p>
+    <p>同一帳號下所有 Bot 共用同一台虛擬機器，共享 /workspace 目錄與系統行程。</p>
   </section>
-  <section class="cards" aria-label="三种操作的区别">
+  <section class="cards" aria-label="三種操作的區別">
     <article class="card update">
       <h2>更新（Update）</h2>
-      <p class="mechanism">升级环境镜像。分软件更新和计算机更新两类</p>
+      <p class="mechanism">升級環境鏡像。分軟體更新和電腦更新兩類</p>
       <div class="rule"></div>
       <div class="pair">
-        <div class="line"><span class="key">保留</span><span class="value">软件更新保留全部；计算机更新保留机器人、文件与登录信息</span></div>
-        <div class="line"><span class="key">丢失</span><span class="value">软件更新无丢失；计算机更新移除全局应用和软件包</span></div>
+        <div class="line"><span class="key">保留</span><span class="value">軟體更新保留全部；電腦更新保留機器人、文件與登錄資訊</span></div>
+        <div class="line"><span class="key">丟失</span><span class="value">軟體更新無丟失；電腦更新移除全域應用和軟體套件</span></div>
       </div>
     </article>
     <article class="card recover">
       <h2>Recover</h2>
-      <p class="mechanism">基于已存数据在最新镜像建新机，先尝试连接旧机存数据</p>
+      <p class="mechanism">基於已存資料在最新鏡像建新機，先嚐試連線舊機存資料</p>
       <div class="rule"></div>
       <div class="pair">
-        <div class="line"><span class="key">保留</span><span class="value">已保存的机器人、文件与登录信息</span></div>
-        <div class="line"><span class="key">丢失</span><span class="value">全局应用和软件包；旧机连不上时，未同步的修改会丢</span></div>
+        <div class="line"><span class="key">保留</span><span class="value">已保存的機器人、文件與登錄資訊</span></div>
+        <div class="line"><span class="key">丟失</span><span class="value">全域應用和軟體套件；舊機連不上時，未同步的修改會丟</span></div>
       </div>
     </article>
     <article class="card reset">
       <h2>Reset</h2>
-      <p class="mechanism">直接按最近保存的数据建新机，中断正在运行的工作</p>
+      <p class="mechanism">直接按最近保存的資料建新機，中斷正在執行的工作</p>
       <div class="rule"></div>
       <div class="pair">
-        <div class="line"><span class="key">保留</span><span class="value">已保存的机器人、文件与登录信息</span></div>
-        <div class="line"><span class="key">丢失</span><span class="value">全局应用和软件包；未同步的修改会丢</span></div>
+        <div class="line"><span class="key">保留</span><span class="value">已保存的機器人、文件與登錄資訊</span></div>
+        <div class="line"><span class="key">丟失</span><span class="value">全域應用和軟體套件；未同步的修改會丟</span></div>
       </div>
     </article>
   </section>
   <section class="notice">
     <article class="panel">
-      <h3>对话记录存在云端</h3>
-      <p>对话记录存在云端，机器重置或误删文件都不影响。</p>
-      <p>全局安装的应用包、node_modules 与 Python 虚拟环境不会被官方保存。</p>
+      <h3>對話記錄存在雲端</h3>
+      <p>對話記錄存在雲端，機器重置或誤刪文件都不影響。</p>
+      <p>全域安裝的應用包、node_modules 與 Python 虛擬環境不會被官方保存。</p>
     </article>
     <article class="panel warn">
-      <h3>虚拟机卡死或响应异常时</h3>
-      <p>属于网络波动，稍等后点 Retry。<span class="strong">重连期间文件不丢，严禁在这个阶段点 Reset。</span></p>
-      <p>重启客户端。检查更新。尝试恢复。前四步无效再点 Reset。</p>
+      <h3>虛擬機器卡死或回應例外時</h3>
+      <p>屬於網路波動，稍等後點 Retry。<span class="strong">重連期間文件不丟，嚴禁在這個階段點 Reset。</span></p>
+      <p>重啟客戶端。檢查更新。嘗試恢復。前四步無效再點 Reset。</p>
     </article>
   </section>
 </main>

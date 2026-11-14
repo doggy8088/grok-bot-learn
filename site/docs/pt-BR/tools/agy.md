@@ -20,7 +20,7 @@ Copie todo o conteúdo abaixo e envie para o seu Grok Bot. Ele fará a instalaç
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装配置 Antigravity CLI（https://antigravity.google/docs/getting-started/），以后视频理解、长文写作与代码修改用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝組態 Antigravity CLI（https://antigravity.google/docs/getting-started/），以後影片理解、長文寫作與程式碼修改用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

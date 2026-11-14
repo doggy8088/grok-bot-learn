@@ -1,138 +1,138 @@
-# 第 20 章 可靠的自动化：定时、Webhook 与事件触发
+# 第 20 章 可靠的自動化：定時、Webhook 與事件觸發
 
-Routine 每天醒几十次只回“今日无变化”，额度照扣。**任务缺乏规范极易静默出错**。
-- 时区偏差（早 9 点跑在凌晨 3 点）
-- 周期误判（默认工作日导致周末漏网）
-- 缺少兜底（报错顺着空数据乱改线上）
+Routine 每天醒幾十次只回“今日無變化”，額度照扣。**任務缺乏規範極易靜默出錯**。
+- 時區偏差（早 9 點跑在凌晨 3 點）
+- 週期誤判（預設工作日導致週末漏網）
+- 缺少兜底（報錯順著空資料亂改線上）
 
-**两段式架构配 Linux cron 能砍掉 80% 以上空转**。写入边界合同与安全人闸，打通快捷指令和 X 事件流，自动化才能稳定省钱。
+**兩段式架構配 Linux cron 能砍掉 80% 以上空轉**。寫入邊界合同與安全人閘，打通快捷指令和 X 事件流，自動化才能穩定省錢。
 
-## 触发器选型：到点交付还是等待变化
+## 觸發器選型：到點交付還是等待變化
 
-先分清是到点交差还是等新数据。**Bot 与 Grok、Cursor 共享每周额度池**，高频轮询几天就耗尽。
+先分清是到點交差還是等新資料。**Bot 與 Grok、Cursor 共享每週額度池**，高頻輪詢幾天就耗盡。
 
-### 订阅与配额限制
+### 訂閱與配額限制
 
-The X Subscription（2026-10-12）中 Plus 无 Bot，支持档为 Premium（$30/月或$300/年，4x）、Super（$100/月或$1000/年，15x）、Ultra（$200/月或$2000/年，50x）。
+The X Subscription（2026-10-12）中 Plus 無 Bot，支援檔為 Premium（$30/月或$300/年，4x）、Super（$100/月或$1000/年，15x）、Ultra（$200/月或$2000/年，50x）。
 
-单 Bot 限 50 个 Routine，记录留 20 次，**定时最短间隔 5 分钟**。
+單 Bot 限 50 個 Routine，記錄留 20 次，**定時最短間隔 5 分鐘**。
 
-### 触发方式与选型
+### 觸發方式與選型
 
-- 定时例程：到点无论有无数据均计费，适合固定日报。
-- Webhook：平时零消耗，**仅限带 Bearer 密钥的 POST 请求**。
-- 第三方事件（GitHub、Slack 等）：有事件才唤醒，繁忙频道易刷爆额度。
-- X 互动（回复 @bot）：无法解析视频帖，同时 @grok 与 @bot 不触发。
+- 定時例程：到點無論有無資料均計費，適合固定日報。
+- Webhook：平時零消耗，**僅限帶 Bearer 密鑰的 POST 請求**。
+- 第三方事件（GitHub、Slack 等）：有事件才喚醒，繁忙頻道易刷爆額度。
+- X 互動（回覆 @bot）：無法解析影片帖，同時 @grok 與 @bot 不觸發。
 
-**等新数据才处理，一律改用 Webhook 或第三方事件。**
+**等新資料才處理，一律改用 Webhook 或第三方事件。**
 
-## 例程设计模板：写合同而不是写头衔
+## 例程設計樣板：寫合同而不是寫頭銜
 
-提示词只写头衔容易跑崩，**生产例程必须写明执行合同**。出处见 [《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)，需备齐四要素，涵盖数据源、输出格式，以及缺失报错与人工审批策略。
+提示詞只寫頭銜容易跑崩，**生產例程必須寫明執行合同**。出處見 [《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)，需備齊四要素，涵蓋資料源、輸出格式，以及缺失報錯與人工審批策略。
 
-### 编写合同与配置例程
+### 編寫合同與組態例程
 
-1. 打开 Edit Profile，**在 Description 写入约束输入输出的合同**。
+1. 打開 Edit Profile，**在 Description 寫入約束輸入輸出的合同**。
 ```text
-负责范围：监控指定数据源并生成标准化 Markdown 摘要。
-允许读取的数据源：工作区目录下的 data/incoming/ 文件夹及指定公开 RSS 链接。
-输出格式规范：必须输出包含“标题、核心要点（最多3条）、影响评估、原始链接”的 Markdown 结构，存入 docs/daily/ 目录。
-数据异常策略：若数据源无更新或文件为空，仅在工作区追加一行日志“[时间戳] NO_NEW_DATA”，严禁编造或推测新闻内容，严禁在聊天窗口发送刷屏提示。
-权限边界：只读外部内容与本地写入。禁止调用外部发帖、转账、发送邮件或删除文件操作。
+負責範圍：監控指定資料源並生成標準化 Markdown 摘要。
+允許讀取的資料源：工作區目錄下的 data/incoming/ 資料夾及指定公開 RSS 連結。
+輸出格式規範：必須輸出包含“標題、核心要點（最多3條）、影響評估、原始連結”的 Markdown 結構，存入 docs/daily/ 目錄。
+資料例外策略：若資料源無更新或文件為空，僅在工作區追加一行記錄“[時間戳記] NO_NEW_DATA”，嚴禁編造或推測新聞內容，嚴禁在聊天視窗發送刷屏提示。
+權限邊界：唯讀外部內容與本地寫入。禁止呼叫外部發文、轉帳、發送郵件或刪除文件操作。
 ```
-2. 聊天中把工作流存为含自检逻辑的 Skill，直接发指令建定时例程。
+2. 聊天中把工作流存為含自檢邏輯的 Skill，直接發指令建定時例程。
 ```text
-每个工作日上午 8:30，运行“晨间资讯归档”Skill。如果数据源没有更新，记录日志后保持沉默。
+每個工作日上午 8:30，執行“晨間資訊歸檔”Skill。如果資料源沒有更新，記錄記錄後保持沉默。
 ```
-3. 在 Details 的“例程”列表用开关切换 Pause 或 Resume。点进面板可改 Instruction、When to run、Webhook，底部支持 Pause/Resume、Test、Edit 与 Delete routine（垃圾桶图标）。
+3. 在 Details 的“例程”列表用開關切換 Pause 或 Resume。點進面板可改 Instruction、When to run、Webhook，底部支援 Pause/Resume、Test、Edit 與 Delete routine（垃圾桶圖標）。
 
-### 上线前干跑测试
+### 上線前幹跑測試
 
-例程在云端虚拟机跑真实操作，**所有 Bot 默认共用底层运行环境且无沙箱隔离**，失控会改动真实文件。开启前先在聊天中发指令干跑验证。
+例程在雲端虛擬機器跑真實操作，**所有 Bot 預設共用底層執行環境且無沙箱隔離**，失控會改動真實文件。開啟前先在聊天中發指令幹跑驗證。
 ```text
-针对即将上线的例程“晨间资讯归档”，进行一次干跑验证：
-1. 复述你理解的执行触发条件与完整业务流程。
-2. 列出本次执行涉及读写操作的路径，以及可能产生风险的 3 个最高风险步骤。
-3. 说明如果源文件损坏或格式错误，你的具体兜底动作。
-现在不要执行任何实际写文件和网络请求操作，仅输出分析报告。
+針對即將上線的例程“晨間資訊歸檔”，進行一次幹跑驗證：
+1. 複述你理解的執行觸發條件與完整業務流程。
+2. 列出本次執行涉及讀寫操作的路徑，以及可能產生風險的 3 個最高風險步驟。
+3. 說明如果源文件損壞或格式錯誤，你的具體兜底動作。
+現在不要執行任何實際寫文件和網路請求操作，僅輸出分析報告。
 ```
 
-### 锁死安全人闸
+### 鎖死安全人閘
 
-前往 Settings 的 Custom Rules（或 Auto-review），**对不可逆动作强制设为手动审批**。
+前往 Settings 的 Custom Rules（或 Auto-review），**對不可逆動作強制設為手動審批**。
 
-| 拦截指令 | 动作范围 |
+| 攔截指令 | 動作範圍 |
 |---|---|
-| `send` / `post` | 外发消息、邮件或社媒 |
-| `buy` / `transfer` | 支付与转账接口 |
-| `delete` / `permissions` | 文件数据库删除、权限变更 |
+| `send` / `post` | 外發訊息、郵件或社媒 |
+| `buy` / `transfer` | 支付與轉帳介面 |
+| `delete` / `permissions` | 文件資料庫刪除、權限變更 |
 
-指令触发后系统会弹出审批卡停住执行，持续等待人工确认，绝不自动外发。
+指令觸發後系統會彈出審批卡停住執行，持續等待人工確認，絕不自動外發。
 
-## Webhook 接入：移动端与外部流水线打通
+## Webhook 接入：行動裝置端與外部流水線打通
 
-出处：[《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+出處：[《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
 
-### 凭证与状态
+### 憑證與狀態
 
-例程选“当 Webhook 被触发时”，**必须点 Save 才会生成地址、密钥与 Header**。v0.68.1 若卡片看不全 URL，**让 Bot 在聊天发链接**复制，密钥勿发公开群。
+例程選“當 Webhook 被觸發時”，**必須點 Save 才會生成地址、密鑰與 Header**。v0.68.1 若卡片看不全 URL，**讓 Bot 在聊天發連結**複製，密鑰勿發公開群。
 
-**返回 200 仅代表云端已启动，不代表执行完毕**。结果去聊天窗口看；非 200 检查例程是否 Paused 与密钥。
+**返回 200 僅代表雲端已啟動，不代表執行完畢**。結果去聊天視窗看；非 200 檢查例程是否 Paused 與密鑰。
 
 ### 快捷指令
 
-带分享面板（浏览器等）：
-1. 勾选“在共享表单中显示”，接收链接与文本。
-2. 用“获取 URL 内容”发 POST，请求头填 `Authorization: Bearer <key>`，JSON 体加 `content` 填快捷指令输入。
+帶分享面板（瀏覽器等）：
+1. 勾選“在共享表單中顯示”，接收連結與文本。
+2. 用“獲取 URL 內容”發 POST，請求頭填 `Authorization: Bearer <key>`，JSON 體加 `content` 填快捷指令輸入。
 
 ```text
-接收端 Bot 的配套 Instruction 模板：
-收到 Webhook 传入的 JSON 数据后，提取 content 字段中的链接。
-如果是普通网页，抓取正文，提炼核心结论与知识点。
-整理完成后，以 Markdown 格式追加写入知识库目录下的 inbox.md，包含收录时间、原文链接、核心观点与分类标签。
-处理完毕后在聊天中输出一句话确认回执。
+接收端 Bot 的配套 Instruction 樣板：
+收到 Webhook 傳入的 JSON 資料後，提取 content 欄位中的連結。
+如果是普通網頁，抓取正文，提煉核心結論與知識點。
+整理完成後，以 Markdown 格式追加寫入知識庫目錄下的 inbox.md，包含收錄時間、原文連結、核心觀點與分類標記。
+處理完畢後在聊天中輸出一句話確認回執。
 ```
 
-无分享面板（微信等）：
-1. 用“请求文本”接“运行快捷指令”转发。
-2. 绑定 iPhone 15 Pro 操作按钮或主屏幕，复制后弹窗提交。
+無分享面板（微信等）：
+1. 用“請求文本”接“執行快捷指令”轉發。
+2. 綁定 iPhone 15 Pro 操作按鈕或主螢幕，複製後彈窗提交。
 
-**大文件不能直接塞请求体**。音视频和图片先传网盘换公网 URL 再发给 Bot。
+**大文件不能直接塞請求體**。音影片和圖片先傳網盤換公網 URL 再發給 Bot。
 
-## 增量判断避免空跑：两段式检查架构
+## 增量判斷避免空跑：兩段式檢查架構
 
-巡检每次都跑大模型太费额度，**直接拆成两段**。
+巡檢每次都跑大模型太費額度，**直接拆成兩段**。
 
-1. 用 Linux 自带 cron 做机械巡检。
-2. **数据变了**再调 Webhook 叫醒 Bot 处理。
+1. 用 Linux 自帶 cron 做機械巡檢。
+2. **資料變了**再調 Webhook 叫醒 Bot 處理。
 
-出处：[《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
+出處：[《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
 
-### 1. 解耦原理：闹钟与大脑分工
+### 1. 解耦原理：鬧鐘與大腦分工
 
-Grok Bot 背后是常开的 Linux 云电脑。
+Grok Bot 背後是常開的 Linux 雲端電腦。
 
-1. **机械检查**：用 cron 跑脚本对比数据。期间**绝对不要调用任何大模型**，几秒退出不耗用量。
-2. **增量唤醒**：有变动发 POST 到本机 Webhook，唤醒 Bot 分析总结。
+1. **機械檢查**：用 cron 跑指令碼對比資料。期間**絕對不要呼叫任何大模型**，幾秒退出不耗用量。
+2. **增量喚醒**：有變動發 POST 到本機 Webhook，喚醒 Bot 分析總結。
 
-把 6 个例程中的等待类改完，耗时约 23 分钟，每周少 8 到 10 次空转，延迟从一天降到半小时内。
+把 6 個例程中的等待類改完，耗時約 23 分鐘，每週少 8 到 10 次空轉，延遲從一天降到半小時內。
 
-### 2. 虚拟机落地配置步骤
+### 2. 虛擬機器落地組態步驟
 
-1. 在 Bot 上添加一条“增量处理中心”例程，触发选 Webhook，**保存好 Webhook URL 和 Bearer 密钥**。
-2. 打开终端，在工作区建脚本 `check_update.sh`：
+1. 在 Bot 上新增一條“增量處理中心”例程，觸發選 Webhook，**保存好 Webhook URL 和 Bearer 密鑰**。
+2. 打開終端，在工作區建指令碼 `check_update.sh`：
 
-::: details 2. 虚拟机落地配置步骤
+::: details 2. 虛擬機器落地組態步驟
 ```bash
    #!/bin/bash
-   # 监测目标 API 或页面是否有增量变化，纯机械对比，严禁调用 LLM
+   # 監測目標 API 或頁面是否有增量變化，純機械對比，嚴禁呼叫 LLM
 
    TARGET_URL="https://api.example.com/v1/feed"
    STATE_FILE="/home/user/workspace/last_state.hash"
    WEBHOOK_URL="https://your-bot-webhook-url.com/api/v1/run"
    WEBHOOK_KEY="Bearer YOUR_SECRET_KEY"
 
-   # 获取最新数据的哈希值或时间戳
+   # 獲取最新資料的哈希值或時間戳記
    CURRENT_HASH=$(curl -s "$TARGET_URL" | md5sum | awk '{print $1}')
 
    if [ ! -f "$STATE_FILE" ]; then
@@ -142,116 +142,116 @@ Grok Bot 背后是常开的 Linux 云电脑。
 
    OLD_HASH=$(cat "$STATE_FILE")
 
-   # 比对是否有变化
+   # 比對是否有變化
    if [ "$CURRENT_HASH" != "$OLD_HASH" ]; then
-       echo "检测到数据更新，正在唤醒 Bot..."
+       echo "檢測到資料更新，正在喚醒 Bot..."
        echo "$CURRENT_HASH" > "$STATE_FILE"
        
-       # 叫醒 Bot 进行智能分析
+       # 叫醒 Bot 進行智慧分析
        curl -X POST "$WEBHOOK_URL" \
             -H "Authorization: $WEBHOOK_KEY" \
             -H "Content-Type: application/json" \
             -d '{"event": "data_changed", "source": "feed_monitor"}'
    else
-       # 无变化，保持沉默，零额度消耗
-       echo "无新变化，退出。"
+       # 無變化，保持沉默，零額度消耗
+       echo "無新變化，退出。"
    fi
    ```
 :::
 
-3. 终端安装并启动 cron 服务：
+3. 終端安裝並啟動 cron 服務：
 
 ```bash
    sudo apt-get update && sudo apt-get install -y cron
    sudo service cron start
    ```
 
-跑 `crontab -e` 设定时（工作日早 9 点到晚 7 点，每 30 分钟检查一次）：
+跑 `crontab -e` 設定時（工作日早 9 點到晚 7 點，每 30 分鐘檢查一次）：
 
 ```cron
    */30 9-19 * * 1-5 /bin/bash /home/user/workspace/check_update.sh >> /home/user/workspace/cron_check.log 2>&1
    ```
 
-- **客户端点“更新电脑”会重置系统**：工作区脚本虽在，但 `apt-get` 装的 cron 会被抹掉，更新后必须重装并启动一次。
-- **脚本别调大模型 API**：只做轻量检测，把判断交给模型省不下成本，开销全转去 API 计费了。
+- **客戶端點“更新電腦”會重置系統**：工作區指令碼雖在，但 `apt-get` 裝的 cron 會被抹掉，更新後必須重裝並啟動一次。
+- **指令碼別調大模型 API**：只做輕量檢測，把判斷交給模型省不下成本，開銷全轉去 API 計費了。
 
-## 第三方事件与 X 平台联动
+## 第三方事件與 X 平台聯動
 
-### Slack 触发器
+### Slack 觸發器
 
-Slack 触发器属于例程体系，用前需在账户绑定 Slack，参考[《Routines 帮助》](https://cursor.com/cn/help/grok-bot/routines)。
+Slack 觸發器屬於例程體系，用前需在帳戶綁定 Slack，參考[《Routines 幫助》](https://cursor.com/cn/help/grok-bot/routines)。
 
-- **切勿在公开频道设“收到任意消息”触发**，闲聊一天就会耗尽整周额度。
-- 仅监听 `#alerts-p0` 或 `#deploy-status` 等专属通知频道。
-- 必须带触发前缀，如 `!bot review` 或 `@bot summary`。
-- 只响应建立后产生的新消息，不追溯历史。
+- **切勿在公開頻道設“收到任意訊息”觸發**，閒聊一天就會耗盡整週額度。
+- 僅監聽 `#alerts-p0` 或 `#deploy-status` 等專屬通知頻道。
+- 必須帶觸發前綴，如 `!bot review` 或 `@bot summary`。
+- 只回應建立後產生的新訊息，不追溯歷史。
 
-### X 平台联动边界
+### X 平台聯動邊界
 
-v0.70.2 起无需绑个人账号即可搜推文。在推文下评论 @bot 会通知星标主 Bot 分流，参考[《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)。
+v0.70.2 起無需綁個人帳號即可搜推文。在推文下評論 @bot 會通知星標主 Bot 分流，參考[《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)。
 
-- 限制：无法解析视频推文；评论同时带 `@grok` 和 `@bot` 会冲突不触发。
-- 防注入：**主 Bot 仅允许做摘要、分类与入库，严禁自动发帖、点赞或改动云电脑**，所有对外动作必须退回桌面客户端人工确认。
+- 限制：無法解析影片推文；評論同時帶 `@grok` 和 `@bot` 會衝突不觸發。
+- 防注入：**主 Bot 僅允許做摘要、分類與入庫，嚴禁自動發文、按讚或改動雲端電腦**，所有對外動作必須退回桌面客戶端人工確認。
 
-## 失败兜底与容错策略
+## 失敗兜底與容錯策略
 
-接口超时或返回空数据易脑补，**Instruction 必须包含异常阻断声明**：
+介面超時或返回空資料易腦補，**Instruction 必須包含例外阻斷宣告**：
 
 ```text
-前置校验步骤：
-1. 检查抓取到的内容体积。如果内容为空、包含 HTTP 错误码（如 403、404、500）或少于 50 个字符，判定为源不可用。
-2. 源不可用时，立刻终止后续分析流程。
-3. 在 workspace/logs/routine_errors.log 中追加一行错误记录，格式：[ISO时间戳] [任务名] SOURCE_UNAVAILABLE [原因]。
-4. 不得在公开聊天窗口发送报警消息，不得使用过往缓存伪造新数据，直接以退出状态结束本次 run。
+前置校驗步驟：
+1. 檢查抓取到的內容體積。如果內容為空、包含 HTTP 錯誤碼（如 403、404、500）或少於 50 個字元，判定為源不可用。
+2. 源不可用時，立刻終止後續分析流程。
+3. 在 workspace/logs/routine_errors.log 中追加一行錯誤記錄，格式：[ISO時間戳記] [任務名] SOURCE_UNAVAILABLE [原因]。
+4. 不得在公開聊天視窗發送報警訊息，不得使用過往快取偽造新資料，直接以退出狀態結束本次 run。
 ```
 
-Webhook 异常排查：
-1. **401**：Header 查 `Authorization: Bearer <key>`，防多出空格换行或用了旧 Key。
-2. **404**：核对 URL 完整性，防桌面端误删注销。
-3. **429**：超并发上限，**必须增加重试队列与指数退避**。
-4. **未执行**：检查是否被 **Paused**，或手机端 **Active** 开关被关。
+Webhook 例外排查：
+1. **401**：Header 查 `Authorization: Bearer <key>`，防多出空格換行或用了舊 Key。
+2. **404**：核對 URL 完整性，防桌面端誤刪註銷。
+3. **429**：超平行處理上限，**必須增加重試佇列與指數退避**。
+4. **未執行**：檢查是否被 **Paused**，或手機端 **Active** 開關被關。
 
-**日志落盘防刷屏**：仅审批拦截才弹卡片通知；摘要写入 `docs/reports/YYYY-MM-DD.md`，单行日志追加到 `workspace/run.log`。
+**記錄落盤防刷屏**：僅審批攔截才彈卡片通知；摘要寫入 `docs/reports/YYYY-MM-DD.md`，單行記錄追加到 `workspace/run.log`。
 
-## 监控与日常维护
+## 監控與日常維護
 
-桌面端在 **Details**、手机端在配置文件里看例程，**Failed** 能点开看报错堆栈。
+桌面端在 **Details**、手機端在組態檔裡看例程，**Failed** 能點開看報錯堆棧。
 
-每周查 **Usage & Billing**（v0.70.2 修复了用量显示），消耗陡增说明有例程在空转或重试。
+每週查 **Usage & Billing**（v0.70.2 修復了用量顯示），消耗陡增說明有例程在空轉或重試。
 
-每周五固定花 15 分钟清理例程。
-1. 调出 `workspace/run.log` 看实际产出。
-2. 连续 7 天无增量的例程先 **Pause**。
-3. 停跑两周无依赖再 **Delete routine**，**删除不可撤销且 Webhook 同步失效**。
+每週五固定花 15 分鐘清理例程。
+1. 調出 `workspace/run.log` 看實際產出。
+2. 連續 7 天無增量的例程先 **Pause**。
+3. 停跑兩週無依賴再 **Delete routine**，**刪除不可撤銷且 Webhook 同步失效**。
 
 ## 容易踩的坑
 
-- **工作日机制**：设“每天 8 点”常被当成工作日。全天候任务**提示词必须写明“包含周六和周日”**。
-- **时区偏差**：建 Routine 先去 Settings -> Bot -> Timezone 查时区。云端默认 UTC，设 9 点会跑在深夜。
-- **加号建 Bot 失效**：侧边栏（+）新建容易卡死，不跑就**让成熟 Bot 对话派生新 Bot**。
-- **凭证未保存**：配 Webhook **必须点底部 Save 签发**，直接切走页面会导致密钥未生成。
-- **系统更新重置**：“更新电脑”（Update computer）会初始化镜像，`apt-get` 装的 cron 会丢，**更新后进终端查 cron**。
-- **密钥泄露**：别把 Webhook 密钥贴进普通聊天。误发后**立刻删消息并在例程重置**。
-- **Test 真实执行**：点 **Test** 会消耗用量并改动文件，**严禁在生产数据上测试**。
+- **工作日機制**：設“每天 8 點”常被當成工作日。全天候任務**提示詞必須寫明“包含週六和週日”**。
+- **時區偏差**：建 Routine 先去 Settings -> Bot -> Timezone 查時區。雲端預設 UTC，設 9 點會跑在深夜。
+- **加號建 Bot 失效**：側邊欄（+）新建容易卡死，不跑就**讓成熟 Bot 對話派生新 Bot**。
+- **憑證未保存**：配 Webhook **必須點底部 Save 簽發**，直接切走頁面會導致密鑰未生成。
+- **系統更新重置**：“更新電腦”（Update computer）會初始化鏡像，`apt-get` 裝的 cron 會丟，**更新後進終端查 cron**。
+- **密鑰洩露**：別把 Webhook 密鑰貼進普通聊天。誤發後**立刻刪訊息並在例程重置**。
+- **Test 真實執行**：點 **Test** 會消耗用量並改動文件，**嚴禁在生產資料上測試**。
 
-## 做完怎么验收
+## 做完怎麼驗收
 
-1. 桌面端看 When to run 里的英文计划（如“Every day at 8:00 AM CST”），对准本地时区与周末。
-2. 新例程等下个周期才跑，看 Next run 时间准不准。
-3. 把数据源改名或留空，点 Test 跑一次，确认输出“数据源异常”日志且平稳停住，没瞎编信息。
-4. 注入发邮件、发帖或删目录指令，**确认操作被拦截并弹卡片**，没直接向外发包。
-5. 终端用 curl 向 Webhook 发 POST 请求：
+1. 桌面端看 When to run 裡的英文計劃（如“Every day at 8:00 AM CST”），對準本地時區與週末。
+2. 新例程等下個週期才跑，看 Next run 時間準不準。
+3. 把資料源改名或留空，點 Test 跑一次，確認輸出“資料源例外”記錄且平穩停住，沒瞎編資訊。
+4. 注入發郵件、發文或刪目錄指令，**確認操作被攔截並彈卡片**，沒直接向外發包。
+5. 終端用 curl 向 Webhook 發 POST 請求：
 ```bash
    curl -i -X POST "你的_WEBHOOK_URL" \
         -H "Authorization: Bearer 你的_KEY" \
         -H "Content-Type: application/json" \
         -d '{"test": "ping"}'
    ```
-检查 **1 秒内收到 200 状态码**，30 秒内客户端里 Bot 变 Running 并输出回执与结构化结果。
+檢查 **1 秒內收到 200 狀態碼**，30 秒內客戶端裡 Bot 變 Running 並輸出回執與結構化結果。
 
-## 延伸阅读
+## 延伸閱讀
 
-- 官方文档：[《Cursor Help: Routines》](https://cursor.com/cn/help/grok-bot/routines)
-- 社区原文：[《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
-- 社区原文：[《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
-- 社区原文：[《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
+- 官方文件：[《Cursor Help: Routines》](https://cursor.com/cn/help/grok-bot/routines)
+- 社群原文：[《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
+- 社群原文：[《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+- 社群原文：[《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)

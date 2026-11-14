@@ -1,41 +1,41 @@
-# 本地错别字 / 病句轻扫候选（SAMPLE_TYPOS）
+# 本地錯別字 / 病句輕掃候選（SAMPLE_TYPOS）
 
-- 时间：2026-10-29（Asia/Singapore）
-- 范围：SOURCE_PAGES.tsv 全部 md + `theme/{tools,bots,ecosystem,changelog}.json` + `seo.json`
-- 原则：只记高置信；第三方英文原标题中的 `GrokBot` 不改
-- 约束：本轮只写报告，未改真源
+- 時間：2026-10-29（Asia/Singapore）
+- 範圍：SOURCE_PAGES.tsv 全部 md + `theme/{tools,bots,ecosystem,changelog}.json` + `seo.json`
+- 原則：只記高置信；第三方英文原標題中的 `GrokBot` 不改
+- 約束：本輪只寫報告，未改真源
 
-## 高置信候选
+## 高置信候選
 
-| 置信 | 文件 | 原文片段 | 建议 | 说明 |
+| 置信 | 文件 | 原文片段 | 建議 | 說明 |
 |---|---|---|---|---|
-| 中 | `site/docs/.vitepress/theme/bots.json` | `给每个Bot配独立飞书机器人` / `给每个Bot都配上独立身份` | `每个 Bot`（Bot 前加空格） | 中文文案产品名空格规范；非错别字，偏体例 |
-| 中 | `site/docs/.vitepress/theme/bots.json` | `定期把所有Bot的设定` / `你各个Bot的心血` / `所有Bot的家底` | `所有 Bot` / `各个 Bot` | 同上 |
+| 中 | `site/docs/.vitepress/theme/bots.json` | `給每個Bot配獨立飛書機器人` / `給每個Bot都配上獨立身份` | `每個 Bot`（Bot 前加空格） | 中文文案產品名空格規範；非錯別字，偏體例 |
+| 中 | `site/docs/.vitepress/theme/bots.json` | `定期把所有Bot的設定` / `你各個Bot的心血` / `所有Bot的家底` | `所有 Bot` / `各個 Bot` | 同上 |
 
-## 已扫未命中（高置信规则）
+## 已掃未命中（高置信規則）
 
-| 规则 | 结果 |
+| 規則 | 結果 |
 |---|---|
-| `登陆`（应为登录） | 清单 md / 目标 JSON：**未命中** |
-| `帐号`（应为账号） | **未命中** |
+| `登陸`（應為登錄） | 清單 md / 目標 JSON：**未命中** |
+| `帳號`（應為帳號） | **未命中** |
 | `部份` | **未命中** |
-| 宜写「其他」处的 `其它` | **未命中** |
-| 正文自造 `GrokBot`（非引用外文标题） | 正文多为引用 Movez 等外文原标题/`@GrokBotRadar`；**不建议改引用标题** |
-| `的/地/得` 明显错用（跑的快、看的见等） | **未命中高置信例**；命中句均为合法「地方」「回答得清楚」等 |
-| `bot.tiezhu.si` 出现在正文/目标 JSON | **未命中**（仅 `public/_worker.js` 旧域跳转白名单，属正确保留） |
-| 付费答疑群未标「付费」 | `group.md` / `about.md` / `home.json` / `funnel.json` / `seo.json` 均已标明付费 |
+| 宜寫「其他」處的 `其它` | **未命中** |
+| 正文自造 `GrokBot`（非引用外文標題） | 正文多為引用 Movez 等外文原標題/`@GrokBotRadar`；**不建議改引用標題** |
+| `的/地/得` 明顯錯用（跑的快、看的見等） | **未命中高置信例**；命中句均為合法「地方」「回答得清楚」等 |
+| `bot.tiezhu.si` 出現在正文/目標 JSON | **未命中**（僅 `public/_worker.js` 舊域跳轉白名單，屬正確保留） |
+| 付費答疑群未標「付費」 | `group.md` / `about.md` / `home.json` / `funnel.json` / `seo.json` 均已標明付費 |
 
-## JSON 文案扫（tools / bots / ecosystem / changelog / seo）
+## JSON 文案掃（tools / bots / ecosystem / changelog / seo）
 
-| 检查项 | 结果 |
+| 檢查項 | 結果 |
 |---|---|
-| `bot.tiezhu.si` | 无 |
-| 未标付费的答疑群文案 | 无（相关文案在 funnel/home/seo，均含「付费」） |
-| 明显错字（登陆/帐号/部份/GrokBot 自造） | bots.json 仅有「每个Bot」空格体例；其余未命中 |
-| seo 覆盖 | 缺 `index.md`、`tools/deepseek-harness.md`、`xhs.md` 三钥（偏 P1/P2，非错别字） |
+| `bot.tiezhu.si` | 無 |
+| 未標付費的答疑群文案 | 無（相關文案在 funnel/home/seo，均含「付費」） |
+| 明顯錯字（登陸/帳號/部份/GrokBot 自造） | bots.json 僅有「每個Bot」空格體例；其餘未命中 |
+| seo 覆蓋 | 缺 `index.md`、`tools/deepseek-harness.md`、`xhs.md` 三鑰（偏 P1/P2，非錯別字） |
 
-## 不改清单（避免误伤）
-- 案例/引用里的英文标题 `GrokBot Agents...`、账号 `@GrokBotRadar`
-- `ShareGrokBots` 等专有方案名
-- `_worker.js` 中的 `bot.tiezhu.si` 跳转集合
+## 不改清單（避免誤傷）
+- 案例/引用裡的英文標題 `GrokBot Agents...`、帳號 `@GrokBotRadar`
+- `ShareGrokBots` 等專有方案名
+- `_worker.js` 中的 `bot.tiezhu.si` 跳轉集合
 

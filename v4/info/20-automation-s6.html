@@ -9,34 +9,34 @@
 </head>
 <body>
 <main class="canvas">
-<header class="head"><h1>失败兜底与容错策略</h1><img class="bot" src="bots/galet-rouge.png" alt=""></header>
+<header class="head"><h1>失敗兜底與容錯策略</h1><img class="bot" src="bots/galet-rouge.png" alt=""></header>
 <section class="content">
 <article class="card flow">
-<h2>源不可用时：立刻阻断</h2>
+<h2>源不可用時：立刻阻斷</h2>
 <div class="steps">
-<div class="step"><i class="num">1</i><div><strong>检查抓取内容体积</strong><span>为空、含 HTTP 错误码或少于 50 个字符</span></div></div>
-<div class="step"><i class="num">2</i><div><strong>判定为源不可用</strong><span>立刻终止后续分析流程</span></div></div>
-<div class="step"><i class="num">3</i><div><strong>追加一行错误记录</strong><span><span class="code">routine_errors.log</span>：时间戳、任务名、原因</span></div></div>
-<div class="step"><i class="num">4</i><div><strong>以退出状态结束本次 run</strong><span>不发报警，不用过往缓存伪造新数据</span></div></div>
+<div class="step"><i class="num">1</i><div><strong>檢查抓取內容體積</strong><span>為空、含 HTTP 錯誤碼或少於 50 個字元</span></div></div>
+<div class="step"><i class="num">2</i><div><strong>判定為源不可用</strong><span>立刻終止後續分析流程</span></div></div>
+<div class="step"><i class="num">3</i><div><strong>追加一行錯誤記錄</strong><span><span class="code">routine_errors.log</span>：時間戳記、任務名、原因</span></div></div>
+<div class="step"><i class="num">4</i><div><strong>以退出狀態結束本次 run</strong><span>不發報警，不用過往快取偽造新資料</span></div></div>
 </div>
-<div class="end">Instruction 必须包含异常阻断声明</div>
+<div class="end">Instruction 必須包含例外阻斷宣告</div>
 </article>
 <aside class="right">
 <section class="card webhook">
-<h2>Webhook 异常排查</h2>
+<h2>Webhook 例外排查</h2>
 <div class="issues">
-<div class="issue"><b>401</b><p>查 Authorization: Bearer &lt;key&gt;<br>防空格换行或旧 Key</p></div>
-<div class="issue"><b>404</b><p>核对 URL 完整性<br>防桌面端误删注销</p></div>
-<div class="issue"><b>429</b><p>超并发上限<br>增加重试队列与指数退避</p></div>
-<div class="issue"><b>未执行</b><p>检查是否 Paused<br>或 Active 开关被关</p></div>
+<div class="issue"><b>401</b><p>查 Authorization: Bearer &lt;key&gt;<br>防空格換行或舊 Key</p></div>
+<div class="issue"><b>404</b><p>核對 URL 完整性<br>防桌面端誤刪註銷</p></div>
+<div class="issue"><b>429</b><p>超平行處理上限<br>增加重試佇列與指數退避</p></div>
+<div class="issue"><b>未執行</b><p>檢查是否 Paused<br>或 Active 開關被關</p></div>
 </div>
 </section>
 <section class="card log">
-<h2>日志落盘防刷屏</h2>
+<h2>記錄落盤防刷屏</h2>
 <div class="log-grid">
-<div class="log-item"><b>仅审批拦截</b>才弹卡片通知</div>
-<div class="log-item"><b>摘要写入</b><span class="code">docs/reports/YYYY-MM-DD.md</span></div>
-<div class="log-item"><b>单行日志追加</b><span class="code">workspace/run.log</span></div>
+<div class="log-item"><b>僅審批攔截</b>才彈卡片通知</div>
+<div class="log-item"><b>摘要寫入</b><span class="code">docs/reports/YYYY-MM-DD.md</span></div>
+<div class="log-item"><b>單行記錄追加</b><span class="code">workspace/run.log</span></div>
 </div>
 </section>
 </aside>

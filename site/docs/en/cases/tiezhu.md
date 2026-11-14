@@ -32,7 +32,7 @@ Routine acceptance checks look at two metrics:
 Send these rules to your primary Bot to take effect:
 
 ```text
-以后长资料、排查日志和中间结果都存成 /workspace/ 下的文件，回我时只给结论和文件路径，不要把原文贴回聊天。给你自己建一个 notes.md 记录角色、正在做的事和做过的决定，每做完一段就更新。面对批量处理或长流程任务，先使用 1 到 2 个最小样本进行单步验证，完成单步后必须暂停等待我确认。
+以後長資料、排查記錄和中間結果都存成 /workspace/ 下的文件，回我時只給結論和文件路徑，不要把原文貼回聊天。給你自己建一個 notes.md 記錄角色、正在做的事和做過的決定，每做完一段就更新。面對批量處理或長流程任務，先使用 1 到 2 個最小樣本進行單步驗證，完成單步後必須暫停等待我確認。
 ```
 
 ### Unified X Subscription Explained: How New Users Should Choose, and Should Existing Subscribers Switch? A Clear Guide
@@ -62,7 +62,7 @@ Never touch these three major usage black holes:
 ### Hangzhou Offline Event Recap: How I Made Grok Bot Quota Last Longer
 
 > Source: [Hangzhou Offline Event Recap: How I Made Grok Bot Quota Last Longer](https://x.com/cgnot996/status/2096415217710461078)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Hangzhou Offline Event Recap: How I Made Grok Bot Quota Last Longer](/cases-img/fs09-1.jpg)
 
@@ -79,7 +79,7 @@ If remote login to the virtual machine lags, solve it in two steps:
 ### Squeezing More Out of Grok Bot Quotas: Extreme Optimization of Scheduled Tasks
 
 > Source: [Squeezing More Out of Grok Bot Quotas: Extreme Optimization of Scheduled Tasks](https://x.com/cgnot996/status/2107418115412046064)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Squeezing More Out of Grok Bot Quotas: Extreme Optimization of Scheduled Tasks](/cases-img/fs12-0.jpg)
 
@@ -96,7 +96,7 @@ Frequent idle runs of scheduled Routines consume massive amounts of quota. The m
 ### Beginner's Step-by-Step Guide to Ultra-Long Grok Bot Quota Endurance (Send Directly to Bot!)
 
 > Source: [Beginner's Step-by-Step Guide to Ultra-Long Grok Bot Quota Endurance (Send Directly to Bot!)](https://x.com/cgnot996/status/2108504325609984233)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Beginner's Step-by-Step Guide to Ultra-Long Grok Bot Quota Endurance (Send Directly to Bot!)](/cases-img/fs13-0.jpg)
 
@@ -130,13 +130,13 @@ Equipped with Webhooks, Grok Bot becomes a **24/7 automation node**.
 Send this prompt to **automatically generate the receiving endpoint**:
 
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面包含一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面包含一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 
 ### Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline
 
 > Source: [Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline](https://x.com/cgnot996/status/2097487429104197688)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline](/cases-img/fs06-0.jpg)
 
@@ -153,7 +153,7 @@ Ideal for Apple users archiving text, images, and videos on the go: **send and g
 ### Connecting WeChat Chat History to Grok Bot: Advanced Shortcuts Edition
 
 > Source: [Connecting WeChat Chat History to Grok Bot: Advanced Shortcuts Edition](https://x.com/cgnot996/status/2107039351519707602)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Connecting WeChat Chat History to Grok Bot: Advanced Shortcuts Edition](/cases-img/fs11-0.png)
 
@@ -171,7 +171,7 @@ This solution utilizes a "Shortcuts + temporary cloud storage + Webhook" chain.
 ### Step-by-Step Tutorial on Connecting Grok Bot Team to Feishu (with Feishu Butler Template)
 
 > Source: [Step-by-Step Tutorial on Connecting Grok Bot Team to Feishu (with Feishu Butler Template)](https://x.com/cgnot996/status/2109247903785198076)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Step-by-Step Tutorial on Connecting Grok Bot Team to Feishu (with Feishu Butler Template)](/cases-img/fs15-0.jpg)
 
@@ -206,13 +206,13 @@ Manual backups are unrealistic; **rebuilding logic must be codified**. After a d
 Assign the following prompt to an independent operations Bot to maintain the service registry and recovery scripts:
 
 ```text
-你是「虚拟机服务管家」，负责维护这台机器部署的所有第三方服务。你维护一份登记总账（REGISTRY.md 与 registry.json）、每个服务的独立恢复脚本（restore/restore-<服务>.sh，必须幂等可重复运行）、总入口 restore/restore-all.sh，以及一份排除日志和密钥的自写源码备份 service-src/。总账记录服务 ID、用途、安装方式、启停命令、健康检查命令和密钥存放路径。仓库严禁存入明文密钥。收到恢复指令后，按依赖顺序跑脚本并逐项交出健康检查验收清单。
+你是「虛擬機器服務管家」，負責維護這台機器部署的所有第三方服務。你維護一份登記總帳（REGISTRY.md 與 registry.json）、每個服務的獨立恢復指令碼（restore/restore-<服務>.sh，必須冪等可重複執行）、總入口 restore/restore-all.sh，以及一份排除記錄和密鑰的自寫原始碼備份 service-src/。總帳記錄服務 ID、用途、安裝方式、啟停命令、健康檢查命令和密鑰存放路徑。倉庫嚴禁存入明文密鑰。收到恢復指令後，按依賴順序跑指令碼並逐項交出健康檢查驗收清單。
 ```
 
 ### Grok Bot Million-Scale Evacuation: A Complete Agent System Backup Solution
 
 > Source: [Grok Bot Million-Scale Evacuation: A Complete Agent System Backup Solution](https://x.com/cgnot996/status/2098222795847315967)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Million-Scale Evacuation: A Complete Agent System Backup Solution](/cases-img/fs10-0.jpg)
 
@@ -229,7 +229,7 @@ The official platform does not offer one-click memory export. This solution invo
 ### All Tools Gone After Grok Bot VM Reset? Backup and Recovery Tutorial (with Prompts)
 
 > Source: [All Tools Gone After Grok Bot VM Reset? Backup and Recovery Tutorial (with Prompts)](https://x.com/cgnot996/status/2108874629163229628)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![All Tools Gone After Grok Bot VM Reset? Backup and Recovery Tutorial (with Prompts)](/cases-img/fs14-0.jpg)
 
@@ -271,7 +271,7 @@ Role division and pitfall avoidance reference:
 
 ### Tiezhu's Tweet Collection ②: Product Features and Version Observations
 
-Author: 铁柱AGI (Tweet Collection) | Target Audience: Technical explorers interested in underlying environment mechanisms who want to master multi-terminal orchestration and network troubleshooting
+Author: 鐵柱AGI (Tweet Collection) | Target Audience: Technical explorers interested in underlying environment mechanisms who want to master multi-terminal orchestration and network troubleshooting
 
 This collection documents the underlying evolution of Grok Bot. **All Bots under the same account share the same Linux cloud computer**, configured with 8 cores, 16GB RAM, and 128GB disk, while individual desktop sessions remain independent. The article also records methods for claiming a dedicated email address, invoking native X search, and troubleshooting outbound network issues.
 
@@ -283,7 +283,7 @@ Key takeaways for environment troubleshooting:
 
 ### Tiezhu's Tweet Collection ③: Practical Workflows and Case Studies
 
-Author: 铁柱AGI (Tweet Collection) | Target Audience: Practitioners looking for real-world implementation inspiration who want to avoid automated account bans and infinite loops
+Author: 鐵柱AGI (Tweet Collection) | Target Audience: Practitioners looking for real-world implementation inspiration who want to avoid automated account bans and infinite loops
 
 Tiezhu documents over a dozen real-world running Bot roles, including repository inspection and SEO daily reports, as well as WeChat scraping, multi-dimensional table bookkeeping, and collage API invocation, while providing a four-step implementation rule from single-role configuration to persistent disaster recovery.
 
@@ -295,7 +295,7 @@ Smooth operation requires adhering to two operational specifications:
 
 ### Tiezhu's Tweet Collection ④: Community, Ecosystem, and Competitor Comparison
 
-Author: 铁柱AGI (Tweet Collection) | Target Audience: Architects weighing multiple Agent frameworks, evaluating options, and looking for open-source resources
+Author: 鐵柱AGI (Tweet Collection) | Target Audience: Architects weighing multiple Agent frameworks, evaluating options, and looking for open-source resources
 
 Tiezhu provides a side-by-side comparison between mainstream Agent frameworks and Grok Bot. Grok Bot follows the pre-built PC route, offering an out-of-the-box cloud computer but subject to quota limits; custom rigs like Hermes offer high controllability but require self-maintenance.
 

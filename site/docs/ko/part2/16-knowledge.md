@@ -28,7 +28,7 @@
 
 **이 방안은 크롤링, 음성/영상 텍스트 변환 및 요약을 모두 Grok Bot 클라우드에서 처리하며, 스마트폰은 URL만 전송하여 트리거합니다.
 
-** 铁柱AGI(@cgnot996)는 [루틴](https://cursor.com/cn/help/grok-bot/routines)의 Webhook을 활용하여 요청 전송 즉시 실행되도록 구현했습니다.
+** 鐵柱AGI(@cgnot996)는 [루틴](https://cursor.com/cn/help/grok-bot/routines)의 Webhook을 활용하여 요청 전송 즉시 실행되도록 구현했습니다.
 
 ### 구축 단계
 1. 데스크톱 앱의 Details에서 Routines를 찾습니다. Bot에게 파싱 작업을 생성하도록 요청하고, **생성된 Webhook URL과 key를 안전하게 보관**합니다.
@@ -44,12 +44,12 @@
 3. **폐쇄형 앱을 위한 보조 입력창 추가**. WeChat은 공유 패널을 비활성화하는 경우가 많으므로, 두 번째 단축어("메뉴에서 선택" 및 "텍스트 요청" 추가)를 만들어 중계하고, iPhone 동작 버튼에 매핑하여 버튼 클릭으로 붙여넣고 전송할 수 있게 합니다.
 
 ### 검수 기준
-> 출처: [Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建](https://x.com/cgnot996/status/2097487429104197688)  
-> 작성자: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> 출처: [Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建](https://x.com/cgnot996/status/2097487429104197688)  
+> 작성자: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
-![Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建](/cases-img/fs06-0.jpg)
+![Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建](/cases-img/fs06-0.jpg)
 
-![Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建](/cases-img/fs06-1.jpg)
+![Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建](/cases-img/fs06-1.jpg)
 공유를 누른 후, **수초 내에 데스크톱 앱 상태가 실행 중(Running)으로 변경**됩니다. 작업이 완료되면 지식베이스에 표준화된 항목이 자동으로 생성됩니다.
 - 동영상 ID 또는 웹페이지 원본 단축 링크
 - 클라우드 저장 경로 및 연결된 지식 페이지
@@ -58,7 +58,7 @@
 
 《2026 나의 Obsidian 전체 공유》 등의 긴 글을 수집할 때도 자동으로 역링크를 연결해 줍니다.
 
-실제 테스트 시연은 [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)을 참고하세요.
+실제 테스트 시연은 [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)을 참고하세요.
 
 ## 사례 2: WeChat 대화 기록 및 멀티모달 자료 수집 연동
 
@@ -82,14 +82,14 @@
 데스크톱 앱 메인 대화창에 다음 프롬프트를 전송합니다:
 
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面只有一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面只有一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 
 **전송 후 Bot "루틴"에서 Webhook URL과 key를 기록해 둡니다.**
 
 #### 2. 단축어 설정
 가져오기 링크: `https://www.icloud.com/shortcuts/2b77155d7c744110a0f0f9ef1bdc42bf`
-"【分享版】发送给知识库 Bot" 단축어를 편집하여 URL, key 및 **최소 8자리의 복잡한 스토리지 ID**(예: kb7x9m2q)를 입력합니다. 헤더는 기본 내장되어 있으므로 수정할 필요가 없습니다.
+"【分享版】發送給知識庫 Bot" 단축어를 편집하여 URL, key 및 **최소 8자리의 복잡한 스토리지 ID**(예: kb7x9m2q)를 입력합니다. 헤더는 기본 내장되어 있으므로 수정할 필요가 없습니다.
 
 #### 3. WeChat 기록 수집
 - **Mac**: 다른 앱으로 통합 전달 시 해당 단축어를 선택하고 전달받기를 클릭합니다. ZIP 파일이 웹하드로 업로드되어 링크가 전달되면 Bot이 즉시 처리합니다.
@@ -104,18 +104,18 @@ Mac에서는 Raycast 또는 메뉴 막대를 사용하고, 스마트폰에서는
 
 ### 완료 기준
 
-> 출처: [微信聊天记录打通 Grok Bot：快捷指令进阶版](https://x.com/cgnot996/status/2107039351519707602)  
-> 작성자: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> 출처: [微信聊天記錄打通 Grok Bot：快捷指令進階版](https://x.com/cgnot996/status/2107039351519707602)  
+> 작성자: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
-![微信聊天记录打通 Grok Bot：快捷指令进阶版](/cases-img/fs11-0.png)
+![微信聊天記錄打通 Grok Bot：快捷指令進階版](/cases-img/fs11-0.png)
 
-![微信聊天记录打通 Grok Bot：快捷指令进阶版](/cases-img/fs11-1.jpg)
+![微信聊天記錄打通 Grok Bot：快捷指令進階版](/cases-img/fs11-1.jpg)
 
 전송 후 수초에서 십여 초 정도 대기하면 Bot이 **표준화된 접수증**을 반환합니다:
 - **그룹 대화 아카이빙**: 대화의 핵심 논점을 추출하고, 노트 및 압축 파일 경로를 제공합니다.
 - **리소스 문서화**: 13개 웹사이트를 전송하면, 자동으로 분류 및 색인을 생성하고 지식베이스 링크를 제공합니다.
 
-자세한 조작법은 [《微信聊天记录打通 Grok Bot：快捷指令进阶版》](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb)을 참고하세요.
+자세한 조작법은 [《微信聊天記錄打通 Grok Bot：快捷指令進階版》](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb)을 참고하세요.
 
 ## 사례 3: Grok Bot을 WeChat에 직접 연동하여 양방향 제어하기
 
@@ -141,38 +141,38 @@ Kin은 Grok Bot을 WeChat에 연동하여 **스마트폰으로 메시지를 보�
 ### 진행 방법: 단계별 실습 가이드 및 전체 프롬프트
 
 1. PC 데스크톱 메인 대화창에 프롬프트를 전송하고, 「微信下旨入口」 루틴이 생성될 때까지 기다립니다.
-::: details 怎么做：手把手操作步骤与完整提示词
+::: details 怎麼做：手把手操作步驟與完整提示詞
 ```text
-我想把你接到我的微信上，让我能在微信里直接给你发消息、收到你的回复。请按下面的思路做，每做完一步告诉我结果，需要我操作的地方停下来等我。
+我想把你接到我的微信上，讓我能在微信裡直接給你發訊息、收到你的回覆。請按下面的思路做，每做完一步告訴我結果，需要我操作的地方停下來等我。
 
-1、先调研方案：腾讯「微信ClawBot」插件用的是 iLink 接口（ilinkai.weixin.qq.com）。请确认怎么用 getupdates 长轮询收消息、怎么用 sendmessage 回消息。整个程序只走出站请求，不要开公网端口。
+1、先調研方案：騰訊「微信ClawBot」外掛用的是 iLink 介面（ilinkai.weixin.qq.com）。請確認怎麼用 getupdates 長輪詢收訊息、怎麼用 sendmessage 回訊息。整個程式只走出站請求，不要開公網端口。
 
-2、在 Grok Bot 里建一个由 webhook 触发的 routine，名字可以叫「微信下旨入口」。建好后告诉我去 routine 面板复制 Webhook URL 和 key，然后弹出加密弹框让我填进去，不要让我在聊天里发明文。
+2、在 Grok Bot 裡建一個由 webhook 觸發的 routine，名字可以叫「微信下旨入口」。建好後告訴我去 routine 面板複製 Webhook URL 和 key，然後彈出加密彈框讓我填進去，不要讓我在聊天裡發明文。
 
-3、在你的云端电脑上写一个小转发程序：收到微信消息后 POST 给这个 routine；你处理完以后，用一个 reply 脚本把回复发回微信，同时在我们的主聊天里同步一份。
+3、在你的雲端電腦上寫一個小轉發程式：收到微信訊息後 POST 給這個 routine；你處理完以後，用一個 reply 指令碼把回覆發回微信，同時在我們的主聊天裡同步一份。
 
-4、等我在手机微信里启用 ClawBot 插件以后，生成二维码让我用手机扫码确认，同时给我一个可以在微信里直接打开的备用链接。二维码大约 5 分钟有效。
+4、等我在手機微信裡啟用 ClawBot 外掛以後，生成二維碼讓我用手機掃碼確認，同時給我一個可以在微信裡直接打開的備用連結。二維碼大約 5 分鐘有效。
 
-5、绑定成功后，提醒我先在 ClawBot 对话里发一句话，因为回复要用到这条消息带的 context_token。
+5、綁定成功後，提醒我先在 ClawBot 對話裡發一句話，因為回覆要用到這條訊息帶的 context_token。
 
-6、规则：只认绑定的这一个人，别人的消息不处理；回复一律用纯文本，不要用 Markdown，因为微信不渲染 Markdown。
+6、規則：只認綁定的這一個人，別人的訊息不處理；回覆一律用純文字，不要用 Markdown，因為微信不渲染 Markdown。
 
-7、最后告诉我：云端电脑重启以后，怎么把转发程序重新拉起来；如果遇到错误码 -14（凭证过期），提醒我重新扫码。
+7、最後告訴我：雲端電腦重啟以後，怎麼把轉發程式重新拉起來；如果遇到錯誤碼 -14（憑證過期），提醒我重新掃碼。
 ```
 :::
-2. 루틴의 URL과 key를 복사합니다. **대화창에 평문으로 전송하는 것은 절대 금지**이며, 시크릿 카드에 입력하여 "안전하게 저장되었으며 비공개 상태로 유지됨"이라고 표시되면 됩니다. 자세한 내용은 [安全存储机密信息](https://cursor.com/cn/help/grok-bot/secrets)을 참고하세요.
+2. 루틴의 URL과 key를 복사합니다. **대화창에 평문으로 전송하는 것은 절대 금지**이며, 시크릿 카드에 입력하여 "안전하게 저장되었으며 비공개 상태로 유지됨"이라고 표시되면 됩니다. 자세한 내용은 [安全儲存機密資訊](https://cursor.com/cn/help/grok-bot/secrets)을 참고하세요.
 3. WeChat 버전은 **iOS 8.0.70 / Android 8.0.69 이상**이어야 합니다. "나" -> "설정" -> "플러그인"에서 붉은 바닷가재 아이콘의 「微信ClawBot」을 활성화합니다.
-4. "插件开好了"라고 전송한 뒤, WeChat으로 QR 코드를 스캔하여 권한을 부여합니다(QR 코드는 **5분간 유효**하며, 시간 초과 시 대체 링크 사용).
+4. "外掛開好了"라고 전송한 뒤, WeChat으로 QR 코드를 스캔하여 권한을 부여합니다(QR 코드는 **5분간 유효**하며, 시간 초과 시 대체 링크 사용).
 5. **반드시 WeChat에서 먼저 첫 메시지를 보내야 합니다**(예: "你好"). 인터페이스가 이를 통해 `context_token`을 가로채 연결을 설정해야 하며, 전송이 완료되면 통로가 공식적으로 준비됩니다.
 
 ### 완료 기준
 
-> 출처: [如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）](https://x.com/KinGao476942/status/2108132811635032316)  
+> 출처: [如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）](https://x.com/KinGao476942/status/2108132811635032316)  
 > 작성자: [Kin @KinGao476942](https://x.com/KinGao476942)
 
-![如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）](/cases-img/fs29-0.jpg)
+![如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）](/cases-img/fs29-0.jpg)
 
-![如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）](/cases-img/fs29-1.jpg)
+![如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）](/cases-img/fs29-1.jpg)
 
 WeChat에서 다음 4가지를 테스트하여 **정상 작동하는지 확인**합니다:
 1. "你好"를 전송하면 **즉시 일반 텍스트로 회신**되는지 확인.
@@ -180,7 +180,7 @@ WeChat에서 다음 4가지를 테스트하여 **정상 작동하는지 확인**
 3. 동영상 링크를 보내 다운로드 전문가 Bot을 호출하고, 정제된 텍스트가 회신되는지 확인.
 4. 데스크톱 앱에서 모든 명령어와 기록이 동기화되는지 대조 확인.
 
-실제 실습 및 스크린샷은 [《如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）｜Kin》](https://jcng5q8n0f3z.feishu.cn/wiki/LehUwOhxAijkigkkVlDclVVunQg)을 참고하세요.
+실제 실습 및 스크린샷은 [《如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）｜Kin》](https://jcng5q8n0f3z.feishu.cn/wiki/LehUwOhxAijkigkkVlDclVVunQg)을 참고하세요.
 
 ## 자주 발생하는 문제 및 주의사항
 
@@ -203,11 +203,11 @@ WeChat에서 다음 4가지를 테스트하여 **정상 작동하는지 확인**
 
 ### 공식 문서
 - [例程](https://cursor.com/cn/help/grok-bot/routines)
-- [安全存储机密信息](https://cursor.com/cn/help/grok-bot/secrets)
+- [安全儲存機密資訊](https://cursor.com/cn/help/grok-bot/secrets)
 - [使用 Grok Bot](https://cursor.com/cn/docs/grok-bot/work)
-- [方案和计费](https://cursor.com/cn/help/grok-bot/plans)
+- [方案和計費](https://cursor.com/cn/help/grok-bot/plans)
 
 ### 커뮤니티 실전 원문
-- [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
-- [《微信聊天记录打通 Grok Bot：快捷指令进阶版》](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb)
-- [《如何把 Grok Bot 接入你的微信？保姆级新手指南来了（附详细提示词）｜Kin》](https://jcng5q8n0f3z.feishu.cn/wiki/LehUwOhxAijkigkkVlDclVVunQg)
+- [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+- [《微信聊天記錄打通 Grok Bot：快捷指令進階版》](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb)
+- [《如何把 Grok Bot 接入你的微信？保姆級新手指南來了（附詳細提示詞）｜Kin》](https://jcng5q8n0f3z.feishu.cn/wiki/LehUwOhxAijkigkkVlDclVVunQg)

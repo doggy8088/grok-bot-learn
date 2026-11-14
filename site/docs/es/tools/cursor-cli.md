@@ -18,7 +18,7 @@ Copia todo el texto a continuación y envíalo a tu Grok Bot. Se instalará y ve
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上装好 Cursor CLI（https://cursor.com/docs/cli/installation），以后小范围代码修改用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上裝好 Cursor CLI（https://cursor.com/docs/cli/installation），以後小範圍程式碼修改用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

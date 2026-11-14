@@ -8,7 +8,7 @@ font = ImageFont.truetype(f, 26)
 for k in K:
     im = Image.open(f"/tmp/r-{slug}-{k}.png").convert("RGBA")
     o = Image.new("RGBA", im.size, (0, 0, 0, 0)); d = ImageDraw.Draw(o)
-    t = "铁柱AGI"; w, h = d.textbbox((0, 0), t, font=font)[2:]
+    t = "鐵柱AGI"; w, h = d.textbbox((0, 0), t, font=font)[2:]
     d.text((im.width - w - 36, im.height - h - 28), t, font=font, fill=(60, 60, 60, 120))
     Image.alpha_composite(im, o).convert("RGB").save(f"../site/docs/public/info/{slug}" + ("" if k == "top" else f"-{k}") + ".png", optimize=True)
 print("WMOK", slug)

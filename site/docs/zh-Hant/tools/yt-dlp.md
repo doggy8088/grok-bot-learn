@@ -13,12 +13,12 @@ yt-dlp 是支援上千個站點的命令列音影片下載工具，適合讓 Bot
 
 ## 發給 Bot 的提示詞
 
-複製下方整段內容傳送給你的 Grok Bot，它會在雲電腦上自動安裝並驗證，遇到登入或配置金鑰時會暫停等待你操作。
+複製下方整段內容傳送給你的 Grok Bot，它會在雲端電腦上自動安裝並驗證，遇到登入或組態金鑰時會暫停等待你操作。
 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 yt-dlp（https://github.com/yt-dlp/yt-dlp），以后批量下载音视频和提取音频用它。
+幫我在你的雲端電腦上安裝 yt-dlp（https://github.com/yt-dlp/yt-dlp），以後批量下載音影片和提取音訊用它。
 ````
 
 </div>

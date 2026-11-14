@@ -1,7 +1,7 @@
 ---
 layout: page
 sidebar: false
-title: 周边生态
+title: 周邊生態
 ---
 
 <EcoIndex />

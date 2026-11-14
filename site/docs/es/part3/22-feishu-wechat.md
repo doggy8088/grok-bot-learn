@@ -50,7 +50,7 @@ Para evitar configuraciones repetitivas, utilice el «Administrador de aplicacio
 #### Creación por lotes de aplicaciones y colaboración en chats grupales
 1. Importe la plantilla `https://x.ai/bot/AJpUlCwa8tyMX7L5UHnuY`. La tabla de registro y los scripts de recuperación se almacenan en un repositorio privado de Git, sin guardar claves en texto plano.
 2. Ordene al bot administrador generar enlaces de escaneo por lotes (**cada enlace es válido durante 1 hora**), escanee el código e introduzca la key en la ventana emergente cifrada; el administrador iniciará automáticamente el reenvío.
-3. Cree un grupo e invite a los bots, **envíe `@所有人` para confirmar e informar sobre su ámbito de competencia**; `@文章主编` invocará a `虚拟机服务管家`, y el administrador de servicios enviará la tabla de registro al grupo para completar la colaboración.
+3. Cree un grupo e invite a los bots, **envíe `@所有人` para confirmar e informar sobre su ámbito de competencia**; `@文章主編` invocará a `虛擬機器服務管家`, y el administrador de servicios enviará la tabla de registro al grupo para completar la colaboración.
 
 #### Seguridad de la interacción
 - **Validación del origen de instrucciones**: solo responde a instrucciones directas de administradores en la lista blanca dentro del grupo.
@@ -75,21 +75,21 @@ Utiliza la interfaz oficial iLink (`ilinkai.weixin.qq.com`) mediante sondeo larg
 1. **Enviar el prompt**: envíe la siguiente instrucción al bot principal desde el ordenador y espere a que se generen automáticamente los componentes de comunicación.
 ::: details Integración en tres pasos
 ```text
-我想把你接到我的微信上，让我能在微信里直接给你发消息、收到你的回复。请按下面的思路做，每做完一步告诉我结果，需要我操作的地方停下来等我。
+我想把你接到我的微信上，讓我能在微信裡直接給你發訊息、收到你的回覆。請按下面的思路做，每做完一步告訴我結果，需要我操作的地方停下來等我。
 
-1、先调研方案：腾讯「微信ClawBot」插件用的是 iLink 接口（ilinkai.weixin.qq.com）。请确认怎么用 getupdates 长轮询收消息、怎么用 sendmessage 回消息。整个程序只走出站请求，不要开公网端口。
+1、先調研方案：騰訊「微信ClawBot」外掛用的是 iLink 介面（ilinkai.weixin.qq.com）。請確認怎麼用 getupdates 長輪詢收訊息、怎麼用 sendmessage 回訊息。整個程式只走出站請求，不要開公網端口。
 
-2、在 Grok Bot 里建一个由 webhook 触发的 routine，名字可以叫「微信下旨入口」。建好后告诉我去 routine 面板复制 Webhook URL 和 key，然后弹出加密弹框让我填进去，不要让我在聊天里发明文。
+2、在 Grok Bot 裡建一個由 webhook 觸發的 routine，名字可以叫「微信下旨入口」。建好後告訴我去 routine 面板複製 Webhook URL 和 key，然後彈出加密彈框讓我填進去，不要讓我在聊天裡發明文。
 
-3、在你的云端电脑上写一个小转发程序：收到微信消息后 POST 给这个 routine；你处理完以后，用一个 reply 脚本把回复发回微信，同时在我们的主聊天里同步一份。
+3、在你的雲端電腦上寫一個小轉發程式：收到微信訊息後 POST 給這個 routine；你處理完以後，用一個 reply 指令碼把回覆發回微信，同時在我們的主聊天裡同步一份。
 
-4、等我在手机微信里启用 ClawBot 插件以后，生成二维码让我用手机扫码确认，同时给我一个可以在微信里直接打开的备用链接。二维码大约 5 分钟有效。
+4、等我在手機微信裡啟用 ClawBot 外掛以後，生成二維碼讓我用手機掃碼確認，同時給我一個可以在微信裡直接打開的備用連結。二維碼大約 5 分鐘有效。
 
-5、绑定成功后，提醒我先在 ClawBot 对话里发一句话，因为回复要用到这条消息带的 context_token。
+5、綁定成功後，提醒我先在 ClawBot 對話裡發一句話，因為回覆要用到這條訊息帶的 context_token。
 
-6、规则：只认绑定的这一个人，别人的消息不处理；回复一律用纯文本，不要用 Markdown，因为微信不渲染 Markdown。
+6、規則：只認綁定的這一個人，別人的訊息不處理；回覆一律用純文字，不要用 Markdown，因為微信不渲染 Markdown。
 
-7、最后告诉我：云端电脑重启以后，怎么把转发程序重新拉起来；如果遇到错误码 -14（凭证过期），提醒我重新扫码。
+7、最後告訴我：雲端電腦重啟以後，怎麼把轉發程式重新拉起來；如果遇到錯誤碼 -14（憑證過期），提醒我重新掃碼。
 ```
 :::
 2. **Configurar claves**: abra la rutina «Entrada de instrucciones de WeChat» del bot principal, copie el **POST to** y la **key** del Webhook y envíelos en el cuadro cifrado.
@@ -114,7 +114,7 @@ Transfiera el paquete ZIP de mensajes combinados y reenviados a un almacenamient
 
 1. Envíe el prompt en la ventana de chat de Grok Bot para crear la rutina:
 ```text
-帮我创建一个 Webhook 触发的例行任务。快捷指令会用 POST 请求发来一个 JSON，里面只有一个字段 info。info 可能是我输入的文字，也可能是一个文件下载链接，比如微信聊天记录压缩包、截图、录音。收到后：如果是链接就先下载文件再读取，压缩包先解压；然后整理出要点，收录进知识库，最后给我一份回执，写清楚收录了什么、存在哪里。
+幫我建立一個 Webhook 觸發的例行任務。快捷指令會用 POST 請求發來一個 JSON，裡面只有一個欄位 info。info 可能是我輸入的文字，也可能是一個文件下載連結，比如微信聊天記錄壓縮包、截圖、錄音。收到後：如果是連結就先下載文件再讀取，壓縮包先解壓；然後整理出要點，收錄進知識庫，最後給我一份回執，寫清楚收錄了什麼、存在哪裡。
 ```
 En la lista de Routine en la página de detalles, **copie la dirección POST to y la clave key del Webhook**.
 
@@ -188,13 +188,13 @@ El plan Plus ($8/mes) no incluye Grok Bot; únicamente lo incluyen Premium ($30/
 
 Para controlar el consumo, céntrese en dos aspectos:
 1. **Active el Webhook únicamente ante menciones directas (`@自己`) o instrucciones específicas de administradores**.
-2. Queda estrictamente prohibida la escucha集群 indiscriminada de todo el grupo; evite configurar sondeos frecuentes con intervalos cortos.
+2. Queda estrictamente prohibida la escucha叢集 indiscriminada de todo el grupo; evite configurar sondeos frecuentes con intervalos cortos.
 
 Para consultar las reglas detalladas, remítase a [Planes y facturación](https://cursor.com/cn/help/grok-bot/plans.md) y [Rutinas](https://cursor.com/cn/help/grok-bot/routines.md).
 
 ## Análisis de casos prácticos reales
 
-### Colaboración multibot en Feishu (铁柱AGI)
+### Colaboración multibot en Feishu (鐵柱AGI)
 Es posible lograr la colaboración sin IP pública; **la clave radica en utilizar conexiones persistentes salientes para evitar la apertura de puertos**.
 1. **Registro por lotes**: Autorización mediante escaneo de código con el SDK de Python de Feishu; el bot administrador lee la tabla de respaldo en Git y gestiona las claves y Webhooks de 3 bots: editor jefe, contabilidad y máquina virtual.
 2. **Confirmación de seguridad**: En el grupo solo se responde a `@自己` o `@所有人`. **Para operaciones altamente sensibles, el bot envía tarjetas con botones para autorización manual.**
@@ -214,7 +214,7 @@ El sandbox de WeChat prohíbe la transferencia directa de paquetes completos; **
 ## Cómo verificar y validar la implementación
 
 ### Feishu
-1. **Respuesta a mensajes**: Respuestas en menos de 1 segundo en chats privados; silencio ante texto ordinario en chats grupales, respuesta individual a `@文章主编` y reporte sucesivo de cada bot ante `@所有人`.
+1. **Respuesta a mensajes**: Respuestas en menos de 1 segundo en chats privados; silencio ante texto ordinario en chats grupales, respuesta individual a `@文章主編` y reporte sucesivo de cada bot ante `@所有人`.
 2. **Permisos y autorrecuperación**: Habilitación completa de los 14 permisos de eventos en el backend y soporte para autorización mediante tarjetas; si se finaliza el proceso manualmente, se reinicia automáticamente en 5 a 10 segundos.
 
 ### WeChat
@@ -231,6 +231,6 @@ El sandbox de WeChat prohíbe la transferencia directa de paquetes completos; **
 - [Guía de uso de rutinas](https://cursor.com/cn/help/grok-bot/routines) (Documentación oficial sobre configuración de rutinas, llamadas Webhook y tareas programadas)
 - [Planes y facturación](https://cursor.com/cn/help/grok-bot/plans) (Niveles de suscripción y especificaciones de uso de The X Subscription)
 - [Gestión de secretos y claves](https://cursor.com/cn/help/grok-bot/secrets) (Variables de entorno seguras y mecanismo de ventanas emergentes cifradas)
-- [«Tutorial paso a paso para la integración de Grok Bot en Feishu en equipos (con plantilla de Administrador de Feishu)»](https://jcng5q8n0f3z.feishu.cn/wiki/F2VXw4hVbirRUjk5QgFcWS0jnJg) (Artículo original del autor de la comunidad 铁柱AGI)
+- [«Tutorial paso a paso para la integración de Grok Bot en Feishu en equipos (con plantilla de Administrador de Feishu)»](https://jcng5q8n0f3z.feishu.cn/wiki/F2VXw4hVbirRUjk5QgFcWS0jnJg) (Artículo original del autor de la comunidad 鐵柱AGI)
 - [«¿Cómo integrar Grok Bot en tu WeChat? Guía paso a paso para principiantes (con prompts detallados) | Kin»](https://jcng5q8n0f3z.feishu.cn/wiki/LehUwOhxAijkigkkVlDclVVunQg) (Artículo original del autor de la comunidad Kin)
-- [«Conectar el historial de chat de WeChat con Grok Bot: Edición avanzada de Atajos»](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb) (Artículo original del autor de la comunidad 铁柱AGI)
+- [«Conectar el historial de chat de WeChat con Grok Bot: Edición avanzada de Atajos»](https://jcng5q8n0f3z.feishu.cn/wiki/IwrfwYt1ti0aDWk3YEdcGyQRnUb) (Artículo original del autor de la comunidad 鐵柱AGI)
