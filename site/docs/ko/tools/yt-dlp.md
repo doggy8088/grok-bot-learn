@@ -18,7 +18,7 @@ yt-dlp는 수천 개의 사이트를 지원하는 명령줄 오디오/비디오 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 yt-dlp（https://github.com/yt-dlp/yt-dlp），以后批量下载音视频和提取音频用它。
+幫我在你的雲端電腦上安裝 yt-dlp（https://github.com/yt-dlp/yt-dlp），以後批量下載音影片和提取音訊用它。
 ````
 
 </div>

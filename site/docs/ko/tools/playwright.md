@@ -18,7 +18,7 @@ Playwright는 마이크로소프트가 오픈소스로 공개한 자동화 라�
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 Playwright（https://playwright.dev/python/docs/intro），以后网页渲染、截图和抓取任务用它。
+幫我在你的雲端電腦上安裝 Playwright（https://playwright.dev/python/docs/intro），以後網頁渲染、截圖和抓取任務用它。
 ````
 
 </div>

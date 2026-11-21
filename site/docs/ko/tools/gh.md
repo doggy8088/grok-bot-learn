@@ -20,7 +20,7 @@ GitHub 공식 명령줄 도구로, Bot이 **클라우드 PC**에서 비공개 �
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以后管理代码仓库、推送分支和提交 PR 用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 GitHub CLI（https://github.com/cli/cli/blob/trunk/docs/install_linux.md），以後管理程式碼倉庫、推送分支和提交 PR 用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

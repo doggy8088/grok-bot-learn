@@ -18,7 +18,7 @@ Copy the entire content below and send it to your Grok Bot. It will automaticall
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装好 Node.js 与 npm（https://github.com/nvm-sh/nvm），以后运行前端项目和各类命令行工具用它。
+幫我在你的雲端電腦上安裝好 Node.js 與 npm（https://github.com/nvm-sh/nvm），以後執行前端項目和各類命令列工具用它。
 ````
 
 </div>

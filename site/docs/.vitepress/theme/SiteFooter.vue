@@ -55,7 +55,8 @@ onBeforeUnmount(() => {
         <span>{{ t.friends }}</span>
         <a v-for="f in friends" :key="f.url" :href="f.url" target="_blank" rel="noopener">{{ f.name }}</a>
       </nav>
-      <p class="tz-note">{{ t.note }}</p>
+            <p class="tz-credit">原作者：<a href="https://github.com/RongleCat/grok-bot-learn" target="_blank" rel="noopener">鐵柱AGI</a>｜繁體中文翻譯：<a href="https://www.facebook.com/will.fans/" target="_blank" rel="noopener">Will 保哥</a></p>
+<p class="tz-note">{{ t.note }}</p>
     </div>
   </footer>
 </template>
@@ -178,6 +179,21 @@ onBeforeUnmount(() => {
 }
 .tz-friends a:hover {
   color: var(--tz-c-link);
+}
+.tz-credit {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--vp-c-text-2);
+}
+.tz-credit a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.tz-credit a:hover {
+  color: #2563eb;
 }
 .tz-note {
   margin: 0;

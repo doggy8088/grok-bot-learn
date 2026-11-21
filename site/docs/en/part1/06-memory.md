@@ -34,11 +34,11 @@ Data is divided into a shared layer and a dedicated layer; see "4.6 Virtual Mach
 For the five-container model, see "Grok Bot Memory Engineering: How One Agent Learns With a Team | rari" [fs57.md](https://jcng5q8n0f3z.feishu.cn/wiki/FW0Ww6c4nivdMgkK7YncWmBent0).
 
 ```text
-实时数据源 (LIVE SOURCE)  -> 存在 Linear、Datadog、CRM、代码库或知识库里的当前事实
-团队技能 (TEAM SKILL)     -> 由 Bot 所有者维护的标准化、可重复执行的操作流程
-团队记忆 (TEAM MEMORY)    -> 经过核准的全员共享决策与稳定业务定义
-私人便签 (PRIVATE NOTE)   -> 个人专属偏好与单人工作上下文
-任务状态 (TASK STATE)     -> 当前正在执行的任务进度与临时上下文
+實時資料源 (LIVE SOURCE)  -> 存在 Linear、Datadog、CRM、程式碼庫或知識庫裡的當前事實
+團隊技能 (TEAM SKILL)     -> 由 Bot 所有者維護的標準化、可重複執行的操作流程
+團隊記憶 (TEAM MEMORY)    -> 經過核准的全員共享決策與穩定業務定義
+私人便籤 (PRIVATE NOTE)   -> 個人專屬偏好與單人工作上下文
+任務狀態 (TASK STATE)     -> 當前正在執行的任務進度與臨時上下文
 ```
 
 **Containers cannot be mixed**. Logs are discarded as they run, workflows go into skills, habits are kept in private notes, and only P0 definitions enter team memory.
@@ -59,8 +59,8 @@ Passwords and tokens must never enter memory; documents store only pointers. Che
 
 For good workflows, **save instructions as skills**:
 ```text
-将我们用于此任务的流程保存为名为“每周账户健康状况”的技能。
-包括源系统、风险定义、输出格式，以及联系客户始终需要批准这条规则。
+將我們用於此任務的流程保存為名為“每週帳戶健康狀況”的技能。
+包括源系統、風險定義、輸出格式，以及聯繫客戶始終需要批准這條規則。
 ```
 
 Three steps for **screen demonstration**:
@@ -79,7 +79,7 @@ Lauren Tan's **debugging priorities**: Eliminate root cause > Test verification 
 When multiple people share a Bot, **one person teaching it wrong affects everyone**.
 
 ```text
-观察 (OBSERVE) -> 分类 (CLASSIFY) -> 核实 (VERIFY) -> 晋升 (PROMOTE) -> 重核 (RECHECK)
+觀察 (OBSERVE) -> 分類 (CLASSIFY) -> 核實 (VERIFY) -> 晉升 (PROMOTE) -> 重核 (RECHECK)
 ```
 
 Follow five steps when writing to memory:
@@ -90,7 +90,7 @@ Follow five steps when writing to memory:
 5. **Recheck**: Re-verify with the source before major operations or after expiration.
 
 ```yaml
-claim: "对外发布 API 变更前必须完成安全评审"
+claim: "對外發表 API 變更前必須完成安全評審"
 scope: "team"
 source: "https://intranet.example/docs/launch-checklist"
 owner: "security-team"
@@ -132,11 +132,11 @@ Create an operations Bot named "Memory Steward", and back up to a private Git re
 ```text
 /workspace/
 └── bots-backup/
-    ├── charters/          <- 各 Bot 的长期规则 (如 researcher.md, writer.md)
-    ├── memories/          <- 团队共用决策与业务定义 (如 definitions.md)
+    ├── charters/          <- 各 Bot 的長期規則 (如 researcher.md, writer.md)
+    ├── memories/          <- 團隊共用決策與業務定義 (如 definitions.md)
     └── environment/
-        ├── services-ledger.md  <- 服务总账，记录工具依赖与启动命令
-        └── restore.sh          <- 虚拟机一键重置恢复脚本
+        ├── services-ledger.md  <- 服務總帳，記錄工具依賴與啟動命令
+        └── restore.sh          <- 虛擬機器一鍵重置恢復指令碼
 ```
 :::
 
@@ -150,21 +150,21 @@ When building a Bot, don't write vague introductions; **use a three-tier framewo
 
 ::: details Three-Tier Instruction Framework
 ```text
-BASE INSTRUCTIONS (基础规则，本账号所有 Bot 通用)
-- 涉及产生财务支出、向外部发送任何信息、删除文件等操作前，必须等待人工确认。
-- 当结论涉及重要业务决策时，必须调取当前权威来源进行核对，严禁单凭记忆作答。
-- 若执行受阻，用单行明确说明受阻点，禁止擅自寻找不可靠的绕行方案。
-- 阶段性工作交接结果统一写入 /workspace/shared/handoffs/ 目录。
+BASE INSTRUCTIONS (基礎規則，本帳號所有 Bot 通用)
+- 涉及產生財務支出、向外部發送任何資訊、刪除文件等操作前，必須等待人工確認。
+- 當結論涉及重要業務決策時，必須調取當前權威來源進行核對，嚴禁單憑記憶作答。
+- 若執行受阻，用單行明確說明受阻點，禁止擅自尋找不可靠的繞行方案。
+- 階段性工作交接結果統一寫入 /workspace/shared/handoffs/ 目錄。
 
-ROLE (角色职责)
-- 你的身份：每周账户健康状况审计专员。
-- 你负责的固定作业：获取客户产品用量与工单信号，标记流失或扩张迹象。
-- 验收标准：每项结论必须附带源系统监控图表或工单链接。
-- 允许操作：读取日志、检索系统指标、在共享目录生成评估报告。
-- 严禁操作：未经明确批准，绝不私自联络客户，绝不修改账户权限。
+ROLE (角色職責)
+- 你的身份：每週帳戶健康狀況審計專員。
+- 你負責的固定作業：獲取客戶產品用量與工單信號，標記流失或擴張跡象。
+- 驗收標準：每項結論必須附帶源系統監控圖表或工單連結。
+- 允許操作：讀取記錄、檢索系統指標、在共享目錄生成評估報告。
+- 嚴禁操作：未經明確批准，絕不私自聯絡客戶，絕不修改帳戶權限。
 
-CURRENT FOCUS (当前重点)
-- 本周重点核查用量环比下降超过 30% 的企业级客户名单。
+CURRENT FOCUS (當前重點)
+- 本週重點核查用量環比下降超過 30% 的企業級客戶名單。
 ```
 :::
 
@@ -173,13 +173,13 @@ Once a task runs successfully, directly **issue a command to crystallize it into
 
 ::: details Converting to Team Skills
 ```text
-请将本次执行的工作流整理并保存为团队技能，名称设为“客户流失风险排查”。
-要求包含以下内容：
-1. 触发场景与必需的前置凭据。
-2. 调取指标数据的具体步骤与判定阈值。
-3. 输出结果的格式规范（必须包含数据源链接）。
-4. 明确安全红线：向客户发送邮件或调整账户配置必须经由人工批准。
-完成后在对话中回复技能概要。
+請將本次執行的工作流整理並保存為團隊技能，名稱設為“客戶流失風險排查”。
+要求包含以下內容：
+1. 觸發場景與必需的前置憑據。
+2. 調取指標資料的具體步驟與判定閾值。
+3. 輸出結果的格式規範（必須包含資料源連結）。
+4. 明確安全紅線：向客戶發送郵件或調整帳戶組態必須經由人工批准。
+完成後在對話中回覆技能概要。
 ```
 :::
 
@@ -187,35 +187,35 @@ Once a task runs successfully, directly **issue a command to crystallize it into
 For rules approved by owners, **write them in with source and owner included**.
 
 ```text
-请为全团队记住以下判定规则：
-对于所有对外发布的 API 变更，必须在发布前检查现行上线清单，并获取安全团队的正式签字评审。
-若上线流程发生变更，以上线清单源文档为准，记忆仅作为指引。
-来源文档：https://intranet.example/docs/api-checklist
-责任人：security-team
-复核日期：2026-11-01
+請為全團隊記住以下判定規則：
+對於所有對外發表的 API 變更，必須在發表前檢查現行上線清單，並獲取安全團隊的正式簽字評審。
+若上線流程發生變更，以上線清單源文件為準，記憶僅作為指引。
+來源文件：https://intranet.example/docs/api-checklist
+責任人：security-team
+複核日期：2026-11-01
 ```
 
 ### Deploying Memory Steward
 In the "Memory Steward" Bot, **issue a command to configure an automated backup Routine**.
 
 ```text
-你是本账号的记忆管家。你的职责是定期归档全账号所有 Bot 的章程与共享记忆。
-请配置一个每周运行的例行任务（Routine）：
-1. 提取所有 Bot 当前的 Description/Instructions 规则，在 /workspace/bots-backup/charters/ 下按 Bot 名称分别保存为 .md 文件。
-2. 提取当前所有已保存的团队共用记忆，整合保存为 /workspace/bots-backup/memories/team-memory.md。
-3. 检查文件是否有更新。若有变更，自动执行 git add .、提交并推送至已配置好的私有 Git 仓库。
-4. 若 Git 推送失败，在当前对话中告警并说明报错信息；若无变更则保持静默，不要频繁推送无意义通知。
+你是本帳號的記憶管家。你的職責是定期歸檔全帳號所有 Bot 的章程與共享記憶。
+請組態一個每週執行的例行任務（Routine）：
+1. 提取所有 Bot 當前的 Description/Instructions 規則，在 /workspace/bots-backup/charters/ 下按 Bot 名稱分別保存為 .md 文件。
+2. 提取當前所有已保存的團隊共用記憶，整合保存為 /workspace/bots-backup/memories/team-memory.md。
+3. 檢查文件是否有更新。若有變更，自動執行 git add .、提交併推送至已組態好的私有 Git 倉庫。
+4. 若 Git 推送失敗，在當前對話中告警並說明報錯資訊；若無變更則保持靜默，不要頻繁推送無意義通知。
 ```
 
 ### Cleaning Up Bad Memory
 If you find that erroneous or outdated rules are being referenced, **issue commands directly to correct and clean them up**.
 
 ```text
-请检查并列出你当前记录的所有团队记忆中涉及“企业客户续约审批”的条目。
-删除其中“所有企业客户续约必须经由 VP 逐笔批准”的内容。
-该规则仅为上周特定情况下的临时特例，不是长期标准。
-从现在起，企业客户续约标准重新以财务知识库的正式文档为准：https://intranet.example/finance/renewals
-确认修改后，请向我展示修正后的相关记忆列表。
+請檢查並列出你當前記錄的所有團隊記憶中涉及“企業客戶續約審批”的條目。
+刪除其中“所有企業客戶續約必須經由 VP 逐筆批准”的內容。
+該規則僅為上週特定情況下的臨時特例，不是長期標準。
+從現在起，企業客戶續約標準重新以財務知識庫的正式文件為準：https://intranet.example/finance/renewals
+確認修改後，請向我展示修正後的相關記憶列表。
 ```
 
 ## 6.7 Classic Case Studies
@@ -258,11 +258,11 @@ See details in [fs46.md](https://jcng5q8n0f3z.feishu.cn/wiki/UGCCwisktiOC1Wk9adW
 
 To test memory boundaries, directly run the M01-M05 test cases designed by community author rari (@0xwhrrari).
 ```text
-M01 个人偏好隔离测试 -> 成员 A 在私聊中设定个性化偏好，使用成员 B 账号发起提问，确认 B 绝不继承 A 的私聊偏好。
-M02 团队规则晋升测试 -> 成员 A 提交一条经审批的团队规则并写入团队记忆，成员 B 发起任务时应生效该规则，但看不到 A 当时的私聊对话。
-M03 状态时效回源测试 -> 在团队记忆中保留一条旧状态，在源系统修改为新状态。向 Bot 提问，Bot 必须调取最新源数据，而不是采信记忆中的旧状态。
-M04 冲突自动阻断测试 -> 两个成员分别向 Bot 给出互相矛盾的业务说法。Bot 应识别出冲突并主动停止高风险操作，指出需要责任人裁决，而不是悄悄采纳最后一条说法。
-M05 共享渠道边界测试 -> 在 Slack 共享频道线程中，要求 Bot 调用某成员的个人连接器。Bot 必须正确发起审批，且回复内容只包含团队可见的脱敏结论。
+M01 個人偏好隔離測試 -> 成員 A 在私聊中設定個性化偏好，使用成員 B 帳號發起提問，確認 B 絕不繼承 A 的私聊偏好。
+M02 團隊規則晉升測試 -> 成員 A 提交一條經審批的團隊規則並寫入團隊記憶，成員 B 發起任務時應生效該規則，但看不到 A 當時的私聊對話。
+M03 狀態時效回源測試 -> 在團隊記憶中保留一條舊狀態，在源系統修改為新狀態。向 Bot 提問，Bot 必須調取最新源資料，而不是採信記憶中的舊狀態。
+M04 衝突自動阻斷測試 -> 兩個成員分別向 Bot 給出互相矛盾的業務說法。Bot 應識別出衝突並主動停止高風險操作，指出需要責任人裁決，而不是悄悄採納最後一條說法。
+M05 共享渠道邊界測試 -> 在 Slack 共享頻道執行緒中，要求 Bot 呼叫某成員的個人連線器。Bot 必須正確發起審批，且回覆內容只包含團隊可見的脫敏結論。
 ```
 Here, you **must cross-test using two different real team accounts**; a single account cannot test isolation boundaries.
 

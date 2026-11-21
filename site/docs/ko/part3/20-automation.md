@@ -35,21 +35,21 @@ The X Subscription(2026-10-12 기준)에서 Plus에는 Bot이 포함되지 않�
 
 프롬프트에 역할 직함만 적으면 실행 중 망가지기 쉽습니다. **프로덕션 Routine에는 반드시 구체적인 실행 계약을 명시해야 합니다**.
 
-출처: [《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg), 데이터 소스, 출력 형식, 결측 오류 처리 및 수동 승인 정책을 포함한 4가지 요소를 갖추어야 합니다.
+출처: [《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg), 데이터 소스, 출력 형식, 결측 오류 처리 및 수동 승인 정책을 포함한 4가지 요소를 갖추어야 합니다.
 
 ### 계약서 작성 및 Routine 구성
 
 1. **입출력을 제약하는 계약서를 Bot에게 전송하여 기억하도록 합니다.** 공유 Bot인 경우 Details의 About -> Description에 작성합니다.
 ```text
-负责范围：监控指定数据源并生成标准化 Markdown 摘要。
-允许读取的数据源：工作区目录下的 data/incoming/ 文件夹及指定公开 RSS 链接。
-输出格式规范：必须输出包含“标题、核心要点（最多3条）、影响评估、原始链接”的 Markdown 结构，存入 docs/daily/ 目录。
-数据异常策略：若数据源无更新或文件为空，仅在工作区追加一行日志“[时间戳] NO_NEW_DATA”，严禁编造或推测新闻内容，严禁在聊天窗口发送刷屏提示。
-权限边界：只读外部内容与本地写入。禁止调用外部发帖、转账、发送邮件或删除文件操作。
+負責範圍：監控指定資料源並生成標準化 Markdown 摘要。
+允許讀取的資料源：工作區目錄下的 data/incoming/ 資料夾及指定公開 RSS 連結。
+輸出格式規範：必須輸出包含“標題、核心要點（最多3條）、影響評估、原始連結”的 Markdown 結構，存入 docs/daily/ 目錄。
+資料例外策略：若資料源無更新或文件為空，僅在工作區追加一行記錄“[時間戳記] NO_NEW_DATA”，嚴禁編造或推測新聞內容，嚴禁在聊天視窗發送刷屏提示。
+權限邊界：唯讀外部內容與本地寫入。禁止呼叫外部發文、轉帳、發送郵件或刪除文件操作。
 ```
 2. 대화창에서 워크플로를 자가 점검 로직이 포함된 Skill로 저장한 뒤, 직접 명령을 보내 스케줄 Routine을 생성합니다.
 ```text
-每个工作日上午 8:30，运行“晨间资讯归档”Skill。如果数据源没有更新，记录日志后保持沉默。
+每個工作日上午 8:30，執行“晨間資訊歸檔”Skill。如果資料源沒有更新，記錄記錄後保持沉默。
 ```
 3. Details의 "Routine" 목록에서 스위치로 Pause 또는 Resume을 전환합니다.
 
@@ -59,11 +59,11 @@ The X Subscription(2026-10-12 기준)에서 Plus에는 Bot이 포함되지 않�
 
 Routine은 클라우드 가상 머신에서 실제 작업을 수행하며, **모든 Bot은 기본적으로 기본 런타임 환경을 공유하고 샌드박스 격리가 없으므로**, 통제를 벗어나면 실제 파일이 변경될 수 있습니다. 활성화하기 전에 먼저 대화창에서 명령을 보내 드라이 런으로 검증하세요.
 ```text
-针对即将上线的例程“晨间资讯归档”，进行一次干跑验证：
-1. 复述你理解的执行触发条件与完整业务流程。
-2. 列出本次执行涉及读写操作的路径，以及可能产生风险的 3 个最高风险步骤。
-3. 说明如果源文件损坏或格式错误，你的具体兜底动作。
-现在不要执行任何实际写文件和网络请求操作，仅输出分析报告。
+針對即將上線的例程“晨間資訊歸檔”，進行一次幹跑驗證：
+1. 複述你理解的執行觸發條件與完整業務流程。
+2. 列出本次執行涉及讀寫操作的路徑，以及可能產生風險的 3 個最高風險步驟。
+3. 說明如果源文件損壞或格式錯誤，你的具體兜底動作。
+現在不要執行任何實際寫文件和網路請求操作，僅輸出分析報告。
 ```
 
 ### 안전 게이트 설정
@@ -80,7 +80,7 @@ Settings의 Custom Rules(또는 Auto-review)로 이동하여, **되돌릴 수 �
 
 ## Webhook 연동: 모바일 및 외부 파이프라인 연결
 
-출처: [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+출처: [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
 
 ### 자격 증명 및 상태
 
@@ -95,11 +95,11 @@ Routine에서 "Webhook이 트리거될 때"를 선택한 후, **반드시 Save�
 2. "URL 콘텐츠 가져오기"로 POST 요청을 보내며, 요청 헤더에는 `Authorization: Bearer <key>`를 입력하고 JSON 본문에는 `content` 필드를 추가하여 단축어 입력을 넣습니다.
 
 ```text
-接收端 Bot 的配套 Instruction 模板：
-收到 Webhook 传入的 JSON 数据后，提取 content 字段中的链接。
-如果是普通网页，抓取正文，提炼核心结论与知识点。
-整理完成后，以 Markdown 格式追加写入知识库目录下的 inbox.md，包含收录时间、原文链接、核心观点与分类标签。
-处理完毕后在聊天中输出一句话确认回执。
+接收端 Bot 的配套 Instruction 樣板：
+收到 Webhook 傳入的 JSON 資料後，提取 content 欄位中的連結。
+如果是普通網頁，抓取正文，提煉核心結論與知識點。
+整理完成後，以 Markdown 格式追加寫入知識庫目錄下的 inbox.md，包含收錄時間、原文連結、核心觀點與分類標記。
+處理完畢後在聊天中輸出一句話確認回執。
 ```
 
 공유 시트 미지원 앱(WeChat 등):
@@ -117,7 +117,7 @@ Routine에서 "Webhook이 트리거될 때"를 선택한 후, **반드시 Save�
 1. Linux 내장 cron을 사용하여 기계적인 정기 검사를 수행합니다.
 2. **데이터가 변경되었을 때만** Webhook을 호출하여 Bot을 깨워 처리합니다.
 
-출처: [《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
+출처: [《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)。
 
 ### 1. 디커플링 원리: 알람 시계와 두뇌의 역할 분담
 
@@ -136,14 +136,14 @@ Grok Bot의 이면에는 항상 켜져 있는 Linux 클라우드 컴퓨터가 �
 ::: details 2. 가상 머신 적용 설정 단계
 ```bash
    #!/bin/bash
-   # 监测目标 API 或页面是否有增量变化，纯机械对比，严禁调用 LLM
+   # 監測目標 API 或頁面是否有增量變化，純機械對比，嚴禁呼叫 LLM
 
    TARGET_URL="https://api.example.com/v1/feed"
    STATE_FILE="/home/user/workspace/last_state.hash"
    WEBHOOK_URL="https://your-bot-webhook-url.com/api/v1/run"
    WEBHOOK_KEY="Bearer YOUR_SECRET_KEY"
 
-   # 获取最新数据的哈希值或时间戳
+   # 獲取最新資料的哈希值或時間戳記
    CURRENT_HASH=$(curl -s "$TARGET_URL" | md5sum | awk '{print $1}')
 
    if [ ! -f "$STATE_FILE" ]; then
@@ -153,19 +153,19 @@ Grok Bot의 이면에는 항상 켜져 있는 Linux 클라우드 컴퓨터가 �
 
    OLD_HASH=$(cat "$STATE_FILE")
 
-   # 比对是否有变化
+   # 比對是否有變化
    if [ "$CURRENT_HASH" != "$OLD_HASH" ]; then
-       echo "检测到数据更新，正在唤醒 Bot..."
+       echo "檢測到資料更新，正在喚醒 Bot..."
        echo "$CURRENT_HASH" > "$STATE_FILE"
        
-       # 叫醒 Bot 进行智能分析
+       # 叫醒 Bot 進行智慧分析
        curl -X POST "$WEBHOOK_URL" \
             -H "Authorization: $WEBHOOK_KEY" \
             -H "Content-Type: application/json" \
             -d '{"event": "data_changed", "source": "feed_monitor"}'
    else
-       # 无变化，保持沉默，零额度消耗
-       echo "无新变化，退出。"
+       # 無變化，保持沉默，零額度消耗
+       echo "無新變化，退出。"
    fi
    ```
 :::
@@ -201,7 +201,7 @@ Slack 트리거는 Routine 시스템에 속하며, 사용 전에 계정에서 Sl
 
 v0.70.2부터는 개인 계정을 연동하지 않아도 트윗을 검색할 수 있습니다.
 
-트윗 아래에 @bot을 댓글로 남기면 즐겨찾기(별표)된 메인 Bot에 알림이 전달되어 작업을 분배합니다. [《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)을 참고하세요.
+트윗 아래에 @bot을 댓글로 남기면 즐겨찾기(별표)된 메인 Bot에 알림이 전달되어 작업을 분배합니다. [《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)을 참고하세요.
 
 - 제한 사항: 동영상 트윗은 분석할 수 없으며, 댓글에 `@grok`과 `@bot`이 동시에 포함되면 충돌이 발생하여 트리거되지 않습니다.
 - 프롬프트 주입 방지: **메인 Bot은 요약, 분류 및 저장만 허용되며, 자동 게시, 좋아요 누르기 또는 클라우드 컴퓨터 변경은 엄격히 금지**됩니다. 외부로 향하는 모든 동작은 데스크톱 클라이언트에서 수동으로 확인해야 합니다.
@@ -213,11 +213,11 @@ v0.70.2부터는 개인 계정을 연동하지 않아도 트윗을 검색할 수
 인터페이스 타임아웃이나 빈 데이터가 반환될 때 모델이 자의적으로 내용을 지어내기 쉬우므로, **Instruction에는 반드시 예외 차단 구문이 포함되어야 합니다**:
 
 ```text
-前置校验步骤：
-1. 检查抓取到的内容体积。如果内容为空、包含 HTTP 错误码（如 403、404、500）或少于 50 个字符，判定为源不可用。
-2. 源不可用时，立刻终止后续分析流程。
-3. 在 workspace/logs/routine_errors.log 中追加一行错误记录，格式：[ISO时间戳] [任务名] SOURCE_UNAVAILABLE [原因]。
-4. 不得在公开聊天窗口发送报警消息，不得使用过往缓存伪造新数据，直接以退出状态结束本次 run。
+前置校驗步驟：
+1. 檢查抓取到的內容體積。如果內容為空、包含 HTTP 錯誤碼（如 403、404、500）或少於 50 個字元，判定為源不可用。
+2. 源不可用時，立刻終止後續分析流程。
+3. 在 workspace/logs/routine_errors.log 中追加一行錯誤記錄，格式：[ISO時間戳記] [任務名] SOURCE_UNAVAILABLE [原因]。
+4. 不得在公開聊天視窗發送報警訊息，不得使用過往快取偽造新資料，直接以退出狀態結束本次 run。
 ```
 
 Webhook 오류 해결:
@@ -266,9 +266,9 @@ Webhook 오류 해결:
 
 ## 추가 참고 자료
 
-- 관련 챕터: [第 8 章 技能与例程：把一次成功变成每天自动跑](/part1/08-skills-routines)
-- 관련 챕터: [第 10 章 额度与成本：让一周用量撑满一周](/part1/10-usage)
+- 관련 챕터: [第 8 章 技能與例程：把一次成功變成每天自動跑](/part1/08-skills-routines)
+- 관련 챕터: [第 10 章 額度與成本：讓一週用量撐滿一週](/part1/10-usage)
 - 공식 문서: [《Cursor Help: Routines》](https://cursor.com/cn/help/grok-bot/routines)
-- 커뮤니티 원문: [《4.3 触发器与自动化：定时、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
-- 커뮤니티 원문: [《Grok Bot Webhook + 快捷指令：知识自动入库流水线搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
-- 커뮤니티 원문: [《Grok Bot 额度再省一点：定时任务极限优化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)
+- 커뮤니티 원문: [《4.3 觸發器與自動化：定時、Webhook、在 X 上派活》](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
+- 커뮤니티 원문: [《Grok Bot Webhook + 快捷指令：知識自動入庫流水線搭建》](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
+- 커뮤니티 원문: [《Grok Bot 額度再省一點：定時任務極限優化》](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)

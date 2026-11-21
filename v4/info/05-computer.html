@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1200, initial-scale=1">
-<title>共享云电脑：多个 Bot 如何协作</title>
+<title>共享雲端電腦：多個 Bot 如何協作</title>
 <style>
   * { box-sizing: border-box; }
   html, body { width: 1200px; height: 760px; margin: 0; overflow: hidden; }
@@ -45,41 +45,41 @@
 </head>
 <body>
 <main class="page">
-  <h1>共享云电脑：多个 Bot 如何协作</h1>
+  <h1>共享雲端電腦：多個 Bot 如何協作</h1>
   <img class="bot" src="bots/goutte-rose.png" alt="">
-  <p class="intro">分 Bot 不等于建立安全隔离；协作全靠磁盘上的文件流转。</p>
+  <p class="intro">分 Bot 不等於建立安全隔離；協作全靠磁盤上的文件流轉。</p>
 
-  <section class="flow" aria-label="共享云电脑协作结构">
+  <section class="flow" aria-label="共享雲端電腦協作結構">
     <div class="bots">
-      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot A</div><div class="desc">整理员</div></div></div>
-      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot B</div><div class="desc">分析师</div></div></div>
-      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot C</div><div class="desc">设计师、工程师</div></div></div>
+      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot A</div><div class="desc">整理員</div></div></div>
+      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot B</div><div class="desc">分析師</div></div></div>
+      <div class="card bot-card"><span class="dot"></span><div><div class="name">Bot C</div><div class="desc">設計師、工程師</div></div></div>
     </div>
     <div class="arrow"></div>
     <div class="computer">
-      <h2>同一台云端计算机</h2>
-      <div class="shared"><strong>同一个 Linux 操作系统</strong><span>同一个 /workspace 工作根目录</span></div>
-      <div class="shared"><strong>同一块持久化磁盘</strong><span>共享同一个磁盘与文件系统</span></div>
-      <div class="notice">它们看不见彼此的会话记录</div>
+      <h2>同一台雲端電腦</h2>
+      <div class="shared"><strong>同一個 Linux 作業系統</strong><span>同一個 /workspace 工作根目錄</span></div>
+      <div class="shared"><strong>同一塊持久化磁盤</strong><span>共享同一個磁盤與檔案系統</span></div>
+      <div class="notice">它們看不見彼此的會話記錄</div>
     </div>
     <div class="arrow"></div>
     <div class="outputs">
-      <div class="card output"><h3>文件交接</h3><p>上一棒写入具体文件<br>下一棒读取文件路径</p></div>
-      <div class="card output"><h3>统一目录</h3><p>/workspace/handoff/<br>Markdown 或 JSON 格式</p></div>
-      <div class="card output"><h3>共享权限</h3><p>任何一个 Bot 都能读写<br>/workspace 里的所有数据</p></div>
+      <div class="card output"><h3>文件交接</h3><p>上一棒寫入具體文件<br>下一棒讀取文件路徑</p></div>
+      <div class="card output"><h3>統一目錄</h3><p>/workspace/handoff/<br>Markdown 或 JSON 格式</p></div>
+      <div class="card output"><h3>共享權限</h3><p>任何一個 Bot 都能讀寫<br>/workspace 裡的所有資料</p></div>
     </div>
   </section>
 
-  <section class="rule" aria-label="浏览器接管原则">
-    <div class="rule-label">登录验证铁律</div>
-    <div class="rule-text">移交屏幕，不交密码</div>
+  <section class="rule" aria-label="瀏覽器接管原則">
+    <div class="rule-label">登錄驗證鐵律</div>
+    <div class="rule-text">移交螢幕，不交密碼</div>
     <div class="rule-line"></div>
-    <div class="rule-small">人工在云端浏览器输入凭据，Bot 复用当前已有的会话 Cookie。</div>
+    <div class="rule-small">人工在雲端瀏覽器輸入憑據，Bot 複用當前已有的會話 Cookie。</div>
   </section>
 
   <section class="bottom">
-    <div class="card"><strong>协作时不做文件落地，只靠嘴说</strong><p>Bot 之间无法互相读取各自的会话记录。</p></div>
-    <div class="card"><strong>不要在会话中打印密钥</strong><p>密钥仅保存在机器本地，严禁提交到代码仓库。</p></div>
+    <div class="card"><strong>協作時不做文件落地，只靠嘴說</strong><p>Bot 之間無法互相讀取各自的會話記錄。</p></div>
+    <div class="card"><strong>不要在會話中打印密鑰</strong><p>密鑰僅保存在機器本地，嚴禁提交到程式碼倉庫。</p></div>
   </section>
 </main>
 </body>

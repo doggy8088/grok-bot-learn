@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>批准机制与 Auto Review</title>
+<title>批准機制與 Auto Review</title>
 <style>
 *{box-sizing:border-box}
 html,body{width:1200px;height:760px;margin:0;overflow:hidden}
@@ -44,37 +44,37 @@ h1{font-size:35px;line-height:1.14;letter-spacing:-1.2px;margin:0;font-weight:80
 <body>
 <main class="canvas">
   <header class="top">
-    <h1>批准机制与 Auto Review</h1>
+    <h1>批准機制與 Auto Review</h1>
     <img class="bot" src="bots/triangle-violet.png" alt="">
   </header>
   <section class="layout">
     <article class="card">
-      <h2>Bot 执行受控操作会弹卡</h2>
-      <p class="intro">提供三个选项（iPhone 端一致）</p>
+      <h2>Bot 執行受控操作會彈卡</h2>
+      <p class="intro">提供三個選項（iPhone 端一致）</p>
       <div class="options">
         <div class="option allow">Allow once</div>
         <div class="option allow">Always allow</div>
         <div class="option deny">Deny</div>
       </div>
-      <p class="muted">底层的 Auto Review 会预审 shell 命令与插件调用，也管控计算机使用、自动化写入及 Agent 委派。</p>
-      <p class="muted">写入记忆和大部分配置更改不经评审，不能替代逐项批准。</p>
+      <p class="muted">底層的 Auto Review 會預審 shell 命令與外掛呼叫，也管控電腦使用、自動化寫入及 Agent 委派。</p>
+      <p class="muted">寫入記憶和大部分組態更改不經評審，不能替代逐項批准。</p>
     </article>
     <article class="card middle">
-      <h2>怎么做</h2>
+      <h2>怎麼做</h2>
       <div class="steps">
-        <div class="step"><span class="num">1</span><p>企业版在 Cursor 仪表盘开启 Enforce Auto-review 模式锁定，群组设 Don't enforce for this group 除外。</p></div>
-        <div class="step"><span class="num">2</span><p>个人在客户端进入 设置 &gt; General &gt; Auto-review &gt; Custom Rules</p></div>
+        <div class="step"><span class="num">1</span><p>企業版在 Cursor 儀表盤開啟 Enforce Auto-review 模式鎖定，群組設 Don't enforce for this group 除外。</p></div>
+        <div class="step"><span class="num">2</span><p>個人在客戶端進入 設定 &gt; General &gt; Auto-review &gt; Custom Rules</p></div>
       </div>
-      <div class="rule"><strong>规则冲突以 Ask first 为准</strong><p>Ask first：强制拦截弹卡<br>Allow automatically：无风险时自动放行</p></div>
+      <div class="rule"><strong>規則衝突以 Ask first 為準</strong><p>Ask first：強制攔截彈卡<br>Allow automatically：無風險時自動放行</p></div>
       <div class="words">send, post, buy, transfer, delete,<br>permissions, production, terms</div>
     </article>
     <article class="card right">
-      <h2>验收标准</h2>
-      <div class="check"><strong>高危动作 100% 弹出确认卡片</strong></div>
-      <div class="check"><strong>日常低危读写不被误拦截</strong></div>
-      <div class="check"><strong>冲突时执行最严拦截方案</strong></div>
-      <div class="note"><strong>规则须绑定具体行为</strong><p>如“发外部邮件前先询问”</p></div>
-      <div class="note"><strong>严禁宽泛规则</strong><p>“允许所有 shell 脚本”</p></div>
+      <h2>驗收標準</h2>
+      <div class="check"><strong>高危動作 100% 彈出確認卡片</strong></div>
+      <div class="check"><strong>日常低危讀寫不被誤攔截</strong></div>
+      <div class="check"><strong>衝突時執行最嚴攔截方案</strong></div>
+      <div class="note"><strong>規則須綁定具體行為</strong><p>如“發外部郵件前先詢問”</p></div>
+      <div class="note"><strong>嚴禁寬泛規則</strong><p>“允許所有 shell 指令碼”</p></div>
     </article>
   </section>
 </main>

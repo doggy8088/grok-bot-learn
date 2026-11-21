@@ -11,42 +11,42 @@
 <body>
 <main class="board">
   <header class="hero">
-    <div><h1>文件交接，状态落盘</h1><p>业务交接必须全走 <strong>/workspace</strong> 绝对文件路径</p></div>
+    <div><h1>文件交接，狀態落盤</h1><p>業務交接必須全走 <strong>/workspace</strong> 絕對文件路徑</p></div>
     <img class="bot" src="bots/nuage-turquoise.png" alt="">
   </header>
   <section class="content">
     <article class="card principle">
-      <h2>同一工作区，协作 Bot 统一读写</h2>
+      <h2>同一工作區，協作 Bot 統一讀寫</h2>
       <div class="path">/workspace/project-alpha/</div>
-      <p>别在群聊里发长文本。对话历史成倍吃 Token，格式乱了还会导致下游 Bot 误读。</p>
-      <div class="rule">只认文件路径，无人肉搬运</div>
+      <p>別在群聊裡髮長文本。對話歷史成倍吃 Token，格式亂了還會導致下游 Bot 誤讀。</p>
+      <div class="rule">只認文件路徑，無人肉搬運</div>
     </article>
     <section class="right">
       <article class="card flow">
         <h2>操作流程</h2>
         <div class="steps">
-          <div class="step"><i class="num">01</i><strong>建专属目录</strong><span>协作 Bot 统一在此读写</span></div><div class="arrow">→</div>
+          <div class="step"><i class="num">01</i><strong>建專屬目錄</strong><span>協作 Bot 統一在此讀寫</span></div><div class="arrow">→</div>
           <div class="step"><i class="num">02</i><strong>生成成果文件</strong><span>research.md<br>data.json</span></div><div class="arrow">→</div>
-          <div class="step"><i class="num">03</i><strong>传递文件路径</strong><span>仅向幕僚长返回绝对路径</span></div><div class="arrow">→</div>
-          <div class="step"><i class="num">04</i><strong>决策留痕落盘</strong><span>/workspace/state/<br>chief_log.md</span></div>
+          <div class="step"><i class="num">03</i><strong>傳遞文件路徑</strong><span>僅向幕僚長返回絕對路徑</span></div><div class="arrow">→</div>
+          <div class="step"><i class="num">04</i><strong>決策留痕落盤</strong><span>/workspace/state/<br>chief_log.md</span></div>
         </div>
       </article>
       <section class="deliver">
         <article class="card meta">
-          <h2>上游交付文件必须包含标准元数据头</h2>
+          <h2>上游交付文件必須包含標準Metadata頭</h2>
           <div class="meta-grid">
             <div><b>task_id</b>TASK-20261015-01</div><div><b>owner</b>market_scout_bot</div>
-            <div><b>timestamp</b>2026-10-15T08:30:00+08:00</div><div><b>source_inputs</b>数据源链接</div>
-            <div><b>output_deliverable</b>交付文件路径</div><div><b>review_point</b>Human approval required</div>
-            <div><b>status</b>completed</div><div><b>交付正文内容</b>...</div>
+            <div><b>timestamp</b>2026-10-15T08:30:00+08:00</div><div><b>source_inputs</b>資料源連結</div>
+            <div><b>output_deliverable</b>交付文件路徑</div><div><b>review_point</b>Human approval required</div>
+            <div><b>status</b>completed</div><div><b>交付正文內容</b>...</div>
           </div>
         </article>
         <article class="card outcome">
-          <h2>交接后</h2>
+          <h2>交接後</h2>
           <ul>
-            <li>下游 Bot 依据文件路径就能独立解析并启动后续</li>
-            <li>无需人工在对话框二次补充背景</li>
-            <li>专职 Bot 只出待批建议，绝不越权</li>
+            <li>下游 Bot 依據文件路徑就能獨立解析並啟動後續</li>
+            <li>無需人工在對話框二次補充背景</li>
+            <li>專職 Bot 只出待批建議，絕不越權</li>
           </ul>
         </article>
       </section>

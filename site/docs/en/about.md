@@ -1,14 +1,14 @@
 ---
-title: About 铁柱AGI
+title: About 鐵柱AGI
 sidebar: false
 aside: false
 prev: false
 next: false
 ---
 
-# About 铁柱AGI
+# About 鐵柱AGI
 
-**I am 铁柱AGI, a heavy Grok Bot user who continuously shares tips and tricks, and the creator of the open-source Grok App and Grok Bot browser extension.**
+**I am 鐵柱AGI, a heavy Grok Bot user who continuously shares tips and tricks, and the creator of the open-source Grok App and Grok Bot browser extension.**
 
 ## What I'm Doing
 
@@ -41,7 +41,7 @@ I provide 9 public Grok Bot templates on this site under [Bot Direct Hire](/bots
 
 - X: [@cgnot996](https://x.com/cgnot996)
 - GitHub: [RongleCat](https://github.com/RongleCat)
-- WeChat Official Account: 铁柱AGI
+- WeChat Official Account: 鐵柱AGI
 - Contact: DM on X, or add on WeChat via the [Paid Q&A Group page](/group).
 
 ---

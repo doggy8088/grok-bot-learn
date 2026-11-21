@@ -28,9 +28,9 @@ Grok Bot은 **클라우드 PC가 내장된 AI 동료**로, 업무를 맡겨두�
 ## 실제 활용 사례 3가지
 
 <div class="tz-cases" data-from="xhs">
-<a class="tz-case" href="/part2/16-knowledge"><img src="/cases-img/fs06-0.jpg" alt="모바일 공유로 지식 베이스 자동 저장" loading="lazy" decoding="async" /><strong>모바일 공유로 지식 베이스 자동 저장</strong><span>단축어와 Webhook을 연동하여 스마트폰에서 공유만 누르면 지식 베이스로 자동 정리됩니다.</span><em>铁柱AGI</em></a>
+<a class="tz-case" href="/part2/16-knowledge"><img src="/cases-img/fs06-0.jpg" alt="모바일 공유로 지식 베이스 자동 저장" loading="lazy" decoding="async" /><strong>모바일 공유로 지식 베이스 자동 저장</strong><span>단축어와 Webhook을 연동하여 스마트폰에서 공유만 누르면 지식 베이스로 자동 정리됩니다.</span><em>鐵柱AGI</em></a>
 <a class="tz-case" href="/part2/12-content"><img src="/cases-img/fs26-0.jpg" alt="5개 Bot의 분업을 통한 1인 미디어 운영" loading="lazy" decoding="async" /><strong>5개 Bot의 분업을 통한 1인 미디어 운영</strong><span>5개의 Bot이 주제 선정, 이미지 매칭, 검수를 분담하며 바로 발행하지 않고 초안만 작성합니다.</span><em>Adrian Punk</em></a>
-<a class="tz-case" href="/part2/15-ecommerce"><img src="/cases-img/fs27-0.jpg" alt="시엔위(闲鱼) 중고 거래 등록 보조" loading="lazy" decoding="async" /><strong>시엔위(闲鱼) 중고 거래 등록 보조</strong><span>시엔위(闲鱼)에서 스펙 조회, 상품 정보 정리, 중고 거래 문의 답변 초안 작성을 돕습니다.</span><em>Miles Ma</em></a>
+<a class="tz-case" href="/part2/15-ecommerce"><img src="/cases-img/fs27-0.jpg" alt="시엔위(閒魚) 중고 거래 등록 보조" loading="lazy" decoding="async" /><strong>시엔위(閒魚) 중고 거래 등록 보조</strong><span>시엔위(閒魚)에서 스펙 조회, 상품 정보 정리, 중고 거래 문의 답변 초안 작성을 돕습니다.</span><em>Miles Ma</em></a>
 </div>
 
 ## 상황별 맞춤 튜토리얼 찾기

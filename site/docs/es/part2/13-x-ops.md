@@ -21,7 +21,7 @@ La v0.70.2 del 11-10-2026 permite buscar publicaciones públicas sin vincular un
 
 ### Cómo hacerlo
 1. **Cuadro de diálogo**: Escribe "Ayúdame a buscar cómo ha valorado la gente el tema XX en los últimos 3 días", o pega un enlace e indica "Extrae los puntos de vista centrales de este tweet y los puntos de controversia en la interacción con los lectores".
-2. **Zona de comentarios**: Responde `@bot 提取本帖核心逻辑并存入选题库`, consulta las [instrucciones](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
+2. **Zona de comentarios**: Responde `@bot 提取本帖核心邏輯並存入選題庫`, consulta las [instrucciones](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
 
 ### Criterios de aceptación
 - **Extracción completa**: Recupera la fuente original, la fecha/hora de publicación y el hilo de la discusión.
@@ -42,7 +42,7 @@ La v0.70.2 del 11-10-2026 permite buscar publicaciones públicas sin vincular un
 
 La base de Grok Bot es una máquina virtual en la nube que incluye un sistema Linux completo. Todos los Bots de una misma cuenta comparten la misma computadora en la nube, con sesiones de escritorio, administradores de archivos y terminales independientes.
 
-El host está equipado con una CPU Xeon de 8 núcleos y 8 hilos, 16 GB de RAM y 128 GB de espacio en disco (declarado por el autor, no verificado); para la corrección de errores de los mecanismos, consulta 《Colección de tweets de 铁柱 ②: Observaciones de funciones del producto y versiones》[https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd).
+El host está equipado con una CPU Xeon de 8 núcleos y 8 hilos, 16 GB de RAM y 128 GB de espacio en disco (declarado por el autor, no verificado); para la corrección de errores de los mecanismos, consulta 《Colección de tweets de 鐵柱 ②: Observaciones de funciones del producto y versiones》[https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd).
 
 **El sistema de archivos y la red de esta máquina están completamente comunicados, y los materiales que el Bot anterior guarda en el directorio de trabajo pueden ser leídos directamente por el siguiente Bot.
 
@@ -66,29 +66,29 @@ El contenido del prompt está citado de 《Con una frase en WeChat puedes gestio
 
 ::: details Pasos de configuración de orquestación
 ```text
-我已经添加五个 X 运营专员：情报总监、AI新闻雷达、推文二创、短推成稿、X数据复盘。请保留你的原有功能，作为这套团队的统一入口，完成一次初始化。
+我已經新增五個 X 運營專員：情報總監、AI新聞雷達、推文二創、短推成稿、X資料覆盤。請保留你的原有功能，作為這套團隊的統一入口，完成一次初始化。
 
-1. 先检查能力和连接
-确认当前环境能发现 Bot、向 Bot 发任务并接收回执。找到五个专员的实际 Bot ID，核对名称、职责和来源，遇到同名先消歧。保存持久的“角色—名称—ID”路由，让后续聊天和微信入站任务都能读取。缺 Bot 或缺工具时明确告诉我，不凭名称宣称连接成功。
+1. 先檢查能力和連線
+確認當前環境能發現 Bot、向 Bot 發任務並接收回執。找到五個專員的實際 Bot ID，核對名稱、職責和來源，遇到同名先消歧。保存持久的“角色—名稱—ID”路由，讓後續聊天和微信入站任務都能讀取。缺 Bot 或缺工具時明確告訴我，不憑名稱宣稱連線成功。
 
-2. 确认我的账号定位
-一次只问一个关键问题，了解主题、目标读者、我能提供的价值和不写的话题。也可以分析我授权提供的主页和近期帖子，提出建议，等我确认。把已确认定位和表达偏好持久保存，并同步给相关专员。不要继承模板作者的个人信息。
+2. 確認我的帳號定位
+一次只問一個關鍵問題，瞭解主題、目標讀者、我能提供的價值和不寫的話題。也可以分析我授權提供的主頁和近期帖子，提出建議，等我確認。把已確認定位和表達偏好持久保存，並同步給相關專員。不要繼承樣板作者的個人資訊。
 
-3. 自动理解需求、安排任务
-找选题、热点、爆款拆解交情报总监；AI新闻交AI新闻雷达；原帖回复、引用、二创交推文二创；短推写稿、改稿交短推成稿；发帖数据分析交X数据复盘。
-多步任务由你安排先后，传递来源、我的定位和必要上下文，等真实回执后汇总。日常不要求我指定岗位，也不要求我重复文风。专员失败就说明卡点，不能悄悄代写并声称是专员成果。
+3. 自動理解需求、安排任務
+找選題、熱點、爆款拆解交情報總監；AI新聞交AI新聞雷達；原帖回覆、引用、二創交推文二創；短推寫稿、改稿交短推成稿；發文資料分析交X資料覆盤。
+多步任務由你安排先後，傳遞來源、我的定位和必要上下文，等真實回執後彙總。日常不要求我指定崗位，也不要求我重複文風。專員失敗就說明卡點，不能悄悄代寫並聲稱是專員成果。
 
-4. 保存默认写作要求
-像跟朋友分享：讲清发现、理由和具体用途，允许适量语气词，不堆口号。不编我的亲历、数字、测试结果或涨粉成绩。原帖保留归属，新闻核对来源和日期。默认沿用这些要求，我另有要求时再调整。
-你交付前检查事实、来源、定位和可读性。来源和说明放在草稿外，方便我看，也方便复制正文。检查X可发布长度，超出则给短版或说明需要的账号功能。
+4. 保存預設寫作要求
+像跟朋友分享：講清發現、理由和具體用途，允許適量語氣詞，不堆口號。不編我的親歷、數位、測試結果或漲粉成績。原帖保留歸屬，新聞核對來源和日期。預設沿用這些要求，我另有要求時再調整。
+你交付前檢查事實、來源、定位和可讀性。來源和說明放在草稿外，方便我看，也方便複製正文。檢查X可發表長度，超出則給短版或說明需要的帳號功能。
 
 5. 真正跑一次
-给五个专员各派一个小任务，检查接收、完成、回传，再跑“找素材→短推成稿→你检查→返回草稿”。保留可核对的任务记录。数据复盘没有真实数据就报告缺口，不编数字。汇报通过项、失败项和恢复办法，不把发出任务当完成。
+給五個專員各派一個小任務，檢查接收、完成、回傳，再跑“找素材→短推成稿→你檢查→返回草稿”。保留可核對的任務記錄。資料覆盤沒有真實資料就報告缺口，不編數位。彙報通過項、失敗項和恢復辦法，不把發出任務當完成。
 
-6. 根据真实反馈改进
-记录已发布内容和表现，提出下一轮调整。日常选题和写作规则的小改动留版本、可回退；账号定位、授权范围、发布权限、定时安排或新增收费服务变更先问我。小样本形成试验建议，不宣称已验证涨粉规律。
+6. 根據真實回饋改進
+記錄已發表內容和表現，提出下一輪調整。日常選題和寫作規則的小改動留版本、可回退；帳號定位、授權範圍、發表權限、定時安排或新增收費服務變更先問我。小樣本形成試驗建議，不宣稱已驗證漲粉規律。
 
-默认只起草。发帖、回复、点赞、关注和私信由我另行决定，不自动执行。
+預設只起草。發文、回覆、按讚、關注和私信由我另行決定，不自動執行。
 ```
 :::
 
@@ -120,24 +120,24 @@ Los niveles de suscripción unificados de The X Subscription lanzados el 12-10-2
 
 ::: details Cuatro pasos para conectar WeChat
 ```text
-请把你接入我的微信，让我直接在微信里说X运营需求，并收到结果。沿用已确认的账号定位、默认文风和五专员持久路由。
+請把你接入我的微信，讓我直接在微信裡說X運營需求，並收到結果。沿用已確認的帳號定位、預設文風和五專員持久路由。
 
-先检查当前是否已有微信连接器、监听程序和routine，避免重复。参考教程：
+先檢查當前是否已有微信連線器、監聽程式和routine，避免重複。參考課程：
 https://x.com/KinGao476942/status/2108132811635032316?s=20
-核对当前ClawBot/iLink接法和所需工具。缺工具或需要授权时如实说明；需要我安全填写、手机扫码时给出具体步骤，不代替我确认。
+核對當前ClawBot/iLink接法和所需工具。缺工具或需要授權時如實說明；需要我安全填寫、手機掃碼時給出具體步驟，不代替我確認。
 
-准备微信入站Webhook任务和监听保活。Webhook URL、密钥及凭据只通过安全输入保存，不打印到普通聊天、日志或公开截图。
+準備微信入站Webhook任務和監聽保活。Webhook URL、密鑰及憑據只通過安全輸入保存，不打印到普通聊天、記錄或公開截圖。
 
-只处理我绑定身份的指令，不读取联系人或群聊历史。入站任务必须读取我的定位、文风和五专员实际ID，按需求真派单、等回执，再原路返回纯文本。默认只起草，写稿失败明确报告，不悄悄代写。
+只處理我綁定身份的指令，不讀取聯繫人或群聊歷史。入站任務必須讀取我的定位、文風和五專員實際ID，按需求真派單、等回執，再原路返回純文字。預設只起草，寫稿失敗明確報告，不悄悄代寫。
 
-监听保持单一实例。处理前持久保存待办，以消息ID去重；回复成功才标记完成，失败保留并有限重试。登录过期或权限错误停止重试并报告。重启后恢复未完成任务，避免漏回和重复回复。
+監聽保持單一實例。處理前持久保存待辦，以訊息ID去重；回覆成功才標記完成，失敗保留並有限重試。登錄過期或權限錯誤停止重試並報告。重啟後恢復未完成任務，避免漏回和重複回覆。
 
-完成后实际验证：扫码登录、微信入站、你的回复、专员接力和微信收到最终稿。再检查监听重启后的恢复。保留脱敏记录，告诉我哪些通过、哪些未通过，不把配置完成当接通成功。说明监听运行在哪个环境、何时会停，以及如何恢复。
+完成後實際驗證：掃碼登錄、微信入站、你的回覆、專員接力和微信收到最終稿。再檢查監聽重啟後的恢復。保留脫敏記錄，告訴我哪些通過、哪些未通過，不把組態完成當接通成功。說明監聽執行在哪個環境、何時會停，以及如何恢復。
 ```
 :::
 
 2. En WeChat móvil, pulsa sucesivamente en "Yo → Ajustes → Plugins" y habilita "WeChat ClawBot". Si no encuentras el acceso, indica al Bot principal tu versión actual de WeChat para que te asista en la verificación.
-3. Despliega el nombre del Bot en la parte superior de la ventana principal de chat en el escritorio, entra en "Tareas rutinarias / Routines", abre la tarjeta "Activación entrante de WeChat" (微信入站唤醒) y copia la URL del Webhook y la clave secreta.
+3. Despliega el nombre del Bot en la parte superior de la ventana principal de chat en el escritorio, entra en "Tareas rutinarias / Routines", abre la tarjeta "Activación entrante de WeChat" (微信入站喚醒) y copia la URL del Webhook y la clave secreta.
 
    Introduce y guarda cada dato por separado en el cuadro de seguridad emergente; **recuerda terminantemente no introducir la cadena larga completa que contiene Authorization en un solo campo de entrada**.
 4. En el escritorio, envía al Bot principal: "Plugin habilitado, dirección y clave guardadas; por favor verifica la configuración y genera el enlace de vinculación", y escanea el código QR con WeChat móvil para autorizar. Luego envía "Hola" en WeChat; si recibes respuesta, el canal estará operativo.
@@ -154,24 +154,24 @@ Envía al Bot vinculado en WeChat móvil: "Genérame 3 publicaciones de tráfico
 
 Si la publicación automatizada presenta alucinaciones del modelo, fechas incorrectas o respuestas ofensivas, provocará daños irreversibles. **Al final del pipeline se debe añadir una barrera de seguridad humana para bloquear completamente cinco acciones: publicar, dar me gusta, seguir, enviar mensajes directos y eliminar, permitiendo únicamente que el modelo redacte borradores.**
 
-::: details 只出草稿的人闸设计与安全边界
+::: details 只出草稿的人閘設計與安全邊界
 ```text
-[微信一句话 / 定时触发] 
+[微信一句話 / 定時觸發] 
        │
        ▼
-[主 Bot 调度中心] ───► [情报总监 / AI新闻雷达 抓取素材]
+[主 Bot 排程中心] ───► [情報總監 / AI新聞雷達 抓取素材]
        │
        ▼
-[推文二创 / 短推成稿 编写草稿]
+[推文二創 / 短推成稿 編寫草稿]
        │
        ▼
-[主 Bot 事实与长度校验]
+[主 Bot 事實與長度校驗]
        │
        ▼
-[推送到手机微信 / 客户端对话框] ───► (停住：系统不具备自动发帖权限)
+[推送到手機微信 / 客戶端對話框] ───► (停住：系統不具備自動發文權限)
        │
        ▼
-[人工审阅：修改、定夺] ───► [人工手动复制到 X 发布]
+[人工審閱：修改、定奪] ───► [人工手動複製到 X 發表]
 ```
 :::
 
@@ -197,7 +197,7 @@ Para comprender de forma más intuitiva cómo distintos creadores integran este 
 |---|---|---|---|
 | Caso 1 | Hardy Chen (@Chchenhao0129) | 5 plantillas de Bot + plugin ClawBot de WeChat + Webhook | Orquestación unificada desde un único punto de entrada, consolidación de estilo y posicionamiento, entrega de borradores con barrera humana |
 | Caso 2 | SCOTTY BEAM (@ScottyBeamIO) | Colaboración de tres Agents + directorio compartido en computadora en la nube + grabación de acciones | Transferencia de datos mediante disco compartido, normalización estética con imágenes de referencia fijas, programación de temporizadores en sesiones independientes |
-| Caso 3 | 铁柱AGI (@cgnot996), AYi (@AYi_AInotes) | Búsqueda nativa de solo lectura + activación por `@bot` en comentarios + almacenamiento local | Cero APIs externas para reducir costos y evitar baneos, asignación de tareas en comentarios sin cambiar de aplicación, persistencia en `/home/box` |
+| Caso 3 | 鐵柱AGI (@cgnot996), AYi (@AYi_AInotes) | Búsqueda nativa de solo lectura + activación por `@bot` en comentarios + almacenamiento local | Cero APIs externas para reducir costos y evitar baneos, asignación de tareas en comentarios sin cambiar de aplicación, persistencia en `/home/box` |
 
 ### Caso 1: El pipeline colaborativo de 5 Bots con una frase en WeChat de Hardy Chen
 
@@ -236,9 +236,9 @@ Para comprender de forma más intuitiva cómo distintos creadores integran este 
   - Estar alerta ante la limitación de que las sesiones de equipo multi-Bot no pueden guardar tareas programadas, dividiendo las rutinas de orquestación para configurarlas en sesiones independientes de cada Bot.
   - Consulta la comparativa de arquitecturas y los detalles operativos en 《Grok Bot vs Hermes vs OpenClaw vs Buzz + How I fully automated my X content with Grok Bot｜SCOTTY BEAM》[https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb](https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb).
 
-### Caso 3: Búsqueda nativa en X y archivado de conocimiento mediante @bot en comentarios de 铁柱 y AYi
+### Caso 3: Búsqueda nativa en X y archivado de conocimiento mediante @bot en comentarios de 鐵柱 y AYi
 
-- **Quién**: 铁柱AGI (@cgnot996) y AYi (@AYi_AInotes), investigadores técnicos de alta frecuencia.
+- **Quién**: 鐵柱AGI (@cgnot996) y AYi (@AYi_AInotes), investigadores técnicos de alta frecuencia.
 - **Qué hicieron**: Aprovecharon la capacidad nativa de solo lectura lanzada el 08-10-2026 y el mecanismo de interacción con @bot en la sección de comentarios de la v0.70.2 del 11-10-2026 para construir un flujo de monitoreo de inteligencia de la industria y almacenamiento de conocimiento de tweets en un clic desde el móvil, sin necesidad de APIs externas.
 - **Cómo lo hicieron**:
   1. En el día a día, envían instrucciones en lenguaje natural en el cuadro de diálogo para extraer la curva de evolución de tendencias de cualquier palabra clave en X durante los últimos 7 días y las publicaciones clave de debate, sin habilitar ningún conector de pago.
@@ -248,13 +248,13 @@ Para comprender de forma más intuitiva cómo distintos creadores integran este 
   - Aprovechar bien los permisos oficiales de solo lectura en lugar de scrapers de terceros, reduciendo significativamente la complejidad de mantenimiento y el riesgo de baneo.
   - Sin necesidad de cambiar de aplicación en el móvil, lograr una activación ligera mediante @bot.
   - Gestionar rigurosamente el almacenamiento local de datos, concentrando las rutas clave en la computadora en la nube y previniendo pérdidas por reinicios.
-  - Consulta los puntos clave de la práctica en 《Colección de tweets de 铁柱 ②: Observaciones de funciones del producto y versiones》[https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd) y 《4.3 Activadores y automatización: Temporizadores, Webhooks y asignación de tareas en X》[https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
+  - Consulta los puntos clave de la práctica en 《Colección de tweets de 鐵柱 ②: Observaciones de funciones del producto y versiones》[https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd) y 《4.3 Activadores y automatización: Temporizadores, Webhooks y asignación de tareas en X》[https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
 
 ## Errores comunes y precauciones
 
 ### Tareas programadas y consumo de cuota
 1. Al agregar varios Bots al mismo Team Chat no se puede guardar una Routine unificada (comprobado por SCOTTY BEAM); **es obligatorio volver a una conversación individual independiente para configurarlo por separado**.
-2. Algunas versiones se ejecutan por defecto solo en días laborables; en la instrucción de creación se debe especificar "incluyendo sábados y domingos, ejecutar puntualmente todos los días" (comprobado por 铁柱).
+2. Algunas versiones se ejecutan por defecto solo en días laborables; en la instrucción de creación se debe especificar "incluyendo sábados y domingos, ejecutar puntualmente todos los días" (comprobado por 鐵柱).
 3. Verifica en la configuración del sistema que la zona horaria local sea Asia/Shanghai para evitar que las 7:30 de la mañana en hora de Pekín se ejecuten de madrugada.
 4. La cuota de Bot se comparte con Grok y Cursor; el sondeo cada 5 minutos lee todo el contexto incluso si no hay actualizaciones. **Es indispensable cambiar a una comprobación en dos fases o activación incremental (Wake on Done)** para el filtrado inicial; melvindvivas, quien opera 29 Bots, también recomienda limpiar periódicamente las rutinas de bajo rendimiento.
 
@@ -264,13 +264,13 @@ Fuente: [《4.3 Activadores y automatización: Temporizadores, Webhooks y asigna
 1. La falta de respuesta tras escanear el código QR en WeChat suele deberse a que el proceso de escucha se ha colgado o a que la Routine de mantenimiento activo se ha pausado; **no vuelvas a escanear repetidamente para revincular la cuenta**. La experiencia de Hardy Chen indica que se deben enviar comandos de diagnóstico desde el escritorio para revisar procesos y colas, y enviar un nuevo mensaje de prueba para restablecer el flujo.
 2. Hasta la v0.68.1, si la tarjeta de detalles del cliente no se abre, pide al Bot que envíe el enlace directo al activador en el cuadro de chat para visualizarlo.
 
-Fuente: [《Colección de tweets de 铁柱 ②: Observaciones de funciones del producto y versiones》](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+Fuente: [《Colección de tweets de 鐵柱 ②: Observaciones de funciones del producto y versiones》](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 
 ### Restricciones de interacción de la plataforma y entorno del host
 1. La asignación de tareas en comentarios no admite videos puros; no responde cuando se menciona a @grok y a @bot al mismo tiempo; **está terminantemente prohibido conceder permisos de publicación externa a la asignación de tareas en comentarios**, para evitar inyecciones maliciosas de prompts.
 2. El mantenimiento de la máquina virtual restablece las rutas temporales; **los scripts, documentos y datos de copia de seguridad deben guardarse de forma unificada en `/home/box`**, preparando además scripts de autorreparación.
 
-Especificación de rutas: [《Colección de tweets de 铁柱 ②: Observaciones de funciones del producto y versiones》](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+Especificación de rutas: [《Colección de tweets de 鐵柱 ②: Observaciones de funciones del producto y versiones》](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 
 ## Cómo verificar tras completar la configuración
 
@@ -289,7 +289,7 @@ Especificación de rutas: [《Colección de tweets de 铁柱 ②: Observaciones 
 ### Artículos originales de prácticas comunitarias
 
 > Fuente: [Grok Bot Webhook + Atajos: Creación de un pipeline automatizado para almacenamiento de conocimiento](https://x.com/cgnot996/status/2097487429104197688)  
-> Autor: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Autor: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Atajos: Creación de un pipeline automatizado para almacenamiento de conocimiento](/cases-img/fs06-0.jpg)
 
@@ -297,6 +297,6 @@ Especificación de rutas: [《Colección de tweets de 铁柱 ②: Observaciones 
 - [Con una frase en WeChat puedes gestionar X: mis 5 plantillas de Bot publicadas](https://jcng5q8n0f3z.feishu.cn/wiki/DJwawbQxeiUcIjkKbekcVkHRnye)
 - [Grok Bot vs Hermes vs OpenClaw vs Buzz + How I fully automated my X content with Grok Bot｜SCOTTY BEAM](https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb)
 - [4.3 Activadores y automatización: Temporizadores, Webhooks y asignación de tareas en X](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
-- [Colección de tweets de 铁柱 ②: Observaciones de funciones del producto y versiones](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+- [Colección de tweets de 鐵柱 ②: Observaciones de funciones del producto y versiones](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 - [Grok Bot Webhook + Atajos: Creación de un pipeline automatizado para almacenamiento de conocimiento](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
 - [Ahorra aún más cuota de Grok Bot: Optimización extrema de tareas programadas](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)

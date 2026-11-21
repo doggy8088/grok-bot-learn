@@ -116,7 +116,7 @@ Do not start by building a massive team right away; **lock all operations involv
 
 ### Tiezhu's Open-Source Repository Admin Bot (Automated Operations and Maintenance Monitoring)
 
-铁柱AGI (@cgnot996) built a resident Bot to maintain the awesome-grok-bot knowledge base. The system periodically monitors posts on X, official changelogs, and technical communities, categorizing and collecting new use cases, tutorials, official documentation, and events.
+鐵柱AGI (@cgnot996) built a resident Bot to maintain the awesome-grok-bot knowledge base. The system periodically monitors posts on X, official changelogs, and technical communities, categorizing and collecting new use cases, tutorials, official documentation, and events.
 
 Relevant materials were automatically cataloged before promotional announcements, **surpassing 130+ Stars in August 2026 (author's self-report, unverified)**, and received an application form invitation from official staff.
 
@@ -138,20 +138,20 @@ Select a tier according to The X Subscription unified plan implemented on Octobe
 
 1. Click **+** (or Cmd+N) in the sidebar to create a Bot, naming it "Competitor Intelligence Agent". Individual Bots no longer have a Description field, so send the following six lines in the conversation and have it remember them; for shared Bots, write them in the Description under the About details.
 ```text
-Own: 负责监控目标清单的每周功能更新与定价变动
-Sources: Notion 中的关注名单、目标官网 Changelog 页面
-Output: 不超过 8 条核心动态，附带日期与原始链接，存入 /workspace/scan.md
-Approval: 严禁对外发布任何内容，严禁主动发送任何邮件
-Failure: 若目标页面无法打开，在报告中明确标为数据缺失，严禁推测或编造内容
-Never: 在源系统可访问时，严禁依赖自身记忆给出概括
+Own: 負責監控目標清單的每週功能更新與定價變動
+Sources: Notion 中的關注名單、目標官網 Changelog 頁面
+Output: 不超過 8 條核心動態，附帶日期與原始連結，存入 /workspace/scan.md
+Approval: 嚴禁對外發表任何內容，嚴禁主動發送任何郵件
+Failure: 若目標頁面無法打開，在報告中明確標為資料缺失，嚴禁推測或編造內容
+Never: 在源系統可訪問時，嚴禁依賴自身記憶給出概括
 ```
 2. Issue a test instruction in the chat box, specifying the five core elements: goal, sources, constraints, format, and confirmation points.
 ```text
-调研所附竞品清单中的前 3 个产品官网。
-比对它们过去两周内的功能更新与价格调整。
-跳过无任何变动的模块。
-提取核心变动点，整理成 Markdown 表格，并直接保存到 /workspace/scan.md。
-在对话框中仅回复处理状态与保存路径；不要对外发送任何通知，不要擅自更改系统设置。
+調研所附競品清單中的前 3 個產品官網。
+比對它們過去兩週內的功能更新與價格調整。
+跳過無任何變動的模組。
+提取核心變動點，整理成 Markdown 表格，並直接保存到 /workspace/scan.md。
+在對話框中僅回覆處理狀態與保存路徑；不要對外發送任何通知，不要擅自更改系統設定。
 ```
 3. **Observe the cloud computer window on the right**. The Bot will automatically launch the cloud browser to extract pages and write content to the specified file.
 
@@ -162,8 +162,8 @@ Never: 在源系统可访问时，严禁依赖自身记忆给出概括
    Strictly gate sending messages (`send`), posting (`post`), charges (`buy`), deleting files (`delete`, including `/workspace` or local files), and modifying permissions (`permissions`). When triggered, a card will pop up to pause execution until you manually click approve.
 2. After the scraping task runs stably twice in a row, send the consolidation instruction in the chat box:
 ```text
-把刚才已经跑通的竞品页面抓取与格式整理流程保存为一个 Skill，名称叫「竞品动态巡检」。
-写清调用条件、所需权限、抓取步骤、异常报错逻辑与产出文件格式。
+把剛才已經跑通的競品頁面抓取與格式整理流程保存為一個 Skill，名稱叫「競品動態巡檢」。
+寫清呼叫條件、所需權限、抓取步驟、例外報錯邏輯與產出文件格式。
 ```
 3. Switch to another competitor URL and type `/` to invoke and test this Skill. Once verified, **configure a scheduled Routine** set to run automatically every Monday at 9:00 AM, sending the summary report to the current chat and storing the detailed report in `/workspace`.
 

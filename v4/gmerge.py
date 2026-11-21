@@ -12,7 +12,7 @@ while i < len(lines):
         while j < len(lines) and not lines[j].lstrip().startswith("```"): j += 1
         blk = lines[i:j + 1]
         if len(blk) > 8:
-            h = next((x.lstrip("#").strip() for x in reversed(out) if x.startswith("#")), "提示词")
+            h = next((x.lstrip("#").strip() for x in reversed(out) if x.startswith("#")), "提示詞")
             out += [f"::: details {re.sub(r'^\\d+\\.\\s*', '', h)}", *blk, ":::"]
         else: out += blk
         i = j + 1; continue

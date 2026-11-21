@@ -21,7 +21,7 @@ On 2026-10-11, v0.70.2 added support for searching public posts without binding 
 
 ### How to Do It
 1. **Chat dialog**: Enter "Help me search what people said about [Topic] over the past 3 days", or paste a link and instruct "Extract the core arguments and audience controversy points from this post".
-2. **Comment section**: Reply with `@bot 提取本帖核心逻辑并存入选题库`, see [instructions](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
+2. **Comment section**: Reply with `@bot 提取本帖核心邏輯並存入選題庫`, see [instructions](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
 
 ### Acceptance Criteria
 - **Complete extraction**: Retrieves the original source, publication time, and discussion context.
@@ -42,7 +42,7 @@ On 2026-10-11, v0.70.2 added support for searching public posts without binding 
 
 Under the hood, Grok Bot is a cloud virtual machine equipped with a full Linux system. All Bots under the same account share the same cloud computer, each having its own independent desktop session, file manager, and terminal.
 
-The host machine is equipped with a Xeon 8-core 8-thread CPU, 16GB RAM, and 128GB disk space (author's self-statement, unverified); for mechanism errata, see *"铁柱 Tweet Collection ②: Product Features and Version Observations"* [https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd).
+The host machine is equipped with a Xeon 8-core 8-thread CPU, 16GB RAM, and 128GB disk space (author's self-statement, unverified); for mechanism errata, see *"鐵柱 Tweet Collection ②: Product Features and Version Observations"* [https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd).
 
 **The file system and network of this machine are completely interconnected; materials saved into the working directory by one Bot can be directly read by the next Bot.**
 
@@ -66,29 +66,29 @@ Prompt content cited from *"Say a single sentence in WeChat to run X: My 5 Bot t
 
 ::: details Dispatch Configuration Steps
 ```text
-我已经添加五个 X 运营专员：情报总监、AI新闻雷达、推文二创、短推成稿、X数据复盘。请保留你的原有功能，作为这套团队的统一入口，完成一次初始化。
+我已經新增五個 X 運營專員：情報總監、AI新聞雷達、推文二創、短推成稿、X資料覆盤。請保留你的原有功能，作為這套團隊的統一入口，完成一次初始化。
 
-1. 先检查能力和连接
-确认当前环境能发现 Bot、向 Bot 发任务并接收回执。找到五个专员的实际 Bot ID，核对名称、职责和来源，遇到同名先消歧。保存持久的“角色—名称—ID”路由，让后续聊天和微信入站任务都能读取。缺 Bot 或缺工具时明确告诉我，不凭名称宣称连接成功。
+1. 先檢查能力和連線
+確認當前環境能發現 Bot、向 Bot 發任務並接收回執。找到五個專員的實際 Bot ID，核對名稱、職責和來源，遇到同名先消歧。保存持久的“角色—名稱—ID”路由，讓後續聊天和微信入站任務都能讀取。缺 Bot 或缺工具時明確告訴我，不憑名稱宣稱連線成功。
 
-2. 确认我的账号定位
-一次只问一个关键问题，了解主题、目标读者、我能提供的价值和不写的话题。也可以分析我授权提供的主页和近期帖子，提出建议，等我确认。把已确认定位和表达偏好持久保存，并同步给相关专员。不要继承模板作者的个人信息。
+2. 確認我的帳號定位
+一次只問一個關鍵問題，瞭解主題、目標讀者、我能提供的價值和不寫的話題。也可以分析我授權提供的主頁和近期帖子，提出建議，等我確認。把已確認定位和表達偏好持久保存，並同步給相關專員。不要繼承樣板作者的個人資訊。
 
-3. 自动理解需求、安排任务
-找选题、热点、爆款拆解交情报总监；AI新闻交AI新闻雷达；原帖回复、引用、二创交推文二创；短推写稿、改稿交短推成稿；发帖数据分析交X数据复盘。
-多步任务由你安排先后，传递来源、我的定位和必要上下文，等真实回执后汇总。日常不要求我指定岗位，也不要求我重复文风。专员失败就说明卡点，不能悄悄代写并声称是专员成果。
+3. 自動理解需求、安排任務
+找選題、熱點、爆款拆解交情報總監；AI新聞交AI新聞雷達；原帖回覆、引用、二創交推文二創；短推寫稿、改稿交短推成稿；發文資料分析交X資料覆盤。
+多步任務由你安排先後，傳遞來源、我的定位和必要上下文，等真實回執後彙總。日常不要求我指定崗位，也不要求我重複文風。專員失敗就說明卡點，不能悄悄代寫並聲稱是專員成果。
 
-4. 保存默认写作要求
-像跟朋友分享：讲清发现、理由和具体用途，允许适量语气词，不堆口号。不编我的亲历、数字、测试结果或涨粉成绩。原帖保留归属，新闻核对来源和日期。默认沿用这些要求，我另有要求时再调整。
-你交付前检查事实、来源、定位和可读性。来源和说明放在草稿外，方便我看，也方便复制正文。检查X可发布长度，超出则给短版或说明需要的账号功能。
+4. 保存預設寫作要求
+像跟朋友分享：講清發現、理由和具體用途，允許適量語氣詞，不堆口號。不編我的親歷、數位、測試結果或漲粉成績。原帖保留歸屬，新聞核對來源和日期。預設沿用這些要求，我另有要求時再調整。
+你交付前檢查事實、來源、定位和可讀性。來源和說明放在草稿外，方便我看，也方便複製正文。檢查X可發表長度，超出則給短版或說明需要的帳號功能。
 
 5. 真正跑一次
-给五个专员各派一个小任务，检查接收、完成、回传，再跑“找素材→短推成稿→你检查→返回草稿”。保留可核对的任务记录。数据复盘没有真实数据就报告缺口，不编数字。汇报通过项、失败项和恢复办法，不把发出任务当完成。
+給五個專員各派一個小任務，檢查接收、完成、回傳，再跑“找素材→短推成稿→你檢查→返回草稿”。保留可核對的任務記錄。資料覆盤沒有真實資料就報告缺口，不編數位。彙報通過項、失敗項和恢復辦法，不把發出任務當完成。
 
-6. 根据真实反馈改进
-记录已发布内容和表现，提出下一轮调整。日常选题和写作规则的小改动留版本、可回退；账号定位、授权范围、发布权限、定时安排或新增收费服务变更先问我。小样本形成试验建议，不宣称已验证涨粉规律。
+6. 根據真實回饋改進
+記錄已發表內容和表現，提出下一輪調整。日常選題和寫作規則的小改動留版本、可回退；帳號定位、授權範圍、發表權限、定時安排或新增收費服務變更先問我。小樣本形成試驗建議，不宣稱已驗證漲粉規律。
 
-默认只起草。发帖、回复、点赞、关注和私信由我另行决定，不自动执行。
+預設只起草。發文、回覆、按讚、關注和私信由我另行決定，不自動執行。
 ```
 :::
 
@@ -120,19 +120,19 @@ The unified subscription tiers for The X Subscription launched on 2026-10-12 are
 
 ::: details Four Steps to Connect WeChat
 ```text
-请把你接入我的微信，让我直接在微信里说X运营需求，并收到结果。沿用已确认的账号定位、默认文风和五专员持久路由。
+請把你接入我的微信，讓我直接在微信裡說X運營需求，並收到結果。沿用已確認的帳號定位、預設文風和五專員持久路由。
 
-先检查当前是否已有微信连接器、监听程序和routine，避免重复。参考教程：
+先檢查當前是否已有微信連線器、監聽程式和routine，避免重複。參考課程：
 https://x.com/KinGao476942/status/2108132811635032316?s=20
-核对当前ClawBot/iLink接法和所需工具。缺工具或需要授权时如实说明；需要我安全填写、手机扫码时给出具体步骤，不代替我确认。
+核對當前ClawBot/iLink接法和所需工具。缺工具或需要授權時如實說明；需要我安全填寫、手機掃碼時給出具體步驟，不代替我確認。
 
-准备微信入站Webhook任务和监听保活。Webhook URL、密钥及凭据只通过安全输入保存，不打印到普通聊天、日志或公开截图。
+準備微信入站Webhook任務和監聽保活。Webhook URL、密鑰及憑據只通過安全輸入保存，不打印到普通聊天、記錄或公開截圖。
 
-只处理我绑定身份的指令，不读取联系人或群聊历史。入站任务必须读取我的定位、文风和五专员实际ID，按需求真派单、等回执，再原路返回纯文本。默认只起草，写稿失败明确报告，不悄悄代写。
+只處理我綁定身份的指令，不讀取聯繫人或群聊歷史。入站任務必須讀取我的定位、文風和五專員實際ID，按需求真派單、等回執，再原路返回純文字。預設只起草，寫稿失敗明確報告，不悄悄代寫。
 
-监听保持单一实例。处理前持久保存待办，以消息ID去重；回复成功才标记完成，失败保留并有限重试。登录过期或权限错误停止重试并报告。重启后恢复未完成任务，避免漏回和重复回复。
+監聽保持單一實例。處理前持久保存待辦，以訊息ID去重；回覆成功才標記完成，失敗保留並有限重試。登錄過期或權限錯誤停止重試並報告。重啟後恢復未完成任務，避免漏回和重複回覆。
 
-完成后实际验证：扫码登录、微信入站、你的回复、专员接力和微信收到最终稿。再检查监听重启后的恢复。保留脱敏记录，告诉我哪些通过、哪些未通过，不把配置完成当接通成功。说明监听运行在哪个环境、何时会停，以及如何恢复。
+完成後實際驗證：掃碼登錄、微信入站、你的回覆、專員接力和微信收到最終稿。再檢查監聽重啟後的恢復。保留脫敏記錄，告訴我哪些通過、哪些未通過，不把組態完成當接通成功。說明監聽執行在哪個環境、何時會停，以及如何恢復。
 ```
 :::
 
@@ -156,22 +156,22 @@ Once automated posting encounters model hallucinations, incorrect dates, or offe
 
 ::: details Draft-Only Human-Gate Design and Security Boundaries
 ```text
-[微信一句话 / 定时触发] 
+[微信一句話 / 定時觸發] 
        │
        ▼
-[主 Bot 调度中心] ───► [情报总监 / AI新闻雷达 抓取素材]
+[主 Bot 排程中心] ───► [情報總監 / AI新聞雷達 抓取素材]
        │
        ▼
-[推文二创 / 短推成稿 编写草稿]
+[推文二創 / 短推成稿 編寫草稿]
        │
        ▼
-[主 Bot 事实与长度校验]
+[主 Bot 事實與長度校驗]
        │
        ▼
-[推送到手机微信 / 客户端对话框] ───► (停住：系统不具备自动发帖权限)
+[推送到手機微信 / 客戶端對話框] ───► (停住：系統不具備自動發文權限)
        │
        ▼
-[人工审阅：修改、定夺] ───► [人工手动复制到 X 发布]
+[人工審閱：修改、定奪] ───► [人工手動複製到 X 發表]
 ```
 :::
 
@@ -197,7 +197,7 @@ To provide a clearer view of how different creators integrate this system into t
 |---|---|---|---|
 | Case 1 | Hardy Chen (@Chchenhao0129) | 5 Bot templates + WeChat ClawBot plugin + Webhook | Unified single-entry dispatch, solidified tone and positioning, human-gated draft delivery |
 | Case 2 | SCOTTY BEAM (@ScottyBeamIO) | Three-Agent collaboration + Cloud computer shared directory + Operation recording | Shared disk for data transit, fixed reference images to standardize aesthetics, independent sessions for schedule setup |
-| Case 3 | 铁柱AGI (@cgnot996), AYi (@AYi_AInotes) | Native read-only search + Comment section `@bot` trigger + Local storage | Zero external APIs to cut costs and prevent bans, comment section task dispatching without app switching, `/home/box` persistence |
+| Case 3 | 鐵柱AGI (@cgnot996), AYi (@AYi_AInotes) | Native read-only search + Comment section `@bot` trigger + Local storage | Zero external APIs to cut costs and prevent bans, comment section task dispatching without app switching, `/home/box` persistence |
 
 ### Case 1: Hardy Chen's WeChat One-Sentence 5-Bot Collaborative Pipeline
 
@@ -236,9 +236,9 @@ To provide a clearer view of how different creators integrate this system into t
   - Watch out for the limitation where multi-Bot Team Chats cannot save scheduled routines; configure dispatch routines in independent individual Bot sessions instead.
   - For architectural comparisons and operational details, see *"Grok Bot vs Hermes vs OpenClaw vs Buzz + How I fully automated my X content with Grok Bot ｜ SCOTTY BEAM"* [https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb](https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb).
 
-### Case 3: 铁柱 and AYi's Native X Search and Comment Section @bot Knowledge Archiving
+### Case 3: 鐵柱 and AYi's Native X Search and Comment Section @bot Knowledge Archiving
 
-- **Who**: 铁柱AGI (@cgnot996) and AYi (@AYi_AInotes), high-frequency technical researchers.
+- **Who**: 鐵柱AGI (@cgnot996) and AYi (@AYi_AInotes), high-frequency technical researchers.
 - **What was done**: Leveraged the native read-only capability launched on 2026-10-08 and the v0.70.2 comment section @bot linkage mechanism on 2026-10-11 to build an industry intelligence monitoring and mobile one-click post knowledge ingestion pipeline with zero external APIs.
 - **How it was done**:
   1. Regularly issue natural language commands in the chat dialog to extract 7-day trend curves and key contentious posts for any keyword on X without enabling any paid connectors.
@@ -248,13 +248,13 @@ To provide a clearer view of how different creators integrate this system into t
   - Make good use of official native read-only permissions instead of third-party scrapers, drastically reducing operational complexity and the risk of bans.
   - Lightweight mobile triggering via @bot without needing to switch apps.
   - Strictly manage local data storage, consolidating core paths in the cloud computer to safeguard against reset loss.
-  - Practical points in *"铁柱 Tweet Collection ②: Product Features and Version Observations"* [https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd) and *"4.3 Triggers and Automation: Scheduled Tasks, Webhooks, and Dispatching on X"* [https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
+  - Practical points in *"鐵柱 Tweet Collection ②: Product Features and Version Observations"* [https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd) and *"4.3 Triggers and Automation: Scheduled Tasks, Webhooks, and Dispatching on X"* [https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg).
 
 ## Common Pitfalls
 
 ### Scheduled Tasks and Quota Consumption
 1. Adding multiple Bots into the same Team Chat fails to save a unified Routine (tested by SCOTTY BEAM); **you must switch back to individual personal sessions to configure them separately**.
-2. Some versions default to running on weekdays only; creation instructions must explicitly state "including Saturday and Sunday, execute daily on schedule" (tested by 铁柱).
+2. Some versions default to running on weekdays only; creation instructions must explicitly state "including Saturday and Sunday, execute daily on schedule" (tested by 鐵柱).
 3. Check system settings to ensure the local timezone is Asia/Shanghai, avoiding Beijing Time 7:30 AM being executed in the middle of the night.
 4. Bot quota is shared with Grok and Cursor; polling every 5 minutes reads the full context even when there are no updates. **You must switch to two-stage inspection or incremental wake-up (Wake on Done)** for preliminary screening; melvindvivas, who operates 29 Bots, also recommends periodically cleaning up low-yield routines.
 
@@ -264,13 +264,13 @@ Source: [4.3 Triggers and Automation: Scheduled Tasks, Webhooks, and Dispatching
 1. Lack of response after WeChat QR scan is mostly due to listener hangs or paused keep-alive Routines; **do not repeatedly re-scan to rebind accounts**. Hardy Chen's experience is to send troubleshooting commands on the desktop to inspect processes and queues, then send a new test message to re-trigger the flow.
 2. As of v0.68.1, when the client detail card cannot be opened, have the Bot send the trigger's direct link in the chat dialog to view it.
 
-Source: [铁柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+Source: [鐵柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 
 ### Platform Interaction Limits and Host Environment
 1. Comment section task dispatching does not support video-only posts; it does not respond when both @grok and @bot are mentioned simultaneously; **strictly forbid granting external publishing permissions to comment section task dispatching** to prevent prompt injection attacks.
 2. VM maintenance will reset temporary directories; **scripts, documents, and backup data must be saved uniformly under `/home/box`**, with self-healing scripts prepared.
 
-Path specifications: [铁柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+Path specifications: [鐵柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 
 ## How to Verify After Completion
 
@@ -289,7 +289,7 @@ Path specifications: [铁柱 Tweet Collection ②: Product Features and Version 
 ### Community Practical Articles
 
 > Source: [Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline](https://x.com/cgnot996/status/2097487429104197688)  
-> Author: [铁柱AGI @cgnot996](https://x.com/cgnot996)
+> Author: [鐵柱AGI @cgnot996](https://x.com/cgnot996)
 
 ![Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline](/cases-img/fs06-0.jpg)
 
@@ -297,6 +297,6 @@ Path specifications: [铁柱 Tweet Collection ②: Product Features and Version 
 - [Say a single sentence in WeChat to run X: My 5 Bot templates made public](https://jcng5q8n0f3z.feishu.cn/wiki/DJwawbQxeiUcIjkKbekcVkHRnye)
 - [Grok Bot vs Hermes vs OpenClaw vs Buzz + How I fully automated my X content with Grok Bot ｜ SCOTTY BEAM](https://jcng5q8n0f3z.feishu.cn/wiki/RuhbwzhViiB3FwkYaylc8Uv7nLb)
 - [4.3 Triggers and Automation: Scheduled Tasks, Webhooks, and Dispatching on X](https://jcng5q8n0f3z.feishu.cn/wiki/HHmpwgN4qi86e0kgBvAc1156nkg)
-- [铁柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
+- [鐵柱 Tweet Collection ②: Product Features and Version Observations](https://jcng5q8n0f3z.feishu.cn/wiki/ZRFQwIlNgiuJTVkGcJgcrZhsnKd)
 - [Grok Bot Webhook + Shortcuts: Building an Automated Knowledge Ingestion Pipeline](https://jcng5q8n0f3z.feishu.cn/wiki/Kxtxw9gLBiqi0nkhZpCc7le5nrh)
 - [Saving More Grok Bot Quota: Extreme Optimization of Scheduled Tasks](https://jcng5q8n0f3z.feishu.cn/wiki/SDr3wRrG5iGmz1kejdTcss0Rned)

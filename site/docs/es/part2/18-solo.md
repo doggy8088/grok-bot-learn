@@ -30,26 +30,26 @@ La descripción del puesto se desglosa en cinco campos para delimitar claramente
 - Done when: Lista de verificación de aceptación objetiva.
 
 ```text
-先不要执行任何实际操作。请逐步向我推演你的完整执行方案：
-1. 列出你准备依次打开的工具、网址与调用的插件。
-2. 列出你在过程中需要做出的业务判断。
-3. 标出你目前信息不足、存在疑虑或拿不准的决策点。
-推演完毕后等待我的指令，严禁自行操作。
+先不要執行任何實際操作。請逐步向我推演你的完整執行方案：
+1. 列出你準備依次打開的工具、網址與呼叫的外掛。
+2. 列出你在過程中需要做出的業務判斷。
+3. 標出你目前資訊不足、存在疑慮或拿不準的決策點。
+推演完畢後等待我的指令，嚴禁自行操作。
 ```
 
 ::: details Definición del puesto y pruebas de admisión
 ```text
-岗位名称：收件箱管理员（Inbox Manager）
+崗位名稱：收件箱管理員（Inbox Manager）
 Owns：
-每天上午梳理工作邮箱，归档垃圾邮件与订阅通讯，起草客户咨询的回复草稿，标出需要我决策的紧急邮件。
+每天上午梳理工作郵箱，歸檔垃圾郵件與訂閱通訊，起草客戶諮詢的回覆草稿，標出需要我決策的緊急郵件。
 Inputs：
-仅限于 Gmail 中收件箱的未读邮件与公司提供的常见问题回复模版。
+僅限於 Gmail 中收件箱的未讀郵件與公司提供的常見問題回覆模版。
 May：
-阅读邮件、按标签分类、打上处理标记、撰写回复草稿、归档无回复价值的宣传邮件。
+閱讀郵件、按標記分類、打上處理標記、撰寫回復草稿、歸檔無回覆價值的宣傳郵件。
 Must ask before：
-严禁直接点击发送任何邮件；严禁归档来自财务、法务或房东的邮件；如果邮件涉及转账、退款、重置密码或修改凭证，立即停下向我确认。
+嚴禁直接點選發送任何郵件；嚴禁歸檔來自財務、法務或房東的郵件；如果郵件涉及轉帳、退款、重置密碼或修改憑證，立即停下向我確認。
 Done when：
-工作日上午 9:00 前收件箱所有未读邮件分类完毕；生成的草稿不超过四句话，语气平实直接，不使用任何客套空话；所有待办事项单独列出截止日期。遇到不确定如何处理的邮件，保持未读并挂起询问，严禁自行猜测意图。
+工作日上午 9:00 前收件箱所有未讀郵件分類完畢；生成的草稿不超過四句話，語氣平實直接，不使用任何客套空話；所有待辦事項單獨列出截止日期。遇到不確定如何處理的郵件，保持未讀並掛起詢問，嚴禁自行猜測意圖。
 ```
 :::
 
@@ -103,14 +103,14 @@ Al crear un equipo, comienza construyendo un Bot Jefe de Gabinete (Chief of Staf
 
 ::: details Arquitectura de Jefe de Gabinete y división departamental
 ```text
-你是一人公司的幕僚长（Chief of Staff），也是我日常沟通的唯一入口。
-你的核心职责：
-1. 接收我的业务目标，拆解为明确的工作阶段，派发给对应的专职 Bot（调研、内容、代码、运维）。
-2. 在群聊中调度各岗位接力，跟踪各任务交付状态。
-3. 检查专职 Bot 提交的产物是否符合完成标准，核对数据来源与执行录屏。
-4. 每天晚上汇总团队进展，用不超过五行文字向我汇报核心结果、阻塞问题与需要我决策的审批项。
-行为底线：
-若无任何新进展或异常，保持静默；严禁越权代替专职 Bot 编写业务交付内容；严禁绕过人工审批直接执行外发、扣款或修改生产环境。
+你是一人公司的幕僚長（Chief of Staff），也是我日常溝通的唯一入口。
+你的核心職責：
+1. 接收我的業務目標，拆解為明確的工作階段，派發給對應的專職 Bot（調研、內容、程式碼、運維）。
+2. 在群聊中排程各崗位接力，追蹤各任務交付狀態。
+3. 檢查專職 Bot 提交的產物是否符合完成標準，核對資料來源與執行螢幕錄影。
+4. 每天晚上彙總團隊進展，用不超過五行文字向我彙報核心結果、阻塞問題與需要我決策的審批項。
+行為底線：
+若無任何新進展或例外，保持靜默；嚴禁越權代替專職 Bot 編寫業務交付內容；嚴禁繞過人工審批直接執行外發、扣款或修改正式環境。
 ```
 :::
 
@@ -122,14 +122,14 @@ Al crear un equipo, comienza construyendo un Bot Jefe de Gabinete (Chief of Staf
 
 ::: details Arquitectura de Jefe de Gabinete y división departamental
 ```text
-团队总体目标：
-在两周内针对新上线的知识库产品，完成竞品定价调研，产出一份对比简报，并根据简报结构生成 3 篇官网更新草稿。
+團隊總體目標：
+在兩週內針對新上線的知識庫產品，完成競品定價調研，產出一份對比簡報，並根據簡報結構生成 3 篇官網更新草稿。
 
-协作规则：
-1. 调研 Bot 先行检索 5 家竞品公开定价，生成包含引用网址的 Markdown 表格。
-2. 调研完成后在群内移交给内容 Bot，内容 Bot 根据数据起草 3 篇文案，放入指定 Notion 页面。
-3. 幕僚长全程跟进看板状态，若遇到数据缺失，要求责任 Bot 重新抓取或报错，不得擅自编造。
-4. 全流程中所有涉及对外发布的操作全部挂起，等待我在看板中勾选通过。
+協作規則：
+1. 調研 Bot 先行檢索 5 家競品公開定價，生成包含引用網址的 Markdown 表格。
+2. 調研完成後在群內移交給內容 Bot，內容 Bot 根據資料起草 3 篇文案，放入指定 Notion 頁面。
+3. 幕僚長全程跟進看板狀態，若遇到資料缺失，要求責任 Bot 重新抓取或報錯，不得擅自編造。
+4. 全流程中所有涉及對外發表的操作全部掛起，等待我在看板中勾選通過。
 ```
 :::
 
@@ -182,17 +182,17 @@ Respeta tres reglas básicas en todo momento:
 
 ::: details Automatización de sistemas sin API
 ```text
-岗位名称：供应链履约跟踪员（Supplier Logistics Bot）
+崗位名稱：供應鏈履約追蹤員（Supplier Logistics Bot）
 Owns：
-每天上午 10:00 登录供应商门户，核对昨天未发货订单状态，提取物流单号，更新至运营表格。
+每天上午 10:00 登錄供應商門戶，核對昨天未發貨訂單狀態，提取物流單號，更新至運營表格。
 Inputs：
-供应商订货后台会话、本地待处理订单表格。
+供應商訂貨後台會話、本地待處理訂單表格。
 May：
-在供应商后台查询订单状态、下载发货清单 CSV、更新本地表格对应列的运单号与发货时间。
+在供應商後台查詢訂單狀態、下載發貨清單 CSV、更新本地表格對應列的運單號與發貨時間。
 Must ask before：
-严禁点击「重新下单」或「取消订单」；严禁修改收货地址；若供应商后台提示账户欠款或商品缺货，停止处理并立即向我报警。
+嚴禁點選「重新下單」或「取消訂單」；嚴禁修改收貨地址；若供應商後台提示帳戶欠款或商品缺貨，停止處理並立即向我報警。
 Done when：
-所有处理过的运单在表格中均标注状态与回填时间；遇到后台页面改版导致按钮无法识别时，截取当前屏幕报错并退出，不得盲目重试。
+所有處理過的運單在表格中均標註狀態與回填時間；遇到後台頁面改版導致按鈕無法識別時，截取當前螢幕報錯並退出，不得盲目重試。
 ```
 :::
 
@@ -205,14 +205,14 @@ Solo cuando la **revisión humana se reduzca de forma estable a menos de 15 minu
 
 ::: details Umbrales y puntuación
 ```text
-Bot 月度运行评分卡
-评估周期：2026 年 10 月
-岗位名称：[例如：订单跟进助理]
-1. 实际工时节省：本月相比纯手工操作，实际节省了约多少小时？
-2. 人工介入程度：产出草稿中，需要人工手动大幅修改的比例是多少（低于 10% 算达标）？
-3. 信任度变化趋势：对该岗位的自主执行信任度处于上升、持平还是下滑？
-4. 异常与回滚记录：本月出现过几次页面识别错误或越权报警？
-5. 处置结论：[保留继续运行 / 降级为人工审批执行 / 彻底停用删除]
+Bot 月度執行評分卡
+評估週期：2026 年 10 月
+崗位名稱：[例如：訂單跟進助理]
+1. 實際工時節省：本月相比純手工操作，實際節省了約多少小時？
+2. 人工介入程度：產出草稿中，需要人工手動大幅修改的比例是多少（低於 10% 算達標）？
+3. 信任度變化趨勢：對該崗位的自主執行信任度處於上升、持平還是下滑？
+4. 例外與回滾記錄：本月出現過幾次頁面識別錯誤或越權報警？
+5. 處置結論：[保留繼續執行 / 降級為人工審批執行 / 徹底停用刪除]
 ```
 :::
 
@@ -262,34 +262,34 @@ Cuando un Bot de producción revisa su propio producto tiende a la autovalidaci�
 
 ::: details Revisor de solo lectura independiente y barrera humana tras tres reintentos
 ```text
-# 独立审查者审核准则（reviewer.md）
-你是一名独立质量审查员，负责评估一份并非由你生产的交付产物。
-你的唯一任务是找出交付物不符合客户要求的地方。你绝不需要去赞美它的优点。
+# 獨立審查者審核準則（reviewer.md）
+你是一名獨立質量審查員，負責評估一份並非由你生產的交付產物。
+你的唯一任務是找出交付物不符合客戶要求的地方。你絕不需要去讚美它的優點。
 
-输入物料：
-原始需求 Brief、服务核对清单、客户品牌声音规范文件、最终交付草稿。
-你未被提供、也严禁索取生产 Bot 的思考草稿。
+輸入物料：
+原始需求 Brief、服務核對清單、客戶品牌聲音規範文件、最終交付草稿。
+你未被提供、也嚴禁索取生產 Bot 的思考草稿。
 
-审查规则（按顺序严格执行）：
-1. 逐条核对需求 Brief 中的清单项。指出任何未被完全覆盖的要点。
-2. 检查全文，严禁残留任何占位符文字、TODO 标记或括号说明文本。
-3. 全文中的每一个具体数字、引文、统计百分比与人名，必须能在客户资料库中找到对应出处。发现任何未注明来源的数字，必须直接判定为 FAIL。
-4. 语言风格是否符合客户过往已批准作品的语气标准。
+審查規則（按順序嚴格執行）：
+1. 逐條核對需求 Brief 中的清單項。指出任何未被完全覆蓋的要點。
+2. 檢查全文，嚴禁殘留任何佔位符文字、TODO 標記或括號說明文本。
+3. 全文中的每一個具體數位、引文、統計百分比與人名，必須能在客戶資料庫中找到對應出處。發現任何未註明來源的數位，必須直接判定為 FAIL。
+4. 語言風格是否符合客戶過往已批准作品的語氣標準。
 
-输出格式：
-第一行必须且只能输出一个词：PASS 或 FAIL。
-如果判定为 FAIL，按以下格式列出所有缺陷：[清单条款] - [出现位置] - [具体问题及修正要求]。第一行后严禁输出任何空洞的总结段落。
-若因上下文缺少凭据导致无法核验某一项，直接判定为 FAIL。
+輸出格式：
+第一行必須且只能輸出一個詞：PASS 或 FAIL。
+如果判定為 FAIL，按以下格式列出所有缺陷：[清單條款] - [出現位置] - [具體問題及修正要求]。第一行後嚴禁輸出任何空洞的總結段落。
+若因上下文缺少憑據導致無法核驗某一項，直接判定為 FAIL。
 ```
 :::
 
 ```text
-单任务自动化生产循环规则：
-1. 生产 Bot 基于需求与声音规范生成第 1 版草稿。
-2. 独立审核 Bot 执行审查。若返回 PASS，记录日志并进入待交付队列。
-3. 若返回 FAIL，系统将审查不通过的具体原因拼接入下一轮 Brief，由生产 Bot 进行针对性修复重试。
-4. 重试上限（MAX_ATTEMPTS）严格设定为 3 次。
-5. 若连续 3 次均无法通过审查，系统立即终止自动重试，触发报警将原始 Brief、草稿与审查报错完整推送到人工桌面由人工兜底接管。
+單任務自動化生產循環規則：
+1. 生產 Bot 基於需求與聲音規範生成第 1 版草稿。
+2. 獨立審核 Bot 執行審查。若返回 PASS，記錄記錄並進入待交付佇列。
+3. 若返回 FAIL，系統將審查不通過的具體原因拼接入下一輪 Brief，由生產 Bot 進行針對性修復重試。
+4. 重試上限（MAX_ATTEMPTS）嚴格設定為 3 次。
+5. 若連續 3 次均無法通過審查，系統立即終止自動重試，觸發報警將原始 Brief、草稿與審查報錯完整推送到人工桌面由人工兜底接管。
 ```
 
 **El traspaso admite como máximo 3 reintentos**, evitando bucles infinitos que disparen elevadas facturas de Tokens. Si la máquina no cumple con los estándares tras tres intentos, indica un conflicto en los requisitos y un humano debe intervenir para decidir.
@@ -322,13 +322,13 @@ Cada Bot toma el relevo apoyándose en la computadora en la nube compartida y en
 
 ::: details Línea de producción colaborativa multi-Agent: caso de conversión de prototipo técnico a contenido
 ```text
-端到端跨团队协同案例：
-1. 【情报捕获】：X 调研员监控到某大模型最新发布，抓取官方文档与代码仓库地址，整理为技术要点。
-2. 【任务调度】：幕僚长 Emma 捕获该报告，根据设定规则判定该模型具备测试价值，自动将任务下发给技术团队。
-3. 【工程交付】：编码员 Coder 接收技术说明，调起 Cursor Cloud coding agent 在云端编写 Google Colab 演示笔记本，推送到 GitHub 仓库并自动创建 Pull Request。
-4. 【排错闭环】：执行测试出现依赖包版本冲突，终端 Traceback 自动返回 Coder，Coder 修复代码再次提交 PR 通过测试。
-5. 【内容物料转译】：PR 合并后，Emma 将成功代码仓库与技术参数推送给内容创作团队，YouTube 脚本助手与 X 内容经理在半小时内完成多平台发布草稿，存入指定待审目录。
-6. 【人闸闭环】：创始人全程不介入代码编写与格式排版，仅在最后核验 Colab 实际运行效果，并点击确认对外发布推文。
+端到端跨團隊協同案例：
+1. 【情報捕獲】：X 調研員監控到某大模型最新發表，抓取官方文件與程式碼倉庫地址，整理為技術要點。
+2. 【任務排程】：幕僚長 Emma 捕獲該報告，根據設定規則判定該模型具備測試價值，自動將任務下發給技術團隊。
+3. 【工程交付】：寫程式員 Coder 接收技術說明，調起 Cursor Cloud coding agent 在雲端編寫 Google Colab 示範筆記本，推送到 GitHub 倉庫並自動建立 Pull Request。
+4. 【排錯閉環】：執行測試出現相依套件版本衝突，終端 Traceback 自動返回 Coder，Coder 修復程式碼再次提交 PR 通過測試。
+5. 【內容物料轉譯】：PR 合併後，Emma 將成功程式碼倉庫與技術參數推送給內容創作團隊，YouTube 指令碼助手與 X 內容經理在半小時內完成多平台發表草稿，存入指定待審目錄。
+6. 【人閘閉環】：創始人全程不介入程式碼編寫與格式排版，僅在最後核驗 Colab 實際執行效果，並點選確認對外發表推文。
 ```
 :::
 
@@ -368,12 +368,12 @@ Cuando los Bots superan los 5, olvídate de usar múltiples ventanas de chat; es
   **A las 3:00 a. m. se revisan automáticamente enlaces rotos en el código y el tamaño de los paquetes, y a las 5:00 a. m. un Bot supervisor (como Jenny) revisa uno a uno el Playbook de los Bots dedicados**, lo que previene eficazmente que el modelo olvide con el paso del tiempo.
 
 ```text
-全体专职 Bot，开始进行本周团队回顾审计。请各岗位汇报：
-1. 本周你实际执行了多少次任务，其中失败或异常的中断有多少次？
-2. 在执行过程中，有哪些步骤存在推测行为、跳过行为或由于数据缺失强行拼凑的情况？
-3. 有哪些挂起的审批事项我一直没有回应？有哪些生成的物料我从来没有打开查看过？
-4. 请指出：在当前的工作流中，你发现哪两个 Bot 存在职责重叠或重复工作？
-5. 给出客观建议：为了节省整体用量额度，我们下周最应该裁撤哪一个无效的 Routine 或岗位？
+全體專職 Bot，開始進行本週團隊回顧審計。請各崗位彙報：
+1. 本週你實際執行了多少次任務，其中失敗或例外的中斷有多少次？
+2. 在執行過程中，有哪些步驟存在推測行為、跳過行為或由於資料缺失強行拼湊的情況？
+3. 有哪些掛起的審批事項我一直沒有回應？有哪些生成的物料我從來沒有打開查看過？
+4. 請指出：在當前的工作流中，你發現哪兩個 Bot 存在職責重疊或重複工作？
+5. 給出客觀建議：為了節省整體用量額度，我們下週最應該裁撤哪一個無效的 Routine 或崗位？
 ```
 
 Para prácticas relacionadas, consulta [«How I use Grok Bot: My team of 29 AI agents»](https://jcng5q8n0f3z.feishu.cn/wiki/YBjswa1rnivPkjk5BpscN6mcnDh), [«GrokBot Agents: build a team that works for you 24/7 in 10 steps (Full-Course) | Movez»](https://jcng5q8n0f3z.feishu.cn/wiki/LSfqwAew5i4h3mkuQT9cgw3jn54) y [«Grok Bot: How to Build Your First AI Team (Full Guide)»](https://jcng5q8n0f3z.feishu.cn/wiki/MRhNwTEH8i0PrDkSp5uce2V7nKe).

@@ -20,7 +20,7 @@ Copia todo el contenido a continuación y envíalo a tu Grok Bot; se instalará 
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上接入 MCP 连接器（https://docs.x.ai/grok/connectors），以后调用外部工具和同步云端数据用它。需要第三方授权时把链接发给我，需要填密钥时请提醒我自己填。
+幫我在你的雲端電腦上接入 MCP 連線器（https://docs.x.ai/grok/connectors），以後呼叫外部工具和同步雲端資料用它。需要第三方授權時把連結發給我，需要填密鑰時請提醒我自己填。
 ````
 
 </div>

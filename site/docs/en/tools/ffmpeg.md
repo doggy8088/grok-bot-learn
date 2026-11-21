@@ -18,7 +18,7 @@ Copy the entire content below and send it to your Grok Bot. It will automaticall
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 FFmpeg（https://ffmpeg.org/download.html），以后处理音视频转码、剪辑、压缩和截帧用它。
+幫我在你的雲端電腦上安裝 FFmpeg（https://ffmpeg.org/download.html），以後處理音影片轉碼、剪輯、壓縮和截幀用它。
 ````
 
 </div>

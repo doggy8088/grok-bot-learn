@@ -18,7 +18,7 @@ Copie todo o conteúdo abaixo e envie para o seu Grok Bot; ele instalará e veri
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 Playwright（https://playwright.dev/python/docs/intro），以后网页渲染、截图和抓取任务用它。
+幫我在你的雲端電腦上安裝 Playwright（https://playwright.dev/python/docs/intro），以後網頁渲染、截圖和抓取任務用它。
 ````
 
 </div>
