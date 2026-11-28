@@ -102,7 +102,7 @@ Según el autor, en su última ejecución generó 30 oportunidades comerciales.
 
 Al encontrarse con vídeos promocionales sin subtítulos sobre lanzamientos de nuevos modelos en el extranjero, el autor recurre a un Bot previamente configurado para aprovechar rápidamente la tendencia. Basta con enviar el enlace del tweet original al Bot desde el móvil con una simple instrucción, y el Bot se encarga de descargar el vídeo original, traducir el audio y grabar los subtítulos en chino.
 
-**Al integrar la descarga, traducción e incrustación de subtítulos en un mismo Bot, el usuario puede producir vídeos adaptados al chino en cualquier momento y lugar solo con el móvil**. Una vez listo el vídeo, se puede distribuir simultáneamente en X y Channels (视频号); la plantilla de configuración de este Bot ya es pública.
+**Al integrar la descarga, traducción e incrustación de subtítulos en un mismo Bot, el usuario puede producir vídeos adaptados al chino en cualquier momento y lugar solo con el móvil**. Una vez listo el vídeo, se puede distribuir simultáneamente en X y Channels (視頻號); la plantilla de configuración de este Bot ya es pública.
 
 Según el autor, todo el proceso de edición de vídeo se completa en el móvil en cuestión de minutos.
 
@@ -544,7 +544,7 @@ Un grupo de consultas de pago requiere envíos periódicos de noticias del secto
 
 El flujo guarda primero los mensajes del grupo en una base de datos para que el asistente en segundo plano los procese en lote antes de devolverlos al grupo; el asistente solo gestiona boletines periódicos y resúmenes diarios, respondiendo habitualmente solo a menciones directas del administrador. **Cada día se envía al grupo únicamente una imagen resumen estructurada acompañada de un enlace a una página web detallada para facilitar la lectura, evitando a propósito conversaciones libres con todos los miembros y eludiendo con precisión el riesgo de agotar la cuota de Webhook.**
 
-Según la experiencia del autor, el asistente de operaciones para comunidades de pago «小铁柱» funciona de manera estable; los resúmenes diarios pueden verse en imagen o consultarse en la web, y el diseño de la arquitectura superó con éxito las restricciones de frecuencia de la API (experiencia propia).
+Según la experiencia del autor, el asistente de operaciones para comunidades de pago «小鐵柱» funciona de manera estable; los resúmenes diarios pueden verse en imagen o consultarse en la web, y el diseño de la arquitectura superó con éxito las restricciones de frecuencia de la API (experiencia propia).
 
 ### Generar rápidamente una página en Pages para practicar: pronunciación interactiva por palabra para una presentación personal en inglés｜@cgnot996
 
@@ -651,9 +651,9 @@ Según el autor, acumuló cerca de 2,4 millones de visualizaciones en 21 días (
 
 > Publicación original: [@cgnot996](https://x.com/cgnot996/status/2115317431019430249)
 
-Tras la buena acogida de los resúmenes diarios de 小铁柱 en su propio grupo de consultas de pago, el autor quiso replicarlo en el grupo de la profesora Xiaowan y explorar la viabilidad de prestar el servicio a más comunidades externas.
+Tras la buena acogida de los resúmenes diarios de 小鐵柱 en su propio grupo de consultas de pago, el autor quiso replicarlo en el grupo de la profesora Xiaowan y explorar la viabilidad de prestar el servicio a más comunidades externas.
 
-Primero integró la función de boletines en el grupo de consultas de Xiaowan y, **a continuación, utilizó Grok Bot para construir una landing page promocional de «小铁柱», enlazándola en los alrededores del sitio de aprendizaje**. En ella explica con claridad la posibilidad de contratar el servicio para generar resúmenes diarios en grupos, manteniendo la supervisión humana para asegurar la calidad final de la entrega.
+Primero integró la función de boletines en el grupo de consultas de Xiaowan y, **a continuación, utilizó Grok Bot para construir una landing page promocional de «小鐵柱», enlazándola en los alrededores del sitio de aprendizaje**. En ella explica con claridad la posibilidad de contratar el servicio para generar resúmenes diarios en grupos, manteniendo la supervisión humana para asegurar la calidad final de la entrega.
 
 Según la experiencia del autor, se completó con éxito la integración en el grupo de Xiaowan y se habilitó el acceso a la landing page (experiencia propia; conversión comercial no verificada).
 

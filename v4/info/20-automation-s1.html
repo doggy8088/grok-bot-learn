@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1200, initial-scale=1">
-<title>触发器选型</title>
+<title>觸發器選型</title>
 <style>
 *{box-sizing:border-box}
 html,body{width:1200px;height:760px;margin:0;overflow:hidden}
@@ -36,30 +36,30 @@ h1{margin:0;font-size:38px;line-height:1.15;letter-spacing:-1.1px;font-weight:76
 <body>
 <main class="page">
   <header class="head">
-    <h1>到点交付，还是等待变化？</h1>
+    <h1>到點交付，還是等待變化？</h1>
     <img class="bot" src="bots/capsule-vert.png" alt="">
   </header>
-  <section class="context">先分清是<strong>到点交差</strong>还是<strong>等新数据</strong>。Bot 与 Grok、Cursor 共享每周额度池，高频轮询几天就耗尽。</section>
-  <section class="compare" aria-label="触发方式对比">
+  <section class="context">先分清是<strong>到點交差</strong>還是<strong>等新資料</strong>。Bot 與 Grok、Cursor 共享每週額度池，高頻輪詢幾天就耗盡。</section>
+  <section class="compare" aria-label="觸發方式對比">
     <article class="card scheduled">
-      <h2>到点交差</h2>
+      <h2>到點交差</h2>
       <div class="rule"></div>
-      <div class="row"><div class="term">定时例程</div><div class="desc">到点无论有无数据均计费</div></div>
-      <div class="row"><div class="term">适合</div><div class="desc">固定日报</div></div>
-      <div class="key">定时最短间隔 5 分钟</div>
+      <div class="row"><div class="term">定時例程</div><div class="desc">到點無論有無資料均計費</div></div>
+      <div class="row"><div class="term">適合</div><div class="desc">固定日報</div></div>
+      <div class="key">定時最短間隔 5 分鐘</div>
     </article>
     <div class="divider"><span>或</span></div>
     <article class="card event">
-      <h2>等新数据</h2>
+      <h2>等新資料</h2>
       <div class="rule"></div>
-      <div class="row"><div class="term">Webhook</div><div class="desc">平时零消耗；仅限带 Bearer 密钥的 POST 请求</div></div>
-      <div class="row"><div class="term">第三方事件</div><div class="desc">GitHub、Slack 等；有事件才唤醒</div></div>
-      <div class="key">繁忙频道易刷爆额度</div>
+      <div class="row"><div class="term">Webhook</div><div class="desc">平時零消耗；僅限帶 Bearer 密鑰的 POST 請求</div></div>
+      <div class="row"><div class="term">第三方事件</div><div class="desc">GitHub、Slack 等；有事件才喚醒</div></div>
+      <div class="key">繁忙頻道易刷爆額度</div>
     </article>
   </section>
   <section class="bottom">
-    <div class="decision">等新数据才处理，一律改用 Webhook 或第三方事件。</div>
-    <div class="limits"><strong>单 Bot 限 50 个 Routine，记录留 20 次</strong><span>X 互动：回复 @bot；无法解析视频帖，同时 @grok 与 @bot 不触发。</span></div>
+    <div class="decision">等新資料才處理，一律改用 Webhook 或第三方事件。</div>
+    <div class="limits"><strong>單 Bot 限 50 個 Routine，記錄留 20 次</strong><span>X 互動：回覆 @bot；無法解析影片帖，同時 @grok 與 @bot 不觸發。</span></div>
   </section>
 </main>
 </body>

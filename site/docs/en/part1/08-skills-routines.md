@@ -25,14 +25,14 @@ Don't close the session right after a task runs successfully; ask the current Bo
 
 ::: details How to distill skills
 ```text
-请把我们刚刚完成的这套流程保存为名为“每日工单异常审查”的技能。
-技能内容必须包含以下要素：
-1. 适用场景：工作日审查支持渠道中滞留超过 4 小时的工单。
-2. 输入数据：从已连接的工单插件中读取状态为 Open 且优先级为 High 的列表。
-3. 决策规则：若工单包含退款申请且金额大于 500 元，标记为一级风险；其余标记为二级跟进。
-4. 交付格式：生成 Markdown 表格，列出工单编号、客户标识、滞留时长、风险等级与跟进建议。
-5. 异常处理：若工单系统接口无响应或无符合条件的数据，输出明确说明，严禁使用历史缓存或伪造数据。
-6. 安全边界：未经人工明确批准，严禁直接调用接口回复客户或变更工单状态。
+請把我們剛剛完成的這套流程保存為名為“每日工單例外審查”的技能。
+技能內容必須包含以下要素：
+1. 適用場景：工作日審查支援渠道中滯留超過 4 小時的工單。
+2. 輸入資料：從已連線的工單外掛中讀取狀態為 Open 且優先級為 High 的列表。
+3. 決策規則：若工單包含退款申請且金額大於 500 元，標記為一級風險；其餘標記為二級跟進。
+4. 交付格式：生成 Markdown 表格，列出工單編號、客戶標識、滯留時長、風險等級與跟進建議。
+5. 例外處理：若工單系統介面無回應或無符合條件的資料，輸出明確說明，嚴禁使用歷史快取或偽造資料。
+6. 安全邊界：未經人工明確批准，嚴禁直接呼叫介面回覆客戶或變更工單狀態。
 ```
 :::
 
@@ -77,7 +77,7 @@ Source: [4.3 Triggers and Automation: Schedules, Webhooks, and Assigning Tasks o
 Create directly on the desktop client by sending instructions in the chat box:
 
 ```text
-每个工作日上午 8:30，调用“每日工单异常审查”技能，在此对话中输出审查清单。如果未检索到高风险工单，只发一行“今日无高风险工单”即可，不要刷屏。
+每個工作日上午 8:30，呼叫“每日工單例外審查”技能，在此對話中輸出審查清單。如果未檢索到高風險工單，只發一行“今日無高風險工單”即可，不要刷屏。
 ```
 
 Desktop management:
@@ -134,8 +134,8 @@ Starting from 2026-10-12, Grok Bot is incorporated into The X Subscription syste
 Sending an instruction in the chat window allows the Bot to create a Webhook trigger.
 
 ```text
-为当前 Bot 创建一个 Webhook 触发的例程，命名为“外部知识接收端”。
-指令内容：读取请求体中的 JSON 数据，提取 url 和 note 字段，将其抓取整理为 Markdown 存入 /workspace/notes 目录。
+為當前 Bot 建立一個 Webhook 觸發的例程，命名為“外部知識接收端”。
+指令內容：讀取請求體中的 JSON 資料，提取 url 和 note 欄位，將其抓取整理為 Markdown 存入 /workspace/notes 目錄。
 ```
 
 Open the routine details on the desktop and expand Webhook to view the core fields:
@@ -153,7 +153,7 @@ External systems push data via POST requests, directly carrying a JSON request b
 {
   "url": "https://example.com/article/1024",
   "source": "ios_share",
-  "note": "精读核心论点并归档"
+  "note": "精讀核心論點並歸檔"
 }
 ```
 
@@ -169,7 +169,7 @@ The Slack plugin is a read/write tool invoked in real time along with conversati
 Send instructions in natural language to establish listening.
 
 ```text
-创建一个 Slack 触发例程：当 #incident-response 频道中有人发消息提及 @bot 且包含短语 "needs repro" 时，在云电脑上拉取报错日志并尝试复现。不要监听其他频道，也不要在没有该短语时响应。
+建立一個 Slack 觸發例程：當 #incident-response 頻道中有人發訊息提及 @bot 且包含短語 "needs repro" 時，在雲端電腦上拉取報錯記錄並嘗試復現。不要監聽其他頻道，也不要在沒有該短語時回應。
 ```
 
 Four types of listening are supported: Bot mentioned, matching specific phrases, adding emoji reactions, or receiving any message.
@@ -189,7 +189,7 @@ Configure following these steps:
 1. **Create a new cloud routine**: Create a "Mobile Knowledge Archival" routine on the Grok Bot side, select Webhook as the trigger condition, and obtain the exclusive POST URL and Authorization header.
 2. **Write processing instructions**: Set the instruction to receive the incoming URL and open it with a browser on the cloud computer; if it is a video, extract the transcript; after parsing, extract the title and tags according to the format, organize core points and related links, and append-write them into `/workspace/knowledge/inbox.md`.
 3. **Create a mobile Shortcut**: Open the "Shortcuts" app on iPhone, create a new shortcut, toggle on "Show in Share Sheet", and check "Web pages" and "Text" as received types.
-4. **Add request action**: Add the "Get Contents of URL" action, select `POST` for Method, fill in the Webhook target address for URL, add `Authorization` with the value `Bearer [你的私钥]` in Headers, select `JSON` for Request Body, and bind `url` to "Shortcut Input".
+4. **Add request action**: Add the "Get Contents of URL" action, select `POST` for Method, fill in the Webhook target address for URL, add `Authorization` with the value `Bearer [你的私鑰]` in Headers, select `JSON` for Request Body, and bind `url` to "Shortcut Input".
 5. **Resolve sharing limitations**: Apps like WeChat Official Accounts cannot directly invoke the share sheet with Shortcuts. **Build an additional "Input Box Relay" shortcut bound to the Action Button**; tap to open a pop-up, paste the link, and forward it to the Webhook.
 
 **The mobile side only performs lightweight parameter capture and HTTP dispatch, while heavy content scraping and formatting are entirely handled asynchronously in the cloud.** This way, the phone consumes no extra battery and requires no waiting, allowing you to exit in seconds.

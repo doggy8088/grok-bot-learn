@@ -15,22 +15,22 @@ No le cargues todo el trabajo a un solo Bot ni **metas varios Bots en un grupo**
 
 Los chats grupales permiten agregar varios Bots, pero **los Team Bots no pueden estar en el mismo grupo que los Bots locales**.
 
-Por defecto, al enviar un mensaje responderán todos; para especificar uno, usa `@Bot名称`. En tareas complejas, las transferencias entre Bots por chat privado no se sincronizan con el grupo.
+Por defecto, al enviar un mensaje responderán todos; para especificar uno, usa `@Bot名稱`. En tareas complejas, las transferencias entre Bots por chat privado no se sincronizan con el grupo.
 
 Si te preocupa que los chats privados queden dispersos, establece reglas directas:
 - **Restricción temporal**: envía una instrucción en el grupo.
 ```text
-就在群里回复，这件事不要私信我。
+就在群裡回覆，這件事不要私訊我。
 ```
 - **Restricción a largo plazo**: pídele que lo guarde en la memoria a largo plazo.
 ```text
-记住：在群组聊天中，要在群里回复。
+記住：在群組聊天中，要在群裡回覆。
 ```
 
 El sistema no dispone de un interruptor para desactivar los diálogos entre Bots con un solo clic. Para evitar llamadas en cadena que desperdicien la cuota, recurre a estos métodos:
 1. **Prohibición temporal**: envía una instrucción en el grupo.
 ```text
-不要给其他 Bot 发消息，先问我。
+不要給其他 Bot 發訊息，先問我。
 ```
 2. **Regla a largo plazo**: exige que esté terminantemente prohibido activar a otros Bots en privado sin confirmación previa.
 3. **Parada de emergencia**: si no se detiene, **entra a su chat privado exclusivo y ordénale parar**.
@@ -122,12 +122,12 @@ No dejes que todos los Bots interactúen directamente con el usuario, para no te
 Para consultar las normas de organización del equipo, revisa [«4.2 Orquestación de equipos: estatutos, roles y delegación de autoridad»](https://jcng5q8n0f3z.feishu.cn/wiki/POTrwwThoiQxIakFDIDcUcKjnmh).
 
 ```text
-Own: 负责需求的统一拆解、分派、汇总与五行简报汇报。
-Sources: 人工下发的指令、项目看板文件。
-Output: 纯文本状态摘要，超出五行时输出为指定文件路径。
-Approval: 任何对外通信、采购、删除操作必须暂停等待确认。
-Failure: 下游专职 Bot 报错时如实上报，不使用过期数据假装完成。
-Never: 永远不直接编写业务代码，不擅自修改生产配置。
+Own: 負責需求的統一拆解、分派、彙總與五行簡報彙報。
+Sources: 人工下發的指令、項目看板文件。
+Output: 純文字狀態摘要，超出五行時輸出為指定文件路徑。
+Approval: 任何對外通信、採購、刪除操作必須暫停等待確認。
+Failure: 下游專職 Bot 報錯時如實上報，不使用過期資料假裝完成。
+Never: 永遠不直接編寫業務程式碼，不擅自修改生產組態。
 ```
 
 Para los Bots especializados, debes enviarles sus límites negativos para que los recuerden (en Bots compartidos, escríbelos en el About de detalles):
@@ -138,12 +138,12 @@ Para los Bots especializados, debes enviarles sus límites negativos para que lo
 Los especialistas en publicidad pueden aplicar directamente la plantilla de prompt.
 
 ```text
-Own: 负责广告投放数据诊断与策略输出。
-Sources: 运营分析文件 /workspace/project/ad_data.json。
-Output: 待批操作清单 /workspace/project/pending_actions.md，列出出价建议与预期影响。
-Approval: 绝不直接写入广告后台，不修改出价，不修改预算，不加否定词，所有操作必须等待人工审批。
-Failure: 数据缺失时明确标注缺失字段，不推测填充。
-Never: 绝不执行任何后台写入与线上提交操作。
+Own: 負責廣告投放資料診斷與策略輸出。
+Sources: 運營分析文件 /workspace/project/ad_data.json。
+Output: 待批操作清單 /workspace/project/pending_actions.md，列出出價建議與預期影響。
+Approval: 絕不直接寫入廣告後台，不修改出價，不修改預算，不加否定詞，所有操作必須等待人工審批。
+Failure: 資料缺失時明確標註缺失欄位，不推測填充。
+Never: 絕不執行任何後台寫入與線上提交操作。
 ```
 
 ### Listas pendientes de aprobación y aceptación
@@ -177,24 +177,24 @@ El traspaso estándar abarca el guardado en disco, la transmisión de la ruta y,
 
 ::: details Estándar del pipeline de traspaso de archivos
 ```
-[用户指令] ──> (主调度 Bot)
+[使用者指令] ──> (主排程 Bot)
                    │
-         1. 派发任务 (指定输出路径)
-                   │
-                   ▼
-             [专职 Bot A] ──> 写入 /workspace/proj/data.json
-                   │
-         2. 交付：仅返回文件绝对路径
+         1. 派發任務 (指定輸出路徑)
                    │
                    ▼
-             (主调度 Bot)
+             [專職 Bot A] ──> 寫入 /workspace/proj/data.json
                    │
-         3. 调度下发 (附带输入路径)
+         2. 交付：僅返回文件絕對路徑
                    │
                    ▼
-             [专职 Bot B] ──> 读取 data.json ──> 写入 output.md
+             (主排程 Bot)
                    │
-         4. 汇总简报至用户
+         3. 排程下發 (附帶輸入路徑)
+                   │
+                   ▼
+             [專職 Bot B] ──> 讀取 data.json ──> 寫入 output.md
+                   │
+         4. 彙總簡報至使用者
 ```
 :::
 

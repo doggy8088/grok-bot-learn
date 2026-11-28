@@ -18,7 +18,7 @@ DeepSeek 공식 오픈소스인 **"모든 것이 플러그인" 아키텍처 Agen
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装配置 DeepSeek Harness（https://github.com/deepseek-ai/deepseek-harness），以后日常办公、调研、写代码和跑定时任务用它。需要配置 DeepSeek API Key 时请停下来提醒我自己填。
+幫我在你的雲端電腦上安裝組態 DeepSeek Harness（https://github.com/deepseek-ai/deepseek-harness），以後日常辦公、調研、寫程式碼和跑定時任務用它。需要組態 DeepSeek API Key 時請停下來提醒我自己填。
 ````
 
 </div>

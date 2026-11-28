@@ -9,7 +9,7 @@ To steadily make it through the week, do these three things well:
 
 ![Usage Limits & Costs: Making a Week of Allowance Last a Full Week](/info/10-usage.png)
 
-## How Does Grok Bot Quota Billing Work? {#扣费原理-额度是怎么被花掉的}
+## How Does Grok Bot Quota Billing Work? {#扣費原理-額度是怎麼被花掉的}
 
 **Grok Bot bills based on tokens consumed per call. Its core mechanism is a single long-running conversation where every reply or wake-up rereads the entire historical context in full; total consumption equals the number of wake-ups multiplied by the context length reread each time.**
 
@@ -18,7 +18,7 @@ To steadily make it through the week, do these three things well:
 Grok Bot bills based on the tokens actually called by the model. **Its core mechanism is a single long-running conversation: every reply or scheduled wake-up rereads the entire history from scratch.**
 
 ```
-每周总消耗 = Bot 唤醒的总次数 × 每次唤醒时重读的上下文长度
+每週總消耗 = Bot 喚醒的總次數 × 每次喚醒時重讀的上下文長度
 ```
 
 When a session accumulates a massive amount of logs or web pages, a single reread can reach hundreds of thousands of tokens—replying with a single sentence is still billed at full context length.
@@ -44,7 +44,7 @@ For quota rules, see [Cursor Official Guide: Plans and Billing](https://cursor.c
 
 **The official stance clearly states that there is no model picker, making it impossible to switch to lower-tier models.** The only ways to control costs are to reduce wake-up frequency, truncate context length, or offload compute-heavy tasks externally.
 
-## What Are the Common High-Quota Traps for Grok Bot? {#高耗操作清单-坚决避开的六大陷阱}
+## What Are the Common High-Quota Traps for Grok Bot? {#高耗操作清單-堅決避開的六大陷阱}
 
 **You must strictly avoid multi-Bot group chats, feeding images and videos directly into the conversation, 24/7 high-frequency polling, using a single long conversation indefinitely, unprotected retry deadloops, and blindly enabling on-demand billing without setting a monthly cap.**
 
@@ -159,7 +159,7 @@ Multi-Bot collaboration must adhere to a **hub-and-spoke model with no lateral c
 
 Source: [4.1 Quota & Cost: Quota-Saving Checklist](https://jcng5q8n0f3z.feishu.cn/wiki/KFbzwPhAliezlBkkvIuc1Abgn4h)
 
-## How to Conduct Usage Audits and Handle Exhaustion Emergencies for Grok Bot? {#用量审计与应急机制-守住每周节奏}
+## How to Conduct Usage Audits and Handle Exhaustion Emergencies for Grok Bot? {#用量審計與應急機制-守住每週節奏}
 
 **Spend 15 minutes the day before the weekly reset to inspect routine logs and billing; if the quota is exhausted and the front end is locked, the underlying Linux cloud computer is not destroyed—you can directly open the terminal to take over code, commit, and push manually.**
 
@@ -191,70 +191,70 @@ Source: [4.1 Quota & Cost: Quota-Saving Checklist](https://jcng5q8n0f3z.feishu.c
 ### Context Bloat Prevention
 - Have the Bot distill and memorize rules to **save on repeating instructions in chat**; for shared Bots, these can be written into About details.
 ```text
-请回顾我们至今的协作流程，执行两项沉淀工作：
-1. 把你需要长期遵守的行为边界、汇报格式与约束规矩，提炼成一段不超过 300 字的精简文本，我将直接粘贴到你的描述（Description）中；
-2. 把我们刚才已经跑通的标准操作流程，封装为一个可复用的技能（Skill），供后续例程直接调用。
-完成提取后直接在对话中给出文本，不要展开多余闲聊。
+請回顧我們至今的協作流程，執行兩項沉澱工作：
+1. 把你需要長期遵守的行為邊界、彙報格式與約束規矩，提煉成一段不超過 300 字的精簡文本，我將直接粘貼到你的描述（Description）中；
+2. 把我們剛才已經跑通的標準操作流程，封裝為一個可複用的技能（Skill），供後續例程直接呼叫。
+完成提取後直接在對話中給出文本，不要展開多餘閒聊。
 ```
 - Mandate saving raw logs and long materials to disk, rather than pasting them directly into the session.
 ```text
-从现在起执行上下文瘦身规则：
-所有抓取的长篇网页、接口调试日志、大批原始数据和阶段性中间产物，一律直接保存为 /workspace/ 目录下的文本文件。在聊天窗口中回复我时，严格只提供核心结论、关键变动要点以及对应的文件绝对路径。严禁将大段原始文本或日志代码贴回对话。
+從現在起執行上下文瘦身規則：
+所有抓取的長篇網頁、介面除錯記錄、大批原始資料和階段性中間產物，一律直接保存為 /workspace/ 目錄下的文本文件。在聊天視窗中回覆我時，嚴格只提供核心結論、關鍵變動要點以及對應的文件絕對路徑。嚴禁將大段原始文本或記錄程式碼貼回對話。
 ```
 - Convert multimodal images to command-line parsing to **avoid high consumption in the chat box**.
 ```text
-遇到查看多张截图、分析视频画面、逐帧拉片、音频转写或处理长扫描件的任务时，严禁在当前对话框中直接读取原始多模态文件。
-你应当在云电脑终端中调用系统已配置的命令行工具（如 Grok Build 或相关转录 CLI）在后台执行，并输出简明的结构化文字摘要；你只需阅读生成的文字结论。如果当前环境无法执行命令行解析，请停下提醒我先在网页端转换成文字后再发给你。
+遇到查看多張截圖、分析影片畫面、逐幀拉片、音訊轉寫或處理長掃描件的任務時，嚴禁在當前對話框中直接讀取原始多模態文件。
+你應當在雲端電腦終端中呼叫系統已組態的命令列工具（如 Grok Build 或相關轉錄 CLI）在後台執行，並輸出簡明的結構化文字摘要；你只需閱讀生成的文字結論。如果當前環境無法執行命令列解析，請停下提醒我先在網頁端轉換成文字後再發給你。
 ```
 
 ### Task and Code Offloading
 - Silently exit monitoring routines when there are no changes.
 ```text
-请列出当前你名下的全部例行任务（Routines），注明每条任务的触发频率、每周预计运行次数以及没有变化时的处理逻辑。
-找出其中运行最频繁、消耗最大的任务，向我提出降低频率的具体建议；同时为所有监控类例程添加硬性约束：执行检查后若目标无实质变动，立刻静默退出，严禁向我发送「一切正常」或「没有新消息」等无有效信息的通报。
+請列出當前你名下的全部例行任務（Routines），註明每條任務的觸發頻率、每週預計執行次數以及沒有變化時的處理邏輯。
+找出其中執行最頻繁、消耗最大的任務，向我提出降低頻率的具體建議；同時為所有監控類例程新增硬性約束：執行檢查後若目標無實質變動，立刻靜默退出，嚴禁向我發送「一切正常」或「沒有新訊息」等無有效資訊的通報。
 ```
 - Dispatch tasks via 1-on-1 chats, and **strictly forbid Bots from creating group chats to talk among themselves**.
 ```text
-严格执行独立单聊工作模式：
-只接收并执行我本人下达的直接指令。严禁在没有得到我明确授权的情况下，主动在会话中唤醒、提及或联络其他 Bot 开展群聊协同；如果任务涉及多个专业环节，请将结果写成文件并由我来负责跨 Bot 调度，或者将其派发给云电脑内的后台 CLI 工具独立运行。
+嚴格執行獨立單聊工作模式：
+只接收並執行我本人下達的直接指令。嚴禁在沒有得到我明確授權的情況下，主動在會話中喚醒、提及或聯絡其他 Bot 開展群聊協同；如果任務涉及多個專業環節，請將結果寫成文件並由我來負責跨 Bot 排程，或者將其派發給雲端電腦內的後台 CLI 工具獨立執行。
 ```
 - Keep Bot focused on orchestration, while long code writing and debugging are **offloaded to the Grok Build background CLI**.
 ```text
-明确你的角色定位是任务调度主管，核心职责是理解目标、拆解方案、组织逻辑和验收结果。
-不要在聊天窗口中直接编写整段的长篇代码，也不要通读整个大型仓库做全量重构。涉及代码编写、项目调试和环境排查的工作，统一在后台调用云电脑内已经授权的 Grok Build 命令行工具执行。执行完毕后，你仅需检查其退出状态码并将最终结论同步给我。
+明確你的角色定位是任務排程主管，核心職責是理解目標、拆解方案、組織邏輯和驗收結果。
+不要在聊天視窗中直接編寫整段的長篇程式碼，也不要通讀整個大型倉庫做全量重構。涉及程式碼編寫、項目除錯和環境排查的工作，統一在後台呼叫雲端電腦內已經授權的 Grok Build 命令列工具執行。執行完畢後，你僅需檢查其退出狀態碼並將最終結論同步給我。
 ```
 
 ### Search, Risk Control, and Handoff
 - Save X search results to disk, and only report concise bullet points in chat.
 ```text
-在检索 X 平台的推文、观点或动态时，使用你自带的免费搜索能力。
-搜索到的批量推文原文，请直接写入 /workspace/ 下的对应 markdown 文件中保存。在聊天框中向我汇报时，严格限制为 3 到 5 条提炼后的核心事实与推文对应链接，严禁把多条推文的大段原文搬运回聊天中。
+在檢索 X 平台的推文、觀點或動態時，使用你自帶的免費搜尋能力。
+搜尋到的批量推文原文，請直接寫入 /workspace/ 下的對應 markdown 文件中保存。在聊天框中向我彙報時，嚴格限制為 3 到 5 條提煉後的核心事實與推文對應連結，嚴禁把多條推文的大段原文搬運回聊天中。
 ```
 - Automations and API calls must set retry caps, **forcing interruption for manual approval upon anomalies**.
 ```text
-在执行自动化任务、网络请求或文件排查时，严格执行防死循环规则：
-同一操作或相似接口调用的重试上限为 2 次。如果连续 2 次重试均未成功，或者对下一步执行动作存在疑问，立刻中断自动化流程并向我发起提问，详细说明遇到的错误原因，严禁自行无限重试或在后台空转。
+在執行自動化任務、網路請求或文件排查時，嚴格執行防死循環規則：
+同一操作或相似介面呼叫的重試上限為 2 次。如果連續 2 次重試均未成功，或者對下一步執行動作存在疑問，立刻中斷自動化流程並向我發起提問，詳細說明遇到的錯誤原因，嚴禁自行無限重試或在後台空轉。
 ```
 - Have the old Bot prepare a handoff card before Duplicate cloning, **strictly limited to within 10 lines**.
 ::: details Search, Risk Control, and Handoff
 ```text
-当前会话历史较长，需要进行交接重置。请为我梳理一份 10 行以内的结构化交接总结，严格包含以下五项内容：
-1. 你的角色设定与核心职责；
-2. 当前正在进行的任务目标；
-3. 已经达成的关键结论与做过的核心决定；
-4. 下一步必须立刻执行的动作；
-5. 新会话需要优先读取的关键文件绝对路径。
-输出完毕后不要执行任何新任务，等待我启动新会话。
+當前會話歷史較長，需要進行交接重置。請為我梳理一份 10 行以內的結構化交接總結，嚴格包含以下五項內容：
+1. 你的角色設定與核心職責；
+2. 當前正在進行的任務目標；
+3. 已經達成的關鍵結論與做過的核心決定；
+4. 下一步必須立刻執行的動作；
+5. 新會話需要優先讀取的關鍵文件絕對路徑。
+輸出完畢後不要執行任何新任務，等待我啟動新會話。
 ```
 :::
 - Enter a free OpenRouter key in the secret box to directly offload lightweight tasks.
 ```text
-请协助配置 OpenRouter 免费模型调用环境，严格遵循以下安全执行流程：
-1. 在聊天框中调出系统的密钥输入弹窗向我收取 API Key，严禁让我把密钥明文发送在普通对话中；
-2. 将获取到的 Key 保存到 ~/.agents/secrets/openrouter.env 文件中，环境变量名指定为 OPENROUTER_API_KEY；
-3. 对该密钥文件执行 chmod 600 设置安全权限；
-4. 执行全程严禁在终端标准输出或聊天消息中打印该 Key 的明文内容；
-5. 使用 curl 调用一个以 :free 结尾的免费模型进行一次最小文本测试，确认调用成功且费用为 0，并将测试结果告诉我。
+請協助組態 OpenRouter 免費模型呼叫環境，嚴格遵循以下安全執行流程：
+1. 在聊天框中調出系統的密鑰輸入彈窗向我收取 API Key，嚴禁讓我把密鑰明文發送在普通對話中；
+2. 將獲取到的 Key 保存到 ~/.agents/secrets/openrouter.env 文件中，環境變數名指定為 OPENROUTER_API_KEY；
+3. 對該密鑰文件執行 chmod 600 設定安全權限；
+4. 執行全程嚴禁在終端標準輸出或聊天訊息中打印該 Key 的明文內容；
+5. 使用 curl 呼叫一個以 :free 結尾的免費模型進行一次最小文本測試，確認呼叫成功且費用為 0，並將測試結果告訴我。
 ```
 
 Prototype reference: [Grok Bot Quota Ultra-Long Battery Life Step-by-Step Beginner's Guide (Send Directly to Bot!)](https://jcng5q8n0f3z.feishu.cn/wiki/OPMJw2EgtiWMiJkcrzFc6gJ8nlf)

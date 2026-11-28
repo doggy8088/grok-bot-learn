@@ -9,58 +9,58 @@
 <body>
 <main>
 <div class="topline"></div>
-<h1>Bot 电脑：批量运维与生命周期</h1>
+<h1>Bot 電腦：批量運維與生命週期</h1>
 <img class="bot" src="bots/nuage-turquoise.png" alt="">
 <section class="actions">
 <article class="card">
 <div class="num">1</div>
 <h2>重建 VMs</h2>
-<p>用最新镜像重装并重跑环境脚本</p>
+<p>用最新鏡像重裝並重跑環境指令碼</p>
 <div class="rule"></div>
 <div class="retain">保留</div>
-<div class="scenario"><b>磁盘完好</b>，Bot、个人文件与 Cookie 均保留；仅清除自装系统软件</div>
+<div class="scenario"><b>磁盤完好</b>，Bot、個人文件與 Cookie 均保留；僅清除自裝系統軟體</div>
 <div class="rule"></div>
-<div class="scenario">环境脚本变更生效、灰度新镜像</div>
+<div class="scenario">環境指令碼變更生效、灰度新鏡像</div>
 </article>
 <article class="card">
 <div class="num">2</div>
-<h2>终止 VMs</h2>
-<p>立即销毁运行或休眠实例，中断当前计算</p>
+<h2>終止 VMs</h2>
+<p>立即銷燬執行或休眠實例，中斷當前計算</p>
 <div class="rule"></div>
 <div class="retain">保留</div>
-<div class="scenario">保留磁盘；下次在客户端发消息会重新拉起干净虚拟机</div>
+<div class="scenario">保留磁盤；下次在客戶端發訊息會重新拉起乾淨虛擬機器</div>
 <div class="rule"></div>
-<div class="scenario">解决实例卡死、释放云端占用</div>
+<div class="scenario">解決實例卡死、釋放雲端佔用</div>
 </article>
 <article class="card">
 <div class="num">3</div>
-<h2>删除虚拟机和数据</h2>
-<p>销毁虚拟机并彻底删除底层绑定的持久存储</p>
+<h2>刪除虛擬機器和資料</h2>
+<p>銷燬虛擬機器並徹底刪除底層綁定的持久儲存</p>
 <div class="rule"></div>
 <div class="retain" style="color:#20201d">不保留</div>
-<div class="scenario">数据彻底清空；下次使用重新初始化为空白电脑</div>
+<div class="scenario">資料徹底清空；下次使用重新初始化為空白電腦</div>
 <div class="rule"></div>
-<div class="scenario">员工离职清理、数据损坏彻底重置</div>
+<div class="scenario">員工離職清理、資料損壞徹底重置</div>
 </article>
 </section>
 <section class="flow">
 <article class="panel">
-<h2>控制台批量操作</h2>
-<div class="steps"><div class="step">管理<br>搜索成员</div><div class="arrow">→</div><div class="step">Manage selected<br>选择目标操作</div><div class="arrow">→</div><div class="step">确认人数<br>开始执行</div></div>
-<div class="done"><b>执行完毕必须点击 Done</b>；每个团队同一时间只能运行一项批量操作。</div>
+<h2>主控台批量操作</h2>
+<div class="steps"><div class="step">管理<br>搜尋成員</div><div class="arrow">→</div><div class="step">Manage selected<br>選擇目標操作</div><div class="arrow">→</div><div class="step">確認人數<br>開始執行</div></div>
+<div class="done"><b>執行完畢必須點選 Done</b>；每個團隊同一時間只能執行一項批量操作。</div>
 </article>
 <article class="panel auto">
-<h2>闲置自动终止</h2>
-<p>打开 <b>Terminate Inactive Computers</b> 开关</p>
-<p>成员电脑连续 <b>30 天无活动</b>会自动终止</p>
-<p>只释放计算实例且保留磁盘，系统按滚动周期清理</p>
+<h2>閒置自動終止</h2>
+<p>打開 <b>Terminate Inactive Computers</b> 開關</p>
+<p>成員電腦連續 <b>30 天無活動</b>會自動終止</p>
+<p>只釋放計算實例且保留磁盤，系統按滾動週期清理</p>
 </article>
 <article class="panel api">
-<h2>多团队批量运维</h2>
-<p>调用组织 Admin API</p>
-<p>提供 <b>admin:*</b> 权限的组织 API 密钥</p>
-<p>传入团队 ID、成员邮箱数组和动作类型，并轮询进度</p>
-<div class="lock"><span class="dot"></span>同样受单团队单并发限制</div>
+<h2>多團隊批量運維</h2>
+<p>呼叫組織 Admin API</p>
+<p>提供 <b>admin:*</b> 權限的組織 API 密鑰</p>
+<p>傳入團隊 ID、成員郵箱陣列和動作型別，並輪詢進度</p>
+<div class="lock"><span class="dot"></span>同樣受單團隊單平行處理限制</div>
 </article>
 </section>
 </main>

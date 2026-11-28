@@ -3,7 +3,7 @@ set -euo pipefail
 SITE="https://bot.fmcat.top"
 ENV="$HOME/.agents/secrets/baidu.env"
 if [ ! -f "$ENV" ]; then
-  echo "missing $ENV (needs BAIDU_PUSH_TOKEN from 百度搜索资源平台 > 普通收录 > API提交)" >&2
+  echo "missing $ENV (needs BAIDU_PUSH_TOKEN from 百度搜尋資源平台 > 普通收錄 > API提交)" >&2
   exit 1
 fi
 set -a; source "$ENV"; set +a

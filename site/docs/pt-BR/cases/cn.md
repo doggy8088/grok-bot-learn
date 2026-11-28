@@ -25,12 +25,12 @@ Reunimos aqui **15 práticas detalhadas**, testadas e comprovadas pela comunidad
 Antes de iniciar a configuração, envie o prompt abaixo para o Bot principal **para que ele ajude a definir os limites de cada função e a estrutura dos diretórios de execução**.
 
 ```text
-我打算参考以下业务场景搭建一套 Grok Bot 工作流：【填入具体业务目标】。
-请按以下步骤帮我拆解：
-1. 列出该流程所需的 Bot 岗位清单，明确每个角色的输入文件、交付成果和绝对禁止动作。
-2. 在 /workspace 下为我规划一套清晰的目录结构，规定上下游交接的文件格式。
-3. 标出涉及外部发信、数据修改、敏感登录或支付的环节，单独列出必须等待人工审批的节点清单。
-4. 给出该流程第一步的测试提示词，明确要求未确认信息标注为待确认，严禁编造数据。
+我打算參考以下業務場景搭建一套 Grok Bot 工作流：【填入具體業務目標】。
+請按以下步驟幫我拆解：
+1. 列出該流程所需的 Bot 崗位清單，明確每個角色的輸入文件、交付成果和絕對禁止動作。
+2. 在 /workspace 下為我規劃一套清晰的目錄結構，規定上下游交接的文件格式。
+3. 標出涉及外部發信、資料修改、敏感登錄或支付的環節，單獨列出必須等待人工審批的節點清單。
+4. 給出該流程第一步的測試提示詞，明確要求未確認資訊標註為待確認，嚴禁編造資料。
 ```
 
 ## Primeiros Passos e Mecanismos Fundamentais

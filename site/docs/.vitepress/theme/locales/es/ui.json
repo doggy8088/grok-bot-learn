@@ -3,9 +3,9 @@
     "groupPill": "Grupo Q&A de pago"
   },
   "footer": {
-    "mpBtn": "Cuenta oficial «铁柱AGI»",
-    "mpDialog": "Código QR de la cuenta oficial «铁柱AGI»",
-    "mpAlt": "Buscar en WeChat: 铁柱AGI",
+    "mpBtn": "Cuenta oficial «鐵柱AGI»",
+    "mpDialog": "Código QR de la cuenta oficial «鐵柱AGI»",
+    "mpAlt": "Buscar en WeChat: 鐵柱AGI",
     "group": "Grupo Q&A de pago",
     "about": "Sobre el autor",
     "friends": "Enlaces recomendados",
@@ -27,6 +27,6 @@
     "chipOurs": "Nuestro análisis"
   },
   "join": {
-    "qrAlt": "Código QR del WeChat personal de 铁柱"
+    "qrAlt": "Código QR del WeChat personal de 鐵柱"
   }
 }

@@ -21,7 +21,7 @@ Copia todo el texto a continuación y envíalo a tu Grok Bot. Se instalará y ve
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上安装 agently-cli（https://agent.qq.com），以后收发邮件、检索历史邮件和下载附件用它。需要登录或授权时停下来把链接发给我由我完成。
+幫我在你的雲端電腦上安裝 agently-cli（https://agent.qq.com），以後收發郵件、檢索歷史郵件和下載附件用它。需要登錄或授權時停下來把連結發給我由我完成。
 ````
 
 </div>

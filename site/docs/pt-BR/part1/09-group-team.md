@@ -15,22 +15,22 @@ Não sobrecarregue um único Bot com todo o trabalho e **não adicione múltiplo
 
 Chats em grupo podem incluir vários Bots, mas **Bots de equipe não podem ficar no mesmo grupo que Bots locais**.
 
-O envio de mensagens faz com que todos respondam por padrão; para especificar, use `@Bot名称`. Em tarefas complexas, as transferências de tarefas por chat privado do Bot não são sincronizadas no grupo.
+O envio de mensagens faz com que todos respondam por padrão; para especificar, use `@Bot名稱`. Em tarefas complexas, as transferências de tarefas por chat privado do Bot não são sincronizadas no grupo.
 
 Se estiver preocupado com chats privados muito dispersos, estabeleça regras diretamente:
 - **Restrição temporária**: envie uma instrução no grupo.
 ```text
-就在群里回复，这件事不要私信我。
+就在群裡回覆，這件事不要私訊我。
 ```
 - **Restrição de longo prazo**: faça-o registrar na memória de longo prazo.
 ```text
-记住：在群组聊天中，要在群里回复。
+記住：在群組聊天中，要在群裡回覆。
 ```
 
 O sistema não possui um botão para desativar conversas mútuas com um clique; para evitar chamadas em cascata que desperdiçam cotas, use estas dicas:
 1. **Proibição temporária**: envie uma instrução no grupo.
 ```text
-不要给其他 Bot 发消息，先问我。
+不要給其他 Bot 發訊息，先問我。
 ```
 2. **Regra de longo prazo**: exija que seja estritamente proibido acordar outros Bots em particular sem confirmação.
 3. **Parada de emergência**: quando não for possível parar, **acesse o chat privado exclusivo dele para interromper**.
@@ -122,12 +122,12 @@ Não deixe todos os Bots interagirem diretamente com o usuário, para evitar que
 Para diretrizes de organização de equipe, consulte [《4.2 Orquestração de Equipe: Estatutos, Funções e Delegação》](https://jcng5q8n0f3z.feishu.cn/wiki/POTrwwThoiQxIakFDIDcUcKjnmh).
 
 ```text
-Own: 负责需求的统一拆解、分派、汇总与五行简报汇报。
-Sources: 人工下发的指令、项目看板文件。
-Output: 纯文本状态摘要，超出五行时输出为指定文件路径。
-Approval: 任何对外通信、采购、删除操作必须暂停等待确认。
-Failure: 下游专职 Bot 报错时如实上报，不使用过期数据假装完成。
-Never: 永远不直接编写业务代码，不擅自修改生产配置。
+Own: 負責需求的統一拆解、分派、彙總與五行簡報彙報。
+Sources: 人工下發的指令、項目看板文件。
+Output: 純文字狀態摘要，超出五行時輸出為指定文件路徑。
+Approval: 任何對外通信、採購、刪除操作必須暫停等待確認。
+Failure: 下游專職 Bot 報錯時如實上報，不使用過期資料假裝完成。
+Never: 永遠不直接編寫業務程式碼，不擅自修改生產組態。
 ```
 
 Os limites negativos devem ser enviados ao Bot especialista para memorização (para Bots compartilhados, escreva no About dos detalhes):
@@ -138,12 +138,12 @@ Os limites negativos devem ser enviados ao Bot especialista para memorização (
 Especialistas em veiculação de anúncios podem aplicar diretamente o modelo de prompt.
 
 ```text
-Own: 负责广告投放数据诊断与策略输出。
-Sources: 运营分析文件 /workspace/project/ad_data.json。
-Output: 待批操作清单 /workspace/project/pending_actions.md，列出出价建议与预期影响。
-Approval: 绝不直接写入广告后台，不修改出价，不修改预算，不加否定词，所有操作必须等待人工审批。
-Failure: 数据缺失时明确标注缺失字段，不推测填充。
-Never: 绝不执行任何后台写入与线上提交操作。
+Own: 負責廣告投放資料診斷與策略輸出。
+Sources: 運營分析文件 /workspace/project/ad_data.json。
+Output: 待批操作清單 /workspace/project/pending_actions.md，列出出價建議與預期影響。
+Approval: 絕不直接寫入廣告後台，不修改出價，不修改預算，不加否定詞，所有操作必須等待人工審批。
+Failure: 資料缺失時明確標註缺失欄位，不推測填充。
+Never: 絕不執行任何後台寫入與線上提交操作。
 ```
 
 ### Lista Pendente de Aprovação e Aceitação
@@ -175,26 +175,26 @@ Como o disco físico é compartilhado, a transferência de tarefas depende de ar
 
 A transição padrão inclui a gravação em disco, envio do caminho, leitura e arquivamento.
 
-::: details 文件交接流水线标准
+::: details 文件交接流水線標準
 ```
-[用户指令] ──> (主调度 Bot)
+[使用者指令] ──> (主排程 Bot)
                    │
-         1. 派发任务 (指定输出路径)
-                   │
-                   ▼
-             [专职 Bot A] ──> 写入 /workspace/proj/data.json
-                   │
-         2. 交付：仅返回文件绝对路径
+         1. 派發任務 (指定輸出路徑)
                    │
                    ▼
-             (主调度 Bot)
+             [專職 Bot A] ──> 寫入 /workspace/proj/data.json
                    │
-         3. 调度下发 (附带输入路径)
+         2. 交付：僅返回文件絕對路徑
                    │
                    ▼
-             [专职 Bot B] ──> 读取 data.json ──> 写入 output.md
+             (主排程 Bot)
                    │
-         4. 汇总简报至用户
+         3. 排程下發 (附帶輸入路徑)
+                   │
+                   ▼
+             [專職 Bot B] ──> 讀取 data.json ──> 寫入 output.md
+                   │
+         4. 彙總簡報至使用者
 ```
 :::
 
@@ -274,8 +274,8 @@ Zach (@1999Zach22) lidera 12 funções com 1 capitão, **o ciclo fechado automat
 
 ### Capítulos Relacionados
 
-- [第 22 章 接入飞书与微信](/part3/22-feishu-wechat)
-- [第 24 章 按岗位组建你的 AI 团队](/part4/24-roles)
+- [第 22 章 接入飛書與微信](/part3/22-feishu-wechat)
+- [第 24 章 按崗位組建你的 AI 團隊](/part4/24-roles)
 
 ### Documentação Oficial
 - [Chats em grupo e mensagens entre robôs](https://cursor.com/cn/help/grok-bot/group-chats)

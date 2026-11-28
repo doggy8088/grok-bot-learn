@@ -8,7 +8,7 @@ next: false
 
 # Grupo de consultas de pago
 
-Soy Tiezhu. Suelo escribir artículos en la cuenta oficial de WeChat «铁柱AGI», y mi cuenta de X es @cgnot996.
+Soy Tiezhu. Suelo escribir artículos en la cuenta oficial de WeChat «鐵柱AGI», y mi cuenta de X es @cgnot996.
 
 He creado un «grupo de consultas sobre AI Agents». **Aquí hablamos de todo lo relacionado con AI Agents, y Grok Bot es sobre lo que más pregunta la gente**. Es un grupo de pago; solo tienes que preguntarme el precio por WeChat.
 
@@ -36,7 +36,7 @@ Te añadiré personalmente al grupo una vez aprobada la solicitud.
 
 También puedes escanear directamente el código QR para agregarme.
 
-Si vienes desde Xiaohongshu, escribe «小红书» en el mensaje de solicitud al agregarme en WeChat.
+Si vienes desde Xiaohongshu, escribe «小紅書» en el mensaje de solicitud al agregarme en WeChat.
 
 </JoinCard>
 

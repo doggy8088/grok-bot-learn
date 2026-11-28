@@ -18,7 +18,7 @@ Copie todo o conteúdo abaixo e envie para o seu Grok Bot. Ele fará a instalaç
 <div class="tool-prompt">
 
 ````text
-帮我在你的云电脑上配置基于 SSH 隧道的固定出口代理（https://man.openbsd.org/ssh），以后访问受地域限制的服务用它。需要填服务器地址和私钥时请提醒我自己填。
+幫我在你的雲端電腦上組態基於 SSH 隧道的固定出口代理（https://man.openbsd.org/ssh），以後訪問受地域限制的服務用它。需要填伺服器地址和私鑰時請提醒我自己填。
 ````
 
 </div>

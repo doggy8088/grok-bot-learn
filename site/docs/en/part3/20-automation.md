@@ -41,15 +41,15 @@ Source: [4.3 Triggers and Automation: Scheduled, Webhooks, and Dispatching Tasks
 
 1. **Send the contract constraining inputs and outputs to the Bot and have it remember it**; for shared Bots, write it into the Description in Details > About.
 ```text
-负责范围：监控指定数据源并生成标准化 Markdown 摘要。
-允许读取的数据源：工作区目录下的 data/incoming/ 文件夹及指定公开 RSS 链接。
-输出格式规范：必须输出包含“标题、核心要点（最多3条）、影响评估、原始链接”的 Markdown 结构，存入 docs/daily/ 目录。
-数据异常策略：若数据源无更新或文件为空，仅在工作区追加一行日志“[时间戳] NO_NEW_DATA”，严禁编造或推测新闻内容，严禁在聊天窗口发送刷屏提示。
-权限边界：只读外部内容与本地写入。禁止调用外部发帖、转账、发送邮件或删除文件操作。
+負責範圍：監控指定資料源並生成標準化 Markdown 摘要。
+允許讀取的資料源：工作區目錄下的 data/incoming/ 資料夾及指定公開 RSS 連結。
+輸出格式規範：必須輸出包含“標題、核心要點（最多3條）、影響評估、原始連結”的 Markdown 結構，存入 docs/daily/ 目錄。
+資料例外策略：若資料源無更新或文件為空，僅在工作區追加一行記錄“[時間戳記] NO_NEW_DATA”，嚴禁編造或推測新聞內容，嚴禁在聊天視窗發送刷屏提示。
+權限邊界：唯讀外部內容與本地寫入。禁止呼叫外部發文、轉帳、發送郵件或刪除文件操作。
 ```
 2. Save the workflow in chat as a Skill with self-check logic, and directly send instructions to create a scheduled routine.
 ```text
-每个工作日上午 8:30，运行“晨间资讯归档”Skill。如果数据源没有更新，记录日志后保持沉默。
+每個工作日上午 8:30，執行“晨間資訊歸檔”Skill。如果資料源沒有更新，記錄記錄後保持沉默。
 ```
 3. In the "Routines" list under Details, use the toggle switch to Pause or Resume.
 
@@ -59,11 +59,11 @@ Source: [4.3 Triggers and Automation: Scheduled, Webhooks, and Dispatching Tasks
 
 Routines run real operations in a cloud virtual machine. **All Bots share the underlying runtime environment by default without sandbox isolation**, and losing control may alter real files. Run a dry run verification via chat instructions before enabling.
 ```text
-针对即将上线的例程“晨间资讯归档”，进行一次干跑验证：
-1. 复述你理解的执行触发条件与完整业务流程。
-2. 列出本次执行涉及读写操作的路径，以及可能产生风险的 3 个最高风险步骤。
-3. 说明如果源文件损坏或格式错误，你的具体兜底动作。
-现在不要执行任何实际写文件和网络请求操作，仅输出分析报告。
+針對即將上線的例程“晨間資訊歸檔”，進行一次幹跑驗證：
+1. 複述你理解的執行觸發條件與完整業務流程。
+2. 列出本次執行涉及讀寫操作的路徑，以及可能產生風險的 3 個最高風險步驟。
+3. 說明如果源文件損壞或格式錯誤，你的具體兜底動作。
+現在不要執行任何實際寫文件和網路請求操作，僅輸出分析報告。
 ```
 
 ### Locking Down Human-in-the-Loop Safety Gates
@@ -95,11 +95,11 @@ With Share Sheet (Browsers, etc.):
 2. Use "Get Contents of URL" to send a POST request, fill the request header with `Authorization: Bearer <key>`, and add `content` in the JSON body with the Shortcut Input.
 
 ```text
-接收端 Bot 的配套 Instruction 模板：
-收到 Webhook 传入的 JSON 数据后，提取 content 字段中的链接。
-如果是普通网页，抓取正文，提炼核心结论与知识点。
-整理完成后，以 Markdown 格式追加写入知识库目录下的 inbox.md，包含收录时间、原文链接、核心观点与分类标签。
-处理完毕后在聊天中输出一句话确认回执。
+接收端 Bot 的配套 Instruction 樣板：
+收到 Webhook 傳入的 JSON 資料後，提取 content 欄位中的連結。
+如果是普通網頁，抓取正文，提煉核心結論與知識點。
+整理完成後，以 Markdown 格式追加寫入知識庫目錄下的 inbox.md，包含收錄時間、原文連結、核心觀點與分類標記。
+處理完畢後在聊天中輸出一句話確認回執。
 ```
 
 Without Share Sheet (WeChat, etc.):
@@ -136,14 +136,14 @@ Converting the wait-type routines out of 6 routines took about 23 minutes, reduc
 ::: details 2. VM Implementation and Configuration Steps
 ```bash
    #!/bin/bash
-   # 监测目标 API 或页面是否有增量变化，纯机械对比，严禁调用 LLM
+   # 監測目標 API 或頁面是否有增量變化，純機械對比，嚴禁呼叫 LLM
 
    TARGET_URL="https://api.example.com/v1/feed"
    STATE_FILE="/home/user/workspace/last_state.hash"
    WEBHOOK_URL="https://your-bot-webhook-url.com/api/v1/run"
    WEBHOOK_KEY="Bearer YOUR_SECRET_KEY"
 
-   # 获取最新数据的哈希值或时间戳
+   # 獲取最新資料的哈希值或時間戳記
    CURRENT_HASH=$(curl -s "$TARGET_URL" | md5sum | awk '{print $1}')
 
    if [ ! -f "$STATE_FILE" ]; then
@@ -153,19 +153,19 @@ Converting the wait-type routines out of 6 routines took about 23 minutes, reduc
 
    OLD_HASH=$(cat "$STATE_FILE")
 
-   # 比对是否有变化
+   # 比對是否有變化
    if [ "$CURRENT_HASH" != "$OLD_HASH" ]; then
-       echo "检测到数据更新，正在唤醒 Bot..."
+       echo "檢測到資料更新，正在喚醒 Bot..."
        echo "$CURRENT_HASH" > "$STATE_FILE"
        
-       # 叫醒 Bot 进行智能分析
+       # 叫醒 Bot 進行智慧分析
        curl -X POST "$WEBHOOK_URL" \
             -H "Authorization: $WEBHOOK_KEY" \
             -H "Content-Type: application/json" \
             -d '{"event": "data_changed", "source": "feed_monitor"}'
    else
-       # 无变化，保持沉默，零额度消耗
-       echo "无新变化，退出。"
+       # 無變化，保持沉默，零額度消耗
+       echo "無新變化，退出。"
    fi
    ```
 :::
@@ -213,11 +213,11 @@ Replying to a tweet with @bot will notify the starred primary Bot for dispatch; 
 Interface timeouts or empty responses easily lead to hallucinations; **the Instruction must include an exception blocking statement**:
 
 ```text
-前置校验步骤：
-1. 检查抓取到的内容体积。如果内容为空、包含 HTTP 错误码（如 403、404、500）或少于 50 个字符，判定为源不可用。
-2. 源不可用时，立刻终止后续分析流程。
-3. 在 workspace/logs/routine_errors.log 中追加一行错误记录，格式：[ISO时间戳] [任务名] SOURCE_UNAVAILABLE [原因]。
-4. 不得在公开聊天窗口发送报警消息，不得使用过往缓存伪造新数据，直接以退出状态结束本次 run。
+前置校驗步驟：
+1. 檢查抓取到的內容體積。如果內容為空、包含 HTTP 錯誤碼（如 403、404、500）或少於 50 個字元，判定為源不可用。
+2. 源不可用時，立刻終止後續分析流程。
+3. 在 workspace/logs/routine_errors.log 中追加一行錯誤記錄，格式：[ISO時間戳記] [任務名] SOURCE_UNAVAILABLE [原因]。
+4. 不得在公開聊天視窗發送報警訊息，不得使用過往快取偽造新資料，直接以退出狀態結束本次 run。
 ```
 
 Webhook Troubleshooting:
